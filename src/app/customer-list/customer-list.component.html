@@ -1,0 +1,55 @@
+<p>customer-list works!</p>
+
+<p-dataView [value]="customerList" #gg class="ui-dataview" [paginator]="true"
+    filterBy="customer_companyName" [rows]="10" [(contextMenuSelection)]="selectedCustomer" [contextMenu]="cm">
+    <p-header>
+        <div class="ui-helper-clearfix">
+            <div class="ui-g">
+                <div class="ui-g-12 ui-md-4">
+
+                </div>
+                <div class="ui-g-6 ui-md-4 filter-container">
+                    <div style="position:relative">
+                        <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                        <input type="text" pInputText placeholder="Global Filter"
+                            (input)="gg.filter($event.target.value)" style="width:auto">
+                    </div>
+                </div>
+                <div class="ui-g-6 ui-md-4" style="text-align:right">
+                    <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+                </div>
+            </div>
+        </div>
+    </p-header>
+    <p-footer>
+        <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+    </p-footer>
+    <ng-template let-customerList pTemplate="listItem">
+        <div class="ui-dataview-content">
+            <div class="ui-g-12">
+                <div class="ui-g-2" style="align-content: center;">
+                    <!-- Checkbox need to be inserted -->
+                </div>
+                <div class="ui-g-4">
+                    <p class="customer_header">{{customerList.customer_companyName}}</p><br />
+                    {{customerList.customer_contacts}}<br />
+                </div>
+                <div class="ui-g-4">
+                    <p style="text-align: right;">{{customerList.customer_type}}</p>
+                    <br />
+                </div>
+                <div class="ui-g-2" style="align-content: center;">
+                        <button pButton type="button" icon="pi pi-search" (click)="viewEnquiry(customerList)" style="margin-top:0"></button>
+                    </div>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template let-customerList pTemplate="gridItem">
+        <div class="ui-g-12 ui-md-3 ui-dataview-content">
+            {{customerList.customer_refNo}}<br />
+            {{customerList.customer_companyName}}<br />
+        </div>
+    </ng-template>
+</p-dataView>
+
+<p-contextMenu #cm [model]="items"></p-contextMenu>

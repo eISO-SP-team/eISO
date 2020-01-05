@@ -1,0 +1,4 @@
+<!-- <p-button *ngIf="toggleDisplayService.isViewable" icon="pi pi-plus" iconPos="right" label="Add New Customer" (click)="this.toggleDisplayService.toggle()"></p-button> -->
+<p-button *ngIf="toggleDisplayService.isViewable" icon="pi pi-plus" iconPos="right" label="Add New Customer" (click)="this.router.navigate(['/customerCreate'])"></p-button>
+<app-customer-create *ngIf="!toggleDisplayService.isViewable"></app-customer-create>
+<app-customer-list *ngIf="toggleDisplayService.isViewable"></app-customer-list>

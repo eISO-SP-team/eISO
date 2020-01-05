@@ -1,0 +1,127 @@
+<p>customer-create works!</p>
+
+<div class="ui-g">
+    <div class="ui-g rcorners2">
+
+        <div class="ui-g-12">
+            <div class="ui-g-6">
+                <h3>Add New Customer</h3>
+            </div>
+            <div class="ui-g-6">
+                <button pButton type="button" style="float:right; position: relative;" class="ui-button-danger"
+                    (click)="this._location.back()" label="Cancel"></button>
+            </div>
+        </div>
+        <form [formGroup]="addCustomerForm"
+            (ngSubmit)="onAddEnquiry(companyName,type,country,city,address1,address2,zipcode,contacts)">
+            <div class="ui-g">
+                <!--Left column-->
+                <div class="ui-g-12 ui-md-12 ui-lg-6">
+                    <div class="ui-g-12">
+                        <span class="ui-float-label">
+                            <h3 class="first">Company Name</h3>
+                            <input type="text" pInputText [formControlName]="'companyName'" />
+                        </span>
+
+                        <span
+                            *ngIf="!addCustomerForm.get('companyName').valid && addCustomerForm.get('companyName').touched"
+                            class="help-block">
+                            <span>
+                                <p-message *ngIf="addCustomerForm.get('companyName').errors['required']"
+                                    severity="error" text="This field is required!"></p-message>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="ui-g-12">
+                        <span class="ui-float-label">
+                            <h3 class="first">Country</h3>
+                            <input type="text" pInputText [formControlName]="'country'" />
+                        </span>
+                        <span *ngIf="!addCustomerForm.get('country').valid && addCustomerForm.get('country').touched"
+                            class="help-block">
+                            <p-message *ngIf="addCustomerForm.get('country').errors['required']" severity="error"
+                                text="This field is required!"></p-message>
+                        </span>
+                    </div>
+                    <div class="ui-g-12">
+                        <span class="ui-float-label">
+                            <h3 class="first">City</h3>
+                            <input type="text" pInputText [formControlName]="'city'" />
+                        </span>
+                        <span *ngIf="!addCustomerForm.get('city').valid && addCustomerForm.get('city').touched"
+                            class="help-block">
+                            <p-message *ngIf="addCustomerForm.get('city').errors['required']" severity="error"
+                                text="This field is required!"></p-message>
+                        </span>
+                    </div>
+                </div>
+                <!--Right column-->
+                <div class="ui-g-12 ui-md-12 ui-lg-6">
+                    <div class="ui-g-12">
+                        <span class="ui-float-label">
+                            <h3 class="first">Type</h3>
+                            <p-dropdown [options]="type" [formControlName]="'type'" placeholder="Select a Type"
+                            [(ngModel)]="selectedType" optionLabel="name" [showClear]="true"></p-dropdown>
+                            <!-- <input type="text" pInputText [formControlName]="'type'" /> -->
+                            <!-- <select [formControlName]="'type'">
+                                <option value="Customer">Customer</option>
+                                <option value="Prospect">Prospect</option>
+                            </select> -->
+                        </span>
+                        <span *ngIf="!addCustomerForm.get('type').valid && addCustomerForm.get('type').touched"
+                            class="help-block">
+                            <p-message *ngIf="addCustomerForm.get('type').errors['required']" severity="error"
+                                text="This field is required!"></p-message>
+                        </span>
+                    </div>
+                    <div class="ui-g-12">
+                        <span class="ui-float-label">
+                            <h3 class="first">Address 1</h3>
+                            <input type="text" pInputText [formControlName]="'address1'" />
+                        </span>
+                        <span *ngIf="!addCustomerForm.get('address1').valid && addCustomerForm.get('address1').touched"
+                            class="help-block">
+                            <p-message *ngIf="addCustomerForm.get('address1').errors['required']" severity="error"
+                                text="This field is required!"></p-message>
+                        </span>
+                    </div>
+                    <div class="ui-g-12">
+                        <span class="ui-float-label">
+                            <h3 class="first">Address 2</h3>
+                            <input type="text" pInputText [formControlName]="'address2'" />
+                        </span>
+                        <span *ngIf="!addCustomerForm.get('address2').valid && addCustomerForm.get('address2').touched"
+                            class="help-block">
+                            <p-message *ngIf="addCustomerForm.get('address2').errors['required']" severity="error"
+                                text="This field is required!"></p-message>
+                        </span>
+                    </div>
+                    <div class="ui-g-12">
+                        <span class="ui-float-label">
+                            <h3 class="first">Zipcode</h3>
+                            <input type="text" pInputText [formControlName]="'zipcode'" />
+                        </span>
+                        <span *ngIf="!addCustomerForm.get('zipcode').valid && addCustomerForm.get('zipcode').touched"
+                            class="help-block">
+                            <p-message *ngIf="addCustomerForm.get('zipcode').errors['required']" severity="error"
+                                text="This field is required!"></p-message>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g-12">
+
+                <span class="ui-float-label">
+                    <h3 class="first">Contacts</h3>
+                    <input type="text" pInputText [formControlName]="'contacts'" />
+                </span>
+                <span *ngIf="!addCustomerForm.get('contacts').valid && addCustomerForm.get('contacts').touched"
+                    class="help-block">
+                    <p-message *ngIf="addCustomerForm.get('contacts').errors['required']" severity="error"
+                        text="This field is required!"></p-message>
+                </span>
+                <button pButton [disabled]="!addCustomerForm.valid" type="submit" label="Submit Customer"></button>
+            </div>
+        </form>
+    </div>
+</div>

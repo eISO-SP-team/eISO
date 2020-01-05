@@ -1,0 +1,81 @@
+<p>quotation-view works!</p>
+
+<div class="ui-g">
+    <div class="ui-g rcorners2">
+        <h3>Add New Quotation</h3>
+
+        <form [formGroup]="addForm"
+            (ngSubmit)="onAddEnquiry(date,address,email,description,companyName,telNo,fax,salesPerson)">
+            <div class="ui-g">
+                <!--Left column-->
+                <div class="ui-g-6 ui-md-12 ui-lg-6">
+                    <div class="ui-g-12">
+                        <span class="ui-float-label">
+                            <h3 class="first">Date</h3>
+                            <input type="date" pInputText [formControlName]="'date'" />
+                        </span>
+                    </div>
+                    <div class="ui-g-12">
+                        <span class="ui-float-label">
+                            <h3 class="first">Address</h3>
+                            <input type="text" pInputText [formControlName]="'address'" />
+                        </span>
+                    </div>
+                    <div class="ui-g-12">
+                        <span class="ui-float-label">
+                            <h3 class="first">Email</h3>
+                            <input type="text" pInputText [formControlName]="'email'" />
+                        </span>
+                    </div>
+                    <div class="ui-g-12">
+                        <span class="ui-float-label">
+                            <h3 class="first">Description</h3>
+                            <textarea [rows]="9" pInputTextarea autoResize="autoResize"
+                                [formControlName]="'description'"></textarea>
+                        </span>
+                    </div>
+                </div>
+                <!--Right column-->
+                <div class="ui-g-6 ui-md-12 ui-lg-6">
+                    <div class="ui-g-12">
+                        <span class="ui-float-label">
+                            <h3 class="first">Customer Name</h3>
+                            <input type="text" pInputText [formControlName]="'companyName'" />
+                        </span>
+                    </div>
+                    <div class="ui-g-12">
+                        <span class="ui-float-label">
+                            <h3 class="first">Contact Person</h3>
+                            <input type="text" pInputText [formControlName]="'contactPerson'" />
+                        </span>
+                    </div>
+                    <div class="ui-g-12">
+                        <span class="ui-float-label">
+                            <h3 class="first">Tel No</h3>
+                            <input type="text" pInputText [formControlName]="'telNo'" />
+                        </span>
+                    </div>
+                    <div class="ui-g-12">
+                        <span class="ui-float-label">
+                            <h3 class="first">Fax</h3>
+                            <input type="text" pInputText [formControlName]="'fax'" />
+                        </span>
+                    </div>
+                    <div class="ui-g-12">
+                        <span class="ui-float-label">
+                            <h3 class="first">Sub Person</h3>
+                            <input type="text" pInputText [formControlName]="'salesPerson'" />
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g-12">
+                <h2>Supporting File</h2>
+                <div class="ui-g-12">
+                    <app-upload-file></app-upload-file>
+                </div>
+                <button pButton type="submit" label="Save Edit"></button>
+            </div>
+        </form>
+    </div>
+</div>

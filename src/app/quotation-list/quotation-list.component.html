@@ -1,0 +1,83 @@
+<p>enquiry-list works!</p>
+
+<p-dataView [value]="quotationList" #tt class="ui-dataview" [paginator]="true"
+    filterBy="quotation_refNo,quotation_prospectName" [rows]="10" [(contextMenuSelection)]="selectedQuotation" [contextMenu]="cm">
+    <p-header>
+        <div class="ui-helper-clearfix">
+            <div class="ui-g">
+                <div class="ui-g-12 ui-md-4">
+
+                </div>
+                <div class="ui-g-6 ui-md-4 filter-container">
+                    <div style="position:relative">
+                        <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                        <input type="text" pInputText placeholder="Global Filter"
+                            (input)="tt.filter($event.target.value)" style="width:auto">
+                    </div>
+                </div>
+                <div class="ui-g-6 ui-md-4" style="text-align:right">
+                    <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+                </div>
+            </div>
+        </div>
+    </p-header>
+    <p-footer>
+        <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+    </p-footer>
+    <ng-template let-quotationList pTemplate="listItem">
+        <div class="ui-dataview-content">
+            <div class="ui-g-12">
+                <div class="ui-g-2" style="align-content: center;">
+                    <!-- Checkbox need to be inserted -->
+                </div>
+                <div class="ui-g-4">
+                    <p class="quotation_header">{{quotationList.quotation_refNo}}</p><br />
+                    {{quotationList.quotation_prospectName}}<br />
+                </div>
+                <div class="ui-g-4">
+                    <p style="text-align: right;">{{quotationList.quotation_status}}</p>
+                    <br />
+                </div>
+                <div class="ui-g-2" style="align-content: center;">
+                        <button pButton type="button" icon="pi pi-search" (click)="viewEnquiry(quotationList)" style="margin-top:0"></button>
+                    </div>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template let-quotationList pTemplate="gridItem">
+        <div class="ui-g-12 ui-md-3 ui-dataview-content">
+            {{quotationList.quotation_refNo}}<br />
+            {{quotationList.quotation_prospectName}}<br />
+        </div>
+    </ng-template>
+</p-dataView>
+
+<p-contextMenu #cm [model]="items"></p-contextMenu>
+
+
+<!-- <p-table class="ui-table-responsive" #tt [(contextMenuSelection)]="selectedQuotation" [contextMenu]="cm"
+    [columns]="cols" [value]="quotationList" [paginator]="true" [rows]="10">
+    <ng-template pTemplate="caption">
+        <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+        <input type="text" pInputText placeholder="Global Filter"
+            (input)="tt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th [pSortableColumn]="col.field" *ngFor="let col of columns">
+                {{col.header}}
+                <p-sortIcon [field]="col.field" ariaLabel="Activate to sort"
+                    ariaLabelDesc="Activate to sort in descending order"
+                    ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+            </th>
+        </tr>
+
+    </ng-template>
+    <ng-template pTemplate="body" let-quotationList let-rowData let-columns="columns">
+        <tr [pContextMenuRow]="rowData" [pSelectableRow]="rowData">
+            <td *ngFor="let col of columns">
+                {{rowData[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+</p-table> -->
