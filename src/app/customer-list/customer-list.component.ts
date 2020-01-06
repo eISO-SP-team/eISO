@@ -70,7 +70,7 @@ export class CustomerListComponent implements OnInit {
   viewEnquiry(customerList: Customer) {
     console.log("In onViewDetail......" + JSON.stringify(customerList));
     this.customerService.selectedCustomerInService = customerList;
-    this.router.navigate(['/quotationView', customerList.customer_refNo]);
+    this.router.navigate(['/customerView', customerList.customer_refNo]);
   }
 
   deleteEnquiry(enquiry: Customer) {

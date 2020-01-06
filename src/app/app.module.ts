@@ -1,5 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from "@angular/forms";
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
@@ -37,7 +36,8 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
 import { CustomerViewComponent } from './customer-view/customer-view.component';
 import { SalesModuleComponent } from './sales-module/sales-module.component';
 import { CustomerService } from './shared/service/customer.service';
-
+import {FormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from "@angular/forms";
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,6 +62,7 @@ import { CustomerService } from './shared/service/customer.service';
     AppRoutingModule,
     InputTextModule,
     PasswordModule,
+    FormsModule,
     MenuModule,
     DataViewModule,
     ButtonModule,

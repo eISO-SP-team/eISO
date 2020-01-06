@@ -10,22 +10,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./quotation-list.component.css'],
   providers: [MessageService]
 })
+
 export class QuotationListComponent implements OnInit {
 
   quotationList: Quotation[] = [
   ];
+
+  selectedValues: Quotation[] = [];
 
   selectedQuotation: Quotation;
 
   selectQuotations: Quotation[];
 
   items: MenuItem[];
+  items2: MenuItem[];
 
   cols: any[];
 
   constructor(private quotationService: QuotationService, private messageService: MessageService, public router: Router, ) {
 
-    //this.quotationList = this.quotationService.quotationList;
     this.quotationService.getQuotationListener()
       .subscribe(newList => {
         console.log("listener triggered");
@@ -49,21 +52,17 @@ export class QuotationListComponent implements OnInit {
       { label: 'Delete', icon: 'pi pi-times', command: (event) => this.deleteEnquiry(this.selectedQuotation) }
     ];
 
+    this.items2 = [
+      {
+          label: 'Next',
+          icon: 'pi pi-fw pi-chevron-right'
+      },
+      {
+          label: 'Prev',
+          icon: 'pi pi-fw pi-chevron-left'
+      }
+  ];
 
-
-    this.cols = [
-      { field: 'quotation_refNo', header: 'ENQ No.' },
-      { field: 'quotation_prospectName', header: 'Customer Name' },
-      { field: 'quotation_subPerson', header: 'Contact Person' },
-      { field: 'quotation_email', header: 'Email' },
-      { field: 'quotation_description', header: 'Description' },
-      { field: 'status', header: 'Status' },
-    ];
-
-  }
-
-  selectQuotation() {
-    
   }
 
   viewEnquiry(quotationList: Quotation) {
@@ -73,6 +72,7 @@ export class QuotationListComponent implements OnInit {
   }
 
   deleteEnquiry(enquiry: Quotation) {
+    console.log("Delete this enquiry......" + JSON.stringify(enquiry));
     let index = -1;
     for (let i = 0; i < this.quotationList.length; i++) {
       if (this.quotationList[i].quotation_refNo == enquiry.quotation_refNo) {

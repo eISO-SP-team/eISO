@@ -1,7 +1,7 @@
-<p>enquiry-list works!</p>
+<!-- <p>enquiry-list works!</p> -->
 
 <p-dataView [value]="quotationList" #tt class="ui-dataview" [paginator]="true"
-    filterBy="quotation_refNo,quotation_prospectName" [rows]="10" [(contextMenuSelection)]="selectedQuotation" [contextMenu]="cm">
+    filterBy="quotation_refNo,quotation_subject" [rows]="3">
     <p-header>
         <div class="ui-helper-clearfix">
             <div class="ui-g">
@@ -28,19 +28,21 @@
         <div class="ui-dataview-content">
             <div class="ui-g-12">
                 <div class="ui-g-2" style="align-content: center;">
-                    <!-- Checkbox need to be inserted -->
+                    <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
+                    <img #img src="../../assets/delete.png" (click)="deleteEnquiry(quotationList)" width="30px" height="30px" alt="Logo">
                 </div>
                 <div class="ui-g-4">
-                    <p class="quotation_header">{{quotationList.quotation_refNo}}</p><br />
-                    {{quotationList.quotation_prospectName}}<br />
+                    <p class="quotation_header">{{quotationList.quotation_title}} - {{quotationList.quotation_refNo}}</p><br />
+                    {{quotationList.quotation_subject}}<br />
                 </div>
                 <div class="ui-g-4">
                     <p style="text-align: right;">{{quotationList.quotation_status}}</p>
                     <br />
                 </div>
                 <div class="ui-g-2" style="align-content: center;">
-                        <button pButton type="button" icon="pi pi-search" (click)="viewEnquiry(quotationList)" style="margin-top:0"></button>
-                    </div>
+                    <button pButton type="button" icon="pi pi-search" (click)="viewEnquiry(quotationList)"
+                        style="margin-top:0"></button>
+                </div>
             </div>
         </div>
     </ng-template>
@@ -51,8 +53,6 @@
         </div>
     </ng-template>
 </p-dataView>
-
-<p-contextMenu #cm [model]="items"></p-contextMenu>
 
 
 <!-- <p-table class="ui-table-responsive" #tt [(contextMenuSelection)]="selectedQuotation" [contextMenu]="cm"

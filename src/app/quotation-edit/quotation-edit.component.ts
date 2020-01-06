@@ -38,15 +38,15 @@ export class QuotationEditComponent implements OnInit {
       'salesPerson': new FormControl(null, [Validators.required]),
       'file': new FormControl(null),
     })
-    this.addForm.value.date = this.quotationService.selectedQuotationInService.quotation_date,
-    this.addForm.value.companyName = this.quotationService.selectedQuotationInService.quotation_prospectName,
-    this.addForm.value.contactPerson  = this.quotationService.selectedQuotationInService.quotation_contactPerson,
-    this.addForm.value.address  = this.quotationService.selectedQuotationInService.quotation_address,
-    this.addForm.value.telNo  = this.quotationService.selectedQuotationInService.quotation_telNo,
-    this.addForm.value.email = this.quotationService.selectedQuotationInService.quotation_email,
-    this.addForm.value.fax = this.quotationService.selectedQuotationInService.quotation_fax,
-    this.addForm.value.description = this.quotationService.selectedQuotationInService.quotation_description,
-    this.addForm.value.salesPerson = this.quotationService.selectedQuotationInService.quotation_subPerson
+    // this.addForm.value.date = this.quotationService.selectedQuotationInService.quotation_date,
+    // this.addForm.value.companyName = this.quotationService.selectedQuotationInService.quotation_prospectName,
+    // this.addForm.value.contactPerson  = this.quotationService.selectedQuotationInService.quotation_contactPerson,
+    // this.addForm.value.address  = this.quotationService.selectedQuotationInService.quotation_address,
+    // this.addForm.value.telNo  = this.quotationService.selectedQuotationInService.quotation_telNo,
+    // this.addForm.value.email = this.quotationService.selectedQuotationInService.quotation_email,
+    // this.addForm.value.fax = this.quotationService.selectedQuotationInService.quotation_fax,
+    // this.addForm.value.description = this.quotationService.selectedQuotationInService.quotation_description,
+    // this.addForm.value.salesPerson = this.quotationService.selectedQuotationInService.quotation_subPerson
 
   }
   

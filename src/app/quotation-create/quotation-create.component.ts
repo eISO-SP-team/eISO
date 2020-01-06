@@ -84,7 +84,7 @@ export class QuotationCreateComponent implements OnInit {
       this.addForm.value.fax,
       this.addForm.value.description,
       this.addForm.value.salesPerson,
-      this.addForm.value.status,
+      // this.addForm.value.status,
     ));
     this._location.back();
   }

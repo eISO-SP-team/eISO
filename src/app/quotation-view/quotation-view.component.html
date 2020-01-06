@@ -2,36 +2,45 @@
 
 <div class="ui-g">
     <div class="ui-g rcorners2">
-        <h3>Add New Quotation</h3>
-
+        <h3>View Quotation</h3>
+        <button id="disabled-btn" type="button" (click)="toggleDisabled()" pButton label="Toggle Edit"></button>
         <form [formGroup]="addForm"
-            (ngSubmit)="onAddEnquiry(date,address,email,description,companyName,telNo,fax,salesPerson)">
+            (ngSubmit)="updateEdits()">
             <div class="ui-g">
+                <div class="ui-g-12">Project Title: 
+                    <input type="text" pInputText [disabled]="disabled" [formControlName]="'title'"
+                    value="{{this.quotationService.selectedQuotationInService.quotation_title}}" /> 
+                </div>
+                <div class="ui-g-12">Project Reference Number:
+                    {{this.quotationService.selectedQuotationInService.quotation_refNo}}</div>
                 <!--Left column-->
                 <div class="ui-g-6 ui-md-12 ui-lg-6">
                     <div class="ui-g-12">
                         <span class="ui-float-label">
-                            <h3 class="first">Date</h3>
-                            <input type="date" pInputText [formControlName]="'date'" />
+                            <h3 class="first">Subject</h3>
+                            <input type="text" pInputText [disabled]="disabled" [formControlName]="'companyName'"
+                                value="{{this.quotationService.selectedQuotationInService.quotation_subject}}" />
                         </span>
                     </div>
                     <div class="ui-g-12">
                         <span class="ui-float-label">
-                            <h3 class="first">Address</h3>
-                            <input type="text" pInputText [formControlName]="'address'" />
+                            <h3 class="first">Tender Location</h3>
+                            <input type="text" pInputText [formControlName]="'tenderLocation'"
+                                value="{{this.quotationService.selectedQuotationInService.quotation_tenderLocation}}" />
                         </span>
                     </div>
                     <div class="ui-g-12">
                         <span class="ui-float-label">
-                            <h3 class="first">Email</h3>
-                            <input type="text" pInputText [formControlName]="'email'" />
+                            <h3 class="first">To</h3>
+                            <input type="text" pInputText [formControlName]="'to'"
+                                value="{{this.quotationService.selectedQuotationInService.quotation_to}}" />
                         </span>
                     </div>
                     <div class="ui-g-12">
                         <span class="ui-float-label">
-                            <h3 class="first">Description</h3>
-                            <textarea [rows]="9" pInputTextarea autoResize="autoResize"
-                                [formControlName]="'description'"></textarea>
+                            <h3 class="first">validity</h3>
+                            <input type="text" pInputText [formControlName]="'validity'"
+                                value="{{this.quotationService.selectedQuotationInService.quotation_validity}}" />
                         </span>
                     </div>
                 </div>
@@ -39,32 +48,23 @@
                 <div class="ui-g-6 ui-md-12 ui-lg-6">
                     <div class="ui-g-12">
                         <span class="ui-float-label">
-                            <h3 class="first">Customer Name</h3>
-                            <input type="text" pInputText [formControlName]="'companyName'" />
+                            <h3 class="first">Attention</h3>
+                            <input type="text" pInputText [formControlName]="'attention'"
+                                value="{{this.quotationService.selectedQuotationInService.quotation_attention}}" />
                         </span>
                     </div>
                     <div class="ui-g-12">
                         <span class="ui-float-label">
-                            <h3 class="first">Contact Person</h3>
-                            <input type="text" pInputText [formControlName]="'contactPerson'" />
+                            <h3 class="first">Total</h3>
+                            <input type="text" pInputText [formControlName]="'total'"
+                                value="{{this.quotationService.selectedQuotationInService.quotation_total}}" />
                         </span>
                     </div>
                     <div class="ui-g-12">
                         <span class="ui-float-label">
-                            <h3 class="first">Tel No</h3>
-                            <input type="text" pInputText [formControlName]="'telNo'" />
-                        </span>
-                    </div>
-                    <div class="ui-g-12">
-                        <span class="ui-float-label">
-                            <h3 class="first">Fax</h3>
-                            <input type="text" pInputText [formControlName]="'fax'" />
-                        </span>
-                    </div>
-                    <div class="ui-g-12">
-                        <span class="ui-float-label">
-                            <h3 class="first">Sub Person</h3>
-                            <input type="text" pInputText [formControlName]="'salesPerson'" />
+                            <h3 class="first">Deposit</h3>
+                            <input type="text" pInputText [formControlName]="'deposit'"
+                                value="{{this.quotationService.selectedQuotationInService.quotation_deposit}}" />
                         </span>
                     </div>
                 </div>
