@@ -1,0 +1,32 @@
+<p>vendor-list works!</p>
+<!--Vendor Dashboard-->
+<div class="ui-g-4">
+    <div class="ui-g-12">
+        <div class="ui-g-6">
+            <h2 style="align-content: center;">VENDORS</h2>
+        </div>
+        <div class="ui-g-6">
+            <p-button icon="pi pi-plus" iconPos="right" label="Add New Vendor"
+                (click)="this.router.navigate(['/vendorCreate'])"></p-button>
+        </div>
+    </div>
+    <div class="ui-g-12">
+        <div class="vendor-label-approved">
+            <h3>APPROVED</h3>
+        </div>
+        <div class="fieldset-list">
+            <div *ngFor="let vendor of vendorListApproved">
+                {{vendor.vendor_name}}
+            </div>
+        </div>
+
+        <div class="vendor-label-pending">
+            <h3>PENDING</h3>
+        </div>
+        <div class="fieldset-list">
+            <div *ngFor="let vendor of vendorListPending">
+                {{vendor.vendor_name}}
+            </div>
+        </div>
+    </div>
+</div>

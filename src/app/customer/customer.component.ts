@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class CustomerComponent implements OnInit {
 
-  constructor(public toggleDisplayService: ToggleDisplayService, public router: Router,) { }
+  constructor(public toggleDisplayService: ToggleDisplayService, public router: Router) { }
 
-  ngOnInit() { this.toggleDisplayService.isViewable; }
+  ngOnInit() { }
 }

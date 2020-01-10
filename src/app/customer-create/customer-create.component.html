@@ -62,11 +62,6 @@
                             <h3 class="first">Type</h3>
                             <p-dropdown [options]="type" [formControlName]="'type'" placeholder="Select a Type"
                             [(ngModel)]="selectedType" optionLabel="name" [showClear]="true"></p-dropdown>
-                            <!-- <input type="text" pInputText [formControlName]="'type'" /> -->
-                            <!-- <select [formControlName]="'type'">
-                                <option value="Customer">Customer</option>
-                                <option value="Prospect">Prospect</option>
-                            </select> -->
                         </span>
                         <span *ngIf="!addCustomerForm.get('type').valid && addCustomerForm.get('type').touched"
                             class="help-block">

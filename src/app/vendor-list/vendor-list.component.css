@@ -1,0 +1,13 @@
+.vendor-label-approved {
+    border-radius: 10px;
+    border: lightgreen 1px solid;
+    background-color: green;
+    text-align: center;
+}
+
+.vendor-label-pending {
+    border-radius: 10px;
+    border: lightpink 1px solid;
+    background-color: rgb(231, 74, 97);
+    text-align: center;
+}

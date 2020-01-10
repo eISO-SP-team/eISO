@@ -12,7 +12,7 @@ export class MenuComponent implements OnInit {
 
     items: MenuItem[];
 
-    constructor(public router: Router, ) {}
+    constructor(public router: Router, ) { }
 
     ngOnInit() {
         this.items = [
@@ -22,15 +22,7 @@ export class MenuComponent implements OnInit {
                 items: [{
                     label: 'Sales',
                     icon: 'pi pi-fw pi-plus',
-                    items: [
-                        { label: 'Customer', 
-                          icon: 'pi pi-fw pi-user-plus' },
-                        { label: 'Quotation', 
-                          icon: 'pi pi-fw pi-filter', 
-                          command: (event) => {this.router.navigate(['/quotation'])}},
-                        { label: 'Sales Order', 
-                          icon: 'pi pi-fw pi-filter' }
-                    ]
+                    command: (event) => { this.router.navigate(['/sales-module']) }
                 },
                 {
                     label: 'Design and Development',
@@ -45,14 +37,7 @@ export class MenuComponent implements OnInit {
                 {
                     label: 'Procurement/ Purchasing',
                     icon: 'pi pi-fw pi-external-link',
-                    items: [
-                        { label: 'Vendor', icon: 'pi pi-fw pi-user-plus' },
-                        { label: 'Vendor Evaluation', icon: 'pi pi-fw pi-filter' },
-                        { label: 'Quotation', icon: 'pi pi-fw pi-filter' },
-                        { label: 'Requisition', icon: 'pi pi-fw pi-user-plus' },
-                        { label: 'Purchase Order', icon: 'pi pi-fw pi-filter' },
-                        { label: 'Delivery', icon: 'pi pi-fw pi-filter' },
-                    ]
+                    command: (event) => { this.router.navigate(['/procurement-module']) }
                 },
                 ]
             },

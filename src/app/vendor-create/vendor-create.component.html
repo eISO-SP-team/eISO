@@ -1,0 +1,272 @@
+<p>vendor-create works!</p>
+
+<div class="ui-g">
+    <div class="fieldset-list">
+
+        <div class="ui-g-12">
+            <div class="ui-g-6">
+                <h1>Add New Vendor</h1>
+            </div>
+            <div class="ui-g-6">
+                <button pButton type="button" style="float:right; position: relative;" class="ui-button-danger"
+                    (click)="this._location.back()" label="Cancel"></button>
+            </div>
+        </div>
+        <form [formGroup]="addVendorForm"
+            (ngSubmit)="onAddEnquiry(name,type,products,taxId,services,country,zipcode,address1,address2,prefix,firstName,middleName,lastName,email,phoneNo,extension,mobileNo,fax)">
+            <h2>ORGANIZATION</h2>
+            <div class="fieldset-list">
+                <div class="ui-g">
+                    <!--Left column-->
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
+                        <div class="ui-g-12">
+                            <span class="ui-float-label">
+                                <h3 class="first">Supplier Name</h3>
+                                <input type="text" pInputText [formControlName]="'name'" />
+                            </span>
+
+                            <span *ngIf="!addVendorForm.get('name').valid && addVendorForm.get('name').touched"
+                                class="help-block">
+                                <span>
+                                    <p-message *ngIf="addVendorForm.get('name').errors['required']" severity="error"
+                                        text="This field is required!"></p-message>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="ui-g-12">
+                            <span class="ui-float-label">
+                                <h3 class="first">Products</h3>
+                                <input type="text" pInputText [formControlName]="'products'" />
+                            </span>
+                            <span *ngIf="!addVendorForm.get('products').valid && addVendorForm.get('products').touched"
+                                class="help-block">
+                                <p-message *ngIf="addVendorForm.get('products').errors['required']" severity="error"
+                                    text="This field is required!"></p-message>
+                            </span>
+                        </div>
+                        <div class="ui-g-12">
+                            <span class="ui-float-label">
+                                <h3 class="first">Services</h3>
+                                <input type="text" pInputText [formControlName]="'services'" />
+                            </span>
+                            <span *ngIf="!addVendorForm.get('services').valid && addVendorForm.get('services').touched"
+                                class="help-block">
+                                <p-message *ngIf="addVendorForm.get('services').errors['required']" severity="error"
+                                    text="This field is required!"></p-message>
+                            </span>
+                        </div>
+                    </div>
+                    <!--Right column-->
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
+                        <div class="ui-g-12">
+                            <span class="ui-float-label">
+                                <h3 class="first">Type</h3>
+                                <p-dropdown [options]="type" [formControlName]="'type'" placeholder="Select a Type"
+                                    [(ngModel)]="selectedType" optionLabel="name" [showClear]="true"></p-dropdown>
+                            </span>
+                            <span *ngIf="!addVendorForm.get('type').valid && addVendorForm.get('type').touched"
+                                class="help-block">
+                                <p-message *ngIf="addVendorForm.get('type').errors['required']" severity="error"
+                                    text="This field is required!"></p-message>
+                            </span>
+                        </div>
+                        <div class="ui-g-12">
+                            <span class="ui-float-label">
+                                <h3 class="first">Tax ID</h3>
+                                <input type="text" pInputText [formControlName]="'taxId'" />
+                            </span>
+                            <span *ngIf="!addVendorForm.get('taxId').valid && addVendorForm.get('taxId').touched"
+                                class="help-block">
+                                <p-message *ngIf="addVendorForm.get('taxId').errors['required']" severity="error"
+                                    text="This field is required!"></p-message>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h2>ADDRESS</h2>
+            <div class="fieldset-list">
+                <div class="ui-g">
+                    <!--Left column-->
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
+                        <div class="ui-g-12">
+                            <span class="ui-float-label">
+                                <h3 class="first">Country</h3>
+                                <input type="text" pInputText [formControlName]="'country'" />
+                            </span>
+
+                            <span *ngIf="!addVendorForm.get('country').valid && addVendorForm.get('country').touched"
+                                class="help-block">
+                                <span>
+                                    <p-message *ngIf="addVendorForm.get('country').errors['required']" severity="error"
+                                        text="This field is required!"></p-message>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="ui-g-12">
+                            <span class="ui-float-label">
+                                <h3 class="first">Zipcode</h3>
+                                <input type="text" pInputText [formControlName]="'zipcode'" />
+                            </span>
+                            <span *ngIf="!addVendorForm.get('zipcode').valid && addVendorForm.get('zipcode').touched"
+                                class="help-block">
+                                <p-message *ngIf="addVendorForm.get('zipcode').errors['required']" severity="error"
+                                    text="This field is required!"></p-message>
+                            </span>
+                        </div>
+                    </div>
+                    <!--Right column-->
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
+                        <div class="ui-g-12">
+                            <span class="ui-float-label">
+                                <h3 class="first">Address 1</h3>
+                                <input type="text" pInputText [formControlName]="'address1'" />
+                            </span>
+                            <span *ngIf="!addVendorForm.get('address1').valid && addVendorForm.get('address1').touched"
+                                class="help-block">
+                                <p-message *ngIf="addVendorForm.get('address1').errors['required']" severity="error"
+                                    text="This field is required!"></p-message>
+                            </span>
+                        </div>
+                        <div class="ui-g-12">
+                            <span class="ui-float-label">
+                                <h3 class="first">Address 2</h3>
+                                <input type="text" pInputText [formControlName]="'address2'" />
+                            </span>
+                            <span *ngIf="!addVendorForm.get('address2').valid && addVendorForm.get('address2').touched"
+                                class="help-block">
+                                <p-message *ngIf="addVendorForm.get('address2').errors['required']" severity="error"
+                                    text="This field is required!"></p-message>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g-12">
+                <h2>CONTACT</h2>
+                <div class="fieldset-list">
+                    <div class="ui-g">
+                        <!--Left column-->
+                        <div class="ui-g-12 ui-md-12 ui-lg-6">
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first">Prefix</h3>
+                                    <input type="text" pInputText [formControlName]="'prefix'" />
+                                </span>
+                                <span
+                                    *ngIf="!addVendorForm.get('prefix').valid && addVendorForm.get('prefix').touched"
+                                    class="help-block">
+                                    <span>
+                                        <p-message *ngIf="addVendorForm.get('prefix').errors['required']"
+                                            severity="error" text="This field is required!"></p-message>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first">First Name</h3>
+                                    <input type="text" pInputText [formControlName]="'firstName'" />
+                                </span>
+                                <span
+                                    *ngIf="!addVendorForm.get('firstName').valid && addVendorForm.get('firstName').touched"
+                                    class="help-block">
+                                    <p-message *ngIf="addVendorForm.get('firstName').errors['required']" severity="error"
+                                        text="This field is required!"></p-message>
+                                </span>
+                            </div>
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first">Middle Name</h3>
+                                    <input type="text" pInputText [formControlName]="'middleName'" />
+                                </span>
+                                <span
+                                    *ngIf="!addVendorForm.get('middleName').valid && addVendorForm.get('middleName').touched"
+                                    class="help-block">
+                                    <p-message *ngIf="addVendorForm.get('middleName').errors['required']" severity="error"
+                                        text="This field is required!"></p-message>
+                                </span>
+                            </div>
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first">Last Name</h3>
+                                    <input type="text" pInputText [formControlName]="'lastName'" />
+                                </span>
+                                <span
+                                    *ngIf="!addVendorForm.get('lastName').valid && addVendorForm.get('lastName').touched"
+                                    class="help-block">
+                                    <p-message *ngIf="addVendorForm.get('lastName').errors['required']" severity="error"
+                                        text="This field is required!"></p-message>
+                                </span>
+                            </div>
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first">Email</h3>
+                                    <input type="text" pInputText [formControlName]="'email'" />
+                                </span>
+                                <span
+                                    *ngIf="!addVendorForm.get('email').valid && addVendorForm.get('email').touched"
+                                    class="help-block">
+                                    <p-message *ngIf="addVendorForm.get('email').errors['required']" severity="error"
+                                        text="This field is required!"></p-message>
+                                </span>
+                            </div>
+                        </div>
+                        <!--Right column-->
+                        <div class="ui-g-12 ui-md-12 ui-lg-6">
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first">Phone no.</h3>
+                                    <input type="text" pInputText [formControlName]="'phoneNo'" />
+                                </span>
+                                <span
+                                    *ngIf="!addVendorForm.get('phoneNo').valid && addVendorForm.get('phoneNo').touched"
+                                    class="help-block">
+                                    <p-message *ngIf="addVendorForm.get('phoneNo').errors['required']" severity="error"
+                                        text="This field is required!"></p-message>
+                                </span>
+                            </div>
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first">Extension</h3>
+                                    <input type="text" pInputText [formControlName]="'extension'" />
+                                </span>
+                                <span
+                                    *ngIf="!addVendorForm.get('extension').valid && addVendorForm.get('extension').touched"
+                                    class="help-block">
+                                    <p-message *ngIf="addVendorForm.get('extension').errors['required']" severity="error"
+                                        text="This field is required!"></p-message>
+                                </span>
+                            </div>
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first">Mobile no.</h3>
+                                    <input type="text" pInputText [formControlName]="'mobileNo'" />
+                                </span>
+                                <span
+                                    *ngIf="!addVendorForm.get('mobileNo').valid && addVendorForm.get('mobileNo').touched"
+                                    class="help-block">
+                                    <p-message *ngIf="addVendorForm.get('mobileNo').errors['required']" severity="error"
+                                        text="This field is required!"></p-message>
+                                </span>
+                            </div>
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first">Fax</h3>
+                                    <input type="text" pInputText [formControlName]="'fax'" />
+                                </span>
+                                <span
+                                    *ngIf="!addVendorForm.get('fax').valid && addVendorForm.get('fax').touched"
+                                    class="help-block">
+                                    <p-message *ngIf="addVendorForm.get('fax').errors['required']" severity="error"
+                                        text="This field is required!"></p-message>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button pButton [disabled]="!addVendorForm.valid" type="submit" label="Submit New Vendor"></button>
+            </div>
+        </form>
+    </div>
+</div>

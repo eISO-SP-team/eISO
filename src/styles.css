@@ -6,6 +6,16 @@
 @import url("../src/app/quotation-create/quotation-create.component.css");
 @import url("../src/app/customer-create/customer-create.component.css");
 
+body {
+    background-color: lightgray;
+}
+
+.fieldset-bg {
+    border-radius: 25px;
+    background-color: white;
+    border: grey 2px solid;
+}
+
 .quotation_header {
     font-size: 1em;
     font-weight: bold;
@@ -22,4 +32,13 @@
 
 .ui-dataview {
     margin-top: 10px;
+}
+
+.fieldset-list {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
+    border: grey 1px solid;
 }

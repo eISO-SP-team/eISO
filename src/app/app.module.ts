@@ -36,8 +36,13 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
 import { CustomerViewComponent } from './customer-view/customer-view.component';
 import { SalesModuleComponent } from './sales-module/sales-module.component';
 import { CustomerService } from './shared/service/customer.service';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from "@angular/forms";
+import { ProcurementModuleComponent } from './procurement-module/procurement-module.component';
+import { vendorListComponent } from './vendor-list/vendor-list.component';
+import { vendorCreateComponent } from './vendor-create/vendor-create.component';
+import { vendorViewComponent } from './vendor-view/vendor-view.component';
+import { VendorService } from './shared/service/vendor.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +61,10 @@ import { ReactiveFormsModule } from "@angular/forms";
     CustomerListComponent,
     CustomerViewComponent,
     SalesModuleComponent,
+    ProcurementModuleComponent,
+    vendorListComponent,
+    vendorCreateComponent,
+    vendorViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,7 +87,7 @@ import { ReactiveFormsModule } from "@angular/forms";
     MessageModule,
     MessagesModule,
   ],
-  providers: [QuotationService, CustomerService, MessageService, ToggleDisplayService],
+  providers: [QuotationService, CustomerService, VendorService, MessageService, ToggleDisplayService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
