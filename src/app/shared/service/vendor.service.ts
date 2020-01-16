@@ -1,6 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Vendor } from "../model/vendor.model";
 import { BehaviorSubject } from 'rxjs';
+import { HttpClient, HttpResponse } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class VendorService {
   ];
 
 
-  constructor() {
+  constructor(public http: HttpClient) {
     this.vendorSubject = new BehaviorSubject<Vendor[]>(this.vendorList);
   }
 
@@ -40,4 +41,9 @@ export class VendorService {
   getVendorListener() {
     return this.vendorSubject.asObservable();
   }
+
+  // loadVendors(){
+  //   return this.http.get('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/vendor/7707149e-a430-4c4e-86ef-f5edeae4e815');
+  // }
 }
+

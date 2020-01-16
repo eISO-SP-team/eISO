@@ -26,12 +26,10 @@ import { QuotationComponent } from './quotation/quotation.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
 import { QuotationDashboardComponent } from './quotation-dashboard/quotation-dashboard.component';
 import { ToggleDisplayService } from './shared/service/toggle-display.service';
-import { QuotationEditComponent } from './quotation-edit/quotation-edit.component';
 import { DragDropDirective } from './shared/directive/drag-and-drop.directive';
 import { QuotationViewComponent } from './quotation-view/quotation-view.component';
 import { CustomerComponent } from './customer/customer.component';
 import { CustomerCreateComponent } from './customer-create/customer-create.component';
-import { CustomerEditComponent } from './customer-edit/customer-edit.component';
 import { CustomerListComponent } from './customer-list/customer-list.component';
 import { CustomerViewComponent } from './customer-view/customer-view.component';
 import { SalesModuleComponent } from './sales-module/sales-module.component';
@@ -43,6 +41,11 @@ import { vendorListComponent } from './vendor-list/vendor-list.component';
 import { vendorCreateComponent } from './vendor-create/vendor-create.component';
 import { vendorViewComponent } from './vendor-view/vendor-view.component';
 import { VendorService } from './shared/service/vendor.service';
+import { SalesorderListComponent } from './salesorder-list/salesorder-list.component';
+import { SalesorderCreateComponent } from './salesorder-create/salesorder-create.component';
+import { SalesorderViewComponent } from './salesorder-view/salesorder-view.component';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,12 +55,10 @@ import { VendorService } from './shared/service/vendor.service';
     QuotationComponent,
     UploadFileComponent,
     QuotationDashboardComponent,
-    QuotationEditComponent,
     DragDropDirective,
     QuotationViewComponent,
     CustomerComponent,
     CustomerCreateComponent,
-    CustomerEditComponent,
     CustomerListComponent,
     CustomerViewComponent,
     SalesModuleComponent,
@@ -65,6 +66,9 @@ import { VendorService } from './shared/service/vendor.service';
     vendorListComponent,
     vendorCreateComponent,
     vendorViewComponent,
+    SalesorderListComponent,
+    SalesorderCreateComponent,
+    SalesorderViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -86,6 +90,7 @@ import { VendorService } from './shared/service/vendor.service';
     BrowserAnimationsModule,
     MessageModule,
     MessagesModule,
+    HttpClientModule,
   ],
   providers: [QuotationService, CustomerService, VendorService, MessageService, ToggleDisplayService],
   bootstrap: [AppComponent],

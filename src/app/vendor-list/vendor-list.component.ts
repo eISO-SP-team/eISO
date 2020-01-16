@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Vendor } from "../shared/model/vendor.model";
 import { VendorService } from "../shared/service/vendor.service";
-import { MenuItem } from 'primeng/api';
 import { Router } from '@angular/router';
 
 @Component({
@@ -22,13 +21,10 @@ export class vendorListComponent implements OnInit {
   selectedVendor: Vendor;
 
   selectVendors: Vendor[];
+  
+  vendorsTest;
 
-  items: MenuItem[];
-  items2: MenuItem[];
-
-  cols: any[];
-
-  constructor(private vendorService: VendorService, public router: Router, ) {
+  constructor(public vendorService: VendorService, public router: Router, ) {
 
     this.vendorService.getVendorListener()
       .subscribe(newList => {
@@ -51,12 +47,8 @@ export class vendorListComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    this.items = [
-      { label: 'View', icon: 'pi pi-search', command: (event) => this.viewEnquiry(this.selectedVendor) },
-      { label: 'Delete', icon: 'pi pi-times', command: (event) => this.deleteEnquiry(this.selectedVendor) }
-    ];
-
+    // this.vendorsTest = this.vendorService.loadVendors();
+    // console.log("this is the api"+JSON.stringify(this.vendorsTest));
   }
 
   filterVendorPending(vendor: Vendor) {
@@ -67,10 +59,15 @@ export class vendorListComponent implements OnInit {
     return vendor.vendor_type == "Approved"
   }
 
-  viewEnquiry(vendorList: Vendor) {
-    console.log("In onViewDetail......" + JSON.stringify(vendorList));
-    this.vendorService.selectedVendornService = vendorList;
-    this.router.navigate(['/vendorView', vendorList.vendor_refNo]);
+  viewEnquiryPending(vendorListPending: Vendor) {
+    console.log("In onViewDetail......" + JSON.stringify(vendorListPending));
+    this.vendorService.selectedVendornService = vendorListPending;
+    this.router.navigate(['/vendorView', vendorListPending[0].vendor_refNo]);
+  }
+  viewEnquiryApproved(vendorListApproved: Vendor) {
+    console.log("In onViewDetail......" + JSON.stringify(vendorListApproved));
+    this.vendorService.selectedVendornService = vendorListApproved;
+    this.router.navigate(['/vendorView', vendorListApproved[0].vendor_refNo]);
   }
 
   deleteEnquiry(enquiry: Vendor) {

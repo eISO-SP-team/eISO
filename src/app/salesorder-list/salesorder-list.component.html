@@ -1,0 +1,105 @@
+<div class="ui-g-12">
+    <div class="ui-g-12 ui-md-12 ui-lg-6">
+        Sales Order Dashboard
+        <p-dataView [value]="salesOrderListPending" #tt class="ui-dataview" [paginator]="true" filterBy="" [rows]="3">
+            <p-header>
+                <div class="ui-helper-clearfix">
+                    <div class="ui-g">
+                        <div class="ui-g-12 ui-md-4">
+
+                        </div>
+                        <div class="ui-g-6 ui-md-4 filter-container">
+                            <div style="position:relative">
+                                <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                                <input type="text" pInputText placeholder="Global Filter"
+                                    (input)="tt.filter($event.target.value)" style="width:auto">
+                            </div>
+                        </div>
+                        <div class="ui-g-6 ui-md-4" style="text-align:right">
+                            
+                        </div>
+                    </div>
+                </div>
+            </p-header>
+            <p-footer>
+                
+            </p-footer>
+            <ng-template let-salesOrderListPending pTemplate="listItem">
+                <div class="ui-dataview-content">
+                    <div class="ui-g-12">
+                        <div class="ui-g-2" style="align-content: center;">
+                            <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
+                            <img #img src="../../assets/delete.png" (click)="deleteEnquiry(salesOrderListPending)" width="30px"
+                                height="30px" alt="Logo">
+                        </div>
+                        <div class="ui-g-4">
+                            <p class="quotation_header">{{salesOrderListPending.salesorder_custName}} -
+                                {{salesOrderListPending.salesorder_refNo}}</p><br />
+                            {{salesOrderListPending.salesorder_subject}}<br />
+                        </div>
+                        <div class="ui-g-4">
+                            <p style="text-align: right;">{{salesOrderListPending.salesorder_type}}</p>
+                            <br />
+                        </div>
+                        <div class="ui-g-2" style="align-content: center;">
+                            <button pButton type="button" icon="pi pi-search" (click)="viewEnquiryPending(salesOrderListPending)"
+                                style="margin-top:0"></button>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </p-dataView>
+
+    </div>
+    <div class="ui-g-12 ui-md-12 ui-lg-6">
+        Completed Sales Order Dashboard
+        <p-dataView [value]="salesOrderListCompleted" #tt class="ui-dataview" [paginator]="true" filterBy="" [rows]="3">
+            <p-header>
+                <div class="ui-helper-clearfix">
+                    <div class="ui-g">
+                        <div class="ui-g-12 ui-md-4">
+
+                        </div>
+                        <div class="ui-g-6 ui-md-4 filter-container">
+                            <div style="position:relative">
+                                <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                                <input type="text" pInputText placeholder="Global Filter"
+                                    (input)="tt.filter($event.target.value)" style="width:auto">
+                            </div>
+                        </div>
+                        <div class="ui-g-6 ui-md-4" style="text-align:right">
+                            
+                        </div>
+                    </div>
+                </div>
+            </p-header>
+            <p-footer>
+                
+            </p-footer>
+            <ng-template let-salesOrderListCompleted pTemplate="listItem">
+                <div class="ui-dataview-content">
+                    <div class="ui-g-12">
+                        <div class="ui-g-2" style="align-content: center;">
+                            <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
+                            <img #img src="../../assets/delete.png" (click)="deleteEnquiry(salesOrderListCompleted)" width="30px"
+                                height="30px" alt="Logo">
+                        </div>
+                        <div class="ui-g-4">
+                            <p class="quotation_header">{{salesOrderListCompleted.salesorder_custName}} -
+                                {{salesOrderListCompleted.salesorder_refNo}}</p><br />
+                            {{salesOrderListCompleted.salesorder_subject}}<br />
+                        </div>
+                        <div class="ui-g-4">
+                            <p style="text-align: right;">{{salesOrderListCompleted.salesorder_type}}</p>
+                            <br />
+                        </div>
+                        <div class="ui-g-2" style="align-content: center;">
+                            <button pButton type="button" icon="pi pi-search" (click)="viewEnquiryCompleted(salesOrderListCompleted)"
+                                style="margin-top:0"></button>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </p-dataView>
+    </div>
+</div>
