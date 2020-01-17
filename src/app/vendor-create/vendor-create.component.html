@@ -151,15 +151,13 @@
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
                                     <h3 class="first">Prefix</h3>
-                                    <input type="text" pInputText [formControlName]="'prefix'" />
+                                    <p-dropdown [options]="prefix" [formControlName]="'prefix'" placeholder="Select a Prefix"
+                                        [(ngModel)]="selectedType" optionLabel="name" [showClear]="true"></p-dropdown>
                                 </span>
-                                <span
-                                    *ngIf="!addVendorForm.get('prefix').valid && addVendorForm.get('prefix').touched"
+                                <span *ngIf="!addVendorForm.get('type').valid && addVendorForm.get('type').touched"
                                     class="help-block">
-                                    <span>
-                                        <p-message *ngIf="addVendorForm.get('prefix').errors['required']"
-                                            severity="error" text="This field is required!"></p-message>
-                                    </span>
+                                    <p-message *ngIf="addVendorForm.get('type').errors['required']" severity="error"
+                                        text="This field is required!"></p-message>
                                 </span>
                             </div>
                             <div class="ui-g-12">

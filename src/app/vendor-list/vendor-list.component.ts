@@ -21,8 +21,14 @@ export class vendorListComponent implements OnInit {
   selectedVendor: Vendor;
 
   selectVendors: Vendor[];
-  
+
+  testList: any;
+
   vendorsTest;
+
+  index;
+
+  confirmDelete : boolean;
 
   constructor(public vendorService: VendorService, public router: Router, ) {
 
@@ -35,7 +41,7 @@ export class vendorListComponent implements OnInit {
         //new list that is being passed in
         this.vendorList = newList;
         for (let i = 0; i < this.vendorList.length; i++) {
-          if (this.vendorList[i].vendor_type=="Pending") {
+          if (this.vendorList[i].vendor_type == "Pending") {
             this.vendorListPending.push(this.vendorList[i])
           } else {
             this.vendorListApproved.push(this.vendorList[i])
@@ -47,16 +53,11 @@ export class vendorListComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.vendorsTest = this.vendorService.loadVendors();
-    // console.log("this is the api"+JSON.stringify(this.vendorsTest));
-  }
-
-  filterVendorPending(vendor: Vendor) {
-    return vendor.vendor_type == "Pending"
-  }
-
-  filterVendorApproved(vendor: Vendor) {
-    return vendor.vendor_type == "Approved"
+    this.vendorsTest = this.vendorService.loadVendors().subscribe(responseData => {
+      this.testList = responseData;
+      this.testList = this.testList.body;
+      // console.log(JSON.stringify(this.testList));
+    });
   }
 
   viewEnquiryPending(vendorListPending: Vendor) {
@@ -70,15 +71,33 @@ export class vendorListComponent implements OnInit {
     this.router.navigate(['/vendorView', vendorListApproved[0].vendor_refNo]);
   }
 
-  deleteEnquiry(enquiry: Vendor) {
-    console.log("Delete this enquiry......" + JSON.stringify(enquiry));
-    let index = -1;
-    for (let i = 0; i < this.vendorList.length; i++) {
-      if (this.vendorList[i].vendor_refNo == enquiry.vendor_refNo) {
-        index = i;
-        break;
+  deleteEnquiry(enquiry) {
+    console.log("Delete this enquiry......" + JSON.stringify(enquiry.id));
+    this.vendorService.deleteVendor(enquiry.id).subscribe(() => {
+      for (let i = 0; i < this.testList.length; i++) {
+        if (this.testList[i].id == enquiry.id) {
+          this.index = i;
+          break;
+        }
       }
-    }
-    this.vendorList.splice(index, 1);
-  }
+      this.testList.splice(this.index, 1);
+      console.log('Vendor with id: ' + enquiry.id + ' has been deleted');
+  });
+
 }
+
+
+}
+
+// deleteEnquiry(enquiry) {
+//   console.log("Delete this enquiry......" + JSON.stringify(enquiry));
+//   let index = -1;
+//   for (let i = 0; i < this.vendorList.length; i++) {
+//     if (this.vendorList[i].vendor_refNo == enquiry.vendor_refNo) {
+//       index = i;
+//       break;
+//     }
+//   }
+//   this.vendorList.splice(index, 1);
+// }
+// }

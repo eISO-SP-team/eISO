@@ -14,15 +14,27 @@
         <h3>APPROVED</h3>
     </div>
     <div class="fieldset-list">
-        <div *ngFor="let vendor of vendorListApproved" class="fieldset-list">
-            <div class="ui-g-9">
-                {{vendor.vendor_name}} ({{vendor.vendor_refNo}})<br>
-                {{vendor.vendor_prefix}} {{vendor.vendor_firstName}} {{vendor.vendor_middleName}}
-                {{vendor.vendor_lastName}}
-            </div>
-            <div class="ui-g-3" style="align-content: center;">
-                <button pButton type="button" icon="pi pi-search"
-                    (click)="viewEnquiryApproved(vendorListApproved)"></button>
+        <div *ngFor="let vendor of testList">
+            <div class="ui-g-12" *ngIf="vendor.vendor_type=='Pass'" class="fieldset-list">
+                <div class="ui-g-2" style="align-content: center;">
+                    <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
+                    <img #img src="../../assets/delete.png" (click)="deleteEnquiry(this.vendor)" width="30px"
+                        height="30px" alt="Logo">
+                </div>
+                <div class="ui-g-8">
+                    {{vendor.vendor_name}}<br>
+                    {{vendor.vendor_prefix}} {{vendor.vendor_contact[0].first_name}}
+                    {{vendor.vendor_contact[0].middle_name}}
+                    {{vendor.vendor_contact[0].last_name}}
+                    <!-- {{vendor.vendor_name}} ({{vendor.vendor_refNo}})<br>
+                    {{vendor.vendor_prefix}} {{vendor.vendor_firstName}} {{vendor.vendor_middleName}}
+                    {{vendor.vendor_lastName}} -->
+                </div>
+                <div class="ui-g-2" style="align-content: center;">
+                    <button pButton type="button" icon="pi pi-search"
+                        (click)="viewEnquiryApproved(vendorListApproved)"></button>
+                </div>
+
             </div>
         </div>
     </div>
@@ -31,18 +43,29 @@
         <h3>PENDING</h3>
     </div>
     <div class="fieldset-list">
-        <div *ngFor="let vendor of vendorListPending" class="fieldset-list">
-            <div class="ui-g-9">
-                {{vendor.vendor_name}} ({{vendor.vendor_refNo}})<br>
-                {{vendor.vendor_prefix}} {{vendor.vendor_firstName}} {{vendor.vendor_middleName}}
-                {{vendor.vendor_lastName}}
-            </div>
-            <div class="ui-g-3" style="align-content: center;">
-                <button pButton type="button" icon="pi pi-search"
-                    (click)="viewEnquiryPending(vendorListPending)"></button>
+        <div *ngFor="let vendor of testList">
+            <div class="ui-g-12" *ngIf="vendor.vendor_type=='Fail'" class="fieldset-list">
+                <div class="ui-g-2" style="align-content: center;">
+                    <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
+                    <img #img src="../../assets/delete.png" (click)="deleteEnquiry(this.vendor)" width="30px"
+                        height="30px" alt="Logo">
+                </div>
+                <div class="ui-g-8">
+                    {{vendor.vendor_name}}<br>
+                    {{vendor.vendor_prefix}} {{vendor.vendor_contact[0].first_name}}
+                    {{vendor.vendor_contact[0].middle_name}}
+                    {{vendor.vendor_contact[0].last_name}}
+                    <!-- {{vendor.vendor_name}} ({{vendor.vendor_refNo}})<br>
+                    {{vendor.vendor_prefix}} {{vendor.vendor_firstName}} {{vendor.vendor_middleName}}
+                    {{vendor.vendor_lastName}} -->
+                </div>
+                <div class="ui-g-2" style="align-content: center;">
+                    <button pButton type="button" icon="pi pi-search"
+                        (click)="viewEnquiryApproved(vendorListApproved)"></button>
+                </div>
+
             </div>
         </div>
-
     </div>
 </div>
 <!-- 
