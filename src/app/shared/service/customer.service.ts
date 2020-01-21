@@ -1,6 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Customer } from "../model/customer.model";
 import { BehaviorSubject } from 'rxjs';
+import { HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class CustomerService {
   ];
 
 
-  constructor() {
+  constructor(public http: HttpClient) {
     this.customerSubject = new BehaviorSubject<Customer[]>(this.customerList);
   }
 
@@ -40,5 +41,19 @@ export class CustomerService {
 
   getCustomerListener() {
     return this.customerSubject.asObservable();
+  }
+
+  addCustomers(customers) {
+    return this.http.post('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/customer', customers, {
+    });
+  }
+
+  loadCustomers() {
+    return this.http.get('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/customer');
+  }
+
+  deleteCustomer(enquiryId) {
+    console.log('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/vendor/' + enquiryId);
+    return this.http.delete('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/customer/' + enquiryId)
   }
 }

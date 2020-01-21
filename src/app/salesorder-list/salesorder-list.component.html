@@ -1,6 +1,10 @@
 <div class="ui-g-12">
     <div class="ui-g-12 ui-md-12 ui-lg-6">
         Sales Order Dashboard
+        <p>
+            <p-button icon="pi pi-plus" iconPos="right" label="Add New Sales Order"
+                (click)="this.router.navigate(['/salesorderCreate'])"></p-button>
+        </p>
         <p-dataView [value]="salesOrderListPending" #tt class="ui-dataview" [paginator]="true" filterBy="" [rows]="3">
             <p-header>
                 <div class="ui-helper-clearfix">
@@ -16,21 +20,21 @@
                             </div>
                         </div>
                         <div class="ui-g-6 ui-md-4" style="text-align:right">
-                            
+
                         </div>
                     </div>
                 </div>
             </p-header>
             <p-footer>
-                
+
             </p-footer>
             <ng-template let-salesOrderListPending pTemplate="listItem">
                 <div class="ui-dataview-content">
                     <div class="ui-g-12">
                         <div class="ui-g-2" style="align-content: center;">
                             <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
-                            <img #img src="../../assets/delete.png" (click)="deleteEnquiry(salesOrderListPending)" width="30px"
-                                height="30px" alt="Logo">
+                            <img #img src="../../assets/delete.png" (click)="deleteEnquiry(salesOrderListPending)"
+                                width="30px" height="30px" alt="Logo">
                         </div>
                         <div class="ui-g-4">
                             <p class="quotation_header">{{salesOrderListPending.salesorder_custName}} -
@@ -42,8 +46,8 @@
                             <br />
                         </div>
                         <div class="ui-g-2" style="align-content: center;">
-                            <button pButton type="button" icon="pi pi-search" (click)="viewEnquiryPending(salesOrderListPending)"
-                                style="margin-top:0"></button>
+                            <button pButton type="button" icon="pi pi-search"
+                                (click)="viewEnquiryPending(salesOrderListPending)" style="margin-top:0"></button>
                         </div>
                     </div>
                 </div>
@@ -53,6 +57,7 @@
     </div>
     <div class="ui-g-12 ui-md-12 ui-lg-6">
         Completed Sales Order Dashboard
+        <div style="margin-top: 65px;"></div>
         <p-dataView [value]="salesOrderListCompleted" #tt class="ui-dataview" [paginator]="true" filterBy="" [rows]="3">
             <p-header>
                 <div class="ui-helper-clearfix">
@@ -68,21 +73,21 @@
                             </div>
                         </div>
                         <div class="ui-g-6 ui-md-4" style="text-align:right">
-                            
+
                         </div>
                     </div>
                 </div>
             </p-header>
             <p-footer>
-                
+
             </p-footer>
             <ng-template let-salesOrderListCompleted pTemplate="listItem">
                 <div class="ui-dataview-content">
                     <div class="ui-g-12">
                         <div class="ui-g-2" style="align-content: center;">
                             <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
-                            <img #img src="../../assets/delete.png" (click)="deleteEnquiry(salesOrderListCompleted)" width="30px"
-                                height="30px" alt="Logo">
+                            <img #img src="../../assets/delete.png" (click)="deleteEnquiry(salesOrderListCompleted)"
+                                width="30px" height="30px" alt="Logo">
                         </div>
                         <div class="ui-g-4">
                             <p class="quotation_header">{{salesOrderListCompleted.salesorder_custName}} -
@@ -94,8 +99,8 @@
                             <br />
                         </div>
                         <div class="ui-g-2" style="align-content: center;">
-                            <button pButton type="button" icon="pi pi-search" (click)="viewEnquiryCompleted(salesOrderListCompleted)"
-                                style="margin-top:0"></button>
+                            <button pButton type="button" icon="pi pi-search"
+                                (click)="viewEnquiryCompleted(salesOrderListCompleted)" style="margin-top:0"></button>
                         </div>
                     </div>
                 </div>

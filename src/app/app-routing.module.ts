@@ -8,6 +8,7 @@ import { CustomerCreateComponent } from "./customer-create/customer-create.compo
 import { QuotationCreateComponent } from "./quotation-create/quotation-create.component";
 import { CustomerViewComponent } from './customer-view/customer-view.component';
 import { vendorViewComponent } from "./vendor-view/vendor-view.component";
+import { SalesorderCreateComponent } from "./salesorder-create/salesorder-create.component";
 
 const AppRoutes: Routes = [
   { path: '', redirectTo: '/sales-module', pathMatch: 'full' },
@@ -16,6 +17,7 @@ const AppRoutes: Routes = [
   { path: 'customerCreate', component: CustomerCreateComponent },
   { path: 'quotationCreate', component: QuotationCreateComponent },
   { path: 'vendorCreate', component: vendorCreateComponent },
+  { path: 'salesorderCreate', component: SalesorderCreateComponent },
   { path: 'quotationView/:idx', component: QuotationViewComponent },
   { path: 'customerView/:idx', component: CustomerViewComponent },
   { path: 'vendorView/:idx', component: vendorViewComponent },

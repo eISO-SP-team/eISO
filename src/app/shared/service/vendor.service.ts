@@ -1,7 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Vendor } from "../model/vendor.model";
 import { BehaviorSubject } from 'rxjs';
-import { HttpClient, HttpResponse, HttpHeaders } from "@angular/common/http";
+import { HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'

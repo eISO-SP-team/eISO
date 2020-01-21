@@ -45,6 +45,7 @@ import { SalesorderListComponent } from './salesorder-list/salesorder-list.compo
 import { SalesorderCreateComponent } from './salesorder-create/salesorder-create.component';
 import { SalesorderViewComponent } from './salesorder-view/salesorder-view.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { HttpClientModule } from '@angular/common/http';
     SalesorderListComponent,
     SalesorderCreateComponent,
     SalesorderViewComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
