@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
 
   onLogin() {
     this.loginInfo = {
-      username: this.loginForm.value.username,
+      email: this.loginForm.value.username,
       password: this.loginForm.value.password,
     }
     var data = JSON.stringify(this.loginInfo);

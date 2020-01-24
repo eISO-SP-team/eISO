@@ -9,7 +9,8 @@ export class ToggleDisplayService {
   constructor(public http: HttpClient) { this.isViewable = true; }
 
   authUser(userCred) {
-    return this.http.post("https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/login", userCred)
+    console.log(userCred);
+    return this.http.post("https://vr7zo9ukcl.execute-api.ap-southeast-1.amazonaws.com/dev/user/login", userCred)
   }
 
   public toggle(): void { this.isViewable = !this.isViewable; }
