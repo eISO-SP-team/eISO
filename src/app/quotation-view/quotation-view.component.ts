@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MessageService } from 'primeng/api';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Quotation } from "../shared/model/quotation.model";
 import { QuotationService } from "../shared/service/quotation.service";
-import {Location} from '@angular/common';
-import { stringify } from 'querystring';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-quotation-view',
@@ -15,7 +13,17 @@ export class QuotationViewComponent implements OnInit {
 
   addForm: FormGroup;
 
-  constructor(private messageService: MessageService, public quotationService: QuotationService, public _location: Location) { }
+  newTitle = this.quotationService.selectedQuotationInService.quotation_title;
+  newCompanyName = this.quotationService.selectedQuotationInService.quotation_subject;
+  newTenderLocation = this.quotationService.selectedQuotationInService.quotation_tenderLocation;
+  newTo = this.quotationService.selectedQuotationInService.quotation_to;
+  newValidity = this.quotationService.selectedQuotationInService.quotation_validity;
+  newAttention = this.quotationService.selectedQuotationInService.quotation_attention;
+  newTotal = this.quotationService.selectedQuotationInService.quotation_total;
+  newDeposit = this.quotationService.selectedQuotationInService.quotation_deposit;
+
+
+  constructor(public quotationService: QuotationService, public _location: Location) { }
 
   ngOnInit() {
     console.log(this.quotationService.selectedQuotationInService);
@@ -50,14 +58,14 @@ export class QuotationViewComponent implements OnInit {
       }
     }
     console.log(JSON.stringify(this.quotationService.quotationList[index]))
-    this.quotationService.quotationList[index].quotation_title = this.addForm.value.title;
-    this.quotationService.quotationList[index].quotation_subject = this.addForm.value.companyName;
-    this.quotationService.quotationList[index].quotation_tenderLocation = this.addForm.value.quotation_tenderLocation;
-    this.quotationService.quotationList[index].quotation_to = this.addForm.value.quotation_to;
-    this.quotationService.quotationList[index].quotation_validity = this.addForm.value.quotation_validity;
-    this.quotationService.quotationList[index].quotation_attention = this.addForm.value.quotation_attention;
-    this.quotationService.quotationList[index].quotation_total = this.addForm.value.quotation_total;
-    this.quotationService.quotationList[index].quotation_deposit = this.addForm.value.quotation_deposit;
+    this.quotationService.quotationList[index].quotation_title = this.newTitle;
+    this.quotationService.quotationList[index].quotation_subject = this.newCompanyName;
+    this.quotationService.quotationList[index].quotation_tenderLocation = this.newTenderLocation;
+    this.quotationService.quotationList[index].quotation_to = this.newTo;
+    this.quotationService.quotationList[index].quotation_validity = this.newValidity;
+    this.quotationService.quotationList[index].quotation_attention = this.newAttention;
+    this.quotationService.quotationList[index].quotation_total = this.newTotal;
+    this.quotationService.quotationList[index].quotation_deposit = this.newDeposit;
     this._location.back();
   }
 }

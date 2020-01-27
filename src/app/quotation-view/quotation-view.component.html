@@ -8,7 +8,7 @@
             <div class="ui-g">
                 <div class="ui-g-12">Project Title:
                     <input type="text" pInputText [disabled]="disabled" [formControlName]="'title'"
-                        value="{{this.quotationService.selectedQuotationInService.quotation_title}}" />
+                        [(ngModel)]='newTitle' />
                 </div>
                 <div class="ui-g-12">Project Reference Number:
                     {{this.quotationService.selectedQuotationInService.quotation_refNo}}</div>
@@ -18,22 +18,19 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first">Subject</h3>
-                                <input type="text" pInputText [disabled]="disabled" [formControlName]="'companyName'"
-                                    value="{{this.quotationService.selectedQuotationInService.quotation_subject}}" />
+                                <input type="text" pInputText [disabled]="disabled" [formControlName]="'companyName'" [(ngModel)]='newCompanyName' />
                             </span>
                         </div>
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first">To</h3>
-                                <input type="text" pInputText [formControlName]="'to'"
-                                    value="{{this.quotationService.selectedQuotationInService.quotation_to}}" />
+                                <input type="text" pInputText [formControlName]="'to'" [(ngModel)]='newTo' />
                             </span>
                         </div>
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first">Attention</h3>
-                                <input type="text" pInputText [formControlName]="'attention'"
-                                    value="{{this.quotationService.selectedQuotationInService.quotation_attention}}" />
+                                <input type="text" pInputText [formControlName]="'attention'" [(ngModel)]='newAttention' />
                             </span>
                         </div>
                     </div>
@@ -42,15 +39,13 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first">Tender Location</h3>
-                                <input type="text" pInputText [formControlName]="'tenderLocation'"
-                                    value="{{this.quotationService.selectedQuotationInService.quotation_tenderLocation}}" />
+                                <input type="text" pInputText [formControlName]="'tenderLocation'" [(ngModel)]='newTenderLocation' />
                             </span>
                         </div>
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first">validity</h3>
-                                <input type="text" pInputText [formControlName]="'validity'"
-                                    value="{{this.quotationService.selectedQuotationInService.quotation_validity}}" />
+                                <input type="text" pInputText [formControlName]="'validity'" [(ngModel)]='newValidity' />
                             </span>
                         </div>
                     </div>
@@ -62,8 +57,7 @@
                     <div class="ui-g-6">
                         <span class="ui-float-label">
                             <h3 class="first">Total</h3>
-                            <input type="text" pInputText [formControlName]="'total'"
-                                value="{{this.quotationService.selectedQuotationInService.quotation_total}}" />
+                            <input type="text" pInputText [formControlName]="'total'" [(ngModel)]='newTotal' />
                         </span>
                     </div>
                 </ui-g-6>
@@ -71,8 +65,7 @@
                     <div class="ui-g-6">
                         <span class="ui-float-label">
                             <h3 class="first">Deposit</h3>
-                            <input type="text" pInputText [formControlName]="'deposit'"
-                                value="{{this.quotationService.selectedQuotationInService.quotation_deposit}}" />
+                            <input type="text" pInputText [formControlName]="'deposit'" [(ngModel)]='newDeposit' />
                         </span>
                     </div>
                 </ui-g-6>
