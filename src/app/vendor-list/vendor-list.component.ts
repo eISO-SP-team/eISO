@@ -16,17 +16,15 @@ export class vendorListComponent implements OnInit {
 
   vendorListApproved: Vendor[] = [];
 
-  selectedValues: Vendor[] = [];
-
   selectedVendor: Vendor;
 
   selectVendors: Vendor[];
 
   testList: any;
 
-  vendorsTest;
+  vendorsTest: any;
 
-  index;
+  index:any;
 
   confirmDelete : boolean;
 

@@ -1,0 +1,31 @@
+Customer
+GET - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/customer
+GET - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/customer/{id}
+DELETE - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/customer/{id}
+POST - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/customer
+PUT - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/customer/{id}
+
+Sales Order
+GET - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/sales-order
+GET - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/sales-order/{id}
+DELETE - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/sales-order/{id}
+POST - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/sales-order
+PUT - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/sales-order/{id}
+
+Purchase Order
+GET - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-order
+GET - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-order/{id}
+DELETE - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-order/{id}
+POST - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-order
+PUT - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-order/{id}
+
+Vendor
+GET - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/vendor
+GET - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/vendor/{id}
+DELETE - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/vendor/{id}
+POST - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/vendor
+PUT - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/dashboard/{id}
+
+Login API: 
+Method: POST
+https://vr7zo9ukcl.execute-api.ap-southeast-1.amazonaws.com/dev/user/login

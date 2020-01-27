@@ -1,7 +1,7 @@
 <!-- <p>customer-list works!</p> -->
 
-<p-dataView [value]="customerList" #gg class="ui-dataview" [paginator]="true"
-    filterBy="customer_companyName" [rows]="3" [(contextMenuSelection)]="selectedCustomer" [contextMenu]="cm">
+<p-dataView [value]="testList" #gg class="ui-dataview" [paginator]="true"
+    filterBy="customer_name" [rows]="3">
     <p-header>
         <div class="ui-helper-clearfix">
             <div class="ui-g">
@@ -24,18 +24,18 @@
     <p-footer>
         
     </p-footer>
-    <ng-template let-customerList pTemplate="listItem">
+    <ng-template let-testList pTemplate="listItem">
         <div class="ui-dataview-content">
             <div class="ui-g-12">
                 <div class="ui-g-2" style="align-content: center;">
-                    <!-- Checkbox need to be inserted -->
+                    <img src="../../assets/delete.png" (click)="deleteEnquiry(this.testList)" width="30px" height="30px" alt="Logo">
                 </div>
                 <div class="ui-g-4">
-                    <p class="customer_header">{{customerList.customer_companyName}}</p><br />
-                    {{customerList.customer_contacts}}<br />
+                    <p class="customer_header">{{testList.customer_name}}</p><br />
+                    <!-- {{customerList.customer_contacts}}<br /> -->
                 </div>
                 <div class="ui-g-4">
-                    <p style="text-align: right;">{{customerList.customer_type}}</p>
+                    <p style="text-align: right;">{{testList.customer_type}}</p>
                     <br />
                 </div>
                 <div class="ui-g-2" style="align-content: center;">

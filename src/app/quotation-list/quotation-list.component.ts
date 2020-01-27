@@ -32,13 +32,13 @@ export class QuotationListComponent implements OnInit {
 
     this.quotationService.getQuotationListener()
       .subscribe(newList => {
-        console.log("listener triggered");
-        console.log(newList);
+        // console.log("listener triggered");
+        // console.log(newList);
         //listens the listener in the service, whenever the code 
         //this.enquirySubject.next(this.quotationList); runs, the subscribe will be triggered and will receive the 
         //new list that is being passed in
         this.quotationList = newList;
-        console.log(newList);
+        // console.log(newList);
       });
 
   }

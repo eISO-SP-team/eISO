@@ -13,9 +13,9 @@ export class CustomerService {
   selectedCustomerInService: Customer;
 
   customerList: Customer[] = [
-    new Customer(1, "Skubbs", "Customer", "Singapore", "Singapore", "Kaki Bukit", "Bulding 24", "924123", "Mr Benedict"),
-    new Customer(2, "ST Engineering", "Prospect", "Singapore", "Singapore", "Jurong East", "Bulding 99", "213123", "Mr Jia Wee"),
-    new Customer(3, "Associates Consultant", "Prospect", "Singapore", "Singapore", "Somewhere", "Bulding 34", "864123", "Mr Andre"),
+    // new Customer(1, "Skubbs", "Customer", "Singapore", "Singapore", "Kaki Bukit", "Bulding 24", "924123", "Mr Benedict"),
+    // new Customer(2, "ST Engineering", "Prospect", "Singapore", "Singapore", "Jurong East", "Bulding 99", "213123", "Mr Jia Wee"),
+    // new Customer(3, "Associates Consultant", "Prospect", "Singapore", "Singapore", "Somewhere", "Bulding 34", "864123", "Mr Andre"),
   ];
 
 
@@ -53,7 +53,7 @@ export class CustomerService {
   }
 
   deleteCustomer(enquiryId) {
-    console.log('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/vendor/' + enquiryId);
+    console.log('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/customer/' + enquiryId);
     return this.http.delete('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/customer/' + enquiryId)
   }
 }

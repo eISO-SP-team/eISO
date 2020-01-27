@@ -20,51 +20,40 @@ export class CustomerListComponent implements OnInit {
 
   selectCustomers: Customer[];
 
-  items: MenuItem[];
+  testList: any;
 
-  cols: any[];
+  customersTest: any;
+
+  index: any;
+
+  confirmDelete: boolean;
 
   constructor(private customerService: CustomerService, private messageService: MessageService, public router: Router, ) {
 
     //this.quotationList = this.quotationService.quotationList;
     this.customerService.getCustomerListener()
       .subscribe(newList => {
-        console.log("listener triggered");
-        console.log(newList);
+        // console.log("listener triggered");
+        // console.log(newList);
         //listens the listener in the service, whenever the code 
         //this.enquirySubject.next(this.quotationList); runs, the subscribe will be triggered and will receive the 
         //new list that is being passed in
         this.customerList = newList;
-        console.log(newList);
+        // console.log(newList);
       });
 
   }
 
   ngOnInit() {
-
-
-    this.items = [
-      { label: 'View', icon: 'pi pi-search', command: (event) => this.viewEnquiry(this.selectedCustomer) },
-      // { label: 'Delete', icon: 'pi pi-times', command: (event) => alert(delete this.selectedQuotation) }
-      // { label: 'View', icon: 'pi pi-search', command: (event) => this.viewCar(this.selectedQuotation) },
-      { label: 'Delete', icon: 'pi pi-times', command: (event) => this.deleteEnquiry(this.selectedCustomer) }
-    ];
-
-
-
-    this.cols = [
-      { field: 'quotation_refNo', header: 'ENQ No.' },
-      { field: 'quotation_prospectName', header: 'Customer Name' },
-      { field: 'quotation_subPerson', header: 'Contact Person' },
-      { field: 'quotation_email', header: 'Email' },
-      { field: 'quotation_description', header: 'Description' },
-      { field: 'status', header: 'Status' },
-    ];
-
+    this.customersTest = this.customerService.loadCustomers().subscribe(responseData => {
+      this.testList = responseData;
+      this.testList = this.testList.body;      
+      console.log(JSON.stringify(this.testList));
+    });
   }
 
   selectQuotation() {
-    
+
   }
 
   viewEnquiry(customerList: Customer) {
@@ -73,15 +62,19 @@ export class CustomerListComponent implements OnInit {
     this.router.navigate(['/customerView', customerList.customer_refNo]);
   }
 
-  deleteEnquiry(enquiry: Customer) {
-    let index = -1;
-    for (let i = 0; i < this.customerList.length; i++) {
-      if (this.customerList[i].customer_refNo == enquiry.customer_refNo) {
-        index = i;
-        break;
+  deleteEnquiry(enquiry) {
+    console.log("Delete this enquiry......" + JSON.stringify(enquiry.id));
+    this.customerService.deleteCustomer(enquiry.id).subscribe(() => {
+      for (let i = 0; i < this.testList.length; i++) {
+        if (this.testList[i].id == enquiry.id) {
+          this.index = i;
+          break;
+        }
       }
-    }
-    this.customerList.splice(index, 1);
-  }
+      this.testList.splice(this.index, 1);
+      console.log('Vendor with id: ' + enquiry.id + ' has been deleted');
+  });
+
+}
 }
 
