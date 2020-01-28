@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Salesorder } from "../model/salesorder.model";
 import { BehaviorSubject } from 'rxjs';
+import { HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class SalesorderService {
   ];
 
 
-  constructor() {
+  constructor(public http: HttpClient) {
     this.salesOrderSubject = new BehaviorSubject<Salesorder[]>(this.salesOrderList);
   }
 
@@ -41,5 +42,23 @@ export class SalesorderService {
 
   getSalesOrderListener() {
     return this.salesOrderSubject.asObservable();
+  }
+
+  addSalesorder(SalesOrder) {
+    return this.http.post('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/sales', SalesOrder, {
+    });
+  }
+
+  loadSalesorder() {
+    return this.http.get('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/sales');
+  }
+
+  updateSalesorder(enquiryId, newInfo) {
+    return this.http.put('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/sales/' + enquiryId, newInfo)
+  }
+
+  deleteSalesorder(enquiryId) {
+    console.log('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/sales/' + enquiryId);
+    return this.http.delete('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/sales/' + enquiryId)
   }
 }

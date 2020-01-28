@@ -85,3 +85,54 @@ Design:
 	4. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/design/{id}
 		Method: DELETE
 		Status: Ready to test
+
+File:
+	1. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/file
+		Method: GET
+		Status: Ready to test
+
+	2. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/file
+		Method: POST
+		Status: Ready to test
+
+	3. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/file/{id}
+		Method: PUT
+		Status: Ready to test
+
+	4. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/file/{id}
+		Method: DELETE
+		Status: Ready to test
+
+Process Control:
+	1. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/process-control
+		Method: GET
+		Status: Ready to test
+
+	2. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/process-control
+		Method: POST
+		Status: Ready to test
+
+	3. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/process-control/{id}
+		Method: PUT
+		Status: Ready to test
+
+	4. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/process-control/{id}
+		Method: DELETE
+		Status: Ready to test
+
+Purchase Order:
+	1. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-order
+		Method: GET
+		Status: Ready to test
+
+	2. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-order
+		Method: POST
+		Status: Ready to test
+
+	3. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-order/{id}
+		Method: PUT
+		Status: Ready to test
+
+	4. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-order/{id}
+		Method: DELETE
+		Status: Ready to test
