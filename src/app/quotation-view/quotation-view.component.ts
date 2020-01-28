@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { Quotation } from "../shared/model/quotation.model";
 import { QuotationService } from "../shared/service/quotation.service";
 import { Location } from '@angular/common';
 

@@ -132,7 +132,7 @@ export class vendorCreateComponent implements OnInit {
       }],
       vendor_evaluation: [],
       created_by: "Johnny",
-      created_date: this.myDate,
+      created_date: "",
     };
     // this.testEntry = {
     //   vendor_code: "12345",
