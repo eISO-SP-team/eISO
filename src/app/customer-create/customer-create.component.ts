@@ -3,7 +3,7 @@ import { MenuItem, MessageService } from 'primeng/api';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Customer } from "../shared/model/customer.model";
 import { CustomerService } from "../shared/service/customer.service";
-import {Location} from '@angular/common';
+import { Location } from '@angular/common';
 
 interface Type {
   name: string;
@@ -27,11 +27,11 @@ export class CustomerCreateComponent implements OnInit {
 
   activeIndex: number = 0;
 
-  constructor(private messageService: MessageService, public customerService: CustomerService, public _location: Location) { 
+  constructor(private messageService: MessageService, public customerService: CustomerService, public _location: Location) {
     this.type = [
-      {name: 'Customer', value:'Customer'},
-      {name: 'Prospect', value: 'Prospect'},
-  ];
+      { name: 'Customer', value: 'Customer' },
+      { name: 'Prospect', value: 'Prospect' },
+    ];
   }
 
   ngOnInit() {
@@ -39,12 +39,20 @@ export class CustomerCreateComponent implements OnInit {
     this.addCustomerForm = new FormGroup({
       'companyName': new FormControl(null, [Validators.required]),
       'type': new FormControl(null, [Validators.required]),
+      "tax_id": new FormControl(null, [Validators.required]),
+      "prefix": new FormControl(null, [Validators.required]),
+      "mobile": new FormControl(null, [Validators.required]),
+      "last_name": new FormControl(null, [Validators.required]),
+      "middle_name": new FormControl(null, [Validators.required]),
+      "first_name": new FormControl(null, [Validators.required]),
+      "fax_number": new FormControl(null, [Validators.required]),
+      "extension_number": new FormControl(null, [Validators.required]),
+      "phone_number": new FormControl(null, [Validators.required]),
+      "email": new FormControl(null, [Validators.required]),
       'country': new FormControl(null, [Validators.required]),
-      'city': new FormControl(null, [Validators.required]),
       'address1': new FormControl(null, [Validators.required]),
       'address2': new FormControl(null, [Validators.required]),
       'zipcode': new FormControl(null, [Validators.required]),
-      'contacts': new FormControl(null, [Validators.required]),
     })
   }
 

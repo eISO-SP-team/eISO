@@ -48,7 +48,7 @@ export class CustomerListComponent implements OnInit {
     this.customersTest = this.customerService.loadCustomers().subscribe(responseData => {
       this.testList = responseData;
       this.testList = this.testList.body;      
-      console.log(JSON.stringify(this.testList));
+      // console.log(JSON.stringify(this.testList));
     });
   }
 
@@ -56,10 +56,10 @@ export class CustomerListComponent implements OnInit {
 
   }
 
-  viewEnquiry(customerList: Customer) {
-    console.log("In onViewDetail......" + JSON.stringify(customerList));
-    this.customerService.selectedCustomerInService = customerList;
-    this.router.navigate(['/customerView', customerList.customer_refNo]);
+  viewEnquiry(selectedCustomer) {
+    console.log("In onViewDetail......" + JSON.stringify(selectedCustomer));
+    this.customerService.selectedCustomerInService = selectedCustomer;
+    this.router.navigate(['/customerView', selectedCustomer.id]);
   }
 
   deleteEnquiry(enquiry) {

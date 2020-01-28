@@ -1,31 +1,87 @@
+E-ISO
+
 Customer
-GET - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/customer
-GET - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/customer/{id}
-DELETE - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/customer/{id}
-POST - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/customer
-PUT - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/customer/{id}
+	1. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/customer
+		Method: GET
+		Status: Ready to test
 
-Sales Order
-GET - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/sales-order
-GET - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/sales-order/{id}
-DELETE - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/sales-order/{id}
-POST - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/sales-order
-PUT - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/sales-order/{id}
+	2. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/customer
+		Method: POST
+		Status: Ready to test
 
-Purchase Order
-GET - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-order
-GET - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-order/{id}
-DELETE - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-order/{id}
-POST - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-order
-PUT - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-order/{id}
+	3. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/customer/{id}
+		Method: DELETE
+		Status: Ready to test
+
+	4. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/customer/{id}
+		Method: PUT
+		Status: Ready to test
+
 
 Vendor
-GET - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/vendor
-GET - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/vendor/{id}
-DELETE - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/vendor/{id}
-POST - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/vendor
-PUT - https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/dashboard/{id}
+	1. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/vendor
+		Method: GET
+		Status: Ready to test
+	
+	2. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/vendor
+		Method: POST
+		Status: Ready to test
 
-Login API: 
-Method: POST
-https://vr7zo9ukcl.execute-api.ap-southeast-1.amazonaws.com/dev/user/login
+	3. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/vendor/{id}
+		Method: PUT
+		Status: Ready to test
+	
+	4. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/vendor/{id}
+		Method: DELETE
+		Status: Ready to test
+
+Sales
+	1. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/sales
+		Method: GET
+		Status: Ready to test
+
+	2. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/sales
+		Method: POST
+		Status: Ready to test
+
+	3. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/sales/{id}
+		Method: PUT
+		Status: Ready to test
+
+	4. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/sales/{id}
+		Method: DELETE
+		Status: Ready to test
+				
+Delivery:
+	1. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/delivery
+		Method: GET
+		Status: Ready to test
+
+	2. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/delivery
+		Method: POST
+		Status: Ready to test
+
+	3. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/delivery/{id}
+		Method: PUT
+		Status: Ready to test
+
+	4. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/delivery/{id}
+		Method: DELETE
+		Status: Ready to test
+
+Design:
+	1. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/design
+		Method: GET
+		Status: Ready to test
+
+	2. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/design
+		Method: POST
+		Status: Ready to test
+
+	3. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/design/{id}
+		Method: PUT
+		Status: Ready to test
+
+	4. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/design/{id}
+		Method: DELETE
+		Status: Ready to test
