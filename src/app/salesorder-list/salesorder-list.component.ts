@@ -9,17 +9,19 @@ import { Router } from '@angular/router';
 })
 export class SalesorderListComponent implements OnInit {
 
-  salesOrderList: Salesorder[] = [];
+  salesOrderList: any;
+  testList: [] = [];
+  salesOrderListPending = [];
 
-  salesOrderListPending: Salesorder[] = [];
-
-  salesOrderListCompleted: Salesorder[] = [];
+  salesOrderListCompleted = [];
 
   selectedValues: Salesorder[] = [];
 
   selectedSalesOrder: Salesorder;
 
   selectSalesOrder: Salesorder[];
+
+  salesOrderTest: any;
 
   constructor(public salesOrderService: SalesorderService, public router: Router, ) {
     this.salesOrderService.getSalesOrderListener()
@@ -30,13 +32,6 @@ export class SalesorderListComponent implements OnInit {
         //this.enquirySubject.next(this.quotationList); runs, the subscribe will be triggered and will receive the 
         //new list that is being passed in
         this.salesOrderList = newList;
-        for (let i = 0; i < this.salesOrderList.length; i++) {
-          if (this.salesOrderList[i].salesorder_type == "Pending") {
-            this.salesOrderListPending.push(this.salesOrderList[i])
-          } else {
-            this.salesOrderListCompleted.push(this.salesOrderList[i])
-          }
-        }
         // console.log(newList);
       });
 
@@ -44,6 +39,19 @@ export class SalesorderListComponent implements OnInit {
 
 
   ngOnInit() {
+    this.salesOrderTest = this.salesOrderService.loadSalesorder().subscribe(responseData => {
+      this.salesOrderService.salesOrderList = responseData.body;
+      this.salesOrderList = this.salesOrderService.salesOrderList;
+      console.log(this.salesOrderList);
+      for (let i = 0; i < this.salesOrderList.length; i++) {
+        if (this.salesOrderList[i].sales_order_details.status == "pending") {
+          this.salesOrderListPending.push(this.salesOrderList[i]);
+        } else {
+          this.salesOrderListCompleted.push(this.salesOrderList[i])
+        }
+      }
+      console.log(this.salesOrderListPending);
+    });
   }
 
   viewEnquiryPending(salesOrderListPending: Salesorder) {
@@ -51,6 +59,7 @@ export class SalesorderListComponent implements OnInit {
     this.salesOrderService.selectedSalesOrderInService = salesOrderListPending;
     this.router.navigate(['/vendorView', this.salesOrderListPending[0].salesorder_refNo]);
   }
+
   viewEnquiryCompleted(salesOrderListCompleted: Salesorder) {
     console.log("In onViewDetail......" + JSON.stringify(salesOrderListCompleted));
     this.salesOrderService.selectedSalesOrderInService = salesOrderListCompleted;

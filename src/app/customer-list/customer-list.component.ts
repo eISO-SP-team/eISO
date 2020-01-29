@@ -32,8 +32,8 @@ export class CustomerListComponent implements OnInit {
     //this.quotationList = this.quotationService.quotationList;
     this.customerService.getCustomerListener()
       .subscribe(newList => {
-        console.log("listener triggered");
-        console.log(newList);
+        // console.log("listener triggered");
+        // console.log(newList);
         //listens the listener in the service, whenever the code 
         //this.enquirySubject.next(this.quotationList); runs, the subscribe will be triggered and will receive the 
         //new list that is being passed in

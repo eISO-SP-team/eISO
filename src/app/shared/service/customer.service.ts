@@ -19,22 +19,6 @@ export class CustomerService {
     this.customerSubject = new BehaviorSubject<any[]>(this.customerList);
   }
 
-  addCustomer(newCustomerInfo: Customer) {
-    return new Promise(resolve => {
-       console.log("Retrieved enquiry");
-    console.log(newCustomerInfo);
-    this.customerList.unshift(newCustomerInfo);
-    console.log(this.customerList);
-    //basically, you update this listener with the new list, 
-    //anyone that is subscribing to the enquiry will get the latest list
-    this.customerSubject.next(this.customerList);
-
-    console.log("triggered behaviour subject");
-    resolve(true);
-    });
-
-  };
-
   getCustomerListener() {
     return this.customerSubject.asObservable();
   }
@@ -54,7 +38,7 @@ export class CustomerService {
   }
 
   loadCustomers():Observable<any> {
-    return this.http.get<Customer[]>('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/customer');
+    return this.http.get<any[]>('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/customer');
   }
 
   updateCustomer(enquiryId, updateInfo) {

@@ -5,7 +5,7 @@
             <p-button icon="pi pi-plus" iconPos="right" label="Add New Sales Order"
                 (click)="this.router.navigate(['/salesorderCreate'])"></p-button>
         </p>
-        <p-dataView [value]="salesOrderListPending" #tt class="ui-dataview" [paginator]="true" filterBy="" [rows]="3">
+        <p-dataView [value]="salesOrderList" #tt class="ui-dataview" [paginator]="true" filterBy="" [rows]="3">
             <p-header>
                 <div class="ui-helper-clearfix">
                     <div class="ui-g">
@@ -37,12 +37,12 @@
                                 width="30px" height="30px" alt="Logo">
                         </div>
                         <div class="ui-g-4">
-                            <p class="quotation_header">{{salesOrderListPending.salesorder_custName}} -
-                                {{salesOrderListPending.salesorder_refNo}}</p><br />
-                            {{salesOrderListPending.salesorder_subject}}<br />
+                            <p class="quotation_header">{{salesOrderListPending.subject}} -
+                                {{salesOrderListPending.sales_order_number}}</p><br />
+                            {{salesOrderListPending.pic}}<br />
                         </div>
                         <div class="ui-g-4">
-                            <p style="text-align: right;">{{salesOrderListPending.salesorder_type}}</p>
+                            <p style="text-align: right;">{{salesOrderListPending.sales_order_details.status}}</p>
                             <br />
                         </div>
                         <div class="ui-g-2" style="align-content: center;">

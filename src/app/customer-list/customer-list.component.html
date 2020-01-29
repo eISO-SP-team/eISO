@@ -21,7 +21,6 @@
         </div>
     </p-header>
     <p-footer>
-
     </p-footer>
     <ng-template let-customerList pTemplate="listItem">
         <div class="ui-dataview-content">
@@ -32,7 +31,7 @@
                 </div>
                 <div class="ui-g-4">
                     <p class="customer_header">{{customerList.customer_name}}</p><br />
-                    <!-- {{customerList.customer_contacts}}<br /> -->
+                    {{customerList.customer_type}}
                 </div>
                 <div class="ui-g-4">
                     <p style="text-align: right;">{{customerList.customer_type}}</p>
