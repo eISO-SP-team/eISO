@@ -5,7 +5,7 @@
             <p-button icon="pi pi-plus" iconPos="right" label="Add New Sales Order"
                 (click)="this.router.navigate(['/salesorderCreate'])"></p-button>
         </p>
-        <p-dataView [value]="salesOrderList" #tt class="ui-dataview" [paginator]="true" filterBy="" [rows]="3">
+        <p-dataView [value]="salesOrderListPending2" #sop class="ui-dataview" [paginator]="true" filterBy="subject,pic" [rows]="3">
             <p-header>
                 <div class="ui-helper-clearfix">
                     <div class="ui-g">
@@ -16,7 +16,7 @@
                             <div style="position:relative">
                                 <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
                                 <input type="text" pInputText placeholder="Global Filter"
-                                    (input)="tt.filter($event.target.value)" style="width:auto">
+                                    (input)="sop.filter($event.target.value)" style="width:auto">
                             </div>
                         </div>
                         <div class="ui-g-6 ui-md-4" style="text-align:right">
@@ -38,7 +38,7 @@
                         </div>
                         <div class="ui-g-4">
                             <p class="quotation_header">{{salesOrderListPending.subject}} -
-                                {{salesOrderListPending.sales_order_number}}</p><br />
+                                <!-- {{salesOrderListPending.id}}</p><br /> -->
                             {{salesOrderListPending.pic}}<br />
                         </div>
                         <div class="ui-g-4">
@@ -58,7 +58,7 @@
     <div class="ui-g-12 ui-md-12 ui-lg-6">
         Completed Sales Order Dashboard
         <div style="margin-top: 65px;"></div>
-        <p-dataView [value]="salesOrderListCompleted" #tt class="ui-dataview" [paginator]="true" filterBy="" [rows]="3">
+        <p-dataView [value]="salesOrderListCompleted2" #soc class="ui-dataview" filterBy="subject,pic" [paginator]="true" [rows]="3">
             <p-header>
                 <div class="ui-helper-clearfix">
                     <div class="ui-g">
@@ -69,7 +69,7 @@
                             <div style="position:relative">
                                 <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
                                 <input type="text" pInputText placeholder="Global Filter"
-                                    (input)="tt.filter($event.target.value)" style="width:auto">
+                                    (input)="soc.filter($event.target.value)" style="width:auto">
                             </div>
                         </div>
                         <div class="ui-g-6 ui-md-4" style="text-align:right">
@@ -90,12 +90,12 @@
                                 width="30px" height="30px" alt="Logo">
                         </div>
                         <div class="ui-g-4">
-                            <p class="quotation_header">{{salesOrderListCompleted.salesorder_custName}} -
-                                {{salesOrderListCompleted.salesorder_refNo}}</p><br />
-                            {{salesOrderListCompleted.salesorder_subject}}<br />
+                            <p class="quotation_header">{{salesOrderListCompleted.subject}} -
+                                <!-- {{salesOrderListCompleted.id}}</p><br /> -->
+                            {{salesOrderListCompleted.pic}}<br />
                         </div>
                         <div class="ui-g-4">
-                            <p style="text-align: right;">{{salesOrderListCompleted.salesorder_type}}</p>
+                            <p style="text-align: right;">{{salesOrderListCompleted.sales_order_details.status}}</p>
                             <br />
                         </div>
                         <div class="ui-g-2" style="align-content: center;">

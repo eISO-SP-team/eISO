@@ -10,11 +10,11 @@ import { Router } from '@angular/router';
 export class SalesorderListComponent implements OnInit {
 
   salesOrderList: any;
-  testList: [] = [];
+  
   salesOrderListPending = [];
-
+  salesOrderListPending2 :any;
   salesOrderListCompleted = [];
-
+  salesOrderListCompleted2:any;
   selectedValues: Salesorder[] = [];
 
   selectedSalesOrder: Salesorder;
@@ -42,15 +42,18 @@ export class SalesorderListComponent implements OnInit {
     this.salesOrderTest = this.salesOrderService.loadSalesorder().subscribe(responseData => {
       this.salesOrderService.salesOrderList = responseData.body;
       this.salesOrderList = this.salesOrderService.salesOrderList;
-      console.log(this.salesOrderList);
+      // console.log(this.salesOrderList);
       for (let i = 0; i < this.salesOrderList.length; i++) {
         if (this.salesOrderList[i].sales_order_details.status == "pending") {
           this.salesOrderListPending.push(this.salesOrderList[i]);
+          this.salesOrderListPending2 = this.salesOrderListPending;
         } else {
-          this.salesOrderListCompleted.push(this.salesOrderList[i])
+          console.log(i);
+          this.salesOrderListCompleted.push(this.salesOrderList[i]);
+          this.salesOrderListCompleted2 = this.salesOrderListCompleted;
         }
       }
-      console.log(this.salesOrderListPending);
+      console.log(this.salesOrderListCompleted);
     });
   }
 
