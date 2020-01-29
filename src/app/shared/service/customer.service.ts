@@ -1,6 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Customer } from "../model/customer.model";
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from "@angular/common/http";
 
 @Injectable({
@@ -8,48 +8,53 @@ import { HttpClient } from "@angular/common/http";
 })
 export class CustomerService {
 
-  customerSubject: BehaviorSubject<Customer[]>;
+  customerSubject: BehaviorSubject<any[]>;
 
   selectedCustomerInService: any;
 
-  customerList: Customer[] = [
-    // new Customer(1, "Skubbs", "Customer", "Singapore", "Singapore", "Kaki Bukit", "Bulding 24", "924123", "Mr Benedict"),
-    // new Customer(2, "ST Engineering", "Prospect", "Singapore", "Singapore", "Jurong East", "Bulding 99", "213123", "Mr Jia Wee"),
-    // new Customer(3, "Associates Consultant", "Prospect", "Singapore", "Singapore", "Somewhere", "Bulding 34", "864123", "Mr Andre"),
-  ];
+  customerList: any;
 
 
   constructor(public http: HttpClient) {
-    this.customerSubject = new BehaviorSubject<Customer[]>(this.customerList);
+    this.customerSubject = new BehaviorSubject<any[]>(this.customerList);
   }
 
-  // addCustomer(newCustomerInfo: Customer) {
-  //   return new Promise(resolve => {
-  //      console.log("Retrieved enquiry");
-  //   console.log(newCustomerInfo);
-  //   this.customerList.unshift(newCustomerInfo);
-  //   console.log(this.customerList);
-  //   //basically, you update this listener with the new list, 
-  //   //anyone that is subscribing to the enquiry will get the latest list
-  //   this.customerSubject.next(this.customerList);
+  addCustomer(newCustomerInfo: Customer) {
+    return new Promise(resolve => {
+       console.log("Retrieved enquiry");
+    console.log(newCustomerInfo);
+    this.customerList.unshift(newCustomerInfo);
+    console.log(this.customerList);
+    //basically, you update this listener with the new list, 
+    //anyone that is subscribing to the enquiry will get the latest list
+    this.customerSubject.next(this.customerList);
 
-  //   console.log("triggered behaviour subject");
-  //   resolve(true);
-  //   });
+    console.log("triggered behaviour subject");
+    resolve(true);
+    });
 
-  // };
+  };
 
   getCustomerListener() {
     return this.customerSubject.asObservable();
   }
 
   addCustomers(customers) {
+    console.log("before: "+this.customerList);
+    this.customerList.unshift(JSON.parse(customers));
+    console.log("before: "+this.customerList);
+    //basically, you update this listener with the new list, 
+    //anyone that is subscribing to the enquiry will get the latest list
+    this.customerSubject.next(this.customerList);
     return this.http.post('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/customer', customers, {
-    });
+    
+  });
+
+ 
   }
 
-  loadCustomers() {
-    return this.http.get('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/customer');
+  loadCustomers():Observable<any> {
+    return this.http.get<Customer[]>('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/customer');
   }
 
   updateCustomer(enquiryId, updateInfo) {

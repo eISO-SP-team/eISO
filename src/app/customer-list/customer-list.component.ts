@@ -13,8 +13,7 @@ import { Router } from '@angular/router';
 export class CustomerListComponent implements OnInit {
 
 
-  customerList: Customer[] = [
-  ];
+  customerList: any;
 
   selectedCustomer: Customer;
 
@@ -46,14 +45,12 @@ export class CustomerListComponent implements OnInit {
 
   ngOnInit() {
     this.customersTest = this.customerService.loadCustomers().subscribe(responseData => {
-      this.testList = responseData;
-      this.testList = this.testList.body;      
-      // console.log(JSON.stringify(this.testList));
+      this.customerService.customerList = responseData.body;
+      this.customerList = this.customerService.customerList;
+      // this.customerList = responseData;
+      // this.customerList = this.customerList.body;
+
     });
-  }
-
-  selectQuotation() {
-
   }
 
   viewEnquiry(selectedCustomer) {
@@ -65,16 +62,16 @@ export class CustomerListComponent implements OnInit {
   deleteEnquiry(enquiry) {
     console.log("Delete this enquiry......" + JSON.stringify(enquiry.id));
     this.customerService.deleteCustomer(enquiry.id).subscribe(() => {
-      for (let i = 0; i < this.testList.length; i++) {
-        if (this.testList[i].id == enquiry.id) {
+      for (let i = 0; i < this.customerList.length; i++) {
+        if (this.customerList[i].id == enquiry.id) {
           this.index = i;
           break;
         }
       }
-      this.testList.splice(this.index, 1);
+      this.customerList.splice(this.index, 1);
       console.log('Vendor with id: ' + enquiry.id + ' has been deleted');
-  });
+    });
 
-}
+  }
 }
 

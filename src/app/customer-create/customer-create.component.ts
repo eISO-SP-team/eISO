@@ -110,7 +110,8 @@ export class CustomerCreateComponent implements OnInit {
     this.customerService.addCustomers(data)
       .subscribe((data) => {
         console.log(data)
-        this.customerService.customerList.push(this.testEntry);
+        this.customerService.customerList.push(data);
+        this.customerService.customerSubject.next(this.customerService.customerList);
       });
     this._location.back();
   }

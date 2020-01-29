@@ -37,7 +37,7 @@ export class CustomerViewComponent implements OnInit {
   constructor(public customerService: CustomerService, public _location: Location) { }
 
   ngOnInit() {
-    console.log(JSON.stringify(this.customerService.selectedCustomerInService));
+    // console.log(JSON.stringify(this.customerService.selectedCustomerInService));
 
     this.addCustomerForm = new FormGroup({
       'companyName': new FormControl(null, [Validators.required]),
@@ -99,45 +99,10 @@ export class CustomerViewComponent implements OnInit {
       created_by: this.customerService.selectedCustomerInService.created_by,
       created_date: this.customerService.selectedCustomerInService.created_date,
     };
-
-    // this.newEdit = {
-    //   "customer_name": "Joe23",
-    //   "customer_type": "Prospect",
-    //   "tax_id": "123",
-    //   "customer_contact": {
-    //     "prefix": "Mr",
-    //     "mobile": "87654321",
-    //     "last_name": "Watson",
-    //     "middle_name": "Miller",
-    //     "fax_number": "12345678",
-    //     "created_by": "Jack",
-    //     "uploaded_by": "Jack",
-    //     "extension_number": "123",
-    //     "uploaded_date": "2019-11-26",
-    //     "phone_number": "67891234",
-    //     "created_date": "2019-11-26",
-    //     "customer_id": "001",
-    //     "first_name": "Jack",
-    //     "email": "jackmillerwatson@abc.com"
-    //   },
-    //   "customer_address": {
-    //     "country": "Singapore",
-    //     "uploaded_by": "Jack",
-    //     "address_1": "Blk 326",
-    //     "address_2": "Neilson Road",
-    //     "uploaded_date": "2019-11-26",
-    //     "created_date": "2019-11-26",
-    //     "customer_id": "001",
-    //     "created_by": "Jack",
-    //     "zip_code": "123456"
-    //   },
-    //   "created_by": "Jack",
-    //   "created_date": "2020-01-25T02:28:21.641Z"
-    // }
     var data = JSON.stringify(this.newEdit);
     this.customerService.updateCustomer(this.customerService.selectedCustomerInService.id, data)
       .subscribe((data) => {
-        console.log("Updated: " + data)
+        // console.log("Updated: " + data)
         this._location.back();
       });
   }

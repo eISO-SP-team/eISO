@@ -1,7 +1,6 @@
 <!-- <p>customer-list works!</p> -->
 
-<p-dataView [value]="testList" #gg class="ui-dataview" [paginator]="true"
-    filterBy="customer_name" [rows]="3">
+<p-dataView [value]="customerList" #gg class="ui-dataview" [paginator]="true" filterBy="customer_name" [rows]="3">
     <p-header>
         <div class="ui-helper-clearfix">
             <div class="ui-g">
@@ -16,40 +15,34 @@
                     </div>
                 </div>
                 <div class="ui-g-6 ui-md-4" style="text-align:right">
-                    
+
                 </div>
             </div>
         </div>
     </p-header>
     <p-footer>
-        
+
     </p-footer>
-    <ng-template let-testList pTemplate="listItem">
+    <ng-template let-customerList pTemplate="listItem">
         <div class="ui-dataview-content">
             <div class="ui-g-12">
                 <div class="ui-g-2" style="align-content: center;">
-                    <img src="../../assets/delete.png" (click)="deleteEnquiry(this.testList)" width="30px" height="30px" alt="Logo">
+                    <img src="../../assets/delete.png" (click)="deleteEnquiry(this.customerList)" width="30px" height="30px"
+                        alt="Logo">
                 </div>
                 <div class="ui-g-4">
-                    <p class="customer_header">{{testList.customer_name}}</p><br />
+                    <p class="customer_header">{{customerList.customer_name}}</p><br />
                     <!-- {{customerList.customer_contacts}}<br /> -->
                 </div>
                 <div class="ui-g-4">
-                    <p style="text-align: right;">{{testList.customer_type}}</p>
+                    <p style="text-align: right;">{{customerList.customer_type}}</p>
                     <br />
                 </div>
                 <div class="ui-g-2" style="align-content: center;">
-                        <button pButton type="button" icon="pi pi-search" (click)="viewEnquiry(this.testList)" style="margin-top:0"></button>
-                    </div>
+                    <button pButton type="button" icon="pi pi-search" (click)="viewEnquiry(this.customerList)"
+                        style="margin-top:0"></button>
+                </div>
             </div>
         </div>
     </ng-template>
-    <ng-template let-customerList pTemplate="gridItem">
-        <div class="ui-g-12 ui-md-3 ui-dataview-content">
-            {{customerList.customer_refNo}}<br />
-            {{customerList.customer_companyName}}<br />
-        </div>
-    </ng-template>
 </p-dataView>
-
-<p-contextMenu #cm [model]="items"></p-contextMenu>
