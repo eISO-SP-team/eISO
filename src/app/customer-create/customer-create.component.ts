@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuItem, MessageService } from 'primeng/api';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { CustomerService } from "../shared/service/customer.service";
 import { Location } from '@angular/common';
@@ -27,15 +26,13 @@ export class CustomerCreateComponent implements OnInit {
 
   addCustomerForm: FormGroup;
 
-  items: MenuItem[];
-
   testEntry: any;
 
   activeIndex: number = 0;
 
   myDate = formatDate(new Date(), 'yyyy/MM/dd', 'en');
 
-  constructor(private messageService: MessageService, public customerService: CustomerService, public _location: Location) {
+  constructor(public customerService: CustomerService, public _location: Location) {
     this.type = [
       { name: 'Customer', value: 'Customer' },
       { name: 'Prospect', value: 'Prospect' },

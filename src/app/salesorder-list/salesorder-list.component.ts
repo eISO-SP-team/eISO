@@ -48,12 +48,10 @@ export class SalesorderListComponent implements OnInit {
           this.salesOrderListPending.push(this.salesOrderList[i]);
           this.salesOrderListPending2 = this.salesOrderListPending;
         } else {
-          console.log(i);
           this.salesOrderListCompleted.push(this.salesOrderList[i]);
           this.salesOrderListCompleted2 = this.salesOrderListCompleted;
         }
       }
-      console.log(this.salesOrderListCompleted);
     });
   }
 
