@@ -11,6 +11,7 @@ import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
 import { ContextMenuModule } from 'primeng/contextmenu';
 import { DataViewModule } from 'primeng/dataview';
+import {CalendarModule} from 'primeng/calendar';
 import { TableModule } from 'primeng/table';
 import { CheckboxModule } from 'primeng/checkbox';
 import { StepsModule } from 'primeng/steps';
@@ -78,6 +79,7 @@ import { LoginComponent } from './login/login.component';
     InputTextModule,
     PasswordModule,
     FormsModule,
+    CalendarModule,
     MenuModule,
     DataViewModule,
     ButtonModule,

@@ -27,7 +27,7 @@ export class CustomerListComponent implements OnInit {
 
   confirmDelete: boolean;
 
-  constructor(private customerService: CustomerService, private messageService: MessageService, public router: Router, ) {
+  constructor(public customerService: CustomerService, public router: Router, ) {
 
     //this.quotationList = this.quotationService.quotationList;
     this.customerService.getCustomerListener()
