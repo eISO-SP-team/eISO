@@ -11,6 +11,7 @@ import { CustomerViewComponent } from './customer-view/customer-view.component';
 import { vendorViewComponent } from "./vendor-view/vendor-view.component";
 import { SalesorderCreateComponent } from "./salesorder-create/salesorder-create.component";
 import { DesignModuleComponent } from "./design-module/design-module.component";
+import { ProcesscontrolModuleComponent } from "./processcontrol-module/processcontrol-module.component";
 
 const AppRoutes: Routes = [
   { path: '', redirectTo: '/sales-module', pathMatch: 'full' },
@@ -25,6 +26,7 @@ const AppRoutes: Routes = [
   { path: 'customerView/:idx', component: CustomerViewComponent },
   { path: 'vendorView/:idx', component: vendorViewComponent },
   { path: 'design-module', component: DesignModuleComponent },
+  { path: 'processcontrol', component: ProcesscontrolModuleComponent}
 
 ];
 
