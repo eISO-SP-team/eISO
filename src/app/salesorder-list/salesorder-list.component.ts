@@ -55,30 +55,30 @@ export class SalesorderListComponent implements OnInit {
     });
   }
 
-  viewEnquiryPending(salesOrderListPending: Salesorder) {
+  viewEnquiryPending(salesOrderListPending) {
     console.log("In onViewDetail......" + JSON.stringify(salesOrderListPending));
     this.salesOrderService.selectedSalesOrderInService = salesOrderListPending;
-    this.router.navigate(['/vendorView', this.salesOrderListPending[0].salesorder_refNo]);
+    this.router.navigate(['/salesorderView', salesOrderListPending.id]);
   }
 
-  viewEnquiryCompleted(salesOrderListCompleted: Salesorder) {
+  viewEnquiryCompleted(salesOrderListCompleted) {
     console.log("In onViewDetail......" + JSON.stringify(salesOrderListCompleted));
     this.salesOrderService.selectedSalesOrderInService = salesOrderListCompleted;
-    this.router.navigate(['/vendorView', salesOrderListCompleted.salesorder_refNo]);
+    this.router.navigate(['/salesorderView', salesOrderListCompleted.id]);
   }
 
-  deleteEnquiry(enquiry: Salesorder) {
+  deleteEnquiry(enquiry) {
     console.log("Delete this enquiry......" + JSON.stringify(enquiry));
     let index = -1;
     for (let i = 0; i < this.salesOrderList.length; i++) {
-      if (this.salesOrderList[i].salesorder_refNo == enquiry.salesorder_refNo) {
+      if (this.salesOrderList[i].id == enquiry.id) {
         index = i;
         break;
       }
     }
     if (enquiry.salesorder_type == "Pending") {
       for (let i = 0; i < this.salesOrderList.length; i++) {
-        if (this.salesOrderListPending[i].salesorder_refNo == enquiry.salesorder_refNo) {
+        if (this.salesOrderListPending[i].id == enquiry.id) {
           this.salesOrderListPending.splice(i, 1);
         }
       }

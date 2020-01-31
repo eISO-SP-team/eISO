@@ -8,6 +8,7 @@ import { CustomerCreateComponent } from "./customer-create/customer-create.compo
 import { QuotationCreateComponent } from "./quotation-create/quotation-create.component";
 import { CustomerViewComponent } from './customer-view/customer-view.component';
 import { vendorViewComponent } from "./vendor-view/vendor-view.component";
+import { SalesorderViewComponent } from "./salesorder-view/salesorder-view.component";
 import { SalesorderCreateComponent } from "./salesorder-create/salesorder-create.component";
 
 const AppRoutes: Routes = [
@@ -20,6 +21,7 @@ const AppRoutes: Routes = [
   { path: 'salesorderCreate', component: SalesorderCreateComponent },
   { path: 'quotationView/:idx', component: QuotationViewComponent },
   { path: 'customerView/:idx', component: CustomerViewComponent },
+  { path: 'salesorderView/:idx', component: SalesorderViewComponent },
   { path: 'vendorView/:idx', component: vendorViewComponent },
 
 ];
