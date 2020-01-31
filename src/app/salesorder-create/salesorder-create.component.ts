@@ -44,6 +44,10 @@ export class SalesorderCreateComponent implements OnInit {
 
   newList: SelectItem[];
 
+  salesOrderList: any;
+
+  maxCount: any;
+
   constructor(public customerService: CustomerService, public salesOrderService: SalesorderService, public _location: Location) {
 
   }
@@ -55,7 +59,13 @@ export class SalesorderCreateComponent implements OnInit {
       this.newList = [];
       for (let i = 0; i < this.customerList.length; i++) {
         this.newList.push({ label: this.customerList[i].customer_name, value: this.customerList[i].id });
-      } 
+      }
+    });
+
+    this.salesOrderList = this.salesOrderService.loadSalesorder().subscribe(responseData => {
+      this.salesOrderService.salesOrderList = responseData.body;
+      this.salesOrderList = this.salesOrderService.salesOrderList;
+      this.maxCount = this.salesOrderService.salesOrderList.length;
     });
 
     this.addSalesOrderForm = new FormGroup({
@@ -69,6 +79,51 @@ export class SalesorderCreateComponent implements OnInit {
       "total": new FormControl(null, [Validators.required]),
       "deposit": new FormControl(null, [Validators.required]),
     })
+  }
+
+  onAddEnquiry() {
+    console.log(this.addSalesOrderForm.value.customer_id);
+    this.testEntry = {
+      "sales_order_id": this.maxCount + 1,
+      "sales_order_number": this.maxCount + 1,
+      "sales_order_date": this.addSalesOrderForm.value.date,
+      "customer_id": this.addSalesOrderForm.value.customer_id,
+      "subject": this.addSalesOrderForm.value.subject,
+      "tender_location": this.addSalesOrderForm.value.tenderLocation,
+      "quotation_number": this.addSalesOrderForm.value.quotation_number,
+      "status": "pending",
+      "total": this.addSalesOrderForm.value.total,
+      "deposit": this.addSalesOrderForm.value.deposit,
+      "pic": this.addSalesOrderForm.value.pic,
+      "pic_email": this.addSalesOrderForm.value.picEmail,
+      "created_by": "Jack",
+      "created_date": "2020-01-27T23:32:16.372Z",
+      "sales_order_details": {
+        "total_price": 150,
+        "approval": "not approved",
+        "type": "pdf",
+        "sales_ order_id": "201",
+        "created_by": "Jack",
+        "reference_type": "abc",
+        "prepared_by": "Jack",
+        "file": "report.pdf",
+        "line_number": "1",
+        "next_followup": "2019-11-26",
+        "updated_by": "Jack",
+        "reference_date": this.myDate,
+        "created_date": this.myDate,
+        "updated_date": this.myDate,
+        "status": "pending"
+      }
+    };
+    console.log(JSON.stringify(this.testEntry));
+    var data = JSON.stringify(this.testEntry);
+    this.salesOrderService.addSalesorder(data)
+      .subscribe((data) => {
+        console.log(data)
+        this.salesOrderService.salesOrderList.push(this.testEntry);
+      });
+    this._location.back();
   }
 
 }

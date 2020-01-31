@@ -7,14 +7,14 @@
 @import url("../src/app/customer-create/customer-create.component.css");
 
 body {
-    background-color: lightgray;
+    background-color: rgb(238, 238, 238);
 }
 
 .fieldset-bg {
     margin-top: 5px;
     border-radius: 25px;
     background-color: white;
-    border: grey 2px solid;
+    border: lightgray 2px solid;
 }
 
 .quotation_header {
