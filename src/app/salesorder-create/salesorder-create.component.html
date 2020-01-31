@@ -5,7 +5,7 @@
 
         <div class="ui-g-12">
             <div class="ui-g-6">
-                <h3>Add Sales Order</h3>
+                <h1>Add Sales Order</h1>
             </div>
             <div class="ui-g-6">
                 <button pButton type="button" style="float:right; position: relative;" class="ui-button-danger"
@@ -37,8 +37,8 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first">Customer Id</h3>
-                                <p-dropdown [formControlName]="'customer_id'" [virtualScroll]="true" [options]="newList" [(ngModel)]="newList"
-                                    placeholder="Select Customer">
+                                <p-dropdown [formControlName]="'customer_id'" [virtualScroll]="true" [options]="newList"
+                                    ngModel="customer" placeholder="Select Customer">
                                 </p-dropdown>
                             </span>
                             <span
@@ -54,8 +54,8 @@
                     <div class="ui-g-12 ui-md-12 ui-lg-4">
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Type</h3>
-                                <p-calendar [formControlName]="'date'"></p-calendar>
+                                <h3 class="first">Date</h3>
+                                <p-calendar placeholder="Click to Enter" [formControlName]="'date'"></p-calendar>
                             </span>
                             <span *ngIf="!addSalesOrderForm.get('date').valid && addSalesOrderForm.get('date').touched"
                                 class="help-block">
@@ -65,9 +65,8 @@
                         </div>
                     </div>
                 </div>
-
+                <h2>Project Details</h2>
                 <div class="fieldset-list ui-g-12">
-                    <h2>Project Details</h2>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <div class="ui-g-12">
                             <span class="ui-float-label">
@@ -120,8 +119,9 @@
                         </div>
                     </div>
                 </div>
+                <h2>Amount</h2>
                 <div class="fieldset-list ui-g-12">
-                    <h2>Amount</h2>
+
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <div class="ui-g-12">
                             <span class="ui-float-label">

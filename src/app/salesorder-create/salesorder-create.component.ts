@@ -71,4 +71,18 @@ export class SalesorderCreateComponent implements OnInit {
     })
   }
 
+  onAddEnquiry() {
+    this.testEntry = {
+      
+    };
+    console.log(JSON.stringify(this.testEntry));
+    var data = JSON.stringify(this.testEntry);
+    this.salesOrderService.addSalesorder(data)
+      .subscribe((data) => {
+        console.log(data)
+        this.salesOrderService.salesOrderList.push(this.testEntry);
+      });
+    this._location.back();
+  }
+  
 }
