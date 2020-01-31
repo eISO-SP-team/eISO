@@ -76,8 +76,8 @@ export class SalesorderListComponent implements OnInit {
         break;
       }
     }
-    if (enquiry.salesorder_type == "Pending") {
-      for (let i = 0; i < this.salesOrderList.length; i++) {
+    if (enquiry.status == "pending") {
+      for (let i = 0; i < this.salesOrderListPending.length; i++) {
         if (this.salesOrderListPending[i].id == enquiry.id) {
           this.salesOrderListPending.splice(i, 1);
         }
@@ -85,7 +85,7 @@ export class SalesorderListComponent implements OnInit {
 
     } else {
       for (let i = 0; i < this.salesOrderList.length; i++) {
-        if (this.salesOrderListCompleted[i].salesorder_refNo == enquiry.salesorder_refNo) {
+        if (this.salesOrderListCompleted[i].id == enquiry.id) {
           this.salesOrderListCompleted.splice(i, 1);
         }
       }
