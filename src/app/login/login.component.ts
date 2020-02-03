@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToggleDisplayService } from "../shared/service/toggle-display.service";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { Login } from "../shared/model/login.model";
+import { Login  } from "../shared/model/login.model";
 
 @Component({
   selector: 'app-login',
