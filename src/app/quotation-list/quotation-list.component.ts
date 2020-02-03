@@ -14,8 +14,9 @@ import { Router } from '@angular/router';
 
 export class QuotationListComponent implements OnInit {
 
-  quotationList: Quotation[] = [
-  ];
+  quotationList;
+
+  newlist;
 
   selectedValues: Quotation[] = [];
 
@@ -23,12 +24,7 @@ export class QuotationListComponent implements OnInit {
 
   selectQuotations: Quotation[];
 
-  items: MenuItem[];
-  items2: MenuItem[];
-
-  cols: any[];
-
-  constructor(private quotationService: QuotationService, private messageService: MessageService, public router: Router, ) {
+  constructor(private quotationService: QuotationService, public router: Router, ) {
 
     this.quotationService.getQuotationListener()
       .subscribe(newList => {
@@ -44,26 +40,10 @@ export class QuotationListComponent implements OnInit {
   }
 
   ngOnInit() {
-
-
-    this.items = [
-      { label: 'View', icon: 'pi pi-search', command: (event) => this.viewEnquiry(this.selectedQuotation) },
-      // { label: 'Delete', icon: 'pi pi-times', command: (event) => alert(delete this.selectedQuotation) }
-      // { label: 'View', icon: 'pi pi-search', command: (event) => this.viewCar(this.selectedQuotation) },
-      { label: 'Delete', icon: 'pi pi-times', command: (event) => this.deleteEnquiry(this.selectedQuotation) }
-    ];
-
-    this.items2 = [
-      {
-          label: 'Next',
-          icon: 'pi pi-fw pi-chevron-right'
-      },
-      {
-          label: 'Prev',
-          icon: 'pi pi-fw pi-chevron-left'
-      }
-  ];
-
+    this.newlist = this.quotationService.loadQuotation().subscribe(responseData => {
+      this.quotationService.quotationList = responseData.body;
+      this.quotationList = this.quotationService.quotationList;
+    });
   }
 
   viewEnquiry(quotationList: Quotation) {
@@ -72,15 +52,18 @@ export class QuotationListComponent implements OnInit {
     this.router.navigate(['/quotationView', quotationList.quotation_refNo]);
   }
 
-  deleteEnquiry(enquiry: Quotation) {
-    console.log("Delete this enquiry......" + JSON.stringify(enquiry));
-    let index = -1;
-    for (let i = 0; i < this.quotationList.length; i++) {
-      if (this.quotationList[i].quotation_refNo == enquiry.quotation_refNo) {
-        index = i;
-        break;
+  deleteEnquiry(enquiry) {
+    this.quotationService.deleteQuotation(enquiry.id).subscribe(() => {
+      console.log("Delete this enquiry......" + JSON.stringify(enquiry));
+      let index = -1;
+      for (let i = 0; i < this.quotationList.length; i++) {
+        if (this.quotationList[i].id == enquiry.id) {
+          index = i;
+          break;
+        }
       }
-    }
-    this.quotationList.splice(index, 1);
+      this.quotationList.splice(index, 1);
+    });
+
   }
 }

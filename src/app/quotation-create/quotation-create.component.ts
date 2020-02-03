@@ -1,10 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuItem, MessageService } from 'primeng/api';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Quotation } from "../shared/model/quotation.model";
 import { QuotationService } from "../shared/service/quotation.service";
-import { ToggleDisplayService } from "../shared/service/toggle-display.service";
-import {Location} from '@angular/common';
+import { VendorService } from "../shared/service/vendor.service";
+import { Location } from '@angular/common';
+import { SelectItem } from 'primeng/api'
+import { formatDate } from '@angular/common';
+
+interface supplier {
+  name: string;
+  value: string;
+}
 
 @Component({
   selector: 'app-quotation-create',
@@ -15,77 +21,102 @@ import {Location} from '@angular/common';
 })
 export class QuotationCreateComponent implements OnInit {
 
+  supplier: supplier[];
+
+  myDate = formatDate(new Date(), 'yyyy/MM/dd', 'en');
+
   uploadedFiles: any[] = [];
 
   addForm: FormGroup;
 
-  items: MenuItem[];
+  vendorList: any;
 
   activeIndex: number = 0;
 
-  constructor(private messageService: MessageService, public quotationService: QuotationService, public _location: Location) { }
+  newList: SelectItem[];
+
+  testEntry: any;
+
+  maxCount: any;
+  quotationList: any;
+
+  constructor(public quotationService: QuotationService, public vendorService: VendorService, public _location: Location) { }
 
   ngOnInit() {
-
+    this.quotationList = this.quotationService.loadQuotation().subscribe(responseData => {
+      this.quotationService.quotationList = responseData.body;
+      this.quotationList = this.quotationService.quotationList;
+      this.maxCount = this.quotationList.length;
+    });
+    this.vendorList = this.vendorService.loadVendors().subscribe(responseData => {
+      this.vendorService.vendorList = responseData;
+      this.vendorService.vendorList = this.vendorService.vendorList.body;
+      this.vendorList = this.vendorService.vendorList;
+      this.newList = [];
+      for (let i = 0; i < this.vendorList.length; i++) {
+        this.newList.push({ label: this.vendorList[i].vendor_name, value: this.vendorList[i].id });
+      }
+    });
     this.addForm = new FormGroup({
-      'date': new FormControl(null, [Validators.required]),
-      'companyName': new FormControl(null, [Validators.required]),
-      'contactPerson': new FormControl(null, [Validators.required]),
-      'address': new FormControl(null, [Validators.required]),
-      'telNo': new FormControl(null, [Validators.required]),
-      'email': new FormControl(null, [Validators.required, Validators.email]),
-      'fax': new FormControl(null, [Validators.required]),
-      'description': new FormControl(null, [Validators.required]),
-      'salesPerson': new FormControl(null, [Validators.required]),
-      'file': new FormControl(null),
-      'status': new FormControl(null),
+      'subject': new FormControl(null, [Validators.required]),
+      'tenderLocation': new FormControl(null, [Validators.required]),
+      'to': new FormControl(null, [Validators.required]),
+      'validity': new FormControl(null, [Validators.required]),
+      'attention': new FormControl(null, [Validators.required]),
+      'total': new FormControl(null, [Validators.required]),
+      'deposit': new FormControl(null, [Validators.required]),
+
     })
 
-    this.items = [{
-      label: 'Quotation',
-      command: (event: any) => {
-        this.activeIndex = 0;
-        this.messageService.add({ severity: 'info', summary: 'Quotation Details', detail: event.item.label });
-      }
-    },
-    {
-      label: 'Quotation',
-      command: (event: any) => {
-        this.activeIndex = 1;
-        this.messageService.add({ severity: 'info', summary: 'Quotation Quotation', detail: event.item.label });
-      }
-    },
-    {
-      label: 'Follow Up',
-      command: (event: any) => {
-        this.activeIndex = 2;
-        this.messageService.add({ severity: 'info', summary: 'Quotation Follow Up', detail: event.item.label });
-      }
-    },
-    // {
-    //   label: 'Award',
-    //   command: (event: any) => {
-    //     this.activeIndex = 3;
-    //     this.messageService.add({ severity: 'info', summary: 'ISO Award', detail: event.item.label });
-    //   }
-    // }
-    ];
+
   }
 
   onAddEnquiry() {
-    this.quotationService.addQuotation(new Quotation(
-      0,
-      this.addForm.value.date,
-      this.addForm.value.companyName,
-      this.addForm.value.contactPerson,
-      this.addForm.value.address,
-      this.addForm.value.telNo,
-      this.addForm.value.email,
-      this.addForm.value.fax,
-      this.addForm.value.description,
-      this.addForm.value.salesPerson,
-      // this.addForm.value.status,
-    ));
+    this.testEntry = {
+      "id": this.maxCount + 1,
+      "attention": this.addForm.value.attention,
+      "closing_remarks": "xyz",
+      "created_by": "Jack",
+      "created_date": this.myDate,
+      "deposit": this.addForm.value.deposit,
+      "opening_remarks": "abc",
+      "quotation_date": this.myDate,
+      "quotation_id": this.maxCount + 1,
+      "quotation_number": this.maxCount + 1,
+      "status": "pending",
+      "subject": this.addForm.value.subject,
+      "supplier_id": this.addForm.value.to,
+      "tender_location": this.addForm.value.tenderLocation,
+      "total": this.addForm.value.total,
+      "updated_by": "Jack",
+      "updated_date": this.myDate,
+      "validity": this.addForm.value.validity,
+      "quotation_details": {
+        "total_price": 90,
+        "quotation_id": "123",
+        "approval": "approved",
+        "quotation_line_id": "001",
+        "type": "Docx",
+        "created_by": "Jack",
+        "reference_type": "abc",
+        "prepared_by": "Jack",
+        "file": "quotation.docx",
+        "line_number": 1,
+        "next_followup": "2019-11-26",
+        "updated_by": "Jack",
+        "reference_date": "2019-11-26",
+        "created_date": "2019-11-26",
+        "updated_date": "2019-11-26",
+        "status": "Approved"
+      }
+    }
+    console.log(JSON.stringify(this.testEntry.supplier_id));
+    var data = JSON.stringify(this.testEntry);
+    this.quotationService.addQuotations(data)
+      .subscribe((data) => {
+        console.log(data)
+        this.quotationService.quotationList.push(this.testEntry);
+      });
     this._location.back();
   }
 
@@ -94,5 +125,5 @@ export class QuotationCreateComponent implements OnInit {
       this.uploadedFiles.push(file);
     }
   }
-  
+
 }

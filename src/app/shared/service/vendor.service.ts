@@ -12,10 +12,12 @@ export class VendorService {
 
   selectedVendornService: Vendor;
 
-  vendorList: Vendor[] = [
+  vendorList:any;
+
+  // vendorList: Vendor[] = [
     // new Vendor(1, "MacDonalds", "Pending", "Food", "TS2951", "DK", "Singapore", "892231", "", "", "Mr", "Ong", "Yi", "Kang", "ongyikang@mail.com", "87654321", "", "87654320",""),
     // new Vendor(2, "KFC", "Approved", "Food", "TS2951", "DK", "Singapore", "892231", "", "", "Mr", "Ong", "Yi", "Kang", "ongyikang@mail.com", "87654321", "", "87654320",""),
-  ];
+  // ];
 
 
   constructor(public http: HttpClient) {

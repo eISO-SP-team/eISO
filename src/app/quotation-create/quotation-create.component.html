@@ -12,113 +12,100 @@
                     (click)="this._location.back()" label="Cancel"></button>
             </div>
         </div>
-        <form [formGroup]="addForm"
-            (ngSubmit)="onAddEnquiry(date,address,email,description,companyName,telNo,fax,salesPerson)">
+        <form [formGroup]="addForm" (ngSubmit)="onAddEnquiry()">
             <div class="ui-g">
-                <!--Left column-->
+                <div style=" overflow: visible;" class="fieldset-list ui-g-12">
+                    <!--Left column-->
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
+                        <div class="ui-g-12">
+                            <span class="ui-float-label">
+                                <h3 class="first">Subject</h3>
+                                <input type="text" pInputText [formControlName]="'subject'" />
+                            </span>
+
+                            <span *ngIf="!addForm.get('subject').valid && addForm.get('subject').touched"
+                                class="help-block">
+                                <span>
+                                    <p-message *ngIf="addForm.get('subject').errors['required']" severity="error"
+                                        text="This field is required!"></p-message>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="ui-g-12">
+                            <span class="ui-float-label">
+                                <h3 class="first">To</h3>
+                                <p-dropdown [formControlName]="'to'" [virtualScroll]="true" [options]="newList"
+                                    ngModel='supplier' placeholder="Select Supplier">
+                                </p-dropdown>
+                            </span>
+                            <span *ngIf="!addForm.get('to').valid && addForm.get('to').touched" class="help-block">
+                                <p-message *ngIf="addForm.get('to').errors['required']" severity="error"
+                                    text="This field is required!"></p-message>
+                            </span>
+                        </div>
+                        <div class="ui-g-12">
+                            <span class="ui-float-label">
+                                <h3 class="first">Attention</h3>
+                                <input type="text" pInputText [formControlName]="'attention'" />
+                            </span>
+                            <span *ngIf="!addForm.get('attention').valid && addForm.get('attention').touched"
+                                class="help-block">
+                                <p-message *ngIf="addForm.get('attention').errors['required']" severity="error"
+                                    text="This field is required!"></p-message>
+                            </span>
+                        </div>
+                    </div>
+                    <!--Right column-->
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
+                        <div class="ui-g-12">
+                            <span class="ui-float-label">
+                                <h3 class="first">Tender Location</h3>
+                                <input type="text" pInputText [formControlName]="'tenderLocation'" />
+                            </span>
+                            <span *ngIf="!addForm.get('tenderLocation').valid && addForm.get('tenderLocation').touched"
+                                class="help-block">
+                                <p-message *ngIf="addForm.get('tenderLocation').errors['required']" severity="error"
+                                    text="This field is required!"></p-message>
+                            </span>
+                        </div>
+                        <div class="ui-g-12">
+                            <span class="ui-float-label">
+                                <h3 class="first">Validity</h3>
+                                <input type="text" pInputText [formControlName]="'validity'" />
+                            </span>
+                            <span *ngIf="!addForm.get('validity').valid && addForm.get('validity').touched"
+                                class="help-block">
+                                <p-message *ngIf="addForm.get('validity').errors['required']" severity="error"
+                                    text="This field is required!"></p-message>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h2>Amount</h2>
+            <div class="fieldset-list ui-g-12">
+
                 <div class="ui-g-12 ui-md-12 ui-lg-6">
                     <div class="ui-g-12">
                         <span class="ui-float-label">
-                            <h3 class="first">Date</h3>
-                            <input type="date" pInputText [formControlName]="'date'" />
+                            <h3 class="first">Total</h3>
+                            <input type="text" pInputText [formControlName]="'total'" />
                         </span>
-
-                        <span *ngIf="!addForm.get('date').valid && addForm.get('date').touched" class="help-block">
-                            <span>
-                                <p-message *ngIf="addForm.get('date').errors['required']" severity="error"
-                                    text="This field is required!"></p-message>
-                            </span>
-                        </span>
-                    </div>
-                    <div class="ui-g-12">
-                        <span class="ui-float-label">
-                            <h3 class="first">Address</h3>
-                            <input type="text" pInputText [formControlName]="'address'" />
-                        </span>
-                        <span *ngIf="!addForm.get('address').valid && addForm.get('address').touched"
-                            class="help-block">
-                            <p-message *ngIf="addForm.get('address').errors['required']" severity="error"
-                                text="This field is required!"></p-message>
-                        </span>
-                    </div>
-                    <div class="ui-g-12">
-                        <span class="ui-float-label">
-                            <h3 class="first">Email</h3>
-                            <input type="text" pInputText [formControlName]="'email'" />
-                        </span>
-                        <span *ngIf="!addForm.get('email').valid && addForm.get('email').touched" class="help-block">
-                            <p-message *ngIf="addForm.get('email').errors['required']" severity="error"
-                                text="This field is required!"></p-message>
-                            <p-message
-                                *ngIf="!addForm.get('email').errors['required'] && addForm.get('email').errors['email']"
-                                severity="error" text="Invalid email!"></p-message>
-                        </span>
-                    </div>
-                    <div class="ui-g-12">
-                        <span class="ui-float-label">
-                            <h3 class="first">Description</h3>
-                            <textarea [rows]="9" pInputTextarea autoResize="autoResize"
-                                [formControlName]="'description'"></textarea>
-                        </span>
-                        <span *ngIf="!addForm.get('description').valid && addForm.get('description').touched"
-                            class="help-block">
-                            <p-message *ngIf="addForm.get('description').errors['required']" severity="error"
+                        <span *ngIf="!addForm.get('total').valid && addForm.get('total').touched" class="help-block">
+                            <p-message *ngIf="addForm.get('total').errors['required']" severity="error"
                                 text="This field is required!"></p-message>
                         </span>
                     </div>
                 </div>
-                <!--Right column-->
                 <div class="ui-g-12 ui-md-12 ui-lg-6">
                     <div class="ui-g-12">
                         <span class="ui-float-label">
-                            <h3 class="first">Customer Name</h3>
-                            <input type="text" pInputText [formControlName]="'companyName'" />
+                            <h3 class="first">Deposit</h3>
+                            <input type="text" pInputText [formControlName]="'deposit'" />
                         </span>
-                        <span *ngIf="!addForm.get('companyName').valid && addForm.get('companyName').touched"
+                        <span *ngIf="!addForm.get('deposit').valid && addForm.get('deposit').touched"
                             class="help-block">
-                            <p-message *ngIf="addForm.get('companyName').errors['required']" severity="error"
-                                text="This field is required!"></p-message>
-                        </span>
-                    </div>
-                    <div class="ui-g-12">
-                        <span class="ui-float-label">
-                            <h3 class="first">Contact Person</h3>
-                            <input type="text" pInputText [formControlName]="'contactPerson'" />
-                        </span>
-                        <span *ngIf="!addForm.get('contactPerson').valid && addForm.get('contactPerson').touched"
-                            class="help-block">
-                            <p-message *ngIf="addForm.get('contactPerson').errors['required']" severity="error"
-                                text="This field is required!"></p-message>
-                        </span>
-                    </div>
-                    <div class="ui-g-12">
-                        <span class="ui-float-label">
-                            <h3 class="first">Tel No</h3>
-                            <input type="text" pInputText [formControlName]="'telNo'" />
-                        </span>
-                        <span *ngIf="!addForm.get('telNo').valid && addForm.get('telNo').touched" class="help-block">
-                            <p-message *ngIf="addForm.get('telNo').errors['required']" severity="error"
-                                text="This field is required!"></p-message>
-                        </span>
-                    </div>
-                    <div class="ui-g-12">
-                        <span class="ui-float-label">
-                            <h3 class="first">Fax</h3>
-                            <input type="text" pInputText [formControlName]="'fax'" />
-                        </span>
-                        <span *ngIf="!addForm.get('fax').valid && addForm.get('fax').touched" class="help-block">
-                            <p-message *ngIf="addForm.get('fax').errors['required']" severity="error"
-                                text="This field is required!"></p-message>
-                        </span>
-                    </div>
-                    <div class="ui-g-12">
-                        <span class="ui-float-label">
-                            <h3 class="first">Sub Person</h3>
-                            <input type="text" pInputText [formControlName]="'salesPerson'" />
-                        </span>
-                        <span *ngIf="!addForm.get('salesPerson').valid && addForm.get('salesPerson').touched"
-                            class="help-block">
-                            <p-message *ngIf="addForm.get('salesPerson').errors['required']" severity="error"
+                            <p-message *ngIf="addForm.get('deposit').errors['required']" severity="error"
                                 text="This field is required!"></p-message>
                         </span>
                     </div>
