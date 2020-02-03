@@ -90,7 +90,10 @@ export class SalesorderListComponent implements OnInit {
         }
       }
     }
-
+    console.log(this.salesOrderList[index].id);
+    this.salesOrderService.deleteSalesorder(this.salesOrderList[index].id).subscribe(()=>{
+      console.log("Deleted");
+    });
     this.salesOrderList.splice(index, 1);
   }
 }
