@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LoginComponent } from "./login/login.component";
 import { SalesModuleComponent } from "./sales-module/sales-module.component";
 import { ProcurementModuleComponent } from "./procurement-module/procurement-module.component";
 import { QuotationViewComponent } from './quotation-view/quotation-view.component';
@@ -15,6 +16,7 @@ import { ProcesscontrolModuleComponent } from "./processcontrol-module/processco
 
 const AppRoutes: Routes = [
   { path: '', redirectTo: '/sales-module', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
   { path: 'sales-module', component: SalesModuleComponent },
   { path: 'procurement-module', component: ProcurementModuleComponent },
   { path: 'customerCreate', component: CustomerCreateComponent },
