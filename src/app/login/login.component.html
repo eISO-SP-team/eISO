@@ -1,18 +1,20 @@
 <html class="no-focus">
 
 <link rel="stylesheet" href="../../assets/css/gStyles.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,400i,600,700&display=swap">
+<!-- <link rel="stylesheet" href="login.component.css"> -->
 
-<main id="main-container">
+<main id="main-container nFont">
 
     <div class="bg-image" style="background-image: url('assets/img/picture 3.jpg');">
         <div class="row mx-0 bg-black-op">
             <div class="hero-static col-md-6 col-xl-8 d-none d-md-flex align-items-md-end">
-                <div class="p-30 invisible" data-toggle="appear">
-                    <p class="font-size-h3 font-w600 text-white">
-                        Get Inspired and Create.
+                <div class="p-30" data-toggle="appear">
+                    <p class="font-size-h3 font-w600 text-white nFont">
+                        Be Efficient. Be Productive.
                     </p>
-                    <p class="font-italic text-white-op">
-                        Copyright &copy; <span class="js-year-copy"></span>
+                    <p class="font-italic text-white-op nFont">
+                        Copyright &copy; Associates Consulting Pte. Ltd <span class="js-year-copy"></span>
                     </p>
                 </div>
             </div>
@@ -23,17 +25,19 @@
                 <div class="content content-full">
                     <!-- header -->
                     <div class="px-30 py-10">
-                        <a class="link-effect font-w700" href="index.html">
-                            <i class="si si-fire"></i>
-                            <span class="font-size-xl text-primary-dark">e</span><span class="font-size-xl">ISO</span>
+                        <a class="link-effect " href="index.html">
+                            <!-- <i class="si si-fire"></i> -->
+                            <span class="font-size-xl text-primary-dark font-w700 ">e</span><span class="font-size-xl font-w700 ISO">ISO</span>
+                            <p class=" management text-primary-dark nFont "> Management System</p>
+                            <!-- <p class="font-size-xl text-primary-dark nFont system"> </p> -->
                         </a>
-                        <h1 class="h3 font-w700 mt-30 mb-10">Welcome to Your Dashboard</h1>
+                        <h1 class="h3 font-w700 mt-30 mb-10 nFont">Welcome!</h1>
                         <h2 class="h5 font-w400 text-muted mb-0">Please sign in</h2>
                     </div>
                     <!-- end of header -->
 
                     <!-- start of form -->
-                    <form [formGroup]="loginForm" (ngSubmit)="onLogin(username,password)" class="px-30">
+                    <form [formGroup]="loginForm" (ngSubmit)="onLogin(username,password)" class="px-30 nFont">
 
                         <!-- Username -->
                         <div id="formContent" class="form-group row">

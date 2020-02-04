@@ -29,6 +29,10 @@ body {
   background-color: #f0f2f5;
 }
 
+.nFont {
+  font-family: "Nunito Sans";
+}
+
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
 }
@@ -23583,3 +23587,5 @@ div.tagsinput span.tag a:hover {
 .chat-list-item:last-child {
   border-bottom: none;
 }
+
+
