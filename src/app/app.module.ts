@@ -51,6 +51,7 @@ import { DesignModuleComponent } from './design-module/design-module.component';
 import { PurchaseRequisitionListComponent } from './purchase-requisition-list/purchase-requisition-list.component';
 import { PurchaseRequisitionCreateComponent } from './purchase-requisition-create/purchase-requisition-create.component';
 import { PurchaseRequisitionViewComponent } from './purchase-requisition-view/purchase-requisition-view.component';
+import { DesignModuleCreateComponent } from './design-module-create/design-module-create.component';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { PurchaserequisitionService } from './shared/service/purchaserequisition.service';
@@ -91,6 +92,7 @@ import { ProcesscontrolCreateComponent } from './processcontrol-create/processco
     PurchaseRequisitionViewComponent,
     ProcessControlModuleComponent,
     ProcesscontrolCreateComponent,
+    DesignModuleCreateComponent,
   ],
   imports: [
     BrowserModule,
