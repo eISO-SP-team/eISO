@@ -1,1 +1,115 @@
-<p>purchase-requisition-view works!</p>
+<div class="ui-g">
+    <div class="ui-g rcorners2">
+
+        <div class="ui-g-12">
+            <div class="ui-g-6">
+                <h3>View Purchase Requisition</h3>
+            </div>
+            <div class="ui-g-6">
+                <button pButton type="button" style="float:right; position: relative;" class="ui-button-danger"
+                    (click)="this._location.back()" label="Cancel"></button>
+            </div>
+        </div>
+        <form [formGroup]="addRequisitionForm" (ngSubmit)="onAddEnquiry()">
+            <div class="ui-g">
+                <div class="fieldset-list ui-g-12" style="overflow: visible;">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
+                        <div class="ui-g-12">
+                            <span class="ui-float-label">
+                                <h3 class="first">Supplier Name</h3>
+                                <p-dropdown placeholder="Select a Supplier" [formControlName]="'supplier_id'"
+                                    [virtualScroll]="true" [(ngModel)]="newSupplier_id" [options]="newList">
+                                </p-dropdown>
+                            </span>
+                            <span
+                                *ngIf="!addRequisitionForm.get('supplier_id').valid && addRequisitionForm.get('supplier_id').touched"
+                                class="help-block">
+                                <span>
+                                    <p-message *ngIf="addRequisitionForm.get('supplier_id').errors['required']"
+                                        severity="error" text="This field is required!"></p-message>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="ui-g-12">
+                            <span class="ui-float-label">
+                                <h3 class="first">Description</h3>
+                                <input type="text" [(ngModel)]="newDescription" pInputText
+                                    [formControlName]="'description'" />
+                            </span>
+                            <span
+                                *ngIf="!addRequisitionForm.get('description').valid && addRequisitionForm.get('description').touched"
+                                class="help-block">
+                                <span>
+                                    <p-message *ngIf="addRequisitionForm.get('description').errors['required']"
+                                        severity="error" text="This field is required!"></p-message>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
+                        <div class="ui-g-12">
+                            <span class="ui-float-label">
+                                <h3 class="first">Requestor</h3>
+                                <input type="text" [(ngModel)]="newRequestor" pInputText
+                                    [formControlName]="'requestor'" />
+                            </span>
+                            <span
+                                *ngIf="!addRequisitionForm.get('requestor').valid && addRequisitionForm.get('requestor').touched"
+                                class="help-block">
+                                <p-message *ngIf="addRequisitionForm.get('requestor').errors['required']"
+                                    severity="error" text="This field is required!"></p-message>
+                            </span>
+                        </div>
+                        <div class="ui-g-12">
+                            <span class="ui-float-label">
+                                <h3 class="first">Terms</h3>
+                                <input type="text" [(ngModel)]="newTerms" pInputText [formControlName]="'terms'" />
+                            </span>
+                            <span
+                                *ngIf="!addRequisitionForm.get('terms').valid && addRequisitionForm.get('terms').touched"
+                                class="help-block">
+                                <p-message *ngIf="addRequisitionForm.get('terms').errors['required']" severity="error"
+                                    text="This field is required!"></p-message>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fieldset-list ui-g-12">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
+                        <div class="ui-g-12">
+                            <span class="ui-float-label">
+                                <h3 class="first">Total</h3>
+                                <input type="text" [(ngModel)]="newTotal" pInputText [formControlName]="'total'" />
+                            </span>
+                            <span
+                                *ngIf="!addRequisitionForm.get('total').valid && addRequisitionForm.get('total').touched"
+                                class="help-block">
+                                <p-message *ngIf="addRequisitionForm.get('total').errors['required']" severity="error"
+                                    text="This field is required!"></p-message>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
+                        <div class="ui-g-12">
+                            <span class="ui-float-label">
+                                <h3 class="first">Currency</h3>
+                                <input type="text" [(ngModel)]="newCurrency" pInputText
+                                    [formControlName]="'currency'" />
+                            </span>
+                            <span
+                                *ngIf="!addRequisitionForm.get('currency').valid && addRequisitionForm.get('currency').touched"
+                                class="help-block">
+                                <p-message *ngIf="addRequisitionForm.get('currency').errors['required']"
+                                    severity="error" text="This field is required!"></p-message>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g-12">
+                <button pButton [disabled]="!addRequisitionForm.valid" type="submit" label="Save Edit"></button>
+            </div>
+        </form>
+    </div>
+</div>

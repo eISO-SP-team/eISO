@@ -64,6 +64,5 @@ export class QuotationListComponent implements OnInit {
       }
       this.quotationList.splice(index, 1);
     });
-
   }
 }

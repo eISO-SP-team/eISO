@@ -17,6 +17,7 @@ interface supplier {
   styleUrls: ['./purchase-requisition-create.component.css']
 })
 export class PurchaseRequisitionCreateComponent implements OnInit {
+  testList: any;
 
   constructor(public purchaseRequisitionService: PurchaserequisitionService, public vendorService: VendorService, public _location: Location) { }
 
@@ -41,14 +42,55 @@ export class PurchaseRequisitionCreateComponent implements OnInit {
   maxCount: any;
 
   ngOnInit() {
+    this.testList = this.purchaseRequisitionService.loadPurchaserequisitions().subscribe(responseData => {
+      this.purchaseRequisitionService.purchaserequisitionList = (<any>responseData).body;
+      this.requisitionList = this.purchaseRequisitionService.purchaserequisitionList;
+      this.maxCount = this.requisitionList.length;
+    });
+
     this.supplierList = this.vendorService.loadVendors().subscribe(responseData => {
       this.vendorService.vendorList = (<any>responseData).body;
       this.supplierList = this.vendorService.vendorList;
       this.newList = [];
-      for (let i = 0; i < this.requisitionList.length; i++) {
-        this.newList.push({ label: this.supplierList[i].vendor_name, value: this.supplierList[i].supplier_id });
+
+      for (let i = 0; i < this.supplierList.length; i++) {
+        this.newList.push({ label: this.supplierList[i].vendor_name, value: this.supplierList[i].id });
       }
     });
+    this.addRequisitionForm = new FormGroup({
+      'supplier_id': new FormControl(null, [Validators.required]),
+      'requestor': new FormControl(null, [Validators.required]),
+      "description": new FormControl(null, [Validators.required]),
+      "terms": new FormControl(null, [Validators.required]),
+      "total": new FormControl(null, [Validators.required]),
+      "currency": new FormControl(null, [Validators.required]),
+    })
   }
 
+  onAddEnquiry() {
+    this.testEntry = {
+      "currency": this.addRequisitionForm.value.currency,
+      "description": this.addRequisitionForm.value.description,
+      "pr_date": this.myDate,
+      "pr_number": this.maxCount + 1,
+      "requester": this.addRequisitionForm.value.requestor,
+      "requisition_id": this.maxCount + 1,
+      "status": "pending",
+      "supplier_id": this.addRequisitionForm.value.supplier_id,
+      "terms": this.addRequisitionForm.value.terms,
+      "total": this.addRequisitionForm.value.total,
+      "uploaded_date": this.myDate,
+      "uploaded_by": "Jack",
+      "created_by": "Jack",
+      "created_date": this.myDate,
+    };
+    // console.log(JSON.stringify(this.testEntry));
+    var data = JSON.stringify(this.testEntry);
+    this.purchaseRequisitionService.addPurchaserequisition(data)
+      .subscribe((data) => {
+        // console.log(data)
+        this.purchaseRequisitionService.purchaserequisitionList.push(this.testEntry);
+      });
+    this._location.back();
+  }
 }
