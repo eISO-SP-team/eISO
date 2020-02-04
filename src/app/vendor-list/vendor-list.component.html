@@ -5,7 +5,7 @@
         <h2 style="align-content: center;">VENDORS</h2>
     </div>
     <div class="ui-g-6">
-        <p-button icon="pi pi-plus" iconPos="right" label="Add New Vendor"
+        <p-button style icon="pi pi-plus" iconPos="right" label="Add New Vendor"
             (click)="this.router.navigate(['/vendorCreate'])"></p-button>
     </div>
 </div>
@@ -26,9 +26,6 @@
                     {{vendor.vendor_prefix}} {{vendor.vendor_contact[0].first_name}}
                     {{vendor.vendor_contact[0].middle_name}}
                     {{vendor.vendor_contact[0].last_name}}
-                    <!-- {{vendor.vendor_name}} ({{vendor.vendor_refNo}})<br>
-                    {{vendor.vendor_prefix}} {{vendor.vendor_firstName}} {{vendor.vendor_middleName}}
-                    {{vendor.vendor_lastName}} -->
                 </div>
                 <div class="ui-g-2" style="align-content: center;">
                     <button pButton type="button" icon="pi pi-search"

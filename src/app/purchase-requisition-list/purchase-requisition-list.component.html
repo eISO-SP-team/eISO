@@ -1,0 +1,58 @@
+<div class="ui-g-12">
+    <div class="ui-g-6">
+        <h2 style="align-content: center;">Purchase Requisition</h2>
+    </div>
+    <div class="ui-g-6">
+        <p-button icon="pi pi-plus" iconPos="right" label="Add New Requisiton"
+            (click)="this.router.navigate(['/requisitionCreate'])"></p-button>
+    </div>
+</div>
+<div class="ui-g-12">
+
+    <p-dataView [value]="requisitionList" #gg class="ui-dataview" [paginator]="true" filterBy="requestor,pr_number"
+        [rows]="10">
+        <p-header>
+            <div class="ui-helper-clearfix">
+                <div class="ui-g">
+                    <div class="ui-g-12 ui-md-4">
+
+                    </div>
+                    <div class="ui-g-6 ui-md-4 filter-container">
+                        <div style="position:relative">
+                            <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                            <input type="text" pInputText placeholder="Global Filter"
+                                (input)="gg.filter($event.target.value)" style="width:auto">
+                        </div>
+                    </div>
+                    <div class="ui-g-6 ui-md-4" style="text-align:right">
+
+                    </div>
+                </div>
+            </div>
+        </p-header>
+        <p-footer>
+        </p-footer>
+        <ng-template let-requisitionList pTemplate="listItem">
+            <div class="ui-dataview-content">
+                <div class="ui-g-12">
+                    <div class="ui-g-2" style="align-content: center;">
+                        <img src="../../assets/delete.png" (click)="deleteEnquiry(this.requisitionList)" width="30px"
+                            height="30px" alt="Logo">
+                    </div>
+                    <div class="ui-g-4">
+                        <p class="list_header">{{requisitionList.requester}}</p><br />
+                        {{requisitionList.pr_number}}
+                    </div>
+                    <div class="ui-g-4">
+                        <p class="list_header" style="text-align: right;">{{requisitionList.status}}</p>
+                        <br />
+                    </div>
+                    <div class="ui-g-2" style="align-content: center;">
+                        <button pButton type="button" icon="pi pi-search" (click)="viewEnquiry(this.requisitionList)"
+                            style="margin-top:0"></button>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-dataView>
+</div>

@@ -24,9 +24,9 @@ export class vendorListComponent implements OnInit {
 
   vendorsTest: any;
 
-  index:any;
+  index: any;
 
-  confirmDelete : boolean;
+  confirmDelete: boolean;
 
   constructor(public vendorService: VendorService, public router: Router, ) {
 
@@ -34,18 +34,24 @@ export class vendorListComponent implements OnInit {
       .subscribe(newList => {
         console.log("listener triggered");
         console.log(newList);
+
         //listens the listener in the service, whenever the code 
         //this.enquirySubject.next(this.quotationList); runs, the subscribe will be triggered and will receive the 
         //new list that is being passed in
-        this.vendorList = newList;
-        for (let i = 0; i < this.vendorList.length; i++) {
-          if (this.vendorList[i].vendor_type == "Pending") {
-            this.vendorListPending.push(this.vendorList[i])
-          } else {
-            this.vendorListApproved.push(this.vendorList[i])
+        if (newList == undefined) {
+          console.log("newList has nothing please fix");
+        } else {
+          this.vendorList = newList;
+          for (let i = 0; i < this.vendorList.length; i++) {
+            if (this.vendorList[i].vendor_type == "Pending") {
+              this.vendorListPending.push(this.vendorList[i])
+            } else {
+              this.vendorListApproved.push(this.vendorList[i])
+            }
           }
+          console.log(newList);
         }
-        console.log(newList);
+
       });
 
   }
@@ -70,6 +76,7 @@ export class vendorListComponent implements OnInit {
   }
 
   deleteEnquiry(enquiry) {
+
     console.log("Delete this enquiry......" + JSON.stringify(enquiry.id));
     this.vendorService.deleteVendor(enquiry.id).subscribe(() => {
       for (let i = 0; i < this.testList.length; i++) {
@@ -80,9 +87,9 @@ export class vendorListComponent implements OnInit {
       }
       this.testList.splice(this.index, 1);
       console.log('Vendor with id: ' + enquiry.id + ' has been deleted');
-  });
+    });
 
-}
+  }
 
 
 }
