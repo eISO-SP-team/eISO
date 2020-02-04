@@ -13,12 +13,6 @@ export class QuotationService {
   selectedQuotationInService:any;
 
   quotationList: any;
-  // quotationList: Quotation[] = [
-  //   new Quotation(31, "Project 101", "Skubbs", "99 Kaki Bukit Avenue 1", "Mr Cucumber", "invalid","julious@im.skubbs.com", "1000", "500","Draft"),
-  //   new Quotation(30, "Project X", "SP", "Avenue 1", "Mr Cucumber", "valid","abc@mail.com", "10000", "0","Approved"),
-  //   new Quotation(29, "Project Z", "ST Engineer", "Avenue 2", "Mr Lettuce", "invalid","xyz@mail.com", "300", "10","Pending"),
-  //   new Quotation(28, "Project Y", "Singtel", "Avenue 3", "Mr Tomato", "pending","123@mail.com", "500", "10","Draft"),
-  // ];
 
   constructor(public http: HttpClient) {
     this.quotationSubject = new BehaviorSubject<any[]>(this.quotationList);

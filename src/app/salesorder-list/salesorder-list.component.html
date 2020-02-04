@@ -1,6 +1,6 @@
 <div class="ui-g-12">
     <div class="ui-g-12 ui-md-12 ui-lg-6">
-        Sales Order Dashboard
+        Pending Sales Order Dashboard
         <p>
             <p-button icon="pi pi-plus" iconPos="right" label="Add New Sales Order"
                 (click)="this.router.navigate(['/salesorderCreate'])"></p-button>
@@ -57,7 +57,7 @@
     </div>
     <div class="ui-g-12 ui-md-12 ui-lg-6">
         Completed Sales Order Dashboard
-        <div style="margin-top: 65px;"></div>
+        <div style="margin-top: 35px;"></div>
         <p-dataView [value]="salesOrderListCompleted2" #soc class="ui-dataview" filterBy="subject,pic" [paginator]="true" [rows]="3">
             <p-header>
                 <div class="ui-helper-clearfix">
