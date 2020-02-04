@@ -15,6 +15,7 @@ import { DesignModuleComponent } from "./design-module/design-module.component";
 import { ProcesscontrolModuleComponent } from "./processcontrol-module/processcontrol-module.component";
 import { PurchaseRequisitionCreateComponent } from './purchase-requisition-create/purchase-requisition-create.component';
 import { PurchaseRequisitionViewComponent } from './purchase-requisition-view/purchase-requisition-view.component';
+import { DesignModuleCreateComponent } from './design-module-create/design-module-create.component';
 
 const AppRoutes: Routes = [
   { path: '', redirectTo: '/sales-module', pathMatch: 'full' },
@@ -22,6 +23,7 @@ const AppRoutes: Routes = [
   { path: 'sales-module', component: SalesModuleComponent },
   { path: 'procurement-module', component: ProcurementModuleComponent },
   { path: 'customerCreate', component: CustomerCreateComponent },
+  { path: 'designCreate', component: DesignModuleCreateComponent },
   { path: 'quotationCreate', component: QuotationCreateComponent },
   { path: 'vendorCreate', component: vendorCreateComponent },
   { path: 'salesorderCreate', component: SalesorderCreateComponent },

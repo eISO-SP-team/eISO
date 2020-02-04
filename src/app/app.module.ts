@@ -52,6 +52,7 @@ import { ProcesscontrolModuleComponent } from './processcontrol-module/processco
 import { PurchaseRequisitionListComponent } from './purchase-requisition-list/purchase-requisition-list.component';
 import { PurchaseRequisitionCreateComponent } from './purchase-requisition-create/purchase-requisition-create.component';
 import { PurchaseRequisitionViewComponent } from './purchase-requisition-view/purchase-requisition-view.component';
+import { DesignModuleCreateComponent } from './design-module-create/design-module-create.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import { PurchaseRequisitionViewComponent } from './purchase-requisition-view/pu
     PurchaseRequisitionListComponent,
     PurchaseRequisitionCreateComponent,
     PurchaseRequisitionViewComponent,
+    DesignModuleCreateComponent,
   ],
   imports: [
     BrowserModule,
