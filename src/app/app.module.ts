@@ -11,7 +11,7 @@ import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
 import { ContextMenuModule } from 'primeng/contextmenu';
 import { DataViewModule } from 'primeng/dataview';
-import {CalendarModule} from 'primeng/calendar';
+import { CalendarModule } from 'primeng/calendar';
 import { TableModule } from 'primeng/table';
 import { CheckboxModule } from 'primeng/checkbox';
 import { StepsModule } from 'primeng/steps';
@@ -53,6 +53,12 @@ import { PurchaseRequisitionListComponent } from './purchase-requisition-list/pu
 import { PurchaseRequisitionCreateComponent } from './purchase-requisition-create/purchase-requisition-create.component';
 import { PurchaseRequisitionViewComponent } from './purchase-requisition-view/purchase-requisition-view.component';
 import { DesignModuleCreateComponent } from './design-module-create/design-module-create.component';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
+import { PurchaserequisitionService } from './shared/service/purchaserequisition.service';
+import { SalesorderService } from './shared/service/salesorder.service';
+import { DesignService } from './shared/service/design.service';
+import { DeliveryService } from './shared/service/delivery.service';
 
 @NgModule({
   declarations: [
@@ -88,6 +94,7 @@ import { DesignModuleCreateComponent } from './design-module-create/design-modul
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ConfirmDialogModule,
     InputTextModule,
     PasswordModule,
     FormsModule,
@@ -108,7 +115,7 @@ import { DesignModuleCreateComponent } from './design-module-create/design-modul
     MessagesModule,
     HttpClientModule,
   ],
-  providers: [QuotationService, CustomerService, VendorService, MessageService, ToggleDisplayService],
+  providers: [QuotationService, PurchaserequisitionService, SalesorderService, DesignService, DeliveryService, CustomerService, VendorService, MessageService, ConfirmationService, ToggleDisplayService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

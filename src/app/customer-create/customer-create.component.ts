@@ -3,6 +3,8 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { CustomerService } from "../shared/service/customer.service";
 import { Location } from '@angular/common';
 import { formatDate } from '@angular/common';
+import { ConfirmationService, Message } from 'primeng/api'
+
 
 interface Type {
   name: string;
@@ -15,6 +17,8 @@ interface Type {
   styleUrls: ['./customer-create.component.css']
 })
 export class CustomerCreateComponent implements OnInit {
+
+  msgs: Message[] = [];
 
   type: Type[];
 
@@ -32,7 +36,7 @@ export class CustomerCreateComponent implements OnInit {
 
   myDate = formatDate(new Date(), 'yyyy/MM/dd', 'en');
 
-  constructor(public customerService: CustomerService, public _location: Location) {
+  constructor(public customerService: CustomerService, public _location: Location, private confirmationService: ConfirmationService) {
     this.type = [
       { name: 'Customer', value: 'Customer' },
       { name: 'Prospect', value: 'Prospect' },
@@ -112,5 +116,21 @@ export class CustomerCreateComponent implements OnInit {
       });
     this._location.back();
   }
+
+  confirm() {
+    this.confirmationService.confirm({
+        message: 'Are you sure that you want to proceed?',
+        header: 'Confirmation',
+        icon: 'pi pi-exclamation-triangle',
+        accept: () => {
+            this.msgs = [{severity:'info', summary:'Confirmed', detail:'You have accepted'}];
+            this.onAddEnquiry();
+        },
+        reject: () => {
+            this.msgs = [{severity:'info', summary:'Rejected', detail:'You have rejected'}];
+        }
+    });
+}
+
 }
 

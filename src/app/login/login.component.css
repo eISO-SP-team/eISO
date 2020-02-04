@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
-body{
-  margin:0px;
+p.management.text-primary-dark.nFont {
+  margin:0 0 0px;
+  font-weight: 900;
+  font-size:26px;
+}
+
+.ISO{
+  color: rgb(79, 79, 192)
+}
+.system{
+  margin:0;
+  font-weight: 900;
 }
