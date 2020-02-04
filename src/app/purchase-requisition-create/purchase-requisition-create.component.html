@@ -1,6 +1,6 @@
 <div class="ui-g">
     <div class="ui-g rcorners2">
-
+        <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
         <div class="ui-g-12">
             <div class="ui-g-6">
                 <h3>Add Purchase Requisition</h3>
@@ -10,7 +10,7 @@
                     (click)="this._location.back()" label="Cancel"></button>
             </div>
         </div>
-        <form [formGroup]="addRequisitionForm" (ngSubmit)="onAddEnquiry()">
+        <form [formGroup]="addRequisitionForm" (ngSubmit)="confirm()">
             <div class="ui-g">
                 <div class="fieldset-list ui-g-12">
                     <div class="ui-g-12 ui-md-12 ui-lg-6">

@@ -1,5 +1,5 @@
 <p>customer-create works!</p>
-
+<p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
 <div class="ui-g">
     <div class="ui-g rcorners2">
 
@@ -13,7 +13,7 @@
             </div>
         </div>
         <form [formGroup]="addCustomerForm"
-            (ngSubmit)="onAddEnquiry(companyName,type,tax_id,country,address1,address2,zipcode,prefix,first_name,middle_name,last_name,mobile,extension_number,phone_number,fax_number,email)">
+            (ngSubmit)="confirm()">
             <div class="ui-g">
                 <div class="fieldset-list ui-g-12">
                     <div class="ui-g-12 ui-md-12 ui-lg-6">

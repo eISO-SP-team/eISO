@@ -4,7 +4,7 @@ import { PurchaserequisitionService } from "../shared/service/purchaserequisitio
 import { VendorService } from "../shared/service/vendor.service";
 import { Location } from '@angular/common';
 import { formatDate } from '@angular/common';
-import { SelectItem } from 'primeng/api'
+import { SelectItem, ConfirmationService, Message } from 'primeng/api'
 
 interface supplier {
   name: string;
@@ -19,7 +19,9 @@ interface supplier {
 export class PurchaseRequisitionCreateComponent implements OnInit {
   testList: any;
 
-  constructor(public purchaseRequisitionService: PurchaserequisitionService, public vendorService: VendorService, public _location: Location) { }
+  constructor(private confirmationService: ConfirmationService, public purchaseRequisitionService: PurchaserequisitionService, public vendorService: VendorService, public _location: Location) { }
+
+  msgs: Message[] = [];
 
   supplier: supplier[];
 
@@ -42,6 +44,7 @@ export class PurchaseRequisitionCreateComponent implements OnInit {
   maxCount: any;
 
   ngOnInit() {
+   
     this.testList = this.purchaseRequisitionService.loadPurchaserequisitions().subscribe(responseData => {
       this.purchaseRequisitionService.purchaserequisitionList = (<any>responseData).body;
       this.requisitionList = this.purchaseRequisitionService.purchaserequisitionList;
@@ -66,6 +69,22 @@ export class PurchaseRequisitionCreateComponent implements OnInit {
       "currency": new FormControl(null, [Validators.required]),
     })
   }
+
+  confirm() {
+    this.confirmationService.confirm({
+        message: 'Are you sure that you want to proceed?',
+        header: 'Confirmation',
+        icon: 'pi pi-exclamation-triangle',
+        accept: () => {
+            this.msgs = [{severity:'info', summary:'Confirmed', detail:'You have accepted'}];
+            this.onAddEnquiry();
+        },
+        reject: () => {
+            this.msgs = [{severity:'info', summary:'Rejected', detail:'You have rejected'}];
+        }
+    });
+}
+
 
   onAddEnquiry() {
     this.testEntry = {
