@@ -27,13 +27,13 @@ export class MenuComponent implements OnInit {
                 {
                     label: 'Design and Development',
                     icon: 'pi pi-fw pi-external-link',
-                    items: [
-                        { label: 'Design Plan', icon: 'pi pi-fw pi-user-plus' },
-                        { label: 'Input', icon: 'pi pi-fw pi-filter' },
-                        { label: 'Control', icon: 'pi pi-fw pi-filter' }
-                    ]
+                    command: (event) => { this.router.navigate(['/design-module']) }
                 },
-                { label: 'Process Control', icon: 'pi pi-fw pi-times' },
+                {
+                    label: 'Process Control',
+                    icon: 'pi pi-fw pi-times',
+                    command: (event) => { this.router.navigate(['/processcontrol']) }
+                },
                 {
                     label: 'Procurement/ Purchasing',
                     icon: 'pi pi-fw pi-external-link',
