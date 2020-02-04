@@ -12,9 +12,10 @@ import { vendorViewComponent } from "./vendor-view/vendor-view.component";
 import { SalesorderViewComponent } from "./salesorder-view/salesorder-view.component";
 import { SalesorderCreateComponent } from "./salesorder-create/salesorder-create.component";
 import { DesignModuleComponent } from "./design-module/design-module.component";
-import { ProcesscontrolModuleComponent } from "./processcontrol-module/processcontrol-module.component";
 import { PurchaseRequisitionCreateComponent } from './purchase-requisition-create/purchase-requisition-create.component';
 import { PurchaseRequisitionViewComponent } from './purchase-requisition-view/purchase-requisition-view.component';
+import { ProcessControlModuleComponent } from './process-control-module/process-control-module.component';
+import { ProcesscontrolCreateComponent } from './processcontrol-create/processcontrol-create.component';
 
 const AppRoutes: Routes = [
   { path: '', redirectTo: '/sales-module', pathMatch: 'full' },
@@ -32,8 +33,8 @@ const AppRoutes: Routes = [
   { path: 'salesorderView/:idx', component: SalesorderViewComponent },
   { path: 'vendorView/:idx', component: vendorViewComponent },
   { path: 'design-module', component: DesignModuleComponent },
-  { path: 'processcontrol', component: ProcesscontrolModuleComponent}
-
+  { path: 'process-control-module', component: ProcessControlModuleComponent },
+  { path: 'processcontrolCreate', component: ProcesscontrolCreateComponent },
 ];
 
 @NgModule({

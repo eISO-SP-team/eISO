@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     this.toggleDisplayService.authUser(data).subscribe((data) => {
       console.log('User has logged in');
       this.toggleDisplayService.toggle();
-    });
+    },console.error);
 
   }
 

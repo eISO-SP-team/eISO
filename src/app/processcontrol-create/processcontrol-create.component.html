@@ -1,0 +1,158 @@
+<p>processcontrol-create works!</p>
+<div class="ui-g">
+    <div class="ui-g rcorners2">
+        <div class="ui-g-12">
+            <div class="ui-g-6">
+                <h1>Add Process Control</h1>
+            </div>
+            <div class="ui-g-6">
+                <button pButton type="button" style="float:right; position: relative;" class="ui-button-danger"
+                    (click)="this._location.back()" label="Cancel"></button>
+            </div>
+        </div>
+        <form [formGroup]="addSalesOrderForm"
+            (ngSubmit)="onAddEnquiry()">
+            <div class="ui-g">
+                <div style=" overflow: visible;" class="fieldset-list ui-g-12">
+                    <div class="ui-g-12 ui-md-12 ui-lg-4">
+                        <div class="ui-g-12">
+                            <span class="ui-float-label">
+                                <h3 class="first">Quotation Reference</h3>
+                                <input type="text" pInputText [formControlName]="'quotation_number'" />
+                            </span>
+                            <span
+                                *ngIf="!addSalesOrderForm.get('quotation_number').valid && addSalesOrderForm.get('quotation_number').touched"
+                                class="help-block">
+                                <span>
+                                    <p-message *ngIf="addSalesOrderForm.get('quotation_number').errors['required']"
+                                        severity="error" text="This field is required!"></p-message>
+                                </span>
+                            </span>
+                        </div>
+
+                    </div>
+                    <div class="ui-g-12 ui-md-12 ui-lg-4">
+                        <div class="ui-g-12">
+                            <span class="ui-float-label">
+                                <h3 class="first">Customer Id</h3>
+                                <p-dropdown [formControlName]="'customer_id'" [virtualScroll]="true" [options]="newList"
+                                    ngModel="customer" placeholder="Select Customer">
+                                </p-dropdown>
+                            </span>
+                            <span
+                                *ngIf="!addSalesOrderForm.get('customer_id').valid && addSalesOrderForm.get('customer_id').touched"
+                                class="help-block">
+                                <span>
+                                    <p-message *ngIf="addSalesOrderForm.get('customer_id').errors['required']"
+                                        severity="error" text="This field is required!"></p-message>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-md-12 ui-lg-4">
+                        <div class="ui-g-12">
+                            <span class="ui-float-label">
+                                <h3 class="first">Date</h3>
+                                <p-calendar dateFormat="dd.mm.yy" placeholder="Click to Enter" [formControlName]="'date'"></p-calendar>
+                            </span>
+                            <span *ngIf="!addSalesOrderForm.get('date').valid && addSalesOrderForm.get('date').touched"
+                                class="help-block">
+                                <p-message *ngIf="addSalesOrderForm.get('date').errors['required']" severity="error"
+                                    text="This field is required!"></p-message>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <h2>Project Details</h2>
+                <div class="fieldset-list ui-g-12">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
+                        <div class="ui-g-12">
+                            <span class="ui-float-label">
+                                <h3 class="first">Subject</h3>
+                                <input type="text" pInputText [formControlName]="'subject'" />
+                            </span>
+                            <span
+                                *ngIf="!addSalesOrderForm.get('subject').valid && addSalesOrderForm.get('subject').touched"
+                                class="help-block">
+                                <p-message *ngIf="addSalesOrderForm.get('subject').errors['required']" severity="error"
+                                    text="This field is required!"></p-message>
+                            </span>
+                        </div>
+                        <div class="ui-g-12">
+                            <span class="ui-float-label">
+                                <h3 class="first">Tender Location</h3>
+                                <input type="text" pInputText [formControlName]="'tenderLocation'" />
+                            </span>
+                            <span
+                                *ngIf="!addSalesOrderForm.get('tenderLocation').valid && addSalesOrderForm.get('tenderLocation').touched"
+                                class="help-block">
+                                <p-message *ngIf="addSalesOrderForm.get('tenderLocation').errors['required']"
+                                    severity="error" text="This field is required!"></p-message>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
+                        <div class="ui-g-12">
+                            <span class="ui-float-label">
+                                <h3 class="first">PIC</h3>
+                                <input type="text" pInputText [formControlName]="'pic'" />
+                            </span>
+                            <span *ngIf="!addSalesOrderForm.get('pic').valid && addSalesOrderForm.get('pic').touched"
+                                class="help-block">
+                                <p-message *ngIf="addSalesOrderForm.get('pic').errors['required']" severity="error"
+                                    text="This field is required!"></p-message>
+                            </span>
+                        </div>
+                        <div class="ui-g-12">
+                            <span class="ui-float-label">
+                                <h3 class="first">PIC Email</h3>
+                                <input type="text" pInputText [formControlName]="'picEmail'" />
+                            </span>
+                            <span
+                                *ngIf="!addSalesOrderForm.get('picEmail').valid && addSalesOrderForm.get('picEmail').touched"
+                                class="help-block">
+                                <p-message *ngIf="addSalesOrderForm.get('picEmail').errors['required']" severity="error"
+                                    text="This field is required!"></p-message>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <h2>Amount</h2>
+                <div class="fieldset-list ui-g-12">
+
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
+                        <div class="ui-g-12">
+                            <span class="ui-float-label">
+                                <h3 class="first">Total</h3>
+                                <input type="text" pInputText [formControlName]="'total'" />
+                            </span>
+                            <span
+                                *ngIf="!addSalesOrderForm.get('total').valid && addSalesOrderForm.get('total').touched"
+                                class="help-block">
+                                <p-message *ngIf="addSalesOrderForm.get('total').errors['required']" severity="error"
+                                    text="This field is required!"></p-message>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
+                        <div class="ui-g-12">
+                            <span class="ui-float-label">
+                                <h3 class="first">Deposit</h3>
+                                <input type="text" pInputText [formControlName]="'deposit'" />
+                            </span>
+                            <span
+                                *ngIf="!addSalesOrderForm.get('deposit').valid && addSalesOrderForm.get('deposit').touched"
+                                class="help-block">
+                                <p-message *ngIf="addSalesOrderForm.get('deposit').errors['required']" severity="error"
+                                    text="This field is required!"></p-message>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g-12">
+                <button pButton [disabled]="!addSalesOrderForm.valid" type="submit" label="Submit Sales Order"></button>
+            </div>
+        </form>
+    </div>
+</div>

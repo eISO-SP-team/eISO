@@ -48,6 +48,7 @@ export class QuotationCreateComponent implements OnInit {
       this.quotationList = this.quotationService.quotationList;
       this.maxCount = this.quotationList.length;
     });
+    
     this.vendorList = this.vendorService.loadVendors().subscribe(responseData => {
       this.vendorService.vendorList = responseData;
       this.vendorService.vendorList = this.vendorService.vendorList.body;

@@ -48,7 +48,6 @@ import { SalesorderViewComponent } from './salesorder-view/salesorder-view.compo
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { DesignModuleComponent } from './design-module/design-module.component';
-import { ProcesscontrolModuleComponent } from './processcontrol-module/processcontrol-module.component';
 import { PurchaseRequisitionListComponent } from './purchase-requisition-list/purchase-requisition-list.component';
 import { PurchaseRequisitionCreateComponent } from './purchase-requisition-create/purchase-requisition-create.component';
 import { PurchaseRequisitionViewComponent } from './purchase-requisition-view/purchase-requisition-view.component';
@@ -58,6 +57,9 @@ import { PurchaserequisitionService } from './shared/service/purchaserequisition
 import { SalesorderService } from './shared/service/salesorder.service';
 import { DesignService } from './shared/service/design.service';
 import { DeliveryService } from './shared/service/delivery.service';
+import {TabViewModule} from 'primeng/tabview';
+import { ProcessControlModuleComponent } from './process-control-module/process-control-module.component';
+import { ProcesscontrolCreateComponent } from './processcontrol-create/processcontrol-create.component';
 
 @NgModule({
   declarations: [
@@ -84,10 +86,11 @@ import { DeliveryService } from './shared/service/delivery.service';
     SalesorderViewComponent,
     LoginComponent,
     DesignModuleComponent,
-    ProcesscontrolModuleComponent,
     PurchaseRequisitionListComponent,
     PurchaseRequisitionCreateComponent,
     PurchaseRequisitionViewComponent,
+    ProcessControlModuleComponent,
+    ProcesscontrolCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -95,6 +98,7 @@ import { DeliveryService } from './shared/service/delivery.service';
     ConfirmDialogModule,
     InputTextModule,
     PasswordModule,
+    TabViewModule,
     FormsModule,
     CalendarModule,
     MenuModule,

@@ -32,7 +32,7 @@ export class MenuComponent implements OnInit {
                 {
                     label: 'Process Control',
                     icon: 'pi pi-fw pi-times',
-                    command: (event) => { this.router.navigate(['/processcontrol']) }
+                    command: (event) => { this.router.navigate(['/process-control-module']) }
                 },
                 {
                     label: 'Procurement/ Purchasing',
