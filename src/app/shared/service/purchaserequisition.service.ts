@@ -11,9 +11,7 @@ export class PurchaserequisitionService {
 
   selectedPurchaserequisitionService: any;
 
-  purchaserequisitionList: any[] = [
-
-  ];
+  purchaserequisitionList: any;
 
 
   constructor(public http: HttpClient) {
@@ -21,7 +19,7 @@ export class PurchaserequisitionService {
   }
 
 
-  getVendorListener() {
+  getRequisitionListener() {
     return this.purchaserequisitionSubject.asObservable();
   }
 

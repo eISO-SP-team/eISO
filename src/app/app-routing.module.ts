@@ -13,6 +13,8 @@ import { SalesorderViewComponent } from "./salesorder-view/salesorder-view.compo
 import { SalesorderCreateComponent } from "./salesorder-create/salesorder-create.component";
 import { DesignModuleComponent } from "./design-module/design-module.component";
 import { ProcesscontrolModuleComponent } from "./processcontrol-module/processcontrol-module.component";
+import { PurchaseRequisitionCreateComponent } from './purchase-requisition-create/purchase-requisition-create.component';
+import { PurchaseRequisitionViewComponent } from './purchase-requisition-view/purchase-requisition-view.component';
 
 const AppRoutes: Routes = [
   { path: '', redirectTo: '/sales-module', pathMatch: 'full' },
@@ -23,6 +25,8 @@ const AppRoutes: Routes = [
   { path: 'quotationCreate', component: QuotationCreateComponent },
   { path: 'vendorCreate', component: vendorCreateComponent },
   { path: 'salesorderCreate', component: SalesorderCreateComponent },
+  { path: 'requisitionCreate', component: PurchaseRequisitionCreateComponent },
+  { path: 'requisitionView/:idx', component: PurchaseRequisitionViewComponent },
   { path: 'quotationView/:idx', component: QuotationViewComponent },
   { path: 'customerView/:idx', component: CustomerViewComponent },
   { path: 'salesorderView/:idx', component: SalesorderViewComponent },

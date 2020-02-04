@@ -49,6 +49,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { DesignModuleComponent } from './design-module/design-module.component';
 import { ProcesscontrolModuleComponent } from './processcontrol-module/processcontrol-module.component';
+import { PurchaseRequisitionListComponent } from './purchase-requisition-list/purchase-requisition-list.component';
+import { PurchaseRequisitionCreateComponent } from './purchase-requisition-create/purchase-requisition-create.component';
+import { PurchaseRequisitionViewComponent } from './purchase-requisition-view/purchase-requisition-view.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +79,9 @@ import { ProcesscontrolModuleComponent } from './processcontrol-module/processco
     LoginComponent,
     DesignModuleComponent,
     ProcesscontrolModuleComponent,
+    PurchaseRequisitionListComponent,
+    PurchaseRequisitionCreateComponent,
+    PurchaseRequisitionViewComponent,
   ],
   imports: [
     BrowserModule,
