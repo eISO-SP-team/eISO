@@ -10,7 +10,7 @@ export class QuotationService {
 
   quotationSubject: BehaviorSubject<any[]>;
 
-  selectedQuotationInService: Quotation;
+  selectedQuotationInService:any;
 
   quotationList: any;
   // quotationList: Quotation[] = [

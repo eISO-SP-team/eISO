@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { Quotation } from "../shared/model/quotation.model";
 import { QuotationService } from "../shared/service/quotation.service";
 import { VendorService } from "../shared/service/vendor.service";
 import { Location } from '@angular/common';
@@ -38,6 +37,7 @@ export class QuotationCreateComponent implements OnInit {
   testEntry: any;
 
   maxCount: any;
+  
   quotationList: any;
 
   constructor(public quotationService: QuotationService, public vendorService: VendorService, public _location: Location) { }

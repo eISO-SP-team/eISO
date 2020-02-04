@@ -46,10 +46,10 @@ export class QuotationListComponent implements OnInit {
     });
   }
 
-  viewEnquiry(quotationList: Quotation) {
+  viewEnquiry(quotationList) {
     console.log("In onViewDetail......" + JSON.stringify(quotationList));
     this.quotationService.selectedQuotationInService = quotationList;
-    this.router.navigate(['/quotationView', quotationList.quotation_refNo]);
+    this.router.navigate(['/quotationView', quotationList.id]);
   }
 
   deleteEnquiry(enquiry) {

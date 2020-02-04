@@ -6,12 +6,12 @@
         <button id="disabled-btn" type="button" (click)="toggleDisabled()" pButton label="Toggle Edit"></button>
         <form [formGroup]="addForm" (ngSubmit)="updateEdits()">
             <div class="ui-g">
-                <div class="ui-g-12">Project Title:
+                <!-- <div class="ui-g-12">Project Title:
                     <input type="text" pInputText [disabled]="disabled" [formControlName]="'title'"
                         [(ngModel)]='newTitle' />
-                </div>
+                </div> -->
                 <div class="ui-g-12">Project Reference Number:
-                    {{this.quotationService.selectedQuotationInService.quotation_refNo}}</div>
+                    {{this.quotationService.selectedQuotationInService.id}}</div>
                 <div class="ui-g-12 fieldset-bg">
                     <!--Left column-->
                     <div class="ui-g-6 ui-md-12 ui-lg-6">
@@ -24,7 +24,9 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first">To</h3>
-                                <input type="text" pInputText [formControlName]="'to'" [(ngModel)]='newTo' />
+                                <p-dropdown [formControlName]="'to'" [virtualScroll]="true" [options]="newList"
+                                 placeholder="Select Supplier" [(ngModel)]="newTo">
+                            </p-dropdown>
                             </span>
                         </div>
                         <div class="ui-g-12">
