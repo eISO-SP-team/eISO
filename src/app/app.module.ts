@@ -61,6 +61,7 @@ import { DeliveryService } from './shared/service/delivery.service';
 import {TabViewModule} from 'primeng/tabview';
 import { ProcessControlModuleComponent } from './process-control-module/process-control-module.component';
 import { ProcesscontrolCreateComponent } from './processcontrol-create/processcontrol-create.component';
+import {DialogModule} from 'primeng/dialog';
 
 @NgModule({
   declarations: [
@@ -99,6 +100,7 @@ import { ProcesscontrolCreateComponent } from './processcontrol-create/processco
     AppRoutingModule,
     ConfirmDialogModule,
     InputTextModule,
+    DialogModule,
     PasswordModule,
     TabViewModule,
     FormsModule,

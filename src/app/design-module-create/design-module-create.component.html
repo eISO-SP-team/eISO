@@ -56,7 +56,8 @@
                                 <input type="text" pInputText [formControlName]="'Project_no'" />
                                 <!-- <p-calendar dateFormat="dd.mm.yy" placeholder="Click to Enter" [formControlName]="'date'"></p-calendar> -->
                             </span>
-                            <span *ngIf="!addDesignForm.get('Project_no').valid && addDesignForm.get('Project_no').touched"
+                            <span
+                                *ngIf="!addDesignForm.get('Project_no').valid && addDesignForm.get('Project_no').touched"
                                 class="help-block">
                                 <p-message *ngIf="addDesignForm.get('Project_no').errors['required']" severity="error"
                                     text="This field is required!"></p-message>
@@ -75,8 +76,8 @@
                             <span
                                 *ngIf="!addDesignForm.get('Start_date_design').valid && addDesignForm.get('Start_date_design').touched"
                                 class="help-block">
-                                <p-message *ngIf="addDesignForm.get('Start_date_design').errors['required']" severity="error"
-                                    text="This field is required!"></p-message>
+                                <p-message *ngIf="addDesignForm.get('Start_date_design').errors['required']"
+                                    severity="error" text="This field is required!"></p-message>
                             </span>
                         </div>
 
@@ -87,17 +88,80 @@
                                 <h3 class="first">End Date - Design </h3>
                                 <input type="text" pInputText [formControlName]="'End_date_design'" />
                             </span>
-                            <span *ngIf="!addDesignForm.get('End_date_design').valid && addDesignForm.get('End_date_design').touched"
+                            <span
+                                *ngIf="!addDesignForm.get('End_date_design').valid && addDesignForm.get('End_date_design').touched"
                                 class="help-block">
-                                <p-message *ngIf="addDesignForm.get('End_date_design').errors['required']" severity="error"
-                                    text="This field is required!"></p-message>
+                                <p-message *ngIf="addDesignForm.get('End_date_design').errors['required']"
+                                    severity="error" text="This field is required!"></p-message>
                             </span>
                         </div>
-    
+
                     </div>
                 </div>
-              
-                
+                <!--Design Backlog-->
+                <div class="ui-g-12">
+                    <h2>Design Backlog</h2>
+                    <div class="designBLbtn" (click)="showDialog()"><label>Create</label></div>
+                </div>
+                <p-tabView (onChange)="handleChange($event)">
+                    <p-tabPanel header="Design Plan" leftIcon="pi pi-calendar">
+                        <table class="roundedCorners">
+                            <tr>
+                                <th>Created By</th>
+                                <th>Due Dater</th>
+                                <th>Status</th>
+                            </tr>
+                            <tr *ngFor="let dbl of desginBacklog">
+                                <td *ngIf="dbl.design_phase=='Design Plan'">{{dbl.created_by}}</td>
+                                <td *ngIf="dbl.design_phase=='Design Plan'">{{dbl.due_date}}</td>
+                                <td *ngIf="dbl.design_phase=='Design Plan'">{{dbl.status}}</td>
+                            </tr>
+                        </table>
+                    </p-tabPanel>
+                    <p-tabPanel header="Design Input" leftIcon="pi pi-inbox">
+                        <table class="roundedCorners">
+                            <tr>
+                                <th>Created By</th>
+                                <th>Due Dater</th>
+                                <th>Status</th>
+                            </tr>
+                            <tr *ngFor="let dbl of desginBacklog">
+                                <td *ngIf="dbl.design_phase=='Design Input'">{{dbl.created_by}}</td>
+                                <td *ngIf="dbl.design_phase=='Design Input'">{{dbl.due_date}}</td>
+                                <td *ngIf="dbl.design_phase=='Design Input'">{{dbl.status}}</td>
+                            </tr>
+                        </table>
+                    </p-tabPanel>
+                    <p-tabPanel header="Design Control" leftIcon="pi pi-user" rightIcon="pi pi-star">
+                        <table class="roundedCorners">
+                            <tr>
+                                <th>Created By</th>
+                                <th>Due Dater</th>
+                                <th>Status</th>
+                            </tr>
+                            <tr *ngFor="let dbl of desginBacklog">
+                                <td *ngIf="dbl.design_phase=='Design Control'">{{dbl.created_by}}</td>
+                                <td *ngIf="dbl.design_phase=='Design Control'">{{dbl.due_date}}</td>
+                                <td *ngIf="dbl.design_phase=='Design Control'">{{dbl.status}}</td>
+                            </tr>
+                        </table>
+                    </p-tabPanel>
+                    <p-tabPanel header="Design Output" leftIcon="pi pi-user" rightIcon="pi pi-star">
+                        <table class="roundedCorners">
+                            <tr>
+                                <th>Created By</th>
+                                <th>Due Dater</th>
+                                <th>Status</th>
+                            </tr>
+                            <tr *ngFor="let dbl of desginBacklog">
+                                <td *ngIf="dbl.design_phase=='Design Output'">{{dbl.created_by}}</td>
+                                <td *ngIf="dbl.design_phase=='Design Output'">{{dbl.due_date}}</td>
+                                <td *ngIf="dbl.design_phase=='Design Control'">{{dbl.status}}</td>
+                            </tr>
+                        </table>
+                    </p-tabPanel>
+                </p-tabView>
+
             </div>
             <div class="ui-g-12">
                 <button pButton [disabled]="!addDesignForm.valid" type="submit" label="Submit Design Plan"></button>
@@ -105,3 +169,67 @@
         </form>
     </div>
 </div>
+
+<p-dialog header="New {{clickedonPhase}}" [(visible)]="display">
+    <form [formGroup]="addBacklogForm" (ngSubmit)="onSubmitBacklog()">
+        <div class="ui-g-12 ui-md-12 ui-lg-6">
+            <div class="ui-g-12">
+                <span class="ui-float-label">
+                    <h3 class="first">Design Phase</h3>
+                    <p-dropdown [options]="designphases" [(ngModel)]="clickedonPhase"
+                        [formControlName]="'design_phase'"></p-dropdown>
+                </span>
+                <span *ngIf="!addBacklogForm.get('design_phase').valid && addBacklogForm.get('design_phase').touched"
+                    class="help-block">
+                    <span>
+                        <p-message *ngIf="addBacklogForm.get('design_phase').errors['required']" severity="error"
+                            text="This field is required!"></p-message>
+                    </span>
+                </span>
+            </div>
+            <div class="ui-g-12">
+                <span class="ui-float-label">
+                    <h3 class="first">Who</h3>
+                    <input type="text" pInputText [formControlName]="'who'" />
+                </span>
+                <span *ngIf="!addBacklogForm.get('who').valid && addBacklogForm.get('who').touched" class="help-block">
+                    <span>
+                        <p-message *ngIf="addBacklogForm.get('who').errors['required']" severity="error"
+                            text="This field is required!"></p-message>
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="ui-g-12 ui-md-12 ui-lg-6">
+            <div class="ui-g-12">
+                <span class="ui-float-label">
+                    <h3 class="first">Due Date</h3>
+                    <input type="date" pInputText [formControlName]="'due_date'" />
+                </span>
+                <span *ngIf="!addBacklogForm.get('due_date').valid && addBacklogForm.get('due_date').touched"
+                    class="help-block">
+                    <span>
+                        <p-message *ngIf="addBacklogForm.get('due_date').errors['required']" severity="error"
+                            text="This field is required!"></p-message>
+                    </span>
+                </span>
+            </div>
+            <div class="ui-g-12">
+                <span class="ui-float-label">
+                    <h3 class="first">Status</h3>
+                    <input type="text" pInputText [formControlName]="'status'" />
+                </span>
+                <span *ngIf="!addBacklogForm.get('status').valid && addBacklogForm.get('status').touched"
+                    class="help-block">
+                    <span>
+                        <p-message *ngIf="addBacklogForm.get('status').errors['required']" severity="error"
+                            text="This field is required!"></p-message>
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <button pButton [disabled]="!addBacklogForm.valid" type="submit" label="Submit Design Plan"></button>
+        </div>
+    </form>
+</p-dialog>
