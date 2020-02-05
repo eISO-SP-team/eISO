@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToggleDisplayService } from "../shared/service/toggle-display.service";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+import {InputTextModule} from 'primeng/inputtext';
 import { Login  } from "../shared/model/login.model";
 
 @Component({
