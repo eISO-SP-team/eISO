@@ -37,6 +37,7 @@ const AppRoutes: Routes = [
   { path: 'design-module', component: DesignModuleComponent },
   { path: 'process-control-module', component: ProcessControlModuleComponent },
   { path: 'processcontrolCreate', component: ProcesscontrolCreateComponent },
+  // { path: '**', redirectTo:"/sales-modules"}
 ];
 
 @NgModule({

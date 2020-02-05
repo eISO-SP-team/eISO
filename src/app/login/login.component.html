@@ -44,8 +44,8 @@
                             <div class="col-12">
                                 <div class="form-material floating">
                                     <input type="text" [formControlName]="'username'" id="login" class="form-control"
-                                        name="login">
-                                    <label for="login-username">Username</label>
+                                        name="login-username" >
+                                    <label for="login-username" class="floating">Username</label>
                                 </div>
                             </div>
                         </div>
@@ -61,8 +61,7 @@
                             </div>
                         </div>
 
-                        <input type="submit" [disabled]="!loginForm.valid" class="fadeIn fourth" value="Log In">
-
+                        <input type="submit" [disabled]="!loginForm.valid" class="btn btn-sm btn-hero btn-alt-primary fadeIn fourth" value="Log In">
                     </form>
 
 
@@ -75,6 +74,7 @@
             </div>
         </div>
     </div>
+
 
 </main>
 
