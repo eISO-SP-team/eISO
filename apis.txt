@@ -136,3 +136,37 @@ Purchase Order:
 	4. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-order/{id}
 		Method: DELETE
 		Status: Ready to test
+
+Purchase Requisition:
+	1. https://vr7zo9ukcl.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-requisition
+		Method: GET
+		Status: Ready to test
+
+	2. https://vr7zo9ukcl.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-requisition
+		Method: POST
+		Status: Ready to test
+
+	3.  https://vr7zo9ukcl.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-requisition/{id}
+		Method: PUT
+		Status: Ready to test
+
+	4.  https://vr7zo9ukcl.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-requisition/{id}
+		Method: DELETE
+		Status: Ready to test
+
+Quotation 
+	1. https://vr7zo9ukcl.execute-api.ap-southeast-1.amazonaws.com/dev/quotation
+		Method: GET
+		Status: Ready to test
+
+	2. https://vr7zo9ukcl.execute-api.ap-southeast-1.amazonaws.com/dev/quotation
+		Method: POST
+		Status: Ready to test
+
+	3.  https://vr7zo9ukcl.execute-api.ap-southeast-1.amazonaws.com/dev/quotation/{id}
+		Method: PUT
+		Status: Ready to test
+
+	4.  https://vr7zo9ukcl.execute-api.ap-southeast-1.amazonaws.com/dev/quotation/{id}
+		Method: DELETE
+		Status: Ready to test
