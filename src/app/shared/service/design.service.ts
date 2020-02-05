@@ -11,7 +11,7 @@ export class DesignService {
 
     selectedProject:any;
 
-    selectedDesignService: any;
+    selectedDesignInService: any;
 
     designList: any[] = [
 

@@ -6,7 +6,7 @@
             <p-button icon="pi pi-plus" iconPos="right" label="Add New Design Plan"
                 (click)="this.router.navigate(['/selectproject'])"></p-button>
         </p>
-        <p-dataView class="ui-dataview" [paginator]="true" filterBy="subject,pic" [rows]="3">
+        <p-dataView [value]="designList" class="ui-dataview" [paginator]="true" filterBy="" [rows]="3">
             <p-header>
                 <div class="ui-helper-clearfix">
                     <div class="ui-g">
@@ -29,7 +29,7 @@
             <p-footer>
 
             </p-footer>
-            <ng-template let-salesOrderListPending pTemplate="listItem">
+            <ng-template let-designList pTemplate="listItem">
                 <div class="ui-dataview-content">
                     <div class="ui-g-12">
                         <div class="ui-g-2" style="align-content: center;">

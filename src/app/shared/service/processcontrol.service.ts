@@ -9,7 +9,7 @@ export class ProcesscontrolService {
 
   processcontrolSubject: BehaviorSubject<any[]>;
 
-  selectedProcesscontrolService: any;
+  selectedProcesscontrolInService: any;
 
   processcontrolList: any[] = [
 
