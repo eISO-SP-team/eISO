@@ -17,6 +17,7 @@ import { PurchaseRequisitionViewComponent } from './purchase-requisition-view/pu
 import { ProcessControlModuleComponent } from './process-control-module/process-control-module.component';
 import { ProcesscontrolCreateComponent } from './processcontrol-create/processcontrol-create.component';
 import { DesignModuleCreateComponent } from './design-module-create/design-module-create.component';
+import { DesignModuleProjectsComponent } from './design-module-projects/design-module-projects.component';
 
 const AppRoutes: Routes = [
   { path: '', redirectTo: '/sales-module', pathMatch: 'full' },
@@ -37,6 +38,7 @@ const AppRoutes: Routes = [
   { path: 'design-module', component: DesignModuleComponent },
   { path: 'process-control-module', component: ProcessControlModuleComponent },
   { path: 'processcontrolCreate', component: ProcesscontrolCreateComponent },
+  { path: 'selectproject', component: DesignModuleProjectsComponent },
 ];
 
 @NgModule({

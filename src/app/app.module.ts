@@ -62,6 +62,7 @@ import {TabViewModule} from 'primeng/tabview';
 import { ProcessControlModuleComponent } from './process-control-module/process-control-module.component';
 import { ProcesscontrolCreateComponent } from './processcontrol-create/processcontrol-create.component';
 import {DialogModule} from 'primeng/dialog';
+import { DesignModuleProjectsComponent } from './design-module-projects/design-module-projects.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +95,7 @@ import {DialogModule} from 'primeng/dialog';
     ProcessControlModuleComponent,
     ProcesscontrolCreateComponent,
     DesignModuleCreateComponent,
+    DesignModuleProjectsComponent,
   ],
   imports: [
     BrowserModule,

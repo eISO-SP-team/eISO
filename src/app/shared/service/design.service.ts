@@ -9,6 +9,8 @@ export class DesignService {
 
     designSubject: BehaviorSubject<any[]>;
 
+    selectedProject:any;
+
     selectedDesignService: any;
 
     designList: any[] = [

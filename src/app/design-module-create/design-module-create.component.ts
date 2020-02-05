@@ -5,9 +5,8 @@ import { DesignService } from "../shared/service/design.service";
 import { Location } from '@angular/common';
 import { formatDate } from '@angular/common';
 import { SelectItem } from 'primeng/api'
-import { DialogService } from 'primeng/api';
 
-interface designphases {
+interface options {
   label: string,
   value: string,
 }
@@ -20,7 +19,9 @@ interface designphases {
 
 export class DesignModuleCreateComponent implements OnInit {
 
-  designphases: designphases[];
+  designPlanList: any;
+
+  designphases: options[];
 
   clickedonPhase: string = "Design Plan";
 
@@ -40,22 +41,28 @@ export class DesignModuleCreateComponent implements OnInit {
 
   myDate = formatDate(new Date(), 'yyyy/MM/dd', 'en');
 
-  customerList: any;
-
   value: Date;
 
   newList: SelectItem[];
-
-  DesignList: any;
 
   maxCount: any;
 
   display: boolean;
 
+  selectedProject: any;
+
   constructor(public designService: DesignService, public router: Router, public _location: Location) {
   }
 
   ngOnInit() {
+    this.designPlanList = this.designService.loadDesigns().subscribe((responseData: any) => {
+      this.designPlanList = responseData.body;
+      this.maxCount = this.designPlanList.length;
+    })
+
+    this.selectedProject = this.designService.selectedProject;
+    console.log(this.selectedProject);
+    
     this.designphases = [
       { label: 'Design Plan', value: 'Design Plan' },
       { label: 'Design Input', value: 'Design Input' },
@@ -100,7 +107,37 @@ export class DesignModuleCreateComponent implements OnInit {
 
   onSubmitDesignPlan() {
     this.testEntry = {
-
+      "design_id": this.maxCount + 1,
+      "project_id": "21313",
+      "project_name": "Project X",
+      "project_lead": this.addDesignForm.value.project_lead,
+      "design_engineer": "Wolverine",
+      "start_date": this.addDesignForm.value.start_date,
+      "end_date": this.addDesignForm.value.end_date,
+      "status": this.addDesignForm.value.status,
+      "reference_id": this.maxCount + 1,
+      "created_by": "Wolverine",
+      "created_date": "2019-11-26",
+      "uploaded_by": "Wolverine",
+      "uploaded_date": "2019-11-26",
+      "design_details": {
+        "design_id": this.maxCount + 1,
+        "design_details_id": "219",
+        "project_id": "1231",
+        "line_number": 5,
+        "design_date": "2019-11-26",
+        "design_phase": "preparation",
+        "assignee": "Wolverine",
+        "file_type": "pdf",
+        "reference_type": "abc",
+        "file": "new.pdf",
+        "due_date": "2019-11-26T03:36:23.327Z",
+        "status": "approved",
+        "created_by": "Wolverine",
+        "created_date": "2019-11-26T03:36:23.327Z",
+        "uploaded_by": "Wolverine",
+        "uploaded_date": "2019-11-26T03:36:23.327Z"
+      }
     }
   }
 

@@ -1,0 +1,55 @@
+<p>design-module-projects works!</p>
+<!-- <p>customer-list works!</p> -->
+<div class="ui-g">
+    <div class="ui-g-12">
+        <div class="ui-g-6">
+            <h1>Select a project</h1>
+        </div>
+        <div class="ui-g-6">
+            <button pButton type="button" style="float:right; position: relative;" class="ui-button-danger"
+                (click)="this._location.back()" label="Cancel"></button>
+        </div>
+    </div>
+</div>
+
+<p-dataView [value]="projectList" #gg class="ui-dataview" [paginator]="true" [rows]="10">
+    <p-header>
+        <div class="ui-helper-clearfix">
+            <div class="ui-g-12">
+                <div class="ui-g-12 ui-md-4">
+
+                </div>
+                <div class="ui-g-6 ui-md-4 filter-container">
+                    <!-- <div style="position:relative">
+                        <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                        <input type="text" pInputText placeholder="Global Filter"
+                            (input)="gg.filter($event.target.value)" style="width:auto">
+                    </div> -->
+                </div>
+                <div class="ui-g-6 ui-md-4" style="text-align:right">
+
+                </div>
+            </div>
+        </div>
+    </p-header>
+    <p-footer>
+    </p-footer>
+    <ng-template let-projectList pTemplate="listItem">
+        <div class="ui-dataview-content">
+            <div class="ui-g-12">
+                <div class="ui-g-4">
+                    <p class="list_header">{{projectList.project_name}} - {{projectList.project_id}}</p><br />
+                    {{projectList.uploaded_by}}
+                </div>
+                <div class="ui-g-4">
+                    <p style="text-align: right;">{{projectList.status}}</p>
+                    <br />
+                </div>
+                <div class="ui-g-4" style="align-content: center;">
+                    <button pButton type="button" icon="pi pi-arrow-right" (click)="selectEnquiry(this.projectList)"
+                        style="margin-top:0"></button>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-dataView>
