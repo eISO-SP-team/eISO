@@ -12,7 +12,7 @@
                     (click)="this._location.back()" label="Cancel"></button>
             </div>
         </div>
-        <form [formGroup]="addForm" (ngSubmit)="onAddEnquiry()">
+        <form [formGroup]="addForm" (ngSubmit)="confirm()">
             <div class="ui-g">
                 <div style=" overflow: visible;" class="fieldset-list ui-g-12">
                     <!--Left column-->
@@ -121,3 +121,4 @@
         </form>
     </div>
 </div>
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>

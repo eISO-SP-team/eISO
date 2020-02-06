@@ -5,6 +5,8 @@ import { VendorService } from "../shared/service/vendor.service";
 import { Location } from '@angular/common';
 import { SelectItem } from 'primeng/api'
 import { formatDate } from '@angular/common';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService, Message} from 'primeng/api';
 
 interface supplier {
   name: string;
@@ -19,6 +21,7 @@ interface supplier {
   styles: [],
 })
 export class QuotationCreateComponent implements OnInit {
+  msgs: Message[] = [];
 
   supplier: supplier[];
 
@@ -40,7 +43,7 @@ export class QuotationCreateComponent implements OnInit {
   
   quotationList: any;
 
-  constructor(public quotationService: QuotationService, public vendorService: VendorService, public _location: Location) { }
+  constructor(public quotationService: QuotationService, public vendorService: VendorService, public _location: Location, private confirmationservice: ConfirmationService) { }
 
   ngOnInit() {
     this.quotationList = this.quotationService.loadQuotation().subscribe(responseData => {
@@ -125,6 +128,20 @@ export class QuotationCreateComponent implements OnInit {
     for (let file of event.files) {
       this.uploadedFiles.push(file);
     }
+  }
+  confirm() {
+    this.confirmationservice.confirm({
+        message: 'Are you sure that you want to proceed?',
+        header: 'Confirmation',
+        icon: 'pi pi-exclamation-triangle',
+        accept: () => {
+            this.msgs = [{severity:'info', summary:'Confirmed', detail:'You have accepted'}];
+            this.onAddEnquiry();
+        },
+        reject: () => {
+            this.msgs = [{severity:'info', summary:'Rejected', detail:'You have rejected'}];
+        }
+      });
   }
 
 }
