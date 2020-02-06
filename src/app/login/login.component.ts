@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToggleDisplayService } from "../shared/service/toggle-display.service";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-import {InputTextModule} from 'primeng/inputtext';
-import { Login  } from "../shared/model/login.model";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +11,7 @@ import { Login  } from "../shared/model/login.model";
 
 export class LoginComponent implements OnInit {
 
-  constructor(public toggleDisplayService: ToggleDisplayService) { }
+  constructor(public toggleDisplayService: ToggleDisplayService, public router: Router) { }
 
   loginForm: FormGroup;
 
@@ -34,8 +33,13 @@ export class LoginComponent implements OnInit {
     this.toggleDisplayService.authUser(data).subscribe((data) => {
       console.log('User has logged in');
       this.toggleDisplayService.toggle();
-    },console.error);
+    }, console.error);
 
+  }
+
+  byPass() {
+    this.toggleDisplayService.toggle();
+    this.router.navigate(['sales-module']);
   }
 
 }

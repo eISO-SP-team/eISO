@@ -1,5 +1,4 @@
 Quotation Dashboard<br />
-<p-button *ngIf="toggleDisplayService.isViewable" icon="pi pi-plus" iconPos="right" label="Add New Quotation"
+<p-button icon="pi pi-plus" iconPos="right" label="Add New Quotation"
     (click)="this.router.navigate(['/quotationCreate'])"></p-button>
-<app-quotation-create *ngIf="!toggleDisplayService.isViewable"></app-quotation-create>
-<app-quotation-list *ngIf="toggleDisplayService.isViewable"></app-quotation-list>
+<app-quotation-list></app-quotation-list>

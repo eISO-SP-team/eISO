@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ToggleDisplayService } from './shared/service/toggle-display.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,15 +13,13 @@ export class AppComponent {
 
   text: string;
 
-  disabled: boolean = true;
-
-  constructor(public toggleDisplayService: ToggleDisplayService) { }
+  constructor(public toggleDisplayService: ToggleDisplayService, private router: Router) { }
 
   ngOnInit() {
-    this.toggleDisplayService.isViewable;
+    // this.toggleDisplayService.isViewable;
   }
-
-  toggleDisabled() {
-    this.disabled = !this.disabled;
+  ngAfterViewInit() {
+    debugger;
+    this.router.url;
   }
 }

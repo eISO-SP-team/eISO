@@ -1,6 +1,6 @@
 <!-- <p>enquiry-list works!</p> -->
 
-<p-dataView [value]="quotationList" #tt class="ui-dataview"
+<p-dataView [paginator]="true" [value]="quotationList" #tt class="ui-dataview"
     filterBy="attention,subject" [rows]="3">
     <p-header>
         <div class="ui-helper-clearfix">
