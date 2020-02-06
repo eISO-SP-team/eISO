@@ -86,7 +86,7 @@ Design:
 		Method: DELETE
 		Status: Ready to test
 
-File:
+File(http://deimos.preskubbs.com/eiso-storage/):
 	1. https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/file
 		Method: GET
 		Status: Ready to test
