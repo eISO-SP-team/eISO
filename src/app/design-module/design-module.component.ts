@@ -12,6 +12,14 @@ export class DesignModuleComponent implements OnInit {
 
   designList: any;
 
+  planList = [];
+
+  inputList = [];
+
+  controlList = [];
+
+  outputList = [];
+
   testList: any;
 
   index: any;
@@ -24,6 +32,18 @@ export class DesignModuleComponent implements OnInit {
   ngOnInit() {
     this.testList = this.designService.loadDesigns().subscribe((responseData) => {
       this.designList = (<any>responseData).body;
+      console.log(this.designList[1]);
+      for (let i = 0; i < this.designList.length; i++) {
+        if (this.designList[i].design_details.design_phase == "Design Plan") {
+          this.planList.push(this.designList[i]);
+        } else if (this.designList[i].design_details.design_phase == "Design Input") {
+          this.inputList.push(this.designList[i]);
+        } else if (this.designList[i].design_details.design_phase == "Design Control") {
+          this.controlList.push(this.designList[i]);
+        } else {
+          this.outputList.push(this.designList[i]);
+        }
+      }
     });
   }
 
