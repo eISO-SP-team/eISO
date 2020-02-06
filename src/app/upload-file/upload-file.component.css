@@ -6,13 +6,13 @@
     height: 200px;
     width: 100%;
     margin: 20px auto;
-    border: 2px dashed #1C8ADB;
+    border: 2px dashed #B0C4DE;
     border-radius: 10px;
 }
 
 .uploadfilecontainer:hover {
     cursor: pointer;
-    background-color: #9ecbec !important;
+    background-color: #C3D9ED !important;
     opacity: 0.8;
 }
 
