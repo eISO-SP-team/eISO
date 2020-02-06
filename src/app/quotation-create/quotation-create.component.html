@@ -34,7 +34,8 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first">Tender Location</h3>
-                                <input class="form-control" type="text" pInputText [formControlName]="'tenderLocation'" />
+                                <input class="form-control" type="text" pInputText
+                                    [formControlName]="'tenderLocation'" />
                             </span>
                             <span *ngIf="!addForm.get('tenderLocation').valid && addForm.get('tenderLocation').touched"
                                 class="help-block">
@@ -68,7 +69,7 @@
                                     text="This field is required!"></p-message>
                             </span>
                         </div>
-                       
+
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first">Validity</h3>
@@ -83,7 +84,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="fieldset-list ui-g-12">
                 <h2>Amount</h2>
                 <div class="ui-g-12 ui-md-12 ui-lg-6">
@@ -115,7 +116,15 @@
             <div class="fieldset-list ui-g-12">
                 <h2>Supporting File</h2>
                 <div class="ui-g-12">
-                    <app-upload-file></app-upload-file>
+                    <!-- <app-upload-file></app-upload-file> -->
+                    <p-fileUpload name="demo[]" customUpload="true" (onUpload)="onUpload($event)" multiple="multiple"
+                        accept="image/*" maxFileSize="1000000">
+                        <ng-template pTemplate="content">
+                            <ul *ngIf="uploadedFiles.length">
+                                <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes - {{file.type}}</li>
+                            </ul>
+                        </ng-template>
+                    </p-fileUpload>
                 </div>
                 <button pButton [disabled]="!addForm.valid" type="submit" label="Submit Quotation"></button>
             </div>

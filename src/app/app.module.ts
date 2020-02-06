@@ -63,6 +63,7 @@ import { ProcessControlModuleComponent } from './process-control-module/process-
 import { ProcesscontrolCreateComponent } from './processcontrol-create/processcontrol-create.component';
 import {DialogModule} from 'primeng/dialog';
 import { DesignModuleProjectsComponent } from './design-module-projects/design-module-projects.component';
+import { UploadService } from "./shared/service/upload.service";
 
 @NgModule({
   declarations: [
@@ -123,7 +124,7 @@ import { DesignModuleProjectsComponent } from './design-module-projects/design-m
     MessagesModule,
     HttpClientModule,
   ],
-  providers: [QuotationService, PurchaserequisitionService, SalesorderService, DesignService, DeliveryService, CustomerService, VendorService, MessageService, ConfirmationService, ToggleDisplayService],
+  providers: [UploadService, QuotationService, PurchaserequisitionService, SalesorderService, DesignService, DeliveryService, CustomerService, VendorService, MessageService, ConfirmationService, ToggleDisplayService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

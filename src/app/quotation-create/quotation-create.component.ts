@@ -5,8 +5,8 @@ import { VendorService } from "../shared/service/vendor.service";
 import { Location } from '@angular/common';
 import { SelectItem } from 'primeng/api'
 import { formatDate } from '@angular/common';
-import {ConfirmDialogModule} from 'primeng/confirmdialog';
-import {ConfirmationService, Message} from 'primeng/api';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService, Message } from 'primeng/api';
 
 interface supplier {
   name: string;
@@ -40,7 +40,7 @@ export class QuotationCreateComponent implements OnInit {
   testEntry: any;
 
   maxCount: any;
-  
+
   quotationList: any;
 
   constructor(public quotationService: QuotationService, public vendorService: VendorService, public _location: Location, private confirmationservice: ConfirmationService) { }
@@ -51,7 +51,7 @@ export class QuotationCreateComponent implements OnInit {
       this.quotationList = this.quotationService.quotationList;
       this.maxCount = this.quotationList.length;
     });
-    
+
     this.vendorList = this.vendorService.loadVendors().subscribe(responseData => {
       this.vendorService.vendorList = responseData;
       this.vendorService.vendorList = this.vendorService.vendorList.body;
@@ -127,21 +127,32 @@ export class QuotationCreateComponent implements OnInit {
   onUpload(event) {
     for (let file of event.files) {
       this.uploadedFiles.push(file);
+      console.log(this.uploadedFiles);
     }
   }
+  myUploader(event) {
+    //event.files == files to upload
+    for (let file of event.files) {
+      this.uploadedFiles.push(file);
+      console.log(this.uploadedFiles);
+    }
+  }
+
   confirm() {
     this.confirmationservice.confirm({
-        message: 'Are you sure that you want to proceed?',
-        header: 'Confirmation',
-        icon: 'pi pi-exclamation-triangle',
-        accept: () => {
-            this.msgs = [{severity:'info', summary:'Confirmed', detail:'You have accepted'}];
-            this.onAddEnquiry();
-        },
-        reject: () => {
-            this.msgs = [{severity:'info', summary:'Rejected', detail:'You have rejected'}];
-        }
-      });
+      message: 'Are you sure that you want to proceed?',
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.msgs = [{ severity: 'info', summary: 'Confirmed', detail: 'You have accepted' }];
+        this.onAddEnquiry();
+      },
+      reject: () => {
+        this.msgs = [{ severity: 'info', summary: 'Rejected', detail: 'You have rejected' }];
+      }
+    });
   }
+
+
 
 }
