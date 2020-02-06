@@ -18,16 +18,8 @@ export class SalesorderService {
 
   salesOrderListCompleted: any;
 
-  // salesOrderList: Salesorder[] = [
-  //   new Salesorder(1, "Pending", 1, "Mr Benedict", "31/01/2000", "Buy Bricks", "Singapore", "Mr John", "john@mail.com", "1000", "200"),
-  //   new Salesorder(2, "Completed", 2, "Mr Howl", "31/02/2000", "Buy Wood", "Singapore", "Mr Ron", "ron@mail.com", "2000", "500"),
-  //   new Salesorder(3, "Pending", 3, "Mr Snake", "31/03/2000", "Buy Soil", "Singapore", "Mr Jacon", "jacob@mail.com", "3000", "400"),
-  //   new Salesorder(2, "Completed", 2, "Mr Smoke", "31/02/2000", "Buy Wood", "Malaysia", "Mr Bat", "ron@mail.com", "2000", "500"),
-  // ];
-
-
   constructor(public http: HttpClient) {
-    this.salesOrderSubject = new BehaviorSubject<any[]>(this.salesOrderList);
+    this.salesOrderSubject = new BehaviorSubject<any>(this.salesOrderList);
   }
 
   addSalesOrder(newSalesOrderInfo: Salesorder) {

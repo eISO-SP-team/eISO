@@ -38,19 +38,20 @@ export class CustomerListComponent implements OnInit {
         //this.enquirySubject.next(this.quotationList); runs, the subscribe will be triggered and will receive the 
         //new list that is being passed in
         this.customerList = newList;
+        this.customersTest = this.customerService.loadCustomers().subscribe(responseData => {
+          this.customerService.customerList = responseData.body;
+          this.customerList = this.customerService.customerList;
+          // this.customerList = responseData;
+          // this.customerList = this.customerList.body;
+    
+        });
         // console.log(newList);
       });
 
   }
 
   ngOnInit() {
-    this.customersTest = this.customerService.loadCustomers().subscribe(responseData => {
-      this.customerService.customerList = responseData.body;
-      this.customerList = this.customerService.customerList;
-      // this.customerList = responseData;
-      // this.customerList = this.customerList.body;
-
-    });
+    
   }
 
   viewEnquiry(selectedCustomer) {

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Salesorder } from "../shared/model/salesorder.model";
 import { SalesorderService } from "../shared/service/salesorder.service";
-import {ConfirmDialogModule} from 'primeng/confirmdialog';
-import {ConfirmationService, Message} from 'primeng/api';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService, Message } from 'primeng/api';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-salesorder-list',
@@ -31,30 +31,30 @@ export class SalesorderListComponent implements OnInit {
         // console.log("listener triggered");
         // console.log(newList);
         //listens the listener in the service, whenever the code 
-        //this.enquirySubject.next(this.quotationList); runs, the subscribe will be triggered and will receive the 
+        // this.enquirySubject.next(this.quotationList); runs, the subscribe will be triggered and will receive the 
         //new list that is being passed in
         this.salesOrderList = newList;
-        // console.log(newList);
+        this.salesOrderTest = this.salesOrderService.loadSalesorder().subscribe(responseData => {
+          this.salesOrderService.salesOrderList = responseData.body;
+          this.salesOrderList = this.salesOrderService.salesOrderList;
+          // console.log(this.salesOrderList);
+          for (let i = 0; i < this.salesOrderList.length; i++) {
+            if (this.salesOrderList[i].status == "pending") {
+              this.salesOrderListPending.push(this.salesOrderList[i]);
+              this.salesOrderListPending2 = this.salesOrderListPending;
+            } else {
+              this.salesOrderListCompleted.push(this.salesOrderList[i]);
+              this.salesOrderListCompleted2 = this.salesOrderListCompleted;
+            }
+          }
+        });
       });
 
   }
 
 
   ngOnInit() {
-    this.salesOrderTest = this.salesOrderService.loadSalesorder().subscribe(responseData => {
-      this.salesOrderService.salesOrderList = responseData.body;
-      this.salesOrderList = this.salesOrderService.salesOrderList;
-      // console.log(this.salesOrderList);
-      for (let i = 0; i < this.salesOrderList.length; i++) {
-        if (this.salesOrderList[i].status == "pending") {
-          this.salesOrderListPending.push(this.salesOrderList[i]);
-          this.salesOrderListPending2 = this.salesOrderListPending;
-        } else {
-          this.salesOrderListCompleted.push(this.salesOrderList[i]);
-          this.salesOrderListCompleted2 = this.salesOrderListCompleted;
-        }
-      }
-    });
+
   }
 
   viewEnquiryPending(salesOrderListPending) {
@@ -93,24 +93,24 @@ export class SalesorderListComponent implements OnInit {
       }
     }
     console.log(this.salesOrderList[index].id);
-    this.salesOrderService.deleteSalesorder(this.salesOrderList[index].id).subscribe(()=>{
+    this.salesOrderService.deleteSalesorder(this.salesOrderList[index].id).subscribe(() => {
       console.log("Deleted");
     });
     this.salesOrderList.splice(index, 1);
   }
   confirm(enquiry) {
     this.confirmationservice.confirm({
-        message: 'Are you sure that you want to proceed?',
-        header: 'Confirmation',
-        icon: 'pi pi-exclamation-triangle',
-        accept: () => {
-            this.msgs = [{severity:'info', summary:'Confirmed', detail:'You have accepted'}];
-            this.deleteEnquiry(enquiry);
-        },
-        reject: () => {
-            this.msgs = [{severity:'info', summary:'Rejected', detail:'You have rejected'}];
-        }
-      });
+      message: 'Are you sure that you want to proceed?',
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.msgs = [{ severity: 'info', summary: 'Confirmed', detail: 'You have accepted' }];
+        this.deleteEnquiry(enquiry);
+      },
+      reject: () => {
+        this.msgs = [{ severity: 'info', summary: 'Rejected', detail: 'You have rejected' }];
+      }
+    });
   }
 }
 
