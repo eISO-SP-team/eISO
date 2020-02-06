@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { Quotation } from "../shared/model/quotation.model";
 import { QuotationService } from "../shared/service/quotation.service";
-import { MenuItem } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
+import {ConfirmationService, Message} from 'primeng/api';
 
 @Component({
   selector: 'app-quotation-list',
   templateUrl: './quotation-list.component.html',
   styleUrls: ['./quotation-list.component.css'],
-  providers: [MessageService]
 })
 
 export class QuotationListComponent implements OnInit {
+
+  msgs: Message[] = [];
 
   quotationList;
 
@@ -24,7 +25,7 @@ export class QuotationListComponent implements OnInit {
 
   selectQuotations: Quotation[];
 
-  constructor(private quotationService: QuotationService, public router: Router, ) {
+  constructor(private quotationService: QuotationService, public router: Router, private confirmationservice: ConfirmationService ) {
 
     this.quotationService.getQuotationListener()
       .subscribe(newList => {
@@ -52,7 +53,7 @@ export class QuotationListComponent implements OnInit {
     this.router.navigate(['/quotationView', quotationList.id]);
   }
 
-  deleteEnquiry(enquiry) {
+  deleteEnquiry(enquiry){
     this.quotationService.deleteQuotation(enquiry.id).subscribe(() => {
       console.log("Delete this enquiry......" + JSON.stringify(enquiry));
       let index = -1;
@@ -64,5 +65,19 @@ export class QuotationListComponent implements OnInit {
       }
       this.quotationList.splice(index, 1);
     });
+  }
+  confirm(enquiry) {
+    this.confirmationservice.confirm({
+        message: 'Are you sure that you want to proceed?',
+        header: 'Confirmation',
+        icon: 'pi pi-exclamation-triangle',
+        accept: () => {
+            this.msgs = [{severity:'info', summary:'Confirmed', detail:'You have accepted'}];
+            this.deleteEnquiry(enquiry);
+        },
+        reject: () => {
+            this.msgs = [{severity:'info', summary:'Rejected', detail:'You have rejected'}];
+        }
+      });
   }
 }

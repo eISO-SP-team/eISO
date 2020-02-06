@@ -5,6 +5,8 @@ import { CustomerService } from "../shared/service/customer.service";
 import { Location } from '@angular/common';
 import { formatDate } from '@angular/common';
 import { SelectItem } from 'primeng/api'
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService, Message} from 'primeng/api';
 
 interface Type {
   name: string;
@@ -23,6 +25,8 @@ interface cust {
 })
 
 export class SalesorderCreateComponent implements OnInit {
+
+  msgs: Message[] = [];
 
   customer: cust[];
 
@@ -48,7 +52,7 @@ export class SalesorderCreateComponent implements OnInit {
 
   maxCount: any;
 
-  constructor(public customerService: CustomerService, public salesOrderService: SalesorderService, public _location: Location) {
+  constructor(public customerService: CustomerService, public salesOrderService: SalesorderService, public _location: Location, private confirmationservice: ConfirmationService ) {
 
   }
 
@@ -125,5 +129,18 @@ export class SalesorderCreateComponent implements OnInit {
       });
     this._location.back();
   }
-
+  confirm() {
+    this.confirmationservice.confirm({
+        message: 'Are you sure that you want to proceed?',
+        header: 'Confirmation',
+        icon: 'pi pi-exclamation-triangle',
+        accept: () => {
+            this.msgs = [{severity:'info', summary:'Confirmed', detail:'You have accepted'}];
+            this.onAddEnquiry();
+        },
+        reject: () => {
+            this.msgs = [{severity:'info', summary:'Rejected', detail:'You have rejected'}];
+        }
+      });
+  }
 }

@@ -27,7 +27,8 @@
                     <div class="px-30 py-10">
                         <a class="link-effect " href="index.html">
                             <!-- <i class="si si-fire"></i> -->
-                            <span class="font-size-xl text-primary-dark font-w700 ">e</span><span class="font-size-xl font-w700 ISO">ISO</span>
+                            <span class="font-size-xl text-primary-dark font-w700 ">e</span><span
+                                class="font-size-xl font-w700 ISO">ISO</span>
                             <p class=" management text-primary-dark nFont "> Management System</p>
                             <!-- <p class="font-size-xl text-primary-dark nFont system"> </p> -->
                         </a>
@@ -42,10 +43,18 @@
                         <!-- Username -->
                         <div id="formContent" class="form-group row">
                             <div class="col-12">
-                                <div class="form-material floating">
+                                <!-- <div class="form-material floating">
                                     <input type="text" [formControlName]="'username'" id="login" class="form-control"
-                                        name="login-username" >
+                                        name="login-username">
                                     <label for="login-username" class="floating">Username</label>
+                                </div> -->
+
+                                <div>
+                                    <span class="ui-float-label">
+                                        <input type="text" [formControlName]="'username'" id="login" class="form-control"
+                                        name="login-username" pInputText>
+                                        <label  for="login-username"> Username </label>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -53,15 +62,25 @@
                         <!-- Password -->
                         <div class="form-group row">
                             <div class="col-12">
-                                <div class="form-material floating">
+                                <!-- old fail -->
+                                <!-- <div class="form-material floating">
                                     <input type="text" [formControlName]="'password'" id="password" class="form-control"
-                                        name="login">
+                                        name="login" >
                                     <label for="login-password">Password</label>
+                                </div> -->
+                                <div>
+                                    <span class="ui-float-label">
+                                        <input type="text" [formControlName]="'password'" id="password" 
+                                            name="login" class="form-control" pInputText>
+                                        <label for="login-password"> Password </label>
+                                    </span>
                                 </div>
+
                             </div>
                         </div>
 
-                        <input type="submit" [disabled]="!loginForm.valid" class="btn btn-sm btn-hero btn-alt-primary fadeIn fourth" value="Log In">
+                        <input type="submit" [disabled]="!loginForm.valid"
+                            class="btn btn-sm btn-hero btn-alt-primary fadeIn fourth" value="Log In">
                     </form>
 
 

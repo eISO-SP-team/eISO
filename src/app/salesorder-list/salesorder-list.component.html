@@ -33,7 +33,7 @@
                     <div class="ui-g-12">
                         <div class="ui-g-2" style="align-content: center;">
                             <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
-                            <img #img src="../../assets/delete.png" (click)="deleteEnquiry(salesOrderListPending)"
+                            <img #img src="../../assets/delete.png" (click)="confirm(salesOrderListPending)"
                                 width="30px" height="30px" alt="Logo">
                         </div>
                         <div class="ui-g-4">
@@ -84,9 +84,9 @@
             <ng-template let-salesOrderListCompleted pTemplate="listItem">
                 <div class="ui-dataview-content">
                     <div class="ui-g-12">
-                        <div class="ui-g-2" style="align-content: center;">
+                        <div class="ui-g-2" style="align-content: center;"> 
                             <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
-                            <img #img src="../../assets/delete.png" (click)="deleteEnquiry(salesOrderListCompleted)"
+                            <img #img src="../../assets/delete.png" (click)="confirm(salesOrderListCompleted)"
                                 width="30px" height="30px" alt="Logo">
                         </div>
                         <div class="ui-g-4">
@@ -108,3 +108,4 @@
         </p-dataView>
     </div>
 </div>
+<!-- <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog> -->

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Salesorder } from "../shared/model/salesorder.model";
 import { SalesorderService } from "../shared/service/salesorder.service";
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService, Message} from 'primeng/api';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-salesorder-list',
@@ -8,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./salesorder-list.component.css']
 })
 export class SalesorderListComponent implements OnInit {
-
+  msgs: Message[] = [];
   salesOrderList: any;
 
   salesOrderListPending = [];
@@ -23,7 +25,7 @@ export class SalesorderListComponent implements OnInit {
 
   salesOrderTest: any;
 
-  constructor(public salesOrderService: SalesorderService, public router: Router, ) {
+  constructor(public salesOrderService: SalesorderService, public router: Router, private confirmationservice: ConfirmationService) {
     this.salesOrderService.getSalesOrderListener()
       .subscribe(newList => {
         // console.log("listener triggered");
@@ -95,6 +97,20 @@ export class SalesorderListComponent implements OnInit {
       console.log("Deleted");
     });
     this.salesOrderList.splice(index, 1);
+  }
+  confirm(enquiry) {
+    this.confirmationservice.confirm({
+        message: 'Are you sure that you want to proceed?',
+        header: 'Confirmation',
+        icon: 'pi pi-exclamation-triangle',
+        accept: () => {
+            this.msgs = [{severity:'info', summary:'Confirmed', detail:'You have accepted'}];
+            this.deleteEnquiry(enquiry);
+        },
+        reject: () => {
+            this.msgs = [{severity:'info', summary:'Rejected', detail:'You have rejected'}];
+        }
+      });
   }
 }
 

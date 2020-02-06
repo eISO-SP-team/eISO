@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Customer } from "../shared/model/customer.model";
 import { CustomerService } from "../shared/service/customer.service";
 import { Router } from '@angular/router';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService, Message} from 'primeng/api';
 
 @Component({
   selector: 'app-customer-list',
@@ -9,6 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./customer-list.component.css']
 })
 export class CustomerListComponent implements OnInit {
+  msgs: Message[] = [];
 
   customerList: any;
 
@@ -24,7 +27,7 @@ export class CustomerListComponent implements OnInit {
 
   confirmDelete: boolean;
 
-  constructor(public customerService: CustomerService, public router: Router, ) {
+  constructor(public customerService: CustomerService, public router: Router, private confirmationservice: ConfirmationService) {
 
     //this.quotationList = this.quotationService.quotationList;
     this.customerService.getCustomerListener()
@@ -65,10 +68,25 @@ export class CustomerListComponent implements OnInit {
           break;
         }
       }
-      this.customerList.splice(this.index, 1);
+     this.customerList.splice(this.index, 1);
       console.log('Vendor with id: ' + enquiry.id + ' has been deleted');
     });
 
+  }
+
+  confirm(enquiry) {
+    this.confirmationservice.confirm({
+        message: 'Are you sure that you want to proceed?',
+        header: 'Confirmation',
+        icon: 'pi pi-exclamation-triangle',
+        accept: () => {
+            this.msgs = [{severity:'info', summary:'Confirmed', detail:'You have accepted'}];
+            this.deleteEnquiry(enquiry);
+        },
+        reject: () => {
+            this.msgs = [{severity:'info', summary:'Rejected', detail:'You have rejected'}];
+        }
+      })
   }
 }
 

@@ -13,7 +13,7 @@
             </div>
         </div>
         <form [formGroup]="addSalesOrderForm"
-            (ngSubmit)="onAddEnquiry(quotation_number,customer_id,date,subject,pic,tenderLocation,picEmail,total,deposit)">
+            (ngSubmit)="confirm(quotation_number,customer_id,date,subject,pic,tenderLocation,picEmail,total,deposit)">
             <div class="ui-g">
                 <div style=" overflow: visible;" class="fieldset-list ui-g-12">
                     <div class="ui-g-12 ui-md-12 ui-lg-4">
@@ -158,3 +158,4 @@
         </form>
     </div>
 </div>
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
