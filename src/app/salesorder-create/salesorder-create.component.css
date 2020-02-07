@@ -1,0 +1,60 @@
+/* BIG FORM TITLE */
+.ui-g-6 h3 {
+    font-size: 2.7rem;
+    font-weight: 900;
+  }
+  
+  .rcorners2 {
+    transition: opacity .2s ease-out;
+    margin: 0 auto;
+    padding: 20px 20px 1px;
+    width: 100%;
+    overflow-x: visible;
+    background-color: white;
+    }
+  
+  .first {
+    font-size: 1.142857rem;
+    font-weight: 400;
+    cursor: text;
+    z-index: 2;
+    text-align: left;
+    border: none;
+    color: grey
+    /* transition: all .2s ease-out;
+    -webkit-transform: translateY(25px);
+            transform: translateY(25px); */
+  }
+  
+  
+  /* 2nd header - address, contact*/
+  .fieldset-list h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+    padding: 1em 2em 1em 0.7em;
+  }
+  
+  .ui-float-label {
+    padding-left: 0;
+    padding-right: 0;
+    border-color: transparent;
+    border-radius: 0;
+    background-color: transparent;
+    box-shadow: 0 1px 0 #d4dae3;
+    transition: box-shadow .3s ease-out;
+  }
+  
+  .form-control {
+    border: none; 
+  }
+  
+  /* changes the colour of the text you type */
+  .form-control:focus {
+    color: #1568ac;
+  }
+  
+  
+  .button-styles {
+      color: white;
+  }
+  
