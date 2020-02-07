@@ -49,7 +49,7 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label-2">
                                 <h3 class="first">Type</h3>
-                                <p-dropdown class="list-styles" [options]="type" [formControlName]="'type'" placeholder="Select a Type"
+                                <p-dropdown [options]="type" [formControlName]="'type'" placeholder="Select a Type"
                                     [(ngModel)]="selectedType" optionLabel="name" [showClear]="true"></p-dropdown>
                             </span>
                             <span *ngIf="!addCustomerForm.get('type').valid && addCustomerForm.get('type').touched"
