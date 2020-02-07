@@ -26,25 +26,34 @@ export class DesignModuleComponent implements OnInit {
 
 
   constructor(public _location: Location, public designService: DesignService, public router: Router) {
-
+    this.designService.getDesignListener()
+      .subscribe(newList => {
+        // console.log("listener triggered");
+        // console.log(newList);
+        //listens the listener in the service, whenever the code 
+        //this.enquirySubject.next(this.quotationList); runs, the subscribe will be triggered and will receive the 
+        //new list that is being passed in
+        this.designList = newList;
+        this.testList = this.designService.loadDesigns().subscribe((responseData) => {
+          this.designList = (<any>responseData).body;
+          console.log(this.designList[1]);
+          for (let i = 0; i < this.designList.length; i++) {
+            if (this.designList[i].design_details.design_phase == "Design Plan") {
+              this.planList.push(this.designList[i]);
+            } else if (this.designList[i].design_details.design_phase == "Design Input") {
+              this.inputList.push(this.designList[i]);
+            } else if (this.designList[i].design_details.design_phase == "Design Control") {
+              this.controlList.push(this.designList[i]);
+            } else {
+              this.outputList.push(this.designList[i]);
+            }
+          }
+        });
+      });
   }
 
   ngOnInit() {
-    this.testList = this.designService.loadDesigns().subscribe((responseData) => {
-      this.designList = (<any>responseData).body;
-      console.log(this.designList[1]);
-      for (let i = 0; i < this.designList.length; i++) {
-        if (this.designList[i].design_details.design_phase == "Design Plan") {
-          this.planList.push(this.designList[i]);
-        } else if (this.designList[i].design_details.design_phase == "Design Input") {
-          this.inputList.push(this.designList[i]);
-        } else if (this.designList[i].design_details.design_phase == "Design Control") {
-          this.controlList.push(this.designList[i]);
-        } else {
-          this.outputList.push(this.designList[i]);
-        }
-      }
-    });
+
   }
 
   viewEnquiry(enquiry: any) {
