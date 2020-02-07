@@ -26,7 +26,7 @@ export class ProcesscontrolCreateComponent implements OnInit {
 
   customer: cust[];
 
-  customerEmail:any;
+  customerEmail: any;
 
   selectedCustomer: any;
 
@@ -54,6 +54,8 @@ export class ProcesscontrolCreateComponent implements OnInit {
 
   maxCount: any;
 
+  clickedonPhase: string = "PREPARATION";
+
   constructor(public quotationService: QuotationService, public processControlService: ProcesscontrolService, public customerService: CustomerService, public _location: Location) { }
 
   ngOnInit() {
@@ -62,13 +64,14 @@ export class ProcesscontrolCreateComponent implements OnInit {
       this.processControlList = this.processControlService.processcontrolList;
       this.maxCount = this.processControlList.length;
     });
-    
+
     this.customerList = this.customerService.loadCustomers().subscribe(responseData => {
       this.customerService.customerList = responseData.body;
       this.customerList = this.customerService.customerList;
       this.newList = [];
       for (let i = 0; i < this.customerList.length; i++) {
         this.newList.push({ label: this.customerList[i].customer_name, value: this.customerList[i].id });
+        console.log(this.newList);
       }
     });
 
@@ -97,29 +100,29 @@ export class ProcesscontrolCreateComponent implements OnInit {
   onAddEnquiry() {
     console.log(this.addProcessControlForm.value.customer_id);
     this.testEntry = {
-      "header_id": this.maxCount +1,
-      "pc_number": this.maxCount +1,
-      "project_id": this.maxCount +1,
+      "header_id": this.maxCount + 1,
+      "pc_number": this.maxCount + 1,
+      "project_id": this.maxCount + 1,
       "project_name": this.addProcessControlForm.value.project_name,
       "status": "pending",
       "process_control_details": {
-          "header_id": "213",
-          "due_date": "2019-11-26",
-          "pic": "Jack",
-          "line_id": "213",
-          "created_by": "Jack",
-          "reference_type": "abc",
-          "uploaded_by": "Jack",
-          "file": "abc.abc",
-          "line_number": 5,
-          "uploaded_date": "2019-11-26",
-          "document_process": "abc",
-          "created_date": "2019-11-26",
-          "document_type": "abc",
-          "status": "pending"
+        "header_id": "213",
+        "due_date": "2019-11-26",
+        "pic": "Jack",
+        "line_id": "213",
+        "created_by": "Jack",
+        "reference_type": "abc",
+        "uploaded_by": "Jack",
+        "file": "abc.abc",
+        "line_number": 5,
+        "uploaded_date": "2019-11-26",
+        "document_process": "abc",
+        "created_date": "2019-11-26",
+        "document_type": "abc",
+        "status": "pending"
       },
-  
-  };
+
+    };
     console.log(JSON.stringify(this.testEntry));
     var data = JSON.stringify(this.testEntry);
     this.processControlService.addProcesscontrols(data)
@@ -128,5 +131,18 @@ export class ProcesscontrolCreateComponent implements OnInit {
         this.processControlService.processcontrolList.push(this.testEntry);
       });
     this._location.back();
+  }
+
+  handleChange(e) {
+    var index = e.index;
+
+    if (index == 0) {
+      this.clickedonPhase = "PREPARATION";
+    } else if (index == 1) {
+      this.clickedonPhase = "IN PROGRESS PHASE";
+    } else {
+      this.clickedonPhase = "FINAL PHASE";
+    }
+    console.log(this.clickedonPhase);
   }
 }

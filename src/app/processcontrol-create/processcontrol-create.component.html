@@ -10,148 +10,189 @@
                     (click)="this._location.back()" label="Cancel"></button>
             </div>
         </div>
-        <form [formGroup]="addSalesOrderForm"
-            (ngSubmit)="onAddEnquiry()">
+        <form [formGroup]="addProcessControlForm" (ngSubmit)="onAddEnquiry()">
             <div class="ui-g">
-                <div style=" overflow: visible;" class="fieldset-list ui-g-12">
-                    <div class="ui-g-12 ui-md-12 ui-lg-4">
-                        <div class="ui-g-12">
-                            <span class="ui-float-label">
-                                <h3 class="first">Quotation Reference</h3>
-                                <input type="text" pInputText [formControlName]="'quotation_number'" />
-                            </span>
-                            <span
-                                *ngIf="!addSalesOrderForm.get('quotation_number').valid && addSalesOrderForm.get('quotation_number').touched"
-                                class="help-block">
-                                <span>
-                                    <p-message *ngIf="addSalesOrderForm.get('quotation_number').errors['required']"
-                                        severity="error" text="This field is required!"></p-message>
-                                </span>
-                            </span>
-                        </div>
-
-                    </div>
-                    <div class="ui-g-12 ui-md-12 ui-lg-4">
-                        <div class="ui-g-12">
-                            <span class="ui-float-label">
-                                <h3 class="first">Customer Id</h3>
-                                <p-dropdown [formControlName]="'customer_id'" [virtualScroll]="true" [options]="newList"
-                                    ngModel="customer" placeholder="Select Customer">
-                                </p-dropdown>
-                            </span>
-                            <span
-                                *ngIf="!addSalesOrderForm.get('customer_id').valid && addSalesOrderForm.get('customer_id').touched"
-                                class="help-block">
-                                <span>
-                                    <p-message *ngIf="addSalesOrderForm.get('customer_id').errors['required']"
-                                        severity="error" text="This field is required!"></p-message>
-                                </span>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="ui-g-12 ui-md-12 ui-lg-4">
-                        <div class="ui-g-12">
-                            <span class="ui-float-label">
-                                <h3 class="first">Date</h3>
-                                <p-calendar dateFormat="dd.mm.yy" placeholder="Click to Enter" [formControlName]="'date'"></p-calendar>
-                            </span>
-                            <span *ngIf="!addSalesOrderForm.get('date').valid && addSalesOrderForm.get('date').touched"
-                                class="help-block">
-                                <p-message *ngIf="addSalesOrderForm.get('date').errors['required']" severity="error"
-                                    text="This field is required!"></p-message>
-                            </span>
-                        </div>
-                    </div>
-                </div>
                 <h2>Project Details</h2>
-                <div class="fieldset-list ui-g-12">
-                    <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <div class="ui-g-12">
-                            <span class="ui-float-label">
-                                <h3 class="first">Subject</h3>
-                                <input type="text" pInputText [formControlName]="'subject'" />
-                            </span>
-                            <span
-                                *ngIf="!addSalesOrderForm.get('subject').valid && addSalesOrderForm.get('subject').touched"
-                                class="help-block">
-                                <p-message *ngIf="addSalesOrderForm.get('subject').errors['required']" severity="error"
-                                    text="This field is required!"></p-message>
-                            </span>
+                <div class="ui-g-12 fieldset-list">
+                    <div class="ui-g-12">
+                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first">Quotation Reference</h3>
+                                    <input type="text" pInputText [formControlName]="'quotation_number'" />
+                                </span>
+                                <span
+                                    *ngIf="!addProcessControlForm.get('quotation_number').valid && addProcessControlForm.get('quotation_number').touched"
+                                    class="help-block">
+                                    <span>
+                                        <p-message
+                                            *ngIf="addProcessControlForm.get('quotation_number').errors['required']"
+                                            severity="error" text="This field is required!"></p-message>
+                                    </span>
+                                </span>
+                            </div>
                         </div>
-                        <div class="ui-g-12">
-                            <span class="ui-float-label">
-                                <h3 class="first">Tender Location</h3>
-                                <input type="text" pInputText [formControlName]="'tenderLocation'" />
-                            </span>
-                            <span
-                                *ngIf="!addSalesOrderForm.get('tenderLocation').valid && addSalesOrderForm.get('tenderLocation').touched"
-                                class="help-block">
-                                <p-message *ngIf="addSalesOrderForm.get('tenderLocation').errors['required']"
-                                    severity="error" text="This field is required!"></p-message>
-                            </span>
+                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first">Project Lead</h3>
+                                    <input type="text" pInputText [formControlName]="'project_lead'" />
+                                </span>
+                                <span
+                                    *ngIf="!addProcessControlForm.get('project_lead').valid && addProcessControlForm.get('project_lead').touched"
+                                    class="help-block">
+                                    <span>
+                                        <p-message *ngIf="addProcessControlForm.get('project_lead').errors['required']"
+                                            severity="error" text="This field is required!"></p-message>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first">Tender Location</h3>
+                                    <input type="text" pInputText [formControlName]="'tenderLocation'" />
+                                </span>
+                                <span
+                                    *ngIf="!addProcessControlForm.get('tenderLocation').valid && addProcessControlForm.get('tenderLocation').touched"
+                                    class="help-block">
+                                    <span>
+                                        <p-message
+                                            *ngIf="addProcessControlForm.get('tenderLocation').errors['required']"
+                                            severity="error" text="This field is required!"></p-message>
+                                    </span>
+                                </span>
+                            </div>
                         </div>
                     </div>
-                    <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <div class="ui-g-12">
-                            <span class="ui-float-label">
-                                <h3 class="first">PIC</h3>
-                                <input type="text" pInputText [formControlName]="'pic'" />
-                            </span>
-                            <span *ngIf="!addSalesOrderForm.get('pic').valid && addSalesOrderForm.get('pic').touched"
-                                class="help-block">
-                                <p-message *ngIf="addSalesOrderForm.get('pic').errors['required']" severity="error"
-                                    text="This field is required!"></p-message>
-                            </span>
+                    <div class="ui-g-12">
+                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first">Customer Name</h3>
+                                    <p-dropdown class="list-styles" [options]="newList"
+                                        [formControlName]="'customer_name'" placeholder="Select a Customer"
+                                        optionLabel="name" [showClear]="true"></p-dropdown>
+                                </span>
+                                <span
+                                    *ngIf="!addProcessControlForm.get('customer_name').valid && addProcessControlForm.get('customer_name').touched"
+                                    class="help-block">
+                                    <span>
+                                        <p-message *ngIf="addProcessControlForm.get('customer_name').errors['required']"
+                                            severity="error" text="This field is required!"></p-message>
+                                    </span>
+                                </span>
+                            </div>
                         </div>
-                        <div class="ui-g-12">
-                            <span class="ui-float-label">
-                                <h3 class="first">PIC Email</h3>
-                                <input type="text" pInputText [formControlName]="'picEmail'" />
-                            </span>
-                            <span
-                                *ngIf="!addSalesOrderForm.get('picEmail').valid && addSalesOrderForm.get('picEmail').touched"
-                                class="help-block">
-                                <p-message *ngIf="addSalesOrderForm.get('picEmail').errors['required']" severity="error"
-                                    text="This field is required!"></p-message>
-                            </span>
+                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first">Customer Email</h3>
+                                    <input type="text" pInputText [formControlName]="'customer_email'" />
+                                </span>
+                                <span
+                                    *ngIf="!addProcessControlForm.get('customer_email').valid && addProcessControlForm.get('customer_email').touched"
+                                    class="help-block">
+                                    <span>
+                                        <p-message
+                                            *ngIf="addProcessControlForm.get('customer_email').errors['required']"
+                                            severity="error" text="This field is required!"></p-message>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                            <!--EMPTY-->
+                        </div>
+                    </div>
+                    <div style="overflow: visible;" class="ui-g-12">
+                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first">Start Date</h3>
+                                    <p-calendar dateFormat="dd.mm.yy" placeholder="Click to Enter"
+                                        [formControlName]="'start_date'"></p-calendar>
+                                </span>
+                                <span
+                                    *ngIf="!addProcessControlForm.get('start_date').valid && addProcessControlForm.get('start_date').touched"
+                                    class="help-block">
+                                    <p-message *ngIf="addProcessControlForm.get('start_date').errors['required']"
+                                        severity="error" text="This field is required!"></p-message>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first">End Date</h3>
+                                    <p-calendar dateFormat="dd.mm.yy" placeholder="Click to Enter"
+                                        [formControlName]="'end_date'"></p-calendar>
+                                </span>
+                                <span
+                                    *ngIf="!addProcessControlForm.get('end_date').valid && addProcessControlForm.get('end_date').touched"
+                                    class="help-block">
+                                    <p-message *ngIf="addProcessControlForm.get('end_date').errors['required']"
+                                        severity="error" text="This field is required!"></p-message>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                            <!--EMPTY-->
                         </div>
                     </div>
                 </div>
-                <h2>Amount</h2>
-                <div class="fieldset-list ui-g-12">
-
-                    <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <div class="ui-g-12">
-                            <span class="ui-float-label">
-                                <h3 class="first">Total</h3>
-                                <input type="text" pInputText [formControlName]="'total'" />
-                            </span>
-                            <span
-                                *ngIf="!addSalesOrderForm.get('total').valid && addSalesOrderForm.get('total').touched"
-                                class="help-block">
-                                <p-message *ngIf="addSalesOrderForm.get('total').errors['required']" severity="error"
-                                    text="This field is required!"></p-message>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <div class="ui-g-12">
-                            <span class="ui-float-label">
-                                <h3 class="first">Deposit</h3>
-                                <input type="text" pInputText [formControlName]="'deposit'" />
-                            </span>
-                            <span
-                                *ngIf="!addSalesOrderForm.get('deposit').valid && addSalesOrderForm.get('deposit').touched"
-                                class="help-block">
-                                <p-message *ngIf="addSalesOrderForm.get('deposit').errors['required']" severity="error"
-                                    text="This field is required!"></p-message>
-                            </span>
-                        </div>
-                    </div>
+                <h2>Process Control Point Backlog</h2>
+                <div class="ui-g-12 fieldset-list">
+                    <p-tabView class="ui-g-12" (onChange)="handleChange($event)">
+                        <p-tabPanel header="PREPARATION" leftIcon="pi pi-calendar">
+                            <table class="roundedCorners">
+                                <tr>
+                                    <th>Created By</th>
+                                    <th>Due Dater</th>
+                                    <th>Status</th>
+                                </tr>
+                                <tr *ngFor="let dbl of desginBacklog">
+                                    <td *ngIf="dbl.design_phase=='Design Plan'">{{dbl.created_by}}</td>
+                                    <td *ngIf="dbl.design_phase=='Design Plan'">{{dbl.due_date}}</td>
+                                    <td *ngIf="dbl.design_phase=='Design Plan'">{{dbl.status}}</td>
+                                </tr>
+                            </table>
+                        </p-tabPanel>
+                        <p-tabPanel header="IN PROGRESS PHASE" leftIcon="pi pi-inbox">
+                            <table class="roundedCorners">
+                                <tr>
+                                    <th>Created By</th>
+                                    <th>Due Dater</th>
+                                    <th>Status</th>
+                                </tr>
+                                <tr *ngFor="let dbl of desginBacklog">
+                                    <td *ngIf="dbl.design_phase=='Design Input'">{{dbl.created_by}}</td>
+                                    <td *ngIf="dbl.design_phase=='Design Input'">{{dbl.due_date}}</td>
+                                    <td *ngIf="dbl.design_phase=='Design Input'">{{dbl.status}}</td>
+                                </tr>
+                            </table>
+                        </p-tabPanel>
+                        <p-tabPanel header="FINAL PHASE" leftIcon="pi pi-user" rightIcon="pi pi-star">
+                            <table class="roundedCorners">
+                                <tr>
+                                    <th>Created By</th>
+                                    <th>Due Dater</th>
+                                    <th>Status</th>
+                                </tr>
+                                <tr *ngFor="let dbl of desginBacklog">
+                                    <td *ngIf="dbl.design_phase=='Design Control'">{{dbl.created_by}}</td>
+                                    <td *ngIf="dbl.design_phase=='Design Control'">{{dbl.due_date}}</td>
+                                    <td *ngIf="dbl.design_phase=='Design Control'">{{dbl.status}}</td>
+                                </tr>
+                            </table>
+                        </p-tabPanel>
+                    </p-tabView>
                 </div>
             </div>
             <div class="ui-g-12">
-                <button pButton [disabled]="!addSalesOrderForm.valid" type="submit" label="Submit Sales Order"></button>
+                <button pButton [disabled]="!addProcessControlForm.valid" type="submit"
+                    label="Submit Sales Order"></button>
             </div>
         </form>
     </div>

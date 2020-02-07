@@ -19,7 +19,6 @@ export class AppComponent {
     // this.toggleDisplayService.isViewable;
   }
   ngAfterViewInit() {
-    debugger;
     this.router.url;
   }
 }

@@ -44,7 +44,6 @@ export class MenuComponent implements OnInit {
         ];
     }
     ngAfterViewInit() {
-        debugger;
         this.router.url;
     }
 }
