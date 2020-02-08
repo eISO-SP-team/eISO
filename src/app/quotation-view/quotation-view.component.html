@@ -1,7 +1,8 @@
-<p>quotation-view works!</p>
+<!-- <p>quotation-view works!</p> -->
 
 <div class="ui-g">
     <div class="ui-g rcorners2">
+        <div class="ui-g-6">
         <h3>View Quotation</h3>
         <button id="disabled-btn" type="button" (click)="toggleDisabled()" pButton label="Toggle Edit"></button>
         <form [formGroup]="addForm" (ngSubmit)="updateEdits()">
@@ -10,9 +11,12 @@
                     <input type="text" pInputText [disabled]="disabled" [formControlName]="'title'"
                         [(ngModel)]='newTitle' />
                 </div> -->
-                <div class="ui-g-12">Project Reference Number:
-                    {{this.quotationService.selectedQuotationInService.id}}</div>
-                <div class="ui-g-12 fieldset-bg">
+                <!-- <div class="ui-g-12">Project Reference Number:
+                    {{this.quotationService.selectedQuotationInService.id}}</div> -->
+                <!-- <div class="ui-g-12 fieldset-bg"> -->
+                    <div class="ui-g-12">
+                        <button pButton type="button" style="float:right; position: relative;" class="ui-button-danger"
+                            (click)="this._location.back()" label="Cancel"></button>
                     <!--Left column-->
                     <div class="ui-g-6 ui-md-12 ui-lg-6">
                         <div class="ui-g-12">
@@ -46,7 +50,7 @@
                         </div>
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">validity</h3>
+                                <h3 class="first">Validity</h3>
                                 <input type="text" pInputText [formControlName]="'validity'" [(ngModel)]='newValidity' />
                             </span>
                         </div>
