@@ -134,41 +134,6 @@ export class vendorCreateComponent implements OnInit {
       created_by: "Johnny",
       created_date: "",
     };
-    // this.testEntry = {
-    //   vendor_code: "12345",
-    //   vendor_name: "Fake Store",
-    //   vendor_type: "Pass",
-    //   products: "Items",
-    //   tax_id: "555",
-    //   vendor_address: {
-    //     country: "Singapore",
-    //     address1: "Address1",
-    //     address2: "Address2",
-    //     updated_by: "Johnny",
-    //     created_date: "31/01/2000",
-    //     updated_date: "31/01/2000",
-    //     zip_code: "123456",
-    //   },
-    //   vendor_contact: [{
-    //     prefix: "Mr",
-    //     mobile: "87654321",
-    //     last_name: "Tan",
-    //     middle_name: "Mark",
-    //     fax_number: "654321",
-    //     created_by: "Johnny",
-    //     vendor_id: "007",
-    //     extension_number: "123456",
-    //     updated_by: "Johnny",
-    //     phone_number: "87654321",
-    //     created_date: "31/01/2000",
-    //     updated_date: "31/01/2000",
-    //     first_name: "Tan",
-    //     email: "fake@mail.com",
-    //   }],
-    //   vendor_evaluation: "none",
-    //   created_by: "Johnny",
-    //   created_date: "31/01/2000",
-    // };
     console.log(JSON.stringify(this.testEntry));
     var data = JSON.stringify(this.testEntry);
     this.vendorService.addVendors(data)
