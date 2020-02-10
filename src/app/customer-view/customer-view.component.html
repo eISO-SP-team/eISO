@@ -13,7 +13,7 @@
         </div>
         <form [formGroup]="addCustomerForm"
             (ngSubmit)="updateEdits(companyName,type,tax_id,country,address1,address2,zipcode,prefix,first_name,middle_name,last_name,mobile,extension_number,phone_number,fax_number,email)">
-            <div class="ui-g">
+            <div class="ui-g-12">
                 <div class="fieldset-list ui-g-12">
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <div class="ui-g-12">
@@ -46,7 +46,7 @@
                     </div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <div class="ui-g-12">
-                            <span class="ui-float-label">
+                            <span class="ui-float-label-2">
                                 <h3 class="first">Type</h3>
                                 <input type="text" [(ngModel)]='newType' pInputText [formControlName]="'type'" />
                             </span>

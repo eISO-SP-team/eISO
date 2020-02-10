@@ -2,8 +2,10 @@
 
 <div class="ui-g">
     <div class="ui-g rcorners2">
-        <div class="ui-g-6">
+        <div class="ui-g-12">
         <h3>View Quotation</h3>
+        <button pButton type="button" style="float:right; position: relative;" class="ui-button-danger"
+                            (click)="this._location.back()" label="Cancel"></button>
         <button id="disabled-btn" type="button" (click)="toggleDisabled()" pButton label="Toggle Edit"></button>
         <form [formGroup]="addForm" (ngSubmit)="updateEdits()">
             <div class="ui-g">
@@ -15,19 +17,18 @@
                     {{this.quotationService.selectedQuotationInService.id}}</div> -->
                 <!-- <div class="ui-g-12 fieldset-bg"> -->
                     <div class="ui-g-12">
-                        <button pButton type="button" style="float:right; position: relative;" class="ui-button-danger"
-                            (click)="this._location.back()" label="Cancel"></button>
                     <!--Left column-->
-                    <div class="ui-g-6 ui-md-12 ui-lg-6">
+                    <div class="fieldset-list ui-g-12">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Subject</h3>
-                                <input type="text" pInputText [disabled]="disabled" [formControlName]="'companyName'" [(ngModel)]='newCompanyName' />
+                                <h2 class="first">Subject</h2>
+                                <input class="form-control" type="text" pInputText [disabled]="disabled" [formControlName]="'companyName'" [(ngModel)]='newCompanyName' />
                             </span>
                         </div>
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">To</h3>
+                                <h2 class="first">To</h2>
                                 <p-dropdown [formControlName]="'to'" [virtualScroll]="true" [options]="newList"
                                  placeholder="Select Supplier" [(ngModel)]="newTo">
                             </p-dropdown>
@@ -35,22 +36,23 @@
                         </div>
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Attention</h3>
+                                <h2 class="first">Attention</h2>
                                 <input type="text" pInputText [formControlName]="'attention'" [(ngModel)]='newAttention' />
                             </span>
                         </div>
                     </div>
+        
                     <!--Right column-->
                     <div class="ui-g-6 ui-md-12 ui-lg-6">
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Tender Location</h3>
+                                <h2 class="first">Tender Location</h2>
                                 <input type="text" pInputText [formControlName]="'tenderLocation'" [(ngModel)]='newTenderLocation' />
                             </span>
                         </div>
-                        <div class="ui-g-12">
+                        <div class="ui-g-6">
                             <span class="ui-float-label">
-                                <h3 class="first">Validity</h3>
+                                <h2 class="first">Validity</h2>
                                 <input type="text" pInputText [formControlName]="'validity'" [(ngModel)]='newValidity' />
                             </span>
                         </div>
@@ -58,23 +60,24 @@
                 </div>
 
             </div>
-            <div class="ui-g-12 fieldset-bg">
+            <div class="ui-g-6 fieldset-bg">
                 <ui-g-6>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12">
                         <span class="ui-float-label">
-                            <h3 class="first">Total</h3>
+                            <h2 class="first">Total</h2>
                             <input type="text" pInputText [formControlName]="'total'" [(ngModel)]='newTotal' />
                         </span>
                     </div>
                 </ui-g-6>
                 <ui-g-6>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12">
                         <span class="ui-float-label">
-                            <h3 class="first">Deposit</h3>
+                            <h2 class="first">Deposit</h2>
                             <input type="text" pInputText [formControlName]="'deposit'" [(ngModel)]='newDeposit' />
                         </span>
                     </div>
                 </ui-g-6>
+            </div>
             </div>
             <div class="ui-g-12">
                 <h2>Supporting File</h2>
