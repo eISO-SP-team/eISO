@@ -3,6 +3,7 @@
 @import url("../node_modules/primeflex/primeflex.css");
 @import url("../node_modules/primeng/resources/primeng.min.css");
 @import url("../node_modules/primeng/resources/themes/nova-light/theme.css");
+@import url("../node_modules/bootstrap/dist/css/bootstrap-grid.min.css");
 /* @import url("../src/app/quotation-create/quotation-create.component.css");
 @import url("../src/app/customer-create/customer-create.component.css"); */
 

@@ -32,7 +32,13 @@ export class ProcesscontrolCreateComponent implements OnInit {
 
   addProcessControlForm: FormGroup;
 
+  addControlPoint: FormGroup;
+
   testEntry: any;
+
+  pcpEntry: any;
+
+  pcpList: any;
 
   activeIndex: number = 0;
 
@@ -53,6 +59,8 @@ export class ProcesscontrolCreateComponent implements OnInit {
   salesOrderList: any;
 
   maxCount: any;
+
+  display: boolean;
 
   clickedonPhase: string = "PREPARATION";
 
@@ -94,6 +102,13 @@ export class ProcesscontrolCreateComponent implements OnInit {
       "tenderLocation": new FormControl(null, [Validators.required]),
       "start_date": new FormControl(null, [Validators.required]),
       "end_date": new FormControl(null, [Validators.required]),
+    });
+
+    this.addControlPoint = new FormGroup({
+      "process_control_point": new FormControl(null, [Validators.required]),
+      "pic": new FormControl(null, [Validators.required]),
+      "due_date": new FormControl(null, [Validators.required]),
+      "status": new FormControl(null, [Validators.required]),
     });
   }
 
@@ -144,5 +159,33 @@ export class ProcesscontrolCreateComponent implements OnInit {
       this.clickedonPhase = "FINAL PHASE";
     }
     console.log(this.clickedonPhase);
+  }
+
+  showDialog() {
+    this.display = true;
+  }
+
+  onSubmitCp() {
+    this.pcpEntry = {
+      "design_id": "12890430",
+      "design_details_id": "219",
+      "project_id": "1231",
+      "line_number": 5,
+      "design_date": this.addControlPoint.value.due_date,
+      "design_phase": this.clickedonPhase,
+      "assignee": "Wolverine",
+      "file_type": "pdf",
+      "reference_type": "abc",
+      "file": "new.pdf",
+      "due_date": this.addControlPoint.value.due_date,
+      "status": "pending",
+      "created_by": this.addControlPoint.value.who,
+      "created_date": this.myDate,
+      "uploaded_by": this.addControlPoint.value.who,
+      "uploaded_date": this.myDate
+    }
+    this.pcpList.unshift(this.pcpEntry);
+    this.display = false;
+    this.addControlPoint.reset();
   }
 }
