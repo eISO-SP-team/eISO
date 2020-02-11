@@ -36,7 +36,7 @@
             <div class="ui-dataview-content">
                 <div class="ui-g-12">
                     <div class="ui-g-2" style="align-content: center;">
-                        <img src="../../assets/delete.png" (click)="deleteEnquiry(this.requisitionList)" width="30px"
+                        <img src="../../assets/delete.png" (click)="confirm(this.requisitionList)" width="30px"
                             height="30px" alt="Logo">
                     </div>
                     <div class="ui-g-4">
@@ -56,3 +56,4 @@
         </ng-template>
     </p-dataView>
 </div>
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
