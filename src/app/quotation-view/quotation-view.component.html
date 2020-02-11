@@ -1,24 +1,36 @@
-<p>quotation-view works!</p>
-
 <div class="ui-g">
     <div class="ui-g rcorners2">
+        <div class="ui-g-12">
+            <div class="ui-g-6">
         <h3>View Quotation</h3>
-        <button id="disabled-btn" type="button" (click)="toggleDisabled()" pButton label="Toggle Edit"></button>
+        
+        <!-- Project ref number -->
+        <div class="ui-g-12">Project Reference Number:
+            {{this.quotationService.selectedQuotationInService.id}}</div>
+        
+            <!-- Edit button -->
+        <div class="ui-g-6">
+        <button id="disabled-btn" type="button" (click)="toggleDisabled()" pButton label="Toggle Edit"></button></div>
+        
+        <!-- Cancel button -->
+        <div class="ui-g-6">
+            <button pButton type="button" style="float:right; position: relative;" class="ui-button-danger"
+                (click)="this._location.back()" label="Cancel"></button></div>
+        </div>
+        </div>
         <form [formGroup]="addForm" (ngSubmit)="updateEdits()">
             <div class="ui-g">
                 <!-- <div class="ui-g-12">Project Title:
                     <input type="text" pInputText [disabled]="disabled" [formControlName]="'title'"
                         [(ngModel)]='newTitle' />
                 </div> -->
-                <div class="ui-g-12">Project Reference Number:
-                    {{this.quotationService.selectedQuotationInService.id}}</div>
                 <div class="ui-g-12 fieldset-bg">
                     <!--Left column-->
                     <div class="ui-g-6 ui-md-12 ui-lg-6">
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first">Subject</h3>
-                                <input type="text" pInputText [disabled]="disabled" [formControlName]="'companyName'" [(ngModel)]='newCompanyName' />
+                                <input class="form-control" type="text" pInputText [disabled]="disabled" [formControlName]="'companyName'" [(ngModel)]='newCompanyName' />
                             </span>
                         </div>
                         <div class="ui-g-12">
@@ -32,7 +44,7 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first">Attention</h3>
-                                <input type="text" pInputText [formControlName]="'attention'" [(ngModel)]='newAttention' />
+                                <input class="form-control" type="text" pInputText [formControlName]="'attention'" [(ngModel)]='newAttention' />
                             </span>
                         </div>
                     </div>
@@ -41,25 +53,25 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first">Tender Location</h3>
-                                <input type="text" pInputText [formControlName]="'tenderLocation'" [(ngModel)]='newTenderLocation' />
+                                <input class="form-control" type="text" pInputText [formControlName]="'tenderLocation'" [(ngModel)]='newTenderLocation' />
                             </span>
                         </div>
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">validity</h3>
-                                <input type="text" pInputText [formControlName]="'validity'" [(ngModel)]='newValidity' />
+                                <h3 class="first">Validity</h3>
+                                <input class="form-control" type="text" pInputText [formControlName]="'validity'" [(ngModel)]='newValidity' />
                             </span>
                         </div>
                     </div>
                 </div>
 
             </div>
-            <div class="ui-g-12 fieldset-bg">
+            <div class="ui-g-6 fieldset-bg">
                 <ui-g-6>
                     <div class="ui-g-6">
                         <span class="ui-float-label">
                             <h3 class="first">Total</h3>
-                            <input type="text" pInputText [formControlName]="'total'" [(ngModel)]='newTotal' />
+                            <input class="form-control" type="text" pInputText [formControlName]="'total'" [(ngModel)]='newTotal' />
                         </span>
                     </div>
                 </ui-g-6>
@@ -67,7 +79,7 @@
                     <div class="ui-g-6">
                         <span class="ui-float-label">
                             <h3 class="first">Deposit</h3>
-                            <input type="text" pInputText [formControlName]="'deposit'" [(ngModel)]='newDeposit' />
+                            <input class="form-control" type="text" pInputText [formControlName]="'deposit'" [(ngModel)]='newDeposit' />
                         </span>
                     </div>
                 </ui-g-6>
