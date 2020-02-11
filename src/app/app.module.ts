@@ -58,12 +58,13 @@ import { PurchaserequisitionService } from './shared/service/purchaserequisition
 import { SalesorderService } from './shared/service/salesorder.service';
 import { DesignService } from './shared/service/design.service';
 import { DeliveryService } from './shared/service/delivery.service';
-import {TabViewModule} from 'primeng/tabview';
+import { TabViewModule } from 'primeng/tabview';
 import { ProcessControlModuleComponent } from './process-control-module/process-control-module.component';
 import { ProcesscontrolCreateComponent } from './processcontrol-create/processcontrol-create.component';
-import {DialogModule} from 'primeng/dialog';
+import { DialogModule } from 'primeng/dialog';
 import { DesignModuleProjectsComponent } from './design-module-projects/design-module-projects.component';
 import { UploadService } from "./shared/service/upload.service";
+import { NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
@@ -123,6 +124,7 @@ import { UploadService } from "./shared/service/upload.service";
     MessageModule,
     MessagesModule,
     HttpClientModule,
+    NgbModule,
   ],
   providers: [UploadService, QuotationService, PurchaserequisitionService, SalesorderService, DesignService, DeliveryService, CustomerService, VendorService, MessageService, ConfirmationService, ToggleDisplayService],
   bootstrap: [AppComponent],

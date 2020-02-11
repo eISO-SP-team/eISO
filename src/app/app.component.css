@@ -1,7 +1,24 @@
+
 .ui-g {
     width: 100%;
 }
 
-/* .ui-g-10, .ui-md-3, .ui-lg-3{
-    padding: 0em;
-} */
+.menuApp {
+    z-index: 3;
+}
+
+.applicationView {
+    z-index: -1;
+}
+
+@media (max-width: 1000px){
+    .menuApp{
+        display: none;
+    }
+}
+
+.pi {
+    display: inline-block;
+    font-size: 2em;
+    text-rendering: auto;
+}

@@ -1,10 +1,20 @@
+<link rel="stylesheet" href="../assets/css/gStyles.css">
+<link rel="stylesheet" href="../assets/css/gStyles.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <app-login *ngIf="toggleDisplayService.isViewable"></app-login>
 <div *ngIf="!toggleDisplayService.isViewable">
     <div class="ui-g">
-        <div class="ui-g-10 ui-md-2 ui-lg-2 ui-g-nopad" style="padding: 0px;">
-            <app-menu class="ui-g-10 ui-md-2 ui-lg-2 ui-g-nopad" style="position: fixed;height: 100%;"></app-menu >
+        <div class="ui-g-10 ui-md-2 ui-lg-2 ui-g-nopad menuApp" [ngbCollapse]="!isCollapsed" style="padding: 0px;">
+            <app-menu class="ui-g-10 ui-md-2 ui-lg-2 ui-g-nopad" style="position: fixed;height: 100%;"></app-menu>
         </div>
-        <div class="ui-g-12 ui-md-10 ui-lg-10 ui-g-nopad">
+        <div class="p-col ui-g-nopad applicationView">
+            <div class="layout-topbar">
+                <button type="button" (click)="collapse()" class="btn btn-circle btn-dual-secondary"
+                    data-toggle="layout" data-action="sidebar_toggle">
+                    <i class="fa fa-navicon"></i>
+                </button>
+            </div>
             <router-outlet></router-outlet>
         </div>
     </div>
