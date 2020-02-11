@@ -21,7 +21,7 @@
     </p-header>
     <p-footer>
     </p-footer>
-    <ng-template let-customerList pTemplate="listItem">
+    <ng-template class = "boxstyles" let-customerList pTemplate="listItem">
         <div class="ui-dataview-content">
             <div class="ui-g-12">
                 <div class="ui-g-2" style="align-content: center;">
@@ -29,7 +29,7 @@
                         height="30px" alt="Logo">
                 </div>
                 <div class="ui-g-4">
-                    <p class="list_header">{{customerList.customer_name}}</p><br />
+                    <p class="list_header" style="font-size: 1rem; font-weight:900;">{{customerList.customer_name}}</p><br />
                     {{customerList.customer_type}}
                 </div>
                 <div class="ui-g-4">

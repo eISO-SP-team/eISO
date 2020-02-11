@@ -1,0 +1,10 @@
+.nFont {
+    font-size: 1.5rem;
+    font-weight: 900;
+    padding-top: 1em;
+    /* padding-left: 0.6em; */
+}
+
+.buttonadd {
+    padding: 1em 0 1em 0;
+}

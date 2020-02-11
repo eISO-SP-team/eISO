@@ -1,3 +1,20 @@
 td {
     word-wrap: break-word;
 }
+.ui-dataview-content {
+    background-color: #ffffff;
+}
+
+.ui-dataview .ui-dataview-content {
+    padding: 0.571em 1em;
+    color: #333333;
+    padding: 0.571em 1em;
+}
+
+
+.btn-alt-primary {
+    color: #125a96;
+    background-color: #c8e2f8;
+    border-color: #c8e2f8;
+    width: 100%;
+}
