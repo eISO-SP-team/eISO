@@ -71,9 +71,9 @@
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
                                     <h3 class="first">Customer Name</h3>
-                                    <p-dropdown class="list-styles" [options]="newList"
-                                        [formControlName]="'customer_name'" placeholder="Select a Customer"
-                                        optionLabel="name" [showClear]="true"></p-dropdown>
+                                    <p-dropdown [formControlName]="'customer_name'" [virtualScroll]="true"
+                                        [options]="newList" placeholder="Select a Customer">
+                                    </p-dropdown>
                                 </span>
                                 <span
                                     *ngIf="!addProcessControlForm.get('customer_name').valid && addProcessControlForm.get('customer_name').touched"
@@ -143,6 +143,7 @@
                     </div>
                 </div>
                 <h2>Process Control Point Backlog</h2>
+                <div class="designBLbtn" (click)="showDialog()"><label>Create</label></div>
                 <div class="ui-g-12 fieldset-list">
                     <p-tabView class="ui-g-12" (onChange)="handleChange($event)">
                         <p-tabPanel header="PREPARATION" leftIcon="pi pi-calendar">
@@ -196,4 +197,67 @@
             </div>
         </form>
     </div>
+    <p-dialog header="New {{clickedonPhase}}" [(visible)]="display">
+        <form [formGroup]="addControlPoint" (ngSubmit)="onSubmitCp()">
+            <div class="ui-g-12 ui-md-12 ui-lg-6">
+                <div class="ui-g-12">
+                    <span class="ui-float-label">
+                        <h3 class="first">Process Control Point</h3>
+                        <p-dropdown [options]="designphases" [(ngModel)]="clickedonPhase"
+                            [formControlName]="'process_control_point'"></p-dropdown>
+                    </span>
+                    <span *ngIf="!addControlPoint.get('process_control_point').valid && addControlPoint.get('process_control_point').touched"
+                        class="help-block">
+                        <span>
+                            <p-message *ngIf="addControlPoint.get('process_control_point').errors['required']" severity="error"
+                                text="This field is required!"></p-message>
+                        </span>
+                    </span>
+                </div>
+                <div class="ui-g-12">
+                    <span class="ui-float-label">
+                        <h3 class="first">PIC</h3>
+                        <input type="text" pInputText [formControlName]="'pic'" />
+                    </span>
+                    <span *ngIf="!addControlPoint.get('pic').valid && addControlPoint.get('pic').touched" class="help-block">
+                        <span>
+                            <p-message *ngIf="addControlPoint.get('pic').errors['required']" severity="error"
+                                text="This field is required!"></p-message>
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="ui-g-12 ui-md-12 ui-lg-6">
+                <div class="ui-g-12">
+                    <span class="ui-float-label">
+                        <h3 class="first">Due Date</h3>
+                        <input type="date" pInputText [formControlName]="'due_date'" />
+                    </span>
+                    <span *ngIf="!addControlPoint.get('due_date').valid && addControlPoint.get('due_date').touched"
+                        class="help-block">
+                        <span>
+                            <p-message *ngIf="addControlPoint.get('due_date').errors['required']" severity="error"
+                                text="This field is required!"></p-message>
+                        </span>
+                    </span>
+                </div>
+                <div class="ui-g-12">
+                    <span class="ui-float-label">
+                        <h3 class="first">Status</h3>
+                        <input type="text" pInputText [formControlName]="'status'" />
+                    </span>
+                    <span *ngIf="!addControlPoint.get('status').valid && addControlPoint.get('status').touched"
+                        class="help-block">
+                        <span>
+                            <p-message *ngIf="addControlPoint.get('status').errors['required']" severity="error"
+                                text="This field is required!"></p-message>
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="ui-g-12">
+                <button pButton [disabled]="!addControlPoint.valid" type="submit" label="Submit Design Plan"></button>
+            </div>
+        </form>
+    </p-dialog>
 </div>

@@ -8,7 +8,16 @@
     background-color: white;
     border: grey 1px solid;
 }
-
+.designBLbtn {
+  background-color: blue;
+  color: white;
+  border-radius: 3px;
+  border: 1px black solid;
+  width: 100px;
+  height: 40px;
+  justify-content: center;
+  text-align: center;
+}
 table {
     width: 100%;
     text-align: center;
