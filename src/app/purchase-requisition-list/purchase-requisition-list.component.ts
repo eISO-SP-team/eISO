@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Customer } from "../shared/model/customer.model";
 import { PurchaserequisitionService } from "../shared/service/purchaserequisition.service";
 import { Router } from '@angular/router';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService, Message } from 'primeng/api';
 @Component({
   selector: 'app-purchase-requisition-list',
   templateUrl: './purchase-requisition-list.component.html',
@@ -9,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class PurchaseRequisitionListComponent implements OnInit {
 
+  msgs: Message[] = [];
   requisitionList: any;
 
   testList: any;
@@ -19,7 +22,7 @@ export class PurchaseRequisitionListComponent implements OnInit {
 
   confirmDelete: boolean;
 
-  constructor(public purchaseRequisitionService: PurchaserequisitionService, public router: Router, ) {
+  constructor(public purchaseRequisitionService: PurchaserequisitionService, public router: Router, private confirmationservice: ConfirmationService) {
     this.purchaseRequisitionService.getRequisitionListener()
       .subscribe(newList => {
         this.requisitionList = newList;
@@ -49,6 +52,20 @@ export class PurchaseRequisitionListComponent implements OnInit {
         }
       }
       this.requisitionList.splice(index, 1);
+    });
+  }
+  confirm(enquiry) {
+    this.confirmationservice.confirm({
+      message: 'Are you sure that you want to proceed?',
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.msgs = [{ severity: 'info', summary: 'Confirmed', detail: 'You have accepted' }];
+        this.deleteEnquiry(enquiry);
+      },
+      reject: () => {
+        this.msgs = [{ severity: 'info', summary: 'Rejected', detail: 'You have rejected' }];
+      }
     });
   }
 
