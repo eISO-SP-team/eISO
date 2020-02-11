@@ -8,7 +8,7 @@
 }
 
 .applicationView {
-    z-index: -1;
+    z-index: 1;
 }
 
 @media (max-width: 1000px){
