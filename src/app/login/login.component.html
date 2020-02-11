@@ -25,7 +25,7 @@
                 <div class="content content-full">
                     <!-- header -->
                     <div class="px-30 py-10">
-                        <a class="link-effect " href="index.html">
+                        <a class="link-effect " href="https://www.facebook.com/associatesconsulting/" target="_blank">
                             <!-- <i class="si si-fire"></i> -->
                             <span class="font-size-xl text-primary-dark font-w700 ">e</span><span
                                 class="font-size-xl font-w700 ISO">ISO</span>
@@ -33,7 +33,7 @@
                             <!-- <p class="font-size-xl text-primary-dark nFont system"> </p> -->
                         </a>
                         <h1 class="h3 font-w700 mt-30 mb-10 nFont">Welcome!</h1>
-                        <h2 class="h5 font-w400 text-muted mb-0">Please sign in</h2>
+                        <h2 class="h5 font-w400 text-muted signInWord">Please sign in</h2>
                     </div>
                     <!-- end of header -->
 
@@ -51,9 +51,9 @@
 
                                 <div>
                                     <span class="ui-float-label">
-                                        <input type="text" [formControlName]="'username'" id="login" class="form-control"
-                                        name="login-username" pInputText>
-                                        <label  for="login-username"> Username </label>
+                                        <input type="text" [formControlName]="'username'" id="login"
+                                            class="form-control userInput nFont" name="login-username" pInputText>
+                                        <label for="login-username"> Username </label>
                                     </span>
                                 </div>
                             </div>
@@ -70,8 +70,8 @@
                                 </div> -->
                                 <div>
                                     <span class="ui-float-label">
-                                        <input type="text" [formControlName]="'password'" id="password" 
-                                            name="login" class="form-control" pInputText>
+                                        <input type="text" [formControlName]="'password'" id="password" name="login"
+                                            class="form-control passInput nFont" pInputText>
                                         <label for="login-password"> Password </label>
                                     </span>
                                 </div>
@@ -81,14 +81,19 @@
 
                         <input type="submit" [disabled]="!loginForm.valid"
                             class="btn btn-sm btn-hero btn-alt-primary fadeIn fourth" value="Log In">
-                            <button (click)="byPass()">Bypass</button>
+                        
+                            <button class= "byPassBut btn btn-sm btn-hero btn-alt-success fadeIn fourth"(click)="byPass()"> (Bypass)</button>
+                        
+
+                        <div id="formFooter" class = "formBottom">
+                            <div class="signUpBut"> No account? <a class="underlineHover " href="#"> Sign Up Here!</a> </div>
+                            <a class="underlineHover forgotPass" href="#">Forgot Password?</a>
+                        </div>
                     </form>
 
 
                     <!-- Remind Passowrd -->
-                    <div id="formFooter">
-                        <a class="underlineHover" href="#">Forgot Password?</a>
-                    </div>
+                    
 
                 </div>
             </div>
