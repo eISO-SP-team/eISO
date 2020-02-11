@@ -5,8 +5,26 @@
         <span class="font-size-xl text-primary-dark font-w700 ">e</span>
         <span class="font-size-xl font-w700 ISO">ISO</span>
         <p class="font-size-xl font-w700"> Management System </p>
+        <button (click)="closeMenu()">Test close</button>
     </Div>
     <P class="nFont generalWord"> General </P>
+
+    <!-- <nav>
+        <li>
+            <a class="nav-submenu" data-toggle="nav-submenu" href="#">
+                <i class="si si-puzzle"></i>
+                <span class="sidebar-mini-hide">Dropdown</span>
+            </a>
+            <ul>
+                <li>
+                    <a href="javascript:void(0)">Link #1</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">Link #2</a>
+                </li>
+            </ul>
+        </li>
+    </nav> -->
     <p-panelMenu [model]="items"></p-panelMenu>
 
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { Router } from '@angular/router';
 
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class MenuComponent implements OnInit {
 
     items: MenuItem[];
+    @Output() onClose = new EventEmitter();
 
     constructor(public router: Router, ) { }
 
@@ -45,6 +46,10 @@ export class MenuComponent implements OnInit {
     }
     ngAfterViewInit() {
         this.router.url;
+    }
+
+    closeMenu(){
+       this.onClose.emit(false);
     }
 }
 
