@@ -28,8 +28,7 @@ article, body, div, footer, header, h1, h2, h3, p {
     background-color: #ffffff;
     color: #333333;
     border: none;
-    padding: 0.571em 1em;
-    border-top: 0 none; 
+    /* padding: 0.571em 1em; */
 }
 body .ui-paginator {
     background-color: #F6F7F9;
