@@ -62,7 +62,7 @@
                             <span class="ui-float-label">
                                 <h3 class="first">Type</h3>
                                 <p-dropdown [options]="type" [formControlName]="'type'" placeholder="Select a Type"
-                                    [(ngModel)]="selectedType" optionLabel="name" [showClear]="true"></p-dropdown>
+                                    optionLabel="name" [showClear]="true"></p-dropdown>
                             </span>
                             <span *ngIf="!addVendorForm.get('type').valid && addVendorForm.get('type').touched"
                                 class="help-block">
@@ -151,8 +151,9 @@
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
                                     <h3 class="first">Prefix</h3>
-                                    <p-dropdown [options]="prefix" [formControlName]="'prefix'" placeholder="Select a Prefix"
-                                        [(ngModel)]="selectedType" optionLabel="name" [showClear]="true"></p-dropdown>
+                                    <p-dropdown [options]="prefix" [formControlName]="'prefix'"
+                                        placeholder="Select a Prefix" optionLabel="name" [showClear]="true">
+                                    </p-dropdown>
                                 </span>
                                 <span *ngIf="!addVendorForm.get('type').valid && addVendorForm.get('type').touched"
                                     class="help-block">
@@ -168,8 +169,8 @@
                                 <span
                                     *ngIf="!addVendorForm.get('firstName').valid && addVendorForm.get('firstName').touched"
                                     class="help-block">
-                                    <p-message *ngIf="addVendorForm.get('firstName').errors['required']" severity="error"
-                                        text="This field is required!"></p-message>
+                                    <p-message *ngIf="addVendorForm.get('firstName').errors['required']"
+                                        severity="error" text="This field is required!"></p-message>
                                 </span>
                             </div>
                             <div class="ui-g-12">
@@ -180,8 +181,8 @@
                                 <span
                                     *ngIf="!addVendorForm.get('middleName').valid && addVendorForm.get('middleName').touched"
                                     class="help-block">
-                                    <p-message *ngIf="addVendorForm.get('middleName').errors['required']" severity="error"
-                                        text="This field is required!"></p-message>
+                                    <p-message *ngIf="addVendorForm.get('middleName').errors['required']"
+                                        severity="error" text="This field is required!"></p-message>
                                 </span>
                             </div>
                             <div class="ui-g-12">
@@ -201,8 +202,7 @@
                                     <h3 class="first">Email</h3>
                                     <input type="text" pInputText [formControlName]="'email'" />
                                 </span>
-                                <span
-                                    *ngIf="!addVendorForm.get('email').valid && addVendorForm.get('email').touched"
+                                <span *ngIf="!addVendorForm.get('email').valid && addVendorForm.get('email').touched"
                                     class="help-block">
                                     <p-message *ngIf="addVendorForm.get('email').errors['required']" severity="error"
                                         text="This field is required!"></p-message>
@@ -231,8 +231,8 @@
                                 <span
                                     *ngIf="!addVendorForm.get('extension').valid && addVendorForm.get('extension').touched"
                                     class="help-block">
-                                    <p-message *ngIf="addVendorForm.get('extension').errors['required']" severity="error"
-                                        text="This field is required!"></p-message>
+                                    <p-message *ngIf="addVendorForm.get('extension').errors['required']"
+                                        severity="error" text="This field is required!"></p-message>
                                 </span>
                             </div>
                             <div class="ui-g-12">
@@ -252,8 +252,7 @@
                                     <h3 class="first">Fax</h3>
                                     <input type="text" pInputText [formControlName]="'fax'" />
                                 </span>
-                                <span
-                                    *ngIf="!addVendorForm.get('fax').valid && addVendorForm.get('fax').touched"
+                                <span *ngIf="!addVendorForm.get('fax').valid && addVendorForm.get('fax').touched"
                                     class="help-block">
                                     <p-message *ngIf="addVendorForm.get('fax').errors['required']" severity="error"
                                         text="This field is required!"></p-message>

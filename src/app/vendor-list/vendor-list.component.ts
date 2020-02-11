@@ -34,34 +34,35 @@ export class vendorListComponent implements OnInit {
       .subscribe(newList => {
         console.log("listener triggered");
         console.log(newList);
-
-        //listens the listener in the service, whenever the code 
-        //this.enquirySubject.next(this.quotationList); runs, the subscribe will be triggered and will receive the 
-        //new list that is being passed in
-        if (newList == undefined) {
-          console.log("newList has nothing please fix");
-        } else {
-          this.vendorList = newList;
-          for (let i = 0; i < this.vendorList.length; i++) {
-            if (this.vendorList[i].vendor_type == "Pending") {
-              this.vendorListPending.push(this.vendorList[i])
-            } else {
-              this.vendorListApproved.push(this.vendorList[i])
-            }
-          }
-          console.log(newList);
-        }
+        this.vendorsTest = this.vendorService.loadVendors().subscribe(responseData => {
+          this.testList = (<any>responseData).body;
+          this.vendorService.vendorList = this.testList;
+          // console.log(JSON.stringify(this.testList));
+        });
+        // if (this.testList == undefined) {
+        //   console.log("newList has nothing please fix");
+        // } else {
+        //   this.vendorList = newList;
+        //   for (let i = 0; i < this.vendorList.length; i++) {
+        //     if (this.vendorList[i].vendor_type == "Pending") {
+        //       this.vendorListPending.push(this.vendorList[i])
+        //     } else {
+        //       this.vendorListApproved.push(this.vendorList[i])
+        //     }
+        //   }
+        //   console.log(newList);
+        // }
 
       });
 
   }
 
   ngOnInit() {
-    this.vendorsTest = this.vendorService.loadVendors().subscribe(responseData => {
-      this.testList = responseData;
-      this.testList = this.testList.body;
-      // console.log(JSON.stringify(this.testList));
-    });
+    // this.vendorsTest = this.vendorService.loadVendors().subscribe(responseData => {
+    //   this.testList = responseData;
+    //   this.testList = this.testList.body;
+    //   // console.log(JSON.stringify(this.testList));
+    // });
   }
 
   viewEnquiryPending(vendorListPending: Vendor) {
