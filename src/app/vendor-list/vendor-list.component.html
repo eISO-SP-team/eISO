@@ -18,7 +18,7 @@
             <div class="ui-g-12" *ngIf="vendor.vendor_type=='Pass'" class="fieldset-list">
                 <div class="ui-g-2" style="align-content: center;">
                     <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
-                    <img #img src="../../assets/delete.png" (click)="deleteEnquiry(this.vendor)" width="30px"
+                    <img #img src="../../assets/delete.png" (click)="confirm(this.vendor)" width="30px"
                         height="30px" alt="Logo">
                 </div>
                 <div class="ui-g-8">
@@ -44,7 +44,7 @@
             <div class="ui-g-12" *ngIf="vendor.vendor_type=='Fail'" class="fieldset-list">
                 <div class="ui-g-2" style="align-content: center;">
                     <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
-                    <img #img src="../../assets/delete.png" (click)="deleteEnquiry(this.vendor)" width="30px"
+                    <img #img src="../../assets/delete.png" (click)="confirm(this.vendor)" width="30px"
                         height="30px" alt="Logo">
                 </div>
                 <div class="ui-g-8">
