@@ -35,6 +35,27 @@ body .ui-paginator {
     background-color: #F6F7F9;
     border: none;
     padding: 0; }
+
+body .ui-button {
+    margin: 0;
+    color: #125a96;
+    background-color: #c8e2f8;
+    border: 1px solid #c8e2f8;
+    font-size: 14px;
+    -moz-transition: background-color 0.2s, box-shadow 0.2s;
+    -o-transition: background-color 0.2s, box-shadow 0.2s;
+    -webkit-transition: background-color 0.2s, box-shadow 0.2s;
+    transition: background-color 0.2s, box-shadow 0.2s; }
+body .ui-button:enabled:hover {
+    background-color: #aed8f4;
+    color: #125a96;
+    border-color: #c8e2f8; }
+body .ui-button:enabled:focus {
+    outline: 0 none;
+    outline-offset: 0px;
+    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;
+    -moz-box-shadow: 0 0 0 0.2em #8dcdff;
+    box-shadow: 0 0 0 0.2em #8dcdff; }
    
 /* body {
     background-color: rgb(238, 238, 238);
