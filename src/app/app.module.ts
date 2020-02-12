@@ -64,7 +64,6 @@ import { DialogModule } from 'primeng/dialog';
 import { DesignModuleProjectsComponent } from './design-module-projects/design-module-projects.component';
 import { UploadService } from "./shared/service/upload.service";
 import { NgbModule} from "@ng-bootstrap/ng-bootstrap";
-import { NavHeaderComponent } from './nav-header/nav-header.component';
 import { DeliveryCreateComponent } from './delivery-create/delivery-create.component';
 import { DeliveryListComponent } from './delivery-list/delivery-list.component';
 import { PurchaseListComponent } from './purchase-list/purchase-list.component';
@@ -102,7 +101,6 @@ import { CommentsComponent } from './comments/comments.component';
     ProcesscontrolCreateComponent,
     DesignModuleCreateComponent,
     DesignModuleProjectsComponent,
-    NavHeaderComponent,
     DeliveryCreateComponent,
     DeliveryListComponent,
     PurchaseListComponent,
