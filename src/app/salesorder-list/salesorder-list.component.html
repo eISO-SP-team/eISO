@@ -1,6 +1,6 @@
 <div class="ui-g-12">
     <div class="ui-g-12 ui-md-12 ui-lg-6">
-        <P class="nFont ">Pending Sales Order Dashboard </P>
+        <P class="dashboardname">Pending Sales Order Dashboard </P>
         <p>
             <p-button class="buttonadd" icon="pi pi-plus" iconPos="right" label="Add New Sales Order"
                 (click)="this.router.navigate(['/salesorderCreate'])"></p-button>
@@ -14,9 +14,9 @@
                         </div>
                         <div class="ui-g-6 ui-md-4 filter-container">
                             <div style="position:relative">
-                                <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
-                                <input type="text" pInputText placeholder="Global Filter"
-                                    (input)="sop.filter($event.target.value)" style="width:90%; border:none;">
+                                <div class="ui-g-2"><i class="fa fa-search" style="margin:4px 4px 0 0"></i></div>
+                                <div class="ui-g-10"><input type="text" pInputText placeholder="Global Filter"
+                                    (input)="sop.filter($event.target.value)" style="width:100%; border:none;"></div>
                             </div>
                         </div>
                         <div class="ui-g-6 ui-md-4" style="text-align:right">
@@ -56,7 +56,7 @@
 
     </div>
     <div class="ui-g-12 ui-md-12 ui-lg-6">
-        <P class="nFont" style="padding-bottom: 2.6em;" >Completed Sales Order Dashboard </P>
+        <P class="dashboardname" style="padding-bottom: 2.6em;" >Completed Sales Order Dashboard </P>
         <div style="margin-top: 35px;"></div>
         <p-dataView [value]="salesOrderListCompleted2" #soc class="ui-dataview" filterBy="subject,pic" [paginator]="true" [rows]="3">
             <p-header>
@@ -67,9 +67,9 @@
                         </div>
                         <div class="ui-g-6 ui-md-4 filter-container">
                             <div style="position:relative">
-                                <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
-                                <input type="text" pInputText placeholder="Global Filter"
-                                    (input)="soc.filter($event.target.value)" style="width:90%; border:none;">
+                                <div class="ui-g-2"><i class="fa fa-search" style="margin:4px 4px 0 0"></i></div>
+                                <div class="ui-g-10"><input type="text" pInputText placeholder="Global Filter"
+                                    (input)="soc.filter($event.target.value)" style="width:90%; border:none;"></div>
                             </div>
                         </div>
                         <div class="ui-g-6 ui-md-4" style="text-align:right">
