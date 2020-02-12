@@ -27,6 +27,10 @@ export class PurchaseRequisitionViewComponent implements OnInit {
 
   testList: any;
 
+  displayDO: boolean = false;
+
+  displayPO: boolean = false;
+
   constructor(public purchaseRequisitionService: PurchaserequisitionService, public vendorService: VendorService, public _location: Location) { }
 
   supplier: supplier[];
@@ -102,4 +106,12 @@ export class PurchaseRequisitionViewComponent implements OnInit {
       });
     this._location.back();
   }
+
+  showDialogDO() {
+    this.displayDO = true;
+}
+
+showDialogPO() {
+  this.displayPO = true;
+}
 }

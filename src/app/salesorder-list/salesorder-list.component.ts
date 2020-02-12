@@ -28,11 +28,6 @@ export class SalesorderListComponent implements OnInit {
   constructor(public salesOrderService: SalesorderService, public router: Router, private confirmationservice: ConfirmationService) {
     this.salesOrderService.getSalesOrderListener()
       .subscribe(newList => {
-        // console.log("listener triggered");
-        // console.log(newList);
-        //listens the listener in the service, whenever the code 
-        // this.enquirySubject.next(this.quotationList); runs, the subscribe will be triggered and will receive the 
-        //new list that is being passed in
         this.salesOrderList = newList;
         this.salesOrderTest = this.salesOrderService.loadSalesorder().subscribe(responseData => {
           this.salesOrderService.salesOrderList = responseData.body;

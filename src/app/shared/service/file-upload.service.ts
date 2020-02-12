@@ -9,7 +9,7 @@ export class FileUploadService {
   constructor(public http: HttpClient) { }
 
   uploadFile(file) {
-    return this.http.post("http://deimos.preskubbs.com/eiso-storage/", file)
+    return this.http.get("https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/upload-pdf", file)
   }
 
   postFile(fileToUpload: File) {

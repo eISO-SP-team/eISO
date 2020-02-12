@@ -8,14 +8,14 @@ import { HttpClient } from "@angular/common/http";
 })
 export class VendorService {
 
-  vendorSubject: BehaviorSubject<Vendor[]>;
+  vendorSubject: BehaviorSubject<any>;
 
   selectedVendornService: any;
 
   vendorList: any;
 
   constructor(public http: HttpClient) {
-    this.vendorSubject = new BehaviorSubject<any[]>(this.vendorList);
+    this.vendorSubject = new BehaviorSubject<any>(this.vendorList);
   }
 
   // addVendor(newVendorInfo: Vendor) {
