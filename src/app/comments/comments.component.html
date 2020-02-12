@@ -1,0 +1,25 @@
+
+<h2>Comments</h2>
+<p>Enter A Comment Here</p>
+<form [formGroup]="addCommentsForm" (ngSubmit)="onAddNewComment()">
+    <textarea class="form-control" [formControlName]="'description'" style="width: 100%;" rows="3"></textarea>
+    <button pButton [disabled]="!addCommentsForm.valid" type="submit" label="Post"></button>
+</form>
+<div style="margin-top: 2em;margin-bottom: 2em;"></div>
+<div class="rcorners2 p-grid" *ngFor="let comments of commentsList">
+    <div class="p-col-fixed" style="width:200px">
+        <div class="p-col-6">
+            <img src="../../assets//img//profile.png" width="50" height="50" alt="">
+        </div>
+        <div class="p-col-6">
+            {{comments.author}}<br />
+            {{comments.created_date}}<br />
+        </div>
+
+    </div>
+    <div class="p-auto">
+        {{comments.status}}<br />
+        {{comments.description}}<br />
+    </div>
+
+</div>

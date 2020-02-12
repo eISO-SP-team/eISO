@@ -65,6 +65,11 @@ import { DesignModuleProjectsComponent } from './design-module-projects/design-m
 import { UploadService } from "./shared/service/upload.service";
 import { NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { NavHeaderComponent } from './nav-header/nav-header.component';
+import { DeliveryCreateComponent } from './delivery-create/delivery-create.component';
+import { DeliveryListComponent } from './delivery-list/delivery-list.component';
+import { PurchaseListComponent } from './purchase-list/purchase-list.component';
+import { PurchaseCreateComponent } from './purchase-create/purchase-create.component';
+import { CommentsComponent } from './comments/comments.component';
 
 @NgModule({
   declarations: [
@@ -98,6 +103,11 @@ import { NavHeaderComponent } from './nav-header/nav-header.component';
     DesignModuleCreateComponent,
     DesignModuleProjectsComponent,
     NavHeaderComponent,
+    DeliveryCreateComponent,
+    DeliveryListComponent,
+    PurchaseListComponent,
+    PurchaseCreateComponent,
+    CommentsComponent,
   ],
   imports: [
     BrowserModule,
