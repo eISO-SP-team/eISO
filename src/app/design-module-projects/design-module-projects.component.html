@@ -1,9 +1,7 @@
-<p>design-module-projects works!</p>
-<!-- <p>customer-list works!</p> -->
 <div class="ui-g">
-    <div class="ui-g-12">
-        <div class="ui-g-6">
-            <h1>Select a project</h1>
+    <div class="ui-g-12 ui-md-12 ui-lg-12">
+        <div class="ui-g-12 ui-md-12 ui-lg-6">
+            <h3>Select a project</h3>
         </div>
         <div class="ui-g-6">
             <button pButton type="button" style="float:right; position: relative;" class="ui-button-danger"
@@ -21,9 +19,9 @@
                 </div>
                 <div class="ui-g-6 ui-md-4 filter-container">
                     <div style="position:relative">
-                        <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
-                        <input type="text" pInputText placeholder="Global Filter"
-                            (input)="gg.filter($event.target.value)" style="width:auto">
+                        <div class="ui-g-2"><i class="fa fa-search" style="margin:4px 4px 0 0"></i></div>
+                        <div class="ui-g010"><input type="text" pInputText placeholder="Global Filter"
+                            (input)="gg.filter($event.target.value)" style="width:100%; border:none;"></div>
                     </div>
                 </div>
                 <div class="ui-g-6 ui-md-4" style="text-align:right">

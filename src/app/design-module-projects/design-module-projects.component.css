@@ -1,0 +1,24 @@
+.ui-helper-clearfix {
+  padding-left: 2em;
+}
+
+.ui-g-6 h3 {
+    font-size: 2.7rem;
+    font-weight: 900;
+}
+
+/* styles to make search bar 100% length */
+.fa.fa-search {
+  width: 40px;
+  height: 36px;
+  color: grey;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.ui-g-6.ui-md-4.filter-container {
+  color: #125a96;
+  border-color: #c8e2f8;
+  width: 100%;
+}
