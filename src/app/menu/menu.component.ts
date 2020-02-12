@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class MenuComponent implements OnInit {
 
     items: MenuItem[];
+    
     @Output() onClose = new EventEmitter();
 
     constructor(public router: Router, ) { }

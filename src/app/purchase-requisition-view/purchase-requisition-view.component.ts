@@ -50,6 +50,7 @@ export class PurchaseRequisitionViewComponent implements OnInit {
   maxCount: any;
 
   ngOnInit() {
+    console.log(this.purchaseRequisitionService.selectedPurchaserequisitionService.supplier_id);
     this.testList = this.purchaseRequisitionService.loadPurchaserequisitions().subscribe(responseData => {
       this.purchaseRequisitionService.purchaserequisitionList = (<any>responseData).body;
       this.requisitionList = this.purchaseRequisitionService.purchaserequisitionList;

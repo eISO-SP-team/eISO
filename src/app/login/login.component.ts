@@ -11,11 +11,21 @@ import { Router } from '@angular/router';
 
 export class LoginComponent implements OnInit {
 
-  constructor(public toggleDisplayService: ToggleDisplayService, public router: Router) { }
+  constructor(public toggleDisplayService: ToggleDisplayService, public router: Router) {
+    // this.toggleDisplayService.getLoginListener().subscribe(loginValue => {
+    //   if (this.toggleDisplayService.isLogin == true) {
+    //     console.log("Login Successfully");
+    //     this.toggleDisplayService.toggle();
+    //     this.router.navigate(['sales-module']);
+    //   } else {
+    //     console.log("fail")
+    //   }
+    // })
+  }
 
   loginForm: FormGroup;
 
-  loginInfo;
+  loginInfo: { email: any; password: any; };
 
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -31,10 +41,16 @@ export class LoginComponent implements OnInit {
     }
     var data = JSON.stringify(this.loginInfo);
     this.toggleDisplayService.authUser(data).subscribe((data) => {
-      console.log('User has logged in');
+      console.log(data);
       this.toggleDisplayService.toggle();
-    }, console.error);
-
+    })
+    // if (this.toggleDisplayService.isLogin == true) {
+    //   console.log("Login Successfully");
+    //   this.toggleDisplayService.toggle();
+    //   this.router.navigate(['sales-module']);
+    // } else {
+    //   console.log("fail")
+    // }
   }
 
   byPass() {
