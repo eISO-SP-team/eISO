@@ -11,7 +11,7 @@
     z-index: 1;
 }
 
-@media (max-width: 1000px){
+@media (max-width: 1024px){
     .menuApp app-menu{
        width: 100%;
     }
@@ -23,3 +23,12 @@
     text-rendering: auto;
 }
 
+.posSticky{
+    position: sticky;
+    top:0;
+    background-color:#96a9d7;  /* For browsers that do not support gradients */
+    z-index: 1;
+    /* background-image: linear-gradient(to bottom left, #96a9d7, #c7d7fd); Standard syntax (must be last) */
+    background-image: linear-gradient(to bottom left, #c7d7fd, #96a9d7); /* Standard syntax (must be last) */
+}
+  

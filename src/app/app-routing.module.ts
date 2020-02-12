@@ -20,6 +20,7 @@ import { DesignModuleCreateComponent } from './design-module-create/design-modul
 import { DesignModuleProjectsComponent } from './design-module-projects/design-module-projects.component';
 import { DeliveryCreateComponent } from './delivery-create/delivery-create.component';
 import { PurchaseCreateComponent } from './purchase-create/purchase-create.component';
+import { EvaluationFormComponent } from "./evaluation-form/evaluation-form.component";
 
 const AppRoutes: Routes = [
   { path: '', redirectTo: '/sales-module', pathMatch: 'full' },
@@ -43,6 +44,7 @@ const AppRoutes: Routes = [
   { path: 'selectproject', component: DesignModuleProjectsComponent },
   { path: 'deliveryCreate', component: DeliveryCreateComponent },
   { path: 'purchaseCreate', component: PurchaseCreateComponent },
+  { path: 'evaluationForm', component: EvaluationFormComponent },
   // { path: '**', redirectTo:"/sales-modules"}
 ];
 

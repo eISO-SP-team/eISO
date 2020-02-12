@@ -1,292 +1,306 @@
- 
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
- 
- <!-- Header Section -->
- <div class="bg-primary-dark-op">
-    <h1>Design Dashboard</h1>  
+
+<!-- Header Section -->
+<div class="bg-primary-dark-op">
+    <h1>Design Dashboard</h1>
 </div>
 <!-- END Header Section -->
 
 <div class="ui-g">
-<div class="ui-g-12">
-    <div class="ui-g-6">
-        <P class="dashboardname">Design Plan</P>
-        <p>
-            <p-button icon="pi pi-plus" iconPos="right" label="Add New Design Plan"
-                (click)="this.router.navigate(['/selectproject'])"></p-button>
-        </p>
-        <p-dataView [value]="planList" class="ui-dataview" [paginator]="true" filterBy="" [rows]="3">
-            <p-header>
-                <div class="ui-helper-clearfix">
-                    <div class="ui-g-12">
-                        <div class="ui-g-12 ui-md-4">
+    <div class="ui-g-12">
+        <div class="ui-g-6">
+            <P class="dashboardname">Design Plan</P>
+            <p>
+                <p-button icon="pi pi-plus" iconPos="right" label="Add New Design Plan"
+                    (click)="this.router.navigate(['/selectproject'])"></p-button>
+            </p>
+            <p-dataView [value]="planList" class="ui-dataview" [paginator]="true" filterBy="" [rows]="3">
+                <p-header>
+                    <div class="ui-helper-clearfix">
+                        <!-- <div class="ui-g-12"> -->
+                        <!-- <div class="ui-g-12 ui-md-4">
 
-                        </div>
+                            </div> -->
                         <div class="ui-g-6 ui-md-4 filter-container">
                             <div style="position:relative">
-                                <div class="ui-g-2"><i class="fa fa-search" style="margin:4px 4px 0 0"></i></div>
-                                <div class="ui-g-10"><input type="text" pInputText placeholder="Global Filter"
-                                    (input)="sop.filter($event.target.value)" style="width:100%; border:none;"></div>
+                                <div class="ui-g-1 search"><i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                                </div>
+                                <div class="ui-g-11 search"><input type="text" pInputText placeholder="Search"
+                                        (input)="sop.filter($event.target.value)" style="width:100%; border:none;">
+                                </div>
                             </div>
                         </div>
-                        <div class="ui-g-6 ui-md-4" style="text-align:right">
 
+
+                        <!-- <div class="ui-g-6 ui-md-4" style="text-align:right">
+
+                            </div> -->
+                        <!-- </div> -->
+                    </div>
+                </p-header>
+                <p-footer>
+
+                </p-footer>
+                <ng-template let-planList pTemplate="listItem">
+                    <div class="ui-dataview-content">
+                        <div class="ui-g-12">
+                            <div class="ui-g-2" style="align-content: center; padding-left:3%;">
+                                <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
+                                <img #img src="../../assets/delete.png" (click)="deleteEnquiry(salesOrderListPending)"
+                                    width="30px" height="30px" alt="Logo">
+                            </div>
+                            <div class="ui-g-4">
+                                <p class="quotation_header">{{planList.project_name}} -
+                                    <!-- {{salesOrderListPending.id}}</p><br /> -->
+                                    {{planList.project_lead}}<br />
+                            </div>
+                            <div class="ui-g-4">
+                                <p style="text-align: right;">{{planList.status}}</p>
+                                <br />
+                            </div>
+                            <div class="ui-g-2" style="align-content: center; padding-right: 3%;">
+                                <button pButton type="button" icon="pi pi-search"
+                                    (click)="viewEnquiryPending(salesOrderListPending)"
+                                    style="margin-top:0; float: right;"></button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </p-header>
-            <p-footer>
+                </ng-template>
+            </p-dataView>
 
-            </p-footer>
-            <ng-template let-planList pTemplate="listItem">
-                <div class="ui-dataview-content">
-                    <div class="ui-g-12">
-                        <div class="ui-g-2" style="align-content: center;">
-                            <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
-                            <img #img src="../../assets/delete.png" (click)="deleteEnquiry(salesOrderListPending)"
-                                width="30px" height="30px" alt="Logo">
-                        </div>
-                        <div class="ui-g-4">
-                            <p class="quotation_header">{{planList.project_name}} -
-                                <!-- {{salesOrderListPending.id}}</p><br /> -->
-                                {{planList.project_lead}}<br />
-                        </div>
-                        <div class="ui-g-4">
-                            <p style="text-align: right;">{{planList.status}}</p>
-                            <br />
-                        </div>
-                        <div class="ui-g-2" style="align-content: center;">
-                            <button pButton type="button" icon="pi pi-search"
-                                (click)="viewEnquiryPending(salesOrderListPending)" style="margin-top:0"></button>
-                        </div>
-                    </div>
-                </div>
-            </ng-template>
-        </p-dataView>
+        </div>
 
-    </div>
+        <div class="ui-g-12 ui-md-12 ui-lg-6">
+            <P class="dashboardname">Design Input</P>
+            <p>
+                <p-button icon="pi pi-plus" iconPos="right" label="Add New Design Input"
+                    (click)="this.router.navigate(['/salesorderCreate'])"></p-button>
+            </p>
+            <p-dataView [value]="inputList" class="ui-dataview" [paginator]="true" filterBy="" [rows]="3">
+                <p-header>
+                    <div class="ui-helper-clearfix">
+                        <!-- <div class="ui-g"> -->
+                        <!-- <div class="ui-g-12 ui-md-4">
 
-    <div class="ui-g-12 ui-md-12 ui-lg-6">
-        <P class="dashboardname">Design Input</P>
-        <p>
-            <p-button icon="pi pi-plus" iconPos="right" label="Add New Design Input"
-                (click)="this.router.navigate(['/salesorderCreate'])"></p-button>
-        </p>
-        <p-dataView [value]="inputList" class="ui-dataview" [paginator]="true" filterBy="" [rows]="3">
-            <p-header>
-                <div class="ui-helper-clearfix">
-                    <div class="ui-g">
-                        <div class="ui-g-12 ui-md-4">
-
-                        </div>
+                        </div> -->
                         <div class="ui-g-6 ui-md-4 filter-container">
                             <div style="position:relative">
-                                <div class="ui-g-2"><i class="fa fa-search" style="margin:4px 4px 0 0"></i></div>
-                                <div class="ui-g-10"><input type="text" pInputText placeholder="Global Filter"
-                                    (input)="sop.filter($event.target.value)" style="width:100%; border:none;"></div>
+                                <div class="ui-g-1 search"><i class="fa fa-search" style="margin:4px 4px 0 0"></i></div>
+                                <div class="ui-g-11 search"><input type="text" pInputText placeholder="Search"
+                                        (input)="sop.filter($event.target.value)" style="width:100%; border:none;">
+                                </div>
                             </div>
                         </div>
-                        <div class="ui-g-6 ui-md-4" style="text-align:right">
+                        <!-- <div class="ui-g-6 ui-md-4" style="text-align:right">
 
+                        </div> -->
+                        <!-- </div> -->
+                    </div>
+                </p-header>
+                <p-footer>
+
+                </p-footer>
+                <ng-template let-inputList pTemplate="listItem">
+                    <div class="ui-dataview-content">
+                        <div class="ui-g-12">
+                            <div class="ui-g-2" style="align-content: center; padding-left:3%;">
+                                <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
+                                <img #img src="../../assets/delete.png" (click)="deleteEnquiry(inputList)" width="30px"
+                                    height="30px" alt="Logo">
+                            </div>
+                            <div class="ui-g-4">
+                                <p class="quotation_header">{{inputList.project_name}} -
+                                    {{inputList.project_lead}}<br />
+                            </div>
+                            <div class="ui-g-4">
+                                <p style="text-align: right;">{{inputList.status}}</p>
+                                <br />
+                            </div>
+                            <div class="ui-g-2" style="align-content: center; padding-right: 3%;">
+                                <button pButton type="button" icon="pi pi-search"
+                                    (click)="viewEnquiryPending(inputList)"
+                                    style="margin-top:0; float: right;"></button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </p-header>
-            <p-footer>
-
-            </p-footer>
-            <ng-template let-inputList pTemplate="listItem">
-                <div class="ui-dataview-content">
-                    <div class="ui-g-12">
-                        <div class="ui-g-2" style="align-content: center;">
-                            <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
-                            <img #img src="../../assets/delete.png" (click)="deleteEnquiry(inputList)"
-                                width="30px" height="30px" alt="Logo">
-                        </div>
-                        <div class="ui-g-4">
-                            <p class="quotation_header">{{inputList.project_name}} -
-                                {{inputList.project_lead}}<br />
-                        </div>
-                        <div class="ui-g-4">
-                            <p style="text-align: right;">{{inputList.status}}</p>
-                            <br />
-                        </div>
-                        <div class="ui-g-2" style="align-content: center;">
-                            <button pButton type="button" icon="pi pi-search"
-                                (click)="viewEnquiryPending(inputList)" style="margin-top:0"></button>
-                        </div>
-                    </div>
-                </div>
-            </ng-template>
-        </p-dataView>
+                </ng-template>
+            </p-dataView>
+        </div>
     </div>
-</div>
 
-<div class="ui-g-12">
-<div class="ui-g-12 ui-md-12 ui-lg-6">
-    <P class="dashboardname">Design Control</P>
-    <p>
-        <p-button icon="pi pi-plus" iconPos="right" label="Add New Design Control"
-            (click)="this.router.navigate(['/salesorderCreate'])"></p-button>
-    </p>
-    <p-dataView [value]="controlList" class="ui-dataview" [paginator]="true" filterBy="" [rows]="3">
-        <p-header>
-            <div class="ui-helper-clearfix">
-                <div class="ui-g">
-                    <div class="ui-g-12 ui-md-4">
+    <div class="ui-g-12">
+        <div class="ui-g-12 ui-md-12 ui-lg-6">
+            <P class="dashboardname">Design Control</P>
+            <p>
+                <p-button icon="pi pi-plus" iconPos="right" label="Add New Design Control"
+                    (click)="this.router.navigate(['/salesorderCreate'])"></p-button>
+            </p>
+            <p-dataView [value]="controlList" class="ui-dataview" [paginator]="true" filterBy="" [rows]="3">
+                <p-header>
+                    <div class="ui-helper-clearfix">
+                        <!-- <div class="ui-g"> -->
+                        <!-- <div class="ui-g-12 ui-md-4">
 
+                        </div> -->
+                        <div class="ui-g-6 ui-md-4 filter-container">
+                            <div style="position:relative">
+                                <div class="ui-g-1 search"><i class="fa fa-search" style="margin:4px 4px 0 0"></i></div>
+                                <div class="ui-g-11 search"><input type="text" pInputText placeholder="Search"
+                                        (input)="sop.filter($event.target.value)" style="width:100%; border:none;">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="ui-g-6 ui-md-4" style="text-align:right">
+
+                        </div> -->
                     </div>
-                    <div class="ui-g-6 ui-md-4 filter-container">
-                        <div style="position:relative">
-                            <div class="ui-g-2"><i class="fa fa-search" style="margin:4px 4px 0 0"></i></div>
-                            <div class="ui-g-10"><input type="text" pInputText placeholder="Global Filter"
-                                (input)="sop.filter($event.target.value)" style="width:100%; border:none;"></div>
+                    <!-- </div> -->
+                </p-header>
+                <p-footer>
+
+                </p-footer>
+                <ng-template let-controlList pTemplate="listItem">
+                    <div class="ui-dataview-content">
+                        <div class="ui-g-12">
+                            <div class="ui-g-2" style="align-content: center; padding-left:3%;">
+                                <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
+                                <img #img src="../../assets/delete.png" (click)="deleteEnquiry(controlList)"
+                                    width="30px" height="30px" alt="Logo">
+                            </div>
+                            <div class="ui-g-4">
+                                <p class="quotation_header">{{controlList.project_name}} -
+                                    {{controlList.project_lead}}<br />
+                            </div>
+                            <div class="ui-g-4">
+                                <p style="text-align: right;">{{controlList.status}}</p>
+                                <br />
+                            </div>
+                            <div class="ui-g-2" style="align-content: center; padding-right: 3%;">
+                                <button pButton type="button" icon="pi pi-search"
+                                    (click)="viewEnquiryPending(controlList)"
+                                    style="margin-top:0; float: right;"></button>
+                            </div>
                         </div>
                     </div>
-                    <div class="ui-g-6 ui-md-4" style="text-align:right">
+                </ng-template>
+            </p-dataView>
+        </div>
 
-                    </div>
-                </div>
-            </div>
-        </p-header>
-        <p-footer>
+        <div class="ui-g-12 ui-md-12 ui-lg-6">
+            <P class="dashboardname">Design Output</P>
+            <p>
+                <p-button icon="pi pi-plus" iconPos="right" label="Add New Design Control"
+                    (click)="this.router.navigate(['/salesorderCreate'])"></p-button>
+            </p>
+            <p-dataView [value]="outputList" class="ui-dataview" [paginator]="true" filterBy="" [rows]="3">
+                <p-header>
+                    <div class="ui-helper-clearfix">
+                        <!-- <div class="ui-g"> -->
+                        <!-- <div class="ui-g-12 ui-md-4">
 
-        </p-footer>
-        <ng-template let-controlList pTemplate="listItem">
-            <div class="ui-dataview-content">
-                <div class="ui-g-12">
-                    <div class="ui-g-2" style="align-content: center;">
-                        <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
-                        <img #img src="../../assets/delete.png" (click)="deleteEnquiry(controlList)"
-                            width="30px" height="30px" alt="Logo">
-                    </div>
-                    <div class="ui-g-4">
-                        <p class="quotation_header">{{controlList.project_name}} -
-                            {{controlList.project_lead}}<br />
-                    </div>
-                    <div class="ui-g-4">
-                        <p style="text-align: right;">{{controlList.status}}</p>
-                        <br />
-                    </div>
-                    <div class="ui-g-2" style="align-content: center;">
-                        <button pButton type="button" icon="pi pi-search"
-                            (click)="viewEnquiryPending(controlList)" style="margin-top:0"></button>
-                    </div>
-                </div>
-            </div>
-        </ng-template>
-    </p-dataView>
-</div>
+                        </div> -->
+                        <div class="ui-g-6 ui-md-4 filter-container">
+                            <div style="position:relative">
+                                <div class="ui-g-1 search"><i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                                </div>
+                                <div class="ui-g-11 search"><input type="text" pInputText placeholder="Search"
+                                        (input)="sop.filter($event.target.value)" style="width:100%; border:none;">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="ui-g-6 ui-md-4" style="text-align:right">
 
-<div class="ui-g-12 ui-md-12 ui-lg-6">
-    <P class="dashboardname">Design Output</P>
-    <p>
-        <p-button icon="pi pi-plus" iconPos="right" label="Add New Design Control"
-            (click)="this.router.navigate(['/salesorderCreate'])"></p-button>
-    </p>
-    <p-dataView [value]="outputList" class="ui-dataview" [paginator]="true" filterBy="" [rows]="3">
-        <p-header>
-            <div class="ui-helper-clearfix">
-                <div class="ui-g">
-                    <div class="ui-g-12 ui-md-4">
-
+                        </div> -->
+                        <!-- </div> -->
                     </div>
-                    <div class="ui-g-6 ui-md-4 filter-container">
-                        <div style="position:relative">
-                            <div class="ui-g-2"><i class="fa fa-search" style="margin:4px 4px 0 0"></i></div>
-                            <div class="ui-g-10"><input type="text" pInputText placeholder="Global Filter"
-                                (input)="sop.filter($event.target.value)" style="width:100%; border:none;"></div>
+                </p-header>
+                <p-footer>
+
+                </p-footer>
+                <ng-template let-designList pTemplate="listItem">
+                    <div class="ui-dataview-content">
+                        <div class="ui-g-12">
+                            <div class="ui-g-2" style="align-content: center; padding-left:3%;">
+                                <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
+                                <img #img src="../../assets/delete.png" (click)="deleteEnquiry(outputList)" width="30px"
+                                    height="30px" alt="Logo">
+                            </div>
+                            <div class="ui-g-4">
+                                <p class="quotation_header">{{outputList.project_name}} -
+                                    <!-- {{salesOrderListPending.id}}</p><br /> -->
+                                    {{outputList.project_lead}}<br />
+                            </div>
+                            <div class="ui-g-4">
+                                <p style="text-align: right;">{{outputList.status}}</p>
+                                <br />
+                            </div>
+                            <div class="ui-g-2" style="align-content: center;">
+                                <button pButton type="button" icon="pi pi-search"
+                                    (click)="viewEnquiryPending(outputList)"
+                                    style="margin-top:0; float: right;"></button>
+                            </div>
                         </div>
                     </div>
-                    <div class="ui-g-6 ui-md-4" style="text-align:right">
-
-                    </div>
-                </div>
-            </div>
-        </p-header>
-        <p-footer>
-
-        </p-footer>
-        <ng-template let-designList pTemplate="listItem">
-            <div class="ui-dataview-content">
-                <div class="ui-g-12">
-                    <div class="ui-g-2" style="align-content: center;">
-                        <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
-                        <img #img src="../../assets/delete.png" (click)="deleteEnquiry(outputList)"
-                            width="30px" height="30px" alt="Logo">
-                    </div>
-                    <div class="ui-g-4">
-                        <p class="quotation_header">{{outputList.project_name}} -
-                            <!-- {{salesOrderListPending.id}}</p><br /> -->
-                            {{outputList.project_lead}}<br />
-                    </div>
-                    <div class="ui-g-4">
-                        <p style="text-align: right;">{{outputList.status}}</p>
-                        <br />
-                    </div>
-                    <div class="ui-g-2" style="align-content: center;">
-                        <button pButton type="button" icon="pi pi-search"
-                            (click)="viewEnquiryPending(outputList)" style="margin-top:0"></button>
-                    </div>
-                </div>
-            </div>
-        </ng-template>
-    </p-dataView>
-</div>
-</div>
-
-<div class="ui-g-12">
-<div class="ui-g-12 ui-md-12 ui-lg-12">
-    <P class="dashboardname">Completed Design Plans</P>
-    <p-dataView [value]="designList" class="ui-dataview" [paginator]="true" filterBy="" [rows]="3">
-        <p-header>
-            <div class="ui-helper-clearfix">
-                <div class="ui-g">
-                    <div class="ui-g-12 ui-md-4">
-
-                    </div>
-                    <div class="ui-g-6 ui-md-4 filter-container">
-                        <div style="position:relative">
-                            <div class="ui-g-2"><i class="fa fa-search" style="margin:4px 4px 0 0"></i></div>
-                            <div class="ui-g-10"><input type="text" pInputText placeholder="Global Filter"
-                                (input)="sop.filter($event.target.value)" style="width:100%; border:none;"></div>
-                        </div>
-                    </div>
-                    <div class="ui-g-6 ui-md-4" style="text-align:right">
-
-                    </div>
-                </div>
-            </div>
-        </p-header>
-        <p-footer>
-
-        </p-footer>
-        <ng-template let-designList pTemplate="listItem">
-            <div class="ui-dataview-content">
-                <div class="ui-g-12">
-                    <div class="ui-g-2" style="align-content: center;">
-                        <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
-                        <img #img src="../../assets/delete.png" (click)="deleteEnquiry(salesOrderListPending)"
-                            width="30px" height="30px" alt="Logo">
-                    </div>
-                    <div class="ui-g-4">
-                        <p class="quotation_header">{{designList.project_name}} -
-                            <!-- {{salesOrderListPending.id}}</p><br /> -->
-                            {{designList.project_lead}}<br />
-                    </div>
-                    <div class="ui-g-4">
-                        <p style="text-align: right;">{{designList.status}}</p>
-                        <br />
-                    </div>
-                    <div class="ui-g-2" style="align-content: center;">
-                        <button pButton type="button" icon="pi pi-search"
-                            (click)="viewEnquiryPending(salesOrderListPending)" style="margin-top:0"></button>
-                    </div>
-                </div>
-            </div>
-        </ng-template>
-    </p-dataView>
+                </ng-template>
+            </p-dataView>
+        </div>
     </div>
-</div>
+
+    <div class="ui-g-12">
+        <div class="ui-g-12 ui-md-12 ui-lg-12">
+            <P class="dashboardname">Completed Design Plans</P>
+            <p-dataView [value]="designList" class="ui-dataview" [paginator]="true" filterBy="" [rows]="3">
+                <p-header>
+                    <div class="ui-helper-clearfix">
+                        <!-- <div class="ui-g"> -->
+                        <!-- <div class="ui-g-12 ui-md-4">
+
+                            </div> -->
+                        <div class="ui-g-6 ui-md-4 filter-container">
+                            <div style="position:relative">
+                                <div class="ui-g-1 search"><i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                                </div>
+                                <div class="ui-g-11 search"><input type="text" pInputText placeholder="Search"
+                                        (input)="sop.filter($event.target.value)" style="width:100%; border:none;">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="ui-g-6 ui-md-4" style="text-align:right">
+
+                            </div> -->
+                        <!-- </div> -->
+                    </div>
+                </p-header>
+                <p-footer>
+
+                </p-footer>
+                <ng-template let-designList pTemplate="listItem">
+                    <div class="ui-dataview-content">
+                        <div class="ui-g-12">
+                            <div class="ui-g-2" style="align-content: center; padding-left:3%;">
+                                <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
+                                <img #img src="../../assets/delete.png" (click)="deleteEnquiry(salesOrderListPending)"
+                                    width="30px" height="30px" alt="Logo">
+                            </div>
+                            <div class="ui-g-4">
+                                <p class="quotation_header">{{designList.project_name}} -
+                                    <!-- {{salesOrderListPending.id}}</p><br /> -->
+                                    {{designList.project_lead}}<br />
+                            </div>
+                            <div class="ui-g-4">
+                                <p style="text-align: right;">{{designList.status}}</p>
+                                <br />
+                            </div>
+                            <div class="ui-g-2" style="align-content: center; padding-right: 3%;">
+                                <button pButton type="button" icon="pi pi-search"
+                                    (click)="viewEnquiryPending(salesOrderListPending)"
+                                    style="margin-top:0; float: right;"></button>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </p-dataView>
+        </div>
+    </div>
 </div>
