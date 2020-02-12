@@ -28,8 +28,6 @@ export class AppComponent {
       } else {
         this.isCollapsed = false;
       }
-      console.log("Width: " + window.innerWidth);
-      console.log("Height: " + window.innerHeight);
     };
   }
 
@@ -46,5 +44,10 @@ export class AppComponent {
   onMenuClose(event) {
     // console.log(event)
     this.collapse();
+  }
+
+  logout() {
+    this.toggleDisplayService.toggle();
+    this.router.navigate(['login']);
   }
 }
