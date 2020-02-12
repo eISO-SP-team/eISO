@@ -10,12 +10,12 @@ export class VendorService {
 
   vendorSubject: BehaviorSubject<Vendor[]>;
 
-  selectedVendornService: Vendor;
+  selectedVendornService: any;
 
   vendorList: any;
 
   constructor(public http: HttpClient) {
-    this.vendorSubject = new BehaviorSubject<Vendor[]>(this.vendorList);
+    this.vendorSubject = new BehaviorSubject<any[]>(this.vendorList);
   }
 
   // addVendor(newVendorInfo: Vendor) {
@@ -40,6 +40,11 @@ export class VendorService {
 
   addVendors(vendors) {
     return this.http.post('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/vendor', vendors, {
+    });
+  }
+
+  updateVendors(vendor: any) {
+    return this.http.post('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/vendor/' + vendor.id, vendor, {
     });
   }
 

@@ -5,6 +5,7 @@ import { Vendor } from "../shared/model/vendor.model";
 import { VendorService } from "../shared/service/vendor.service";
 import { Location } from '@angular/common';
 import { formatDate } from '@angular/common';
+
 interface Type {
   name: string;
   value: string;
@@ -33,7 +34,6 @@ export class vendorCreateComponent implements OnInit {
 
   testEntry: any;
 
-
   myDate = formatDate(new Date(), 'yyyy/MM/dd', 'en');
 
   constructor(public vendorService: VendorService, public _location: Location, ) {
@@ -50,7 +50,6 @@ export class vendorCreateComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.addVendorForm = new FormGroup({
       'name': new FormControl(null, [Validators.required]),
       'type': new FormControl(null, [Validators.required]),
@@ -73,31 +72,6 @@ export class vendorCreateComponent implements OnInit {
     })
   }
 
-  // onAddEnquiry() {
-  //   this.vendorService.addVendor(new Vendor(
-  //     0,
-  //     this.addVendorForm.value.name,
-  //     this.addVendorForm.value.type,
-  //     this.addVendorForm.value.products,
-  //     this.addVendorForm.value.taxId,
-  //     this.addVendorForm.value.services,
-  //     this.addVendorForm.value.country,
-  //     this.addVendorForm.value.zipcode,
-  //     this.addVendorForm.value.address1,
-  //     this.addVendorForm.value.address2,
-  //     this.addVendorForm.value.prefix,
-  //     this.addVendorForm.value.firstName,
-  //     this.addVendorForm.value.middleName,
-  //     this.addVendorForm.value.lastName,
-  //     this.addVendorForm.value.email,
-  //     this.addVendorForm.value.phoneNo,
-  //     this.addVendorForm.value.extension,
-  //     this.addVendorForm.value.mobileNo,
-  //     this.addVendorForm.value.fax,
-  //   ));
-  //   this._location.back();
-  // }
-
   onAddEnquiry() {
     this.testEntry = {
       vendor_code: "12345",
@@ -107,8 +81,8 @@ export class vendorCreateComponent implements OnInit {
       tax_id: this.addVendorForm.value.taxId,
       vendor_address: {
         country: this.addVendorForm.value.country,
-        address1: this.addVendorForm.value.address1,
-        address2: this.addVendorForm.value.address2,
+        address_1: this.addVendorForm.value.address1,
+        address_2: this.addVendorForm.value.address2,
         updated_by: "Johnny",
         created_date: this.myDate,
         updated_date: this.myDate,

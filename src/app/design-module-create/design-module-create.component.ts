@@ -19,6 +19,13 @@ interface options {
 
 export class DesignModuleCreateComponent implements OnInit {
 
+  projectNo: any = this.designService.selectedProject.project_id;
+  projectLead: any = this.designService.selectedProject.project_lead;
+  projectName: any = this.designService.selectedProject.project_name;
+  startDate: any = this.designService.selectedProject.start_date;
+  endDate: any = this.designService.selectedProject.end_date;
+
+
   designPlanList: any;
 
   designphases: options[];
@@ -62,7 +69,7 @@ export class DesignModuleCreateComponent implements OnInit {
 
     this.selectedProject = this.designService.selectedProject;
     console.log(this.selectedProject);
-    
+
     this.designphases = [
       { label: 'Design Plan', value: 'Design Plan' },
       { label: 'Design Input', value: 'Design Input' },

@@ -65,18 +65,18 @@ export class vendorListComponent implements OnInit {
     // });
   }
 
-  viewEnquiryPending(vendorListPending: Vendor) {
+  viewEnquiryPending(vendorListPending: any) {
     console.log("In onViewDetail......" + JSON.stringify(vendorListPending));
     this.vendorService.selectedVendornService = vendorListPending;
-    this.router.navigate(['/vendorView', vendorListPending[0].vendor_refNo]);
+    this.router.navigate(['/vendorView', vendorListPending.id]);
   }
-  viewEnquiryApproved(vendorListApproved: Vendor) {
+  viewEnquiryApproved(vendorListApproved: any) {
     console.log("In onViewDetail......" + JSON.stringify(vendorListApproved));
     this.vendorService.selectedVendornService = vendorListApproved;
-    this.router.navigate(['/vendorView', vendorListApproved[0].vendor_refNo]);
+    this.router.navigate(['/vendorView', vendorListApproved.id]);
   }
 
-  deleteEnquiry(enquiry) {
+  deleteEnquiry(enquiry: any) {
 
     console.log("Delete this enquiry......" + JSON.stringify(enquiry.id));
     this.vendorService.deleteVendor(enquiry.id).subscribe(() => {
