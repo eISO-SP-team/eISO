@@ -5,7 +5,6 @@ import { CustomerService } from "../shared/service/customer.service";
 import { Location } from '@angular/common';
 import { formatDate } from '@angular/common';
 import { SelectItem } from 'primeng/api'
-import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService, Message} from 'primeng/api';
 
 interface Type {
