@@ -2,8 +2,8 @@
 <link rel="stylesheet" href="../assets/css/gStyles.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<app-login *ngIf="toggleDisplayService.isViewable"></app-login>
-<div *ngIf="!toggleDisplayService.isViewable">
+<app-login *ngIf="!toggleDisplayService.isViewable"></app-login>
+<div *ngIf="toggleDisplayService.isViewable">
     <div class="ui-g">
         <!-- [ngbCollapse]="isCollapsed" -->
         <div [ngbCollapse]="isCollapsed"  class="ui-g-10 ui-md-2 ui-lg-2 ui-g-nopad menuApp" style="padding: 0px;">

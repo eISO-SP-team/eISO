@@ -73,3 +73,7 @@ p.management.text-primary-dark.nFont {
   border-bottom: 1px solid #d4dae3 !important;
   margin-left:2px;
 }
+
+.passInput{
+  margin-right: 10px !important;
+}
