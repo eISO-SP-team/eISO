@@ -13,7 +13,7 @@
             </div>
         </div>
         <form [formGroup]="addDesignForm"
-            (ngSubmit)="onAddEnquiry(quotation_number,customer_id,date,subject,pic,tenderLocation,picEmail,total,deposit)">
+            (ngSubmit)="onAddEnquiry()">
             <div class="ui-g">
                 <div style=" overflow: visible;" class="fieldset-list ui-g-12">
                     <div class="ui-g-12 ui-md-12 ui-lg-4">
@@ -54,7 +54,6 @@
                             <span class="ui-float-label">
                                 <h3 class="first">Project No.</h3>
                                 <input type="text" pInputText [formControlName]="'Project_no'" />
-                                <!-- <p-calendar dateFormat="dd.mm.yy" placeholder="Click to Enter" [formControlName]="'date'"></p-calendar> -->
                             </span>
                             <span
                                 *ngIf="!addDesignForm.get('Project_no').valid && addDesignForm.get('Project_no').touched"
@@ -204,7 +203,7 @@
             <div class="ui-g-12">
                 <span class="ui-float-label">
                     <h3 class="first">Due Date</h3>
-                    <input type="date" pInputText [formControlName]="'due_date'" />
+                    <p-calendar dateFormat="dd.mm.yy" placeholder="Click to Enter" [formControlName]="'due_date'"></p-calendar>
                 </span>
                 <span *ngIf="!addBacklogForm.get('due_date').valid && addBacklogForm.get('due_date').touched"
                     class="help-block">
