@@ -5,7 +5,7 @@ import { CustomerService } from "../shared/service/customer.service";
 import { Location } from '@angular/common';
 import { formatDate } from '@angular/common';
 import { SelectItem } from 'primeng/api'
-import {ConfirmationService, Message} from 'primeng/api';
+import { ConfirmationService, Message } from 'primeng/api';
 
 interface Type {
   name: string;
@@ -51,7 +51,7 @@ export class SalesorderCreateComponent implements OnInit {
 
   maxCount: any;
 
-  constructor(public customerService: CustomerService, public salesOrderService: SalesorderService, public _location: Location, private confirmationservice: ConfirmationService ) {
+  constructor(public customerService: CustomerService, public salesOrderService: SalesorderService, public _location: Location, private confirmationservice: ConfirmationService) {
 
   }
 
@@ -130,16 +130,16 @@ export class SalesorderCreateComponent implements OnInit {
   }
   confirm() {
     this.confirmationservice.confirm({
-        message: 'Are you sure that you want to proceed?',
-        header: 'Confirmation',
-        icon: 'pi pi-exclamation-triangle',
-        accept: () => {
-            this.msgs = [{severity:'info', summary:'Confirmed', detail:'You have accepted'}];
-            this.onAddEnquiry();
-        },
-        reject: () => {
-            this.msgs = [{severity:'info', summary:'Rejected', detail:'You have rejected'}];
-        }
-      });
+      message: 'Are you sure that you want to proceed?',
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.msgs = [{ severity: 'info', summary: 'Confirmed', detail: 'You have accepted' }];
+        this.onAddEnquiry();
+      },
+      reject: () => {
+        this.msgs = [{ severity: 'info', summary: 'Rejected', detail: 'You have rejected' }];
+      }
+    });
   }
 }
