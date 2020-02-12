@@ -16,6 +16,11 @@
     color: #0d043d;
 }
 
+.closeBut{
+    width: 100% !important;
+    border-radius: 0 !important;
+}
+
 .ISO {
     color: #2b4993;
 }
