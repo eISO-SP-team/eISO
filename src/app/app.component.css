@@ -4,7 +4,7 @@
 }
 
 .menuApp {
-    z-index: 3;
+    z-index: 2;
 }
 
 .applicationView {
@@ -12,8 +12,8 @@
 }
 
 @media (max-width: 1000px){
-    .menuApp{
-        display: none;
+    .menuApp app-menu{
+       width: 100%;
     }
 }
 
@@ -22,3 +22,4 @@
     font-size: 2em;
     text-rendering: auto;
 }
+

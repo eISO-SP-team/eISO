@@ -12,7 +12,7 @@
                     <div style="position:relative">
                         <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
                         <input type="text" pInputText placeholder="Global Filter"
-                            (input)="tt.filter($event.target.value)" style="width:auto">
+                            (input)="tt.filter($event.target.value)" style="width:90%; border:none;">
                     </div>
                 </div>
                 <div class="ui-g-6 ui-md-4" style="text-align:right">
@@ -31,7 +31,7 @@
                     <img src="../../assets/delete.png" (click)="confirm(this.quotationList)" width="30px" height="30px" alt="Logo">
                 </div>
                 <div class="ui-g-4">
-                    <p class="quotation_header">{{quotationList.subject}} - {{quotationList.quotation_number}}</p><br />
+                    <p class="quotation_header" style="font-weight:900">{{quotationList.subject}} - {{quotationList.quotation_number}}</p><br />
                     {{quotationList.attention}}<br />
                 </div>
                 <div class="ui-g-4">

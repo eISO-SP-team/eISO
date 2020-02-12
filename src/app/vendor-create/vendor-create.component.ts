@@ -5,7 +5,8 @@ import { Vendor } from "../shared/model/vendor.model";
 import { VendorService } from "../shared/service/vendor.service";
 import { Location } from '@angular/common';
 import { formatDate } from '@angular/common';
-
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService, Message } from 'primeng/api';
 interface Type {
   name: string;
   value: string;
@@ -17,6 +18,7 @@ interface Type {
   styleUrls: ['./vendor-create.component.css'],
 })
 export class vendorCreateComponent implements OnInit {
+  msgs: Message[] = [];
 
   type: Type[];
 
@@ -36,7 +38,7 @@ export class vendorCreateComponent implements OnInit {
 
   myDate = formatDate(new Date(), 'yyyy/MM/dd', 'en');
 
-  constructor(public vendorService: VendorService, public _location: Location, ) {
+  constructor(public vendorService: VendorService, public _location: Location, private confirmationservice: ConfirmationService ) {
     this.type = [
       { name: 'Approved', value: 'Pass' },
       { name: 'Pending', value: 'Fail' },
@@ -116,6 +118,20 @@ export class vendorCreateComponent implements OnInit {
         this.vendorService.vendorList.push(this.testEntry);
       });
     this._location.back();
+  }
+  confirm() {
+    this.confirmationservice.confirm({
+      message: 'Are you sure that you want to proceed?',
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.msgs = [{ severity: 'info', summary: 'Confirmed', detail: 'You have accepted' }];
+        this.onAddEnquiry();
+      },
+      reject: () => {
+        this.msgs = [{ severity: 'info', summary: 'Rejected', detail: 'You have rejected' }];
+      }
+    });
   }
 }
 

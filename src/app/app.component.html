@@ -5,8 +5,9 @@
 <app-login *ngIf="toggleDisplayService.isViewable"></app-login>
 <div *ngIf="!toggleDisplayService.isViewable">
     <div class="ui-g">
-        <div [ngbCollapse]="isCollapsed" class="ui-g-10 ui-md-2 ui-lg-2 ui-g-nopad menuApp" style="padding: 0px;">
-            <app-menu class="ui-g-10 ui-md-2 ui-lg-2 ui-g-nopad" style="position: fixed;height: 100%;"></app-menu>
+        <!-- [ngbCollapse]="isCollapsed" -->
+        <div [ngbCollapse]="isCollapsed"  class="ui-g-10 ui-md-2 ui-lg-2 ui-g-nopad menuApp" style="padding: 0px;">
+            <app-menu (onClose)='onMenuClose($event)' data-simplebar="init" class="ui-g-10 ui-md-2 ui-lg-2 ui-g-nopad" style="position: fixed;height: 100%;"></app-menu>
         </div>
         <div class="p-col ui-g-nopad applicationView">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -26,7 +27,9 @@
     </div>
 </div>
 
-
+<script src="../assets/js/ISO.app.min.js"></script>
+<script src="../assets/js/ISOapp.core.min.js"></script>
 <!-- styles for login -->
 
 <!-- <router-outlet></router-outlet> -->
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>

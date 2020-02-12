@@ -1,6 +1,7 @@
 .menu-ui {
     /* border-right: rgba(204, 204, 204, 0.336) 2px solid; */
-    background-color: #f4f4f5;
+    /* background-color: #f4f4f5; */
+    background-color: #f8fbff;
     height: 100%;
     box-shadow: 5px 0 10px grey;
 }
@@ -10,9 +11,9 @@
     margin-bottom: 10px;
     margin-top: 10px;
     text-align: left;
-    margin-left:20px;
+    margin-left: 20px;
     font-size: 20px;
-    color: #c93830;
+    color: #0d043d;
 }
 
 .ISO {
@@ -21,10 +22,47 @@
 
 .eISO {
     text-align: left;
-    padding-left:20px;
+    padding-left: 20px;
     padding-top: 20px;
     padding-bottom: 10px;
     border-bottom: 1px solid darkblue;
     background-color: white;
 }
+
+::ng-deep body .ui-panelmenu .ui-panelmenu-header > a {
+    font-family: "Nunito Sans";
+    font-weight: 800;
+    /* background-color: rgb(233, 233, 252); */
+    /* background-color: #f2f2ff; */
+    background-color: #f8f8ff;
+    border: 0;
+}
+
+::ng-deep body .ui-panelmenu .ui-panelmenu-header.ui-state-active>a {
+    background-color: #96a9d7 !important;
+    color: #2f2f2f !important;
+}
+
+::ng-deep body .ui-panelmenu .ui-panelmenu-header > a:hover {
+    background-color: #2b4993 !important;
+    color: #dfdfdf !important;
+}
+
+/* arrow icon beside operation word*/
+/* ::ng-deep body body .ui-panelmenu .ui-panelmenu-header > a:hover .ui-panelmenu-icon {
+    color: #dfdfdf !important;
+} */
+
+/* arrow icon beside operation word after selected*/
+::ng-deep body .ui-panelmenu .ui-panelmenu-header.ui-state-active > a .ui-panelmenu-icon {
+    color: #2f2f2f !important;
+}
+
+
+::ng-deep body .ui-panelmenu .ui-panelmenu-content .ui-menuitem .ui-menuitem-link{
+    font-family: "Nunito Sans"; 
+    /* background-color: #eeeefd !important; */
+}
+
+
 

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Vendor } from "../shared/model/vendor.model";
 import { VendorService } from "../shared/service/vendor.service";
 import { Router } from '@angular/router';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService, Message } from 'primeng/api';
 
 @Component({
   selector: 'app-vendor-list',
@@ -9,6 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./vendor-list.component.css']
 })
 export class vendorListComponent implements OnInit {
+  msgs: Message[] = [];
 
   vendorList: Vendor[] = [];
 
@@ -28,7 +31,7 @@ export class vendorListComponent implements OnInit {
 
   confirmDelete: boolean;
 
-  constructor(public vendorService: VendorService, public router: Router, ) {
+  constructor(public vendorService: VendorService, public router: Router,private confirmationservice: ConfirmationService ) {
 
     this.vendorService.getVendorListener()
       .subscribe(newList => {
@@ -90,6 +93,20 @@ export class vendorListComponent implements OnInit {
       console.log('Vendor with id: ' + enquiry.id + ' has been deleted');
     });
 
+  }
+  confirm(enquiry) {
+    this.confirmationservice.confirm({
+      message: 'Are you sure that you want to proceed?',
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.msgs = [{ severity: 'info', summary: 'Confirmed', detail: 'You have accepted' }];
+        this.deleteEnquiry(enquiry);
+      },
+      reject: () => {
+        this.msgs = [{ severity: 'info', summary: 'Rejected', detail: 'You have rejected' }];
+      }
+    });
   }
 
 

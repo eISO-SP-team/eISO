@@ -11,10 +11,24 @@ td {
     padding: 0.571em 1em;
 }
 
-
 .btn-alt-primary {
     color: #125a96;
     background-color: #c8e2f8;
+    border-color: #c8e2f8;
+    /* width: 100%; */
+}
+
+.fa.fa-search {
+    width: 40px;
+    height: 36px;
+    color: grey;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.ui-g-6.ui-md-4.filter-container {
+    color: #125a96;
     border-color: #c8e2f8;
     width: 100%;
 }

@@ -17,7 +17,7 @@ export class AppComponent {
   isCollapsed: boolean;
 
   constructor(public toggleDisplayService: ToggleDisplayService, private router: Router) {
-    this.isCollapsed = true;
+    this.isCollapsed = false;
   }
 
   ngOnInit() {
@@ -29,5 +29,9 @@ export class AppComponent {
 
   collapse() {
     this.isCollapsed = !this.isCollapsed;
+  }
+  onMenuClose(event){
+    console.log(event)
+    this.collapse();
   }
 }

@@ -44,3 +44,32 @@ p.management.text-primary-dark.nFont {
   -webkit-animation-name: slideInRight;
   animation-name: slideInRight;
 }
+
+.signInWord{
+  margin-bottom: 15px !important;
+}
+
+.formBottom{
+  margin-top:15px;
+}
+
+.byPassBut{
+  margin-left:10px ;
+}
+
+.signUpBut{
+  margin-bottom: 10px;
+}
+/* 
+::ng-deep .form-control[_ngcontent-fse-c1]{
+  border:0 !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid #d4dae3 !important;
+} */
+
+.userInput, .passInput{
+  border:0 !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid #d4dae3 !important;
+  margin-left:2px;
+}
