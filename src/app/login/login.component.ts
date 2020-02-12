@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
 
   byPass() {
     this.toggleDisplayService.toggle();
-    this.router.navigate(['sales-module']);
+    // this.router.navigate(['sales-module']);
   }
 
 }

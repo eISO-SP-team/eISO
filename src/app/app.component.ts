@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { ToggleDisplayService } from './shared/service/toggle-display.service';
 import { Router } from '@angular/router';
 import { style } from '@angular/animations';
-
 
 @Component({
   selector: 'app-root',
@@ -16,8 +15,20 @@ export class AppComponent {
 
   isCollapsed: boolean;
 
+
   constructor(public toggleDisplayService: ToggleDisplayService, private router: Router) {
     this.isCollapsed = false;
+
+
+    window.onresize = (e) => {
+      //ngZone.run will help to run change detection
+      if (window.innerWidth < 1000) {
+        // this.onMenuClose(false);
+        this.isCollapsed = true;
+      } else {
+        this.isCollapsed = false;
+      }
+    };
   }
 
   ngOnInit() {
@@ -30,8 +41,13 @@ export class AppComponent {
   collapse() {
     this.isCollapsed = !this.isCollapsed;
   }
-  onMenuClose(event){
-    console.log(event)
+  onMenuClose(event) {
+    // console.log(event)
     this.collapse();
+  }
+
+  logout() {
+    this.toggleDisplayService.toggle();
+    this.router.navigate(['login']);
   }
 }
