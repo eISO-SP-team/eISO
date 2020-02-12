@@ -18,6 +18,22 @@
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
+                                    <h3 class="first">Project Name</h3>
+                                    <input type="text" pInputText [formControlName]="'project_name'" />
+                                </span>
+                                <span
+                                    *ngIf="!addProcessControlForm.get('project_name').valid && addProcessControlForm.get('project_name').touched"
+                                    class="help-block">
+                                    <span>
+                                        <p-message *ngIf="addProcessControlForm.get('project_name').errors['required']"
+                                            severity="error" text="This field is required!"></p-message>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
                                     <h3 class="first">Quotation Reference</h3>
                                     <input type="text" pInputText [formControlName]="'quotation_number'" />
                                 </span>
@@ -48,23 +64,7 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="ui-g-12 ui-md-12 ui-lg-4">
-                            <div class="ui-g-12">
-                                <span class="ui-float-label">
-                                    <h3 class="first">Tender Location</h3>
-                                    <input type="text" pInputText [formControlName]="'tenderLocation'" />
-                                </span>
-                                <span
-                                    *ngIf="!addProcessControlForm.get('tenderLocation').valid && addProcessControlForm.get('tenderLocation').touched"
-                                    class="help-block">
-                                    <span>
-                                        <p-message
-                                            *ngIf="addProcessControlForm.get('tenderLocation').errors['required']"
-                                            severity="error" text="This field is required!"></p-message>
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="ui-g-12">
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
@@ -103,7 +103,21 @@
                             </div>
                         </div>
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
-                            <!--EMPTY-->
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first">Tender Location</h3>
+                                    <input type="text" pInputText [formControlName]="'tender_location'" />
+                                </span>
+                                <span
+                                    *ngIf="!addProcessControlForm.get('tender_location').valid && addProcessControlForm.get('tender_location').touched"
+                                    class="help-block">
+                                    <span>
+                                        <p-message
+                                            *ngIf="addProcessControlForm.get('tender_location').errors['required']"
+                                            severity="error" text="This field is required!"></p-message>
+                                    </span>
+                                </span>
+                            </div>
                         </div>
                     </div>
                     <div style="overflow: visible;" class="ui-g-12">
@@ -206,11 +220,12 @@
                         <p-dropdown [options]="designphases" [(ngModel)]="clickedonPhase"
                             [formControlName]="'process_control_point'"></p-dropdown>
                     </span>
-                    <span *ngIf="!addControlPoint.get('process_control_point').valid && addControlPoint.get('process_control_point').touched"
+                    <span
+                        *ngIf="!addControlPoint.get('process_control_point').valid && addControlPoint.get('process_control_point').touched"
                         class="help-block">
                         <span>
-                            <p-message *ngIf="addControlPoint.get('process_control_point').errors['required']" severity="error"
-                                text="This field is required!"></p-message>
+                            <p-message *ngIf="addControlPoint.get('process_control_point').errors['required']"
+                                severity="error" text="This field is required!"></p-message>
                         </span>
                     </span>
                 </div>
@@ -219,7 +234,8 @@
                         <h3 class="first">PIC</h3>
                         <input type="text" pInputText [formControlName]="'pic'" />
                     </span>
-                    <span *ngIf="!addControlPoint.get('pic').valid && addControlPoint.get('pic').touched" class="help-block">
+                    <span *ngIf="!addControlPoint.get('pic').valid && addControlPoint.get('pic').touched"
+                        class="help-block">
                         <span>
                             <p-message *ngIf="addControlPoint.get('pic').errors['required']" severity="error"
                                 text="This field is required!"></p-message>

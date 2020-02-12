@@ -5,8 +5,8 @@ import { VendorService } from "../shared/service/vendor.service";
 import { Location } from '@angular/common';
 import { SelectItem } from 'primeng/api'
 import { formatDate } from '@angular/common';
-import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, Message } from 'primeng/api';
+import { FileUploadService } from "../shared/service/file-upload.service";
 
 interface supplier {
   name: string;
@@ -17,8 +17,6 @@ interface supplier {
   selector: 'app-quotation-create',
   templateUrl: './quotation-create.component.html',
   styleUrls: ['./quotation-create.component.css'],
-  //providers: [MessageService],
-  styles: [],
 })
 export class QuotationCreateComponent implements OnInit {
   msgs: Message[] = [];
@@ -43,7 +41,7 @@ export class QuotationCreateComponent implements OnInit {
 
   quotationList: any;
 
-  constructor(public quotationService: QuotationService, public vendorService: VendorService, public _location: Location, private confirmationservice: ConfirmationService) { }
+  constructor(public quotationService: QuotationService, public vendorService: VendorService, public _location: Location, private confirmationservice: ConfirmationService, public fileUploadService: FileUploadService) { }
 
   ngOnInit() {
     this.quotationList = this.quotationService.loadQuotation().subscribe(responseData => {
@@ -127,6 +125,9 @@ export class QuotationCreateComponent implements OnInit {
   onUpload(event) {
     for (let file of event.files) {
       this.uploadedFiles.push(file);
+      this.fileUploadService.postFile(file).subscribe((result) => {
+        console.log(result);
+      })
       console.log(this.uploadedFiles);
     }
   }

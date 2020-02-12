@@ -25,7 +25,6 @@ import { QuotationCreateComponent } from './quotation-create/quotation-create.co
 import { QuotationService } from './shared/service/quotation.service';
 import { QuotationComponent } from './quotation/quotation.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
-import { QuotationDashboardComponent } from './quotation-dashboard/quotation-dashboard.component';
 import { ToggleDisplayService } from './shared/service/toggle-display.service';
 import { DragDropDirective } from './shared/directive/drag-and-drop.directive';
 import { QuotationViewComponent } from './quotation-view/quotation-view.component';
@@ -75,7 +74,6 @@ import { NavHeaderComponent } from './nav-header/nav-header.component';
     QuotationCreateComponent,
     QuotationComponent,
     UploadFileComponent,
-    QuotationDashboardComponent,
     DragDropDirective,
     QuotationViewComponent,
     CustomerComponent,

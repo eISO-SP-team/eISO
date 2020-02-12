@@ -99,7 +99,6 @@ export class ProcesscontrolCreateComponent implements OnInit {
       "tender_location": new FormControl(null, [Validators.required]),
       "customer_name": new FormControl(null, [Validators.required]),
       "customer_email": new FormControl(null, [Validators.required]),
-      "tenderLocation": new FormControl(null, [Validators.required]),
       "start_date": new FormControl(null, [Validators.required]),
       "end_date": new FormControl(null, [Validators.required]),
     });
