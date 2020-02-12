@@ -1,4 +1,3 @@
-<p>processcontrol-create works!</p>
 <div class="ui-g">
     <div class="ui-g rcorners2">
         <div class="ui-g-12">
@@ -247,7 +246,7 @@
                 <div class="ui-g-12">
                     <span class="ui-float-label">
                         <h3 class="first">Due Date</h3>
-                        <input type="date" pInputText [formControlName]="'due_date'" />
+                        <p-calendar dateFormat="dd.mm.yy" placeholder="Click to Enter" [formControlName]="'due_date'"></p-calendar>
                     </span>
                     <span *ngIf="!addControlPoint.get('due_date').valid && addControlPoint.get('due_date').touched"
                         class="help-block">

@@ -64,12 +64,12 @@ import { DialogModule } from 'primeng/dialog';
 import { DesignModuleProjectsComponent } from './design-module-projects/design-module-projects.component';
 import { UploadService } from "./shared/service/upload.service";
 import { NgbModule} from "@ng-bootstrap/ng-bootstrap";
-import { NavHeaderComponent } from './nav-header/nav-header.component';
 import { DeliveryCreateComponent } from './delivery-create/delivery-create.component';
 import { DeliveryListComponent } from './delivery-list/delivery-list.component';
 import { PurchaseListComponent } from './purchase-list/purchase-list.component';
 import { PurchaseCreateComponent } from './purchase-create/purchase-create.component';
 import { CommentsComponent } from './comments/comments.component';
+import { EvaluationFormComponent } from './evaluation-form/evaluation-form.component';
 
 @NgModule({
   declarations: [
@@ -102,12 +102,12 @@ import { CommentsComponent } from './comments/comments.component';
     ProcesscontrolCreateComponent,
     DesignModuleCreateComponent,
     DesignModuleProjectsComponent,
-    NavHeaderComponent,
     DeliveryCreateComponent,
     DeliveryListComponent,
     PurchaseListComponent,
     PurchaseCreateComponent,
     CommentsComponent,
+    EvaluationFormComponent,
   ],
   imports: [
     BrowserModule,

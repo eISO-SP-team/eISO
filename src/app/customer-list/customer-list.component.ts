@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Customer } from "../shared/model/customer.model";
 import { CustomerService } from "../shared/service/customer.service";
 import { Router } from '@angular/router';
-import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService, Message} from 'primeng/api';
 
 @Component({

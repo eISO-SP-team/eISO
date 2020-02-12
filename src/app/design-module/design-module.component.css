@@ -1,6 +1,6 @@
-.ui-g-12 {
+/* .ui-g-12 {
     padding-left: 2em;
-}
+} */
 .ui-g {
     background-color: #F0F2F5;
 }
@@ -24,6 +24,15 @@
     width: 100%;
 }
 
+.ui-g-1.search {
+    width: auto;
+    max-width: 10%;
+    padding-right: 0;
+}
+.ui-g-11.search {
+    width: auto;
+    min-width: 90%;
+}
 
 
 /* styles to make search bar 100% length */
@@ -36,7 +45,7 @@
     font-size: 20px;
 }
 
-.ui-g-6.ui-md-4.filter-container {
+ .ui-g-6.ui-md-4.filter-container {
     color: #125a96;
     border-color: #c8e2f8;
     width: 100%;

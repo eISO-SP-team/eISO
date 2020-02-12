@@ -22,7 +22,7 @@ export class AppComponent {
 
     window.onresize = (e) => {
       //ngZone.run will help to run change detection
-      if (window.innerWidth < 1000) {
+      if (window.innerWidth < 1025) {
         // this.onMenuClose(false);
         this.isCollapsed = true;
       } else {

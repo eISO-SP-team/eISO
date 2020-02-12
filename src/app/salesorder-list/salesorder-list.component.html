@@ -5,24 +5,26 @@
             <p-button class="buttonadd" icon="pi pi-plus" iconPos="right" label="Add New Sales Order"
                 (click)="this.router.navigate(['/salesorderCreate'])"></p-button>
         </p>
-        <p-dataView [value]="salesOrderListPending2" #sop class="ui-dataview" [paginator]="true" filterBy="subject,pic" [rows]="3">
+        <p-dataView [value]="salesOrderListPending2" #sop class="ui-dataview" [paginator]="true" filterBy="subject,pic"
+            [rows]="3">
             <p-header>
                 <div class="ui-helper-clearfix">
-                    <div class="ui-g">
-                        <div class="ui-g-12 ui-md-4">
+                    <!-- <div class="ui-g"> -->
+                        <!-- <div class="ui-g-12 ui-md-4">
 
-                        </div>
+                        </div> -->
                         <div class="ui-g-6 ui-md-4 filter-container">
                             <div style="position:relative">
-                                <div class="ui-g-2"><i class="fa fa-search searchicon" style="margin:4px 4px 0 0"></i></div>
-                                <div class="ui-g-10"><input type="text" pInputText placeholder="Global Filter"
-                                    (input)="sop.filter($event.target.value)" style="width:100%; border:none;"></div>
+                                <div class="ui-g-1"><i class="fa fa-search" style="margin:4px 4px 0 0"></i></div>
+                                <div class="ui-g-11"><input type="text" pInputText placeholder="Search"
+                                        (input)="sop.filter($event.target.value)" style="width:100%; border:none;">
+                                </div>
                             </div>
                         </div>
-                        <div class="ui-g-6 ui-md-4" style="text-align:right">
+                        <!-- <div class="ui-g-6 ui-md-4" style="text-align:right">
 
-                        </div>
-                    </div>
+                        </div> -->
+                    <!-- </div> -->
                 </div>
             </p-header>
             <p-footer>
@@ -39,7 +41,7 @@
                         <div class="ui-g-4">
                             <p class="quotation_header" style="font-weight:900">{{salesOrderListPending.subject}} -
                                 <!-- {{salesOrderListPending.id}}</p><br /> -->
-                            {{salesOrderListPending.pic}}<br />
+                                {{salesOrderListPending.pic}}<br />
                         </div>
                         <div class="ui-g-4">
                             <p style="text-align: right;">{{salesOrderListPending.sales_order_details.status}}</p>
@@ -56,51 +58,52 @@
 
     </div>
     <div class="ui-g-12 ui-md-12 ui-lg-6">
-        <P class="dashboardname" style="padding-bottom: 2.6em;" >Completed Sales Order Dashboard </P>
+        <P class="dashboardname" style="padding-bottom: 2.6em;">Completed Sales Order Dashboard </P>
         <div style="margin-top: 35px;"></div>
-        <p-dataView [value]="salesOrderListCompleted2" #soc class="ui-dataview" filterBy="subject,pic" [paginator]="true" [rows]="3">
+        <p-dataView [value]="salesOrderListCompleted2" #soc class="ui-dataview" filterBy="subject,pic"
+            [paginator]="true" [rows]="3">
             <p-header>
                 <div class="ui-helper-clearfix">
-                    <div class="ui-g">
-                        <div class="ui-g-12 ui-md-4">
+                    <!-- <div class="ui-g"> -->
+                        <!-- <div class="ui-g-12 ui-md-4">
 
-                        </div>
+                        </div> -->
                         <div class="ui-g-6 ui-md-4 filter-container">
                             <div style="position:relative">
-                                <div class="ui-g-2"><i class="fa fa-search searchicon" style="margin:4px 4px 0 0"></i></div>
-                                <div class="ui-g-10"><input type="text" pInputText placeholder="Global Filter"
-                                    (input)="soc.filter($event.target.value)" style="width:100%; border:none;"></div>
+                                <div class="ui-g-1"><i class="fa fa-search" style="margin:4px 4px 0 0"></i></div>
+                                <div class="ui-g-11"><input type="text" pInputText placeholder="Search"
+                                        (input)="soc.filter($event.target.value)" style="width:90%; border:none;"></div>
                             </div>
                         </div>
-                        <div class="ui-g-6 ui-md-4" style="text-align:right">
+                        <!-- <div class="ui-g-6 ui-md-4" style="text-align:right">
 
-                        </div>
-                    </div>
+                        </div> -->
+                    <!-- </div> -->
                 </div>
             </p-header>
             <p-footer>
 
             </p-footer>
-            <ng-template let-salesOrderListCompleted pTemplate="listItem">
-                <div class="ui-dataview-content" style="padding: 0.5em 0 0.5em 0">
+            <ng-template let-salesOrderListCompleted2 pTemplate="listItem">
+                <div class="ui-dataview-content">
                     <div class="ui-g-12">
-                        <div class="ui-g-2" style="align-content: center;"> 
+                        <div class="ui-g-2" style="align-content: center;">
                             <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
-                            <img #img src="../../assets/delete.png" (click)="confirm(salesOrderListCompleted)"
+                            <img #img src="../../assets/delete.png" (click)="confirm(salesOrderListCompleted2)"
                                 width="30px" height="30px" alt="Logo">
                         </div>
                         <div class="ui-g-4">
-                            <p class="quotation_header" style="font-weight:900">{{salesOrderListCompleted.subject}} -
+                            <p class="quotation_header" style="font-weight:900">{{salesOrderListCompleted2.subject}} -
                                 <!-- {{salesOrderListCompleted.id}}</p><br /> -->
-                            {{salesOrderListCompleted.pic}}<br />
+                                {{salesOrderListCompleted2.pic}}<br />
                         </div>
                         <div class="ui-g-4">
-                            <p style="text-align: right;">{{salesOrderListCompleted.sales_order_details.status}}</p>
+                            <p style="text-align: right;">{{salesOrderListCompleted2.sales_order_details.status}}</p>
                             <br />
                         </div>
                         <div class="ui-g-2" style="align-content: center;">
                             <button pButton type="button" icon="pi pi-search"
-                                (click)="viewEnquiryCompleted(salesOrderListCompleted)" style="margin-top:0"></button>
+                                (click)="viewEnquiryCompleted(salesOrderListCompleted2)" style="margin-top:0"></button>
                         </div>
                     </div>
                 </div>
