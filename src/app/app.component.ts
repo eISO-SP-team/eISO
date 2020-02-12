@@ -14,7 +14,7 @@ export class AppComponent {
   text: string;
 
   isCollapsed: boolean;
-  
+
 
   constructor(public toggleDisplayService: ToggleDisplayService, private router: Router) {
     this.isCollapsed = false;
@@ -22,12 +22,14 @@ export class AppComponent {
 
     window.onresize = (e) => {
       //ngZone.run will help to run change detection
-        if (window.innerWidth <= 1000){
-          // this.onMenuClose(false);
-          !this.isCollapsed
-        }
-        console.log("Width: " + window.innerWidth);
-        console.log("Height: " + window.innerHeight);
+      if (window.innerWidth < 1000) {
+        // this.onMenuClose(false);
+        this.isCollapsed = true;
+      } else {
+        this.isCollapsed = false;
+      }
+      console.log("Width: " + window.innerWidth);
+      console.log("Height: " + window.innerHeight);
     };
   }
 
