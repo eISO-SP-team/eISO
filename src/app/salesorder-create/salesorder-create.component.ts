@@ -6,6 +6,7 @@ import { Location } from '@angular/common';
 import { formatDate } from '@angular/common';
 import { SelectItem } from 'primeng/api'
 import { ConfirmationService, Message } from 'primeng/api';
+import { FileUploadService } from "../shared/service/file-upload.service";
 
 interface Type {
   name: string;
@@ -41,6 +42,8 @@ export class SalesorderCreateComponent implements OnInit {
 
   myDate = formatDate(new Date(), 'yyyy/MM/dd', 'en');
 
+  uploadedFiles: any[] = [];
+
   customerList: any;
 
   value: Date;
@@ -51,7 +54,7 @@ export class SalesorderCreateComponent implements OnInit {
 
   maxCount: any;
 
-  constructor(public customerService: CustomerService, public salesOrderService: SalesorderService, public _location: Location, private confirmationservice: ConfirmationService) {
+  constructor(public customerService: CustomerService, public salesOrderService: SalesorderService, public _location: Location, private confirmationservice: ConfirmationService, public fileUploadService: FileUploadService) {
 
   }
 
@@ -128,6 +131,17 @@ export class SalesorderCreateComponent implements OnInit {
       });
     this._location.back();
   }
+
+  onUpload(event) {
+    for (let file of event.files) {
+      this.uploadedFiles.push(file);
+      this.fileUploadService.postFile(file).subscribe((result) => {
+        console.log(result);
+      })
+      console.log(this.uploadedFiles);
+    }
+  }
+  
   confirm() {
     this.confirmationservice.confirm({
       message: 'Are you sure that you want to proceed?',

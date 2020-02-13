@@ -131,13 +131,6 @@ export class QuotationCreateComponent implements OnInit {
       console.log(this.uploadedFiles);
     }
   }
-  myUploader(event) {
-    //event.files == files to upload
-    for (let file of event.files) {
-      this.uploadedFiles.push(file);
-      console.log(this.uploadedFiles);
-    }
-  }
 
   confirm() {
     this.confirmationservice.confirm({
