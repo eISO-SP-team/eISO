@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA,enableProdMode } from '@angular/core';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { MenuModule } from 'primeng/menu';
@@ -74,6 +74,15 @@ import { ProgressBarModule } from 'primeng/progressbar';
 import { EvaluationFormComponent } from './evaluation-form/evaluation-form.component';
 import { ProcesscontrolViewComponent } from './processcontrol-view/processcontrol-view.component';
 import {RatingModule} from 'primeng/rating';
+import { GraphOneComponent } from './graph-one/graph-one.component';
+// import { FusionChartsModule } from 'angular-fusioncharts';
+
+// // Load FusionCharts
+// import * as FusionCharts from 'fusioncharts';
+// // Load Charts module
+// import * as Charts from 'fusioncharts/fusioncharts.charts';
+// // Load themes
+// import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 
 @NgModule({
   declarations: [
@@ -114,6 +123,7 @@ import {RatingModule} from 'primeng/rating';
     SpinnerComponent,
     EvaluationFormComponent,
     ProcesscontrolViewComponent,
+    GraphOneComponent,
   ],
   imports: [
     BrowserModule,
@@ -143,6 +153,7 @@ import {RatingModule} from 'primeng/rating';
     NgbModule,
     ProgressBarModule,
     RatingModule,
+    // FusionChartsModule,
   ],
   providers: [UploadService, QuotationService, PurchaserequisitionService, SalesorderService, DesignService, DeliveryService, CustomerService, VendorService, MessageService, ConfirmationService, ToggleDisplayService],
   bootstrap: [AppComponent],
