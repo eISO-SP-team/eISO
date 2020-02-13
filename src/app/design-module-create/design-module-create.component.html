@@ -18,7 +18,7 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails">Project Lead</h3>
-                                <input type="text formtext" pInputText [formControlName]="'Project_lead'" />
+                                <input type="text formtext" [(ngModel)]="Project_lead" pInputText [formControlName]="'Project_lead'" />
                             </span>
                             <span
                                 *ngIf="!addDesignForm.get('Project_lead').valid && addDesignForm.get('Project_lead').touched"
@@ -35,7 +35,7 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails">Project Name</h3>
-                                <input type="text formtext" pInputText [formControlName]="'Project_name'" />
+                                <input type="text formtext" [(ngModel)]="Project_name" pInputText [formControlName]="'Project_name'" />
                             </span>
                             <span
                                 *ngIf="!addDesignForm.get('Project_name').valid && addDesignForm.get('Project_name').touched"
@@ -51,7 +51,7 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails">Project No.</h3>
-                                <input type="text formtext" pInputText [formControlName]="'Project_no'" />
+                                <input type="text formtext" [(ngModel)]="Project_no" pInputText [formControlName]="'Project_no'" />
                             </span>
                             <span
                                 *ngIf="!addDesignForm.get('Project_no').valid && addDesignForm.get('Project_no').touched"
@@ -68,7 +68,7 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails">Start Date - Design</h3>
-                                <input type="text formtext" pInputText [formControlName]="'Start_date_design'" />
+                                <input type="text formtext" [(ngModel)]="Start_date_design" pInputText [formControlName]="'Start_date_design'" />
                             </span>
                             <span
                                 *ngIf="!addDesignForm.get('Start_date_design').valid && addDesignForm.get('Start_date_design').touched"
@@ -83,7 +83,7 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails">End Date - Design </h3>
-                                <input type="text formtext" pInputText [formControlName]="'End_date_design'" />
+                                <input type="text formtext" [(ngModel)]="End_date_design" pInputText [formControlName]="'End_date_design'" />
                             </span>
                             <span
                                 *ngIf="!addDesignForm.get('End_date_design').valid && addDesignForm.get('End_date_design').touched"
@@ -224,6 +224,19 @@
                     </span>
                 </span>
             </div>
+           
+        </div>
+        <h2>Supporting File</h2>
+        <div class="ui-g-12">
+            <p-fileUpload name="demo[]" customUpload="true" (uploadHandler)="onUpload($event)"
+                multiple="multiple" maxFileSize="1000000">
+                <ng-template pTemplate="content">
+                    <ul *ngIf="uploadedFiles.length">
+                        <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes -
+                            {{file.type}}</li>
+                    </ul>
+                </ng-template>
+            </p-fileUpload>
         </div>
         <div class="ui-g-12">
             <button pButton [disabled]="!addBacklogForm.valid" type="submit" label="Submit Design Plan"></button>

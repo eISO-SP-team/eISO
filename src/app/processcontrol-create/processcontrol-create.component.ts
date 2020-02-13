@@ -24,15 +24,15 @@ interface cust {
 })
 export class ProcesscontrolCreateComponent implements OnInit {
 
-  customer: cust[];
-
-  customerEmail: any;
-
-  selectedCustomer: any;
+  dateValue: any;
 
   addProcessControlForm: FormGroup;
 
   addControlPoint: FormGroup;
+
+  selectedCustomer: any = null;
+
+  customerEmail: any = "";
 
   testEntry: any;
 
@@ -78,7 +78,7 @@ export class ProcesscontrolCreateComponent implements OnInit {
       this.customerList = this.customerService.customerList;
       this.newList = [];
       for (let i = 0; i < this.customerList.length; i++) {
-        this.newList.push({ label: this.customerList[i].customer_name, value: this.customerList[i].id });
+        this.newList.push({ label: this.customerList[i].customer_name, value: this.customerList[i] });
         console.log(this.newList);
       }
     });
@@ -118,11 +118,16 @@ export class ProcesscontrolCreateComponent implements OnInit {
       "pc_number": this.maxCount + 1,
       "project_id": this.maxCount + 1,
       "project_name": this.addProcessControlForm.value.project_name,
+      "project_lead": this.addProcessControlForm.value.project_lead,
+      "customer_name": this.addProcessControlForm.value.customer_name.id,
+      "customer_email": this.addProcessControlForm.value.project_email,
+      "start_date": this.addProcessControlForm.value.start_date,
+      "end_date": this.addProcessControlForm.value.end_date,
+      "tender_location": this.addProcessControlForm.value.tender_location,
       "status": "pending",
       "process_control_details": {
         "header_id": "213",
         "due_date": "2019-11-26",
-        "pic": "Jack",
         "line_id": "213",
         "created_by": "Jack",
         "reference_type": "abc",
@@ -186,5 +191,17 @@ export class ProcesscontrolCreateComponent implements OnInit {
     this.pcpList.unshift(this.pcpEntry);
     this.display = false;
     this.addControlPoint.reset();
+  }
+
+  valuechange(value) {
+    if (this.selectedCustomer != null) {
+      console.log(value);
+      this.selectedCustomer = this.addProcessControlForm.value.customer_name;
+      this.customerEmail = this.selectedCustomer.customer_contact.email;
+      console.log(this.selectedCustomer.id + "," + this.customerEmail);
+    } else {
+
+    }
+
   }
 }

@@ -4,7 +4,8 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { DesignService } from "../shared/service/design.service";
 import { Location } from '@angular/common';
 import { formatDate } from '@angular/common';
-import { SelectItem } from 'primeng/api'
+import { SelectItem } from 'primeng/api';
+import { FileUploadService } from "../shared/service/file-upload.service";
 
 interface options {
   label: string,
@@ -19,11 +20,11 @@ interface options {
 
 export class DesignModuleCreateComponent implements OnInit {
 
-  projectNo: any = this.designService.selectedProject.project_id;
-  projectLead: any = this.designService.selectedProject.project_lead;
-  projectName: any = this.designService.selectedProject.project_name;
-  startDate: any = this.designService.selectedProject.start_date;
-  endDate: any = this.designService.selectedProject.end_date;
+  Project_no: any = this.designService.selectedProject.project_id;
+  Project_lead: any = this.designService.selectedProject.project_lead;
+  Project_name: any = this.designService.selectedProject.project_name;
+  Start_date_design: any = this.designService.selectedProject.start_date;
+  End_date_design: any = this.designService.selectedProject.end_date;
 
 
   designPlanList: any;
@@ -48,17 +49,21 @@ export class DesignModuleCreateComponent implements OnInit {
 
   myDate = formatDate(new Date(), 'yyyy/MM/dd', 'en');
 
+  uploadedFiles: any[] = [];
+
   value: Date;
 
   newList: SelectItem[];
 
   maxCount: any;
 
+  blmaxCount: any = [];
+
   display: boolean;
 
   selectedProject: any;
 
-  constructor(public designService: DesignService, public router: Router, public _location: Location) {
+  constructor(public designService: DesignService, public router: Router, public _location: Location, public fileUploadService: FileUploadService) {
   }
 
   ngOnInit() {
@@ -108,6 +113,7 @@ export class DesignModuleCreateComponent implements OnInit {
     }
     console.log(this.clickedonPhase);
   }
+  
   showDialog() {
     this.display = true;
   }
@@ -145,6 +151,15 @@ export class DesignModuleCreateComponent implements OnInit {
         "uploaded_by": "Wolverine",
         "uploaded_date": "2019-11-26T03:36:23.327Z"
       }
+    }
+  }
+  onUpload(event) {
+    for (let file of event.files) {
+      this.uploadedFiles.push(file);
+      this.fileUploadService.postFile(file).subscribe((result) => {
+        console.log(result);
+      })
+      console.log(this.uploadedFiles);
     }
   }
 

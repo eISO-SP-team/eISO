@@ -27,6 +27,7 @@ export class DesignModuleProjectsComponent implements OnInit {
 
   selectEnquiry(enquiry: any) {
     this.designService.selectedProject = enquiry;
+    console.log(enquiry);
     this.router.navigate(['/designCreate'])
   }
 

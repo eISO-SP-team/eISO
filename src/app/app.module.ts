@@ -63,12 +63,14 @@ import { ProcesscontrolCreateComponent } from './processcontrol-create/processco
 import { DialogModule } from 'primeng/dialog';
 import { DesignModuleProjectsComponent } from './design-module-projects/design-module-projects.component';
 import { UploadService } from "./shared/service/upload.service";
-import { NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { DeliveryCreateComponent } from './delivery-create/delivery-create.component';
 import { DeliveryListComponent } from './delivery-list/delivery-list.component';
 import { PurchaseListComponent } from './purchase-list/purchase-list.component';
 import { PurchaseCreateComponent } from './purchase-create/purchase-create.component';
 import { CommentsComponent } from './comments/comments.component';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { ProgressBarModule } from 'primeng/progressbar';
 import { EvaluationFormComponent } from './evaluation-form/evaluation-form.component';
 
 @NgModule({
@@ -107,6 +109,7 @@ import { EvaluationFormComponent } from './evaluation-form/evaluation-form.compo
     PurchaseListComponent,
     PurchaseCreateComponent,
     CommentsComponent,
+    SpinnerComponent,
     EvaluationFormComponent,
   ],
   imports: [
@@ -135,6 +138,7 @@ import { EvaluationFormComponent } from './evaluation-form/evaluation-form.compo
     MessagesModule,
     HttpClientModule,
     NgbModule,
+    ProgressBarModule,
   ],
   providers: [UploadService, QuotationService, PurchaserequisitionService, SalesorderService, DesignService, DeliveryService, CustomerService, VendorService, MessageService, ConfirmationService, ToggleDisplayService],
   bootstrap: [AppComponent],
