@@ -224,6 +224,19 @@
                     </span>
                 </span>
             </div>
+           
+        </div>
+        <h2>Supporting File</h2>
+        <div class="ui-g-12">
+            <p-fileUpload name="demo[]" customUpload="true" (uploadHandler)="onUpload($event)"
+                multiple="multiple" maxFileSize="1000000">
+                <ng-template pTemplate="content">
+                    <ul *ngIf="uploadedFiles.length">
+                        <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes -
+                            {{file.type}}</li>
+                    </ul>
+                </ng-template>
+            </p-fileUpload>
         </div>
         <div class="ui-g-12">
             <button pButton [disabled]="!addBacklogForm.valid" type="submit" label="Submit Design Plan"></button>

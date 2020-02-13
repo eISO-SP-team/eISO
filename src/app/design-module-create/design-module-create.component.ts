@@ -4,7 +4,8 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { DesignService } from "../shared/service/design.service";
 import { Location } from '@angular/common';
 import { formatDate } from '@angular/common';
-import { SelectItem } from 'primeng/api'
+import { SelectItem } from 'primeng/api';
+import { FileUploadService } from "../shared/service/file-upload.service";
 
 interface options {
   label: string,
@@ -48,6 +49,8 @@ export class DesignModuleCreateComponent implements OnInit {
 
   myDate = formatDate(new Date(), 'yyyy/MM/dd', 'en');
 
+  uploadedFiles: any[] = [];
+
   value: Date;
 
   newList: SelectItem[];
@@ -58,7 +61,7 @@ export class DesignModuleCreateComponent implements OnInit {
 
   selectedProject: any;
 
-  constructor(public designService: DesignService, public router: Router, public _location: Location) {
+  constructor(public designService: DesignService, public router: Router, public _location: Location, public fileUploadService: FileUploadService) {
   }
 
   ngOnInit() {
@@ -145,6 +148,15 @@ export class DesignModuleCreateComponent implements OnInit {
         "uploaded_by": "Wolverine",
         "uploaded_date": "2019-11-26T03:36:23.327Z"
       }
+    }
+  }
+  onUpload(event) {
+    for (let file of event.files) {
+      this.uploadedFiles.push(file);
+      this.fileUploadService.postFile(file).subscribe((result) => {
+        console.log(result);
+      })
+      console.log(this.uploadedFiles);
     }
   }
 

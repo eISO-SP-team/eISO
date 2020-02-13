@@ -112,18 +112,19 @@
                 </div>
             </div>
             <div class="fieldset-list ui-g-12">
-                <h2>Supporting File</h2>
                 <div class="ui-g-12">
-                    <!-- <app-upload-file></app-upload-file> -->
-                    <p-fileUpload name="demo[]" customUpload="true" (uploadHandler)="onUpload($event)" multiple="multiple"
-                        maxFileSize="1000000">
-                        <ng-template pTemplate="content">
-                            <ul *ngIf="uploadedFiles.length">
-                                <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes -
-                                    {{file.type}}</li>
-                            </ul>
-                        </ng-template>
-                    </p-fileUpload>
+                    <h2>Supporting File</h2>
+                    <div class="ui-g-12">
+                        <p-fileUpload name="demo[]" customUpload="true" (uploadHandler)="onUpload($event)"
+                            multiple="multiple" maxFileSize="1000000">
+                            <ng-template pTemplate="content">
+                                <ul *ngIf="uploadedFiles.length">
+                                    <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes -
+                                        {{file.type}}</li>
+                                </ul>
+                            </ng-template>
+                        </p-fileUpload>
+                    </div>
                 </div>
                 <button pButton [disabled]="!addForm.valid" type="submit" label="Submit Quotation"></button>
             </div>
