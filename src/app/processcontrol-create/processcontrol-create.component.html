@@ -165,13 +165,13 @@
                             <table class="roundedCorners">
                                 <tr>
                                     <th>Created By</th>
-                                    <th>Due Dater</th>
+                                    <th>Due Date</th>
                                     <th>Status</th>
                                 </tr>
-                                <tr *ngFor="let dbl of desginBacklog">
-                                    <td *ngIf="dbl.design_phase=='Design Plan'">{{dbl.created_by}}</td>
-                                    <td *ngIf="dbl.design_phase=='Design Plan'">{{dbl.due_date}}</td>
-                                    <td *ngIf="dbl.design_phase=='Design Plan'">{{dbl.status}}</td>
+                                <tr *ngFor="let pcp of pcpList">
+                                    <td *ngIf="pcp.design_phase=='PREPARATION'">{{pcp.created_by}}</td>
+                                    <td *ngIf="pcp.design_phase=='PREPARATION'">{{pcp.due_date}}</td>
+                                    <td *ngIf="pcp.design_phase=='PREPARATION'">{{pcp.status}}</td>
                                 </tr>
                             </table>
                         </p-tabPanel>
@@ -182,10 +182,10 @@
                                     <th>Due Dater</th>
                                     <th>Status</th>
                                 </tr>
-                                <tr *ngFor="let dbl of desginBacklog">
-                                    <td *ngIf="dbl.design_phase=='Design Input'">{{dbl.created_by}}</td>
-                                    <td *ngIf="dbl.design_phase=='Design Input'">{{dbl.due_date}}</td>
-                                    <td *ngIf="dbl.design_phase=='Design Input'">{{dbl.status}}</td>
+                                <tr *ngFor="let pcp of pcpList">
+                                    <td *ngIf="pcp.design_phase=='IN PROGRESS PHASE'">{{pcp.created_by}}</td>
+                                    <td *ngIf="pcp.design_phase=='IN PROGRESS PHASE'">{{pcp.due_date}}</td>
+                                    <td *ngIf="pcp.design_phase=='IN PROGRESS PHASE'">{{pcp.status}}</td>
                                 </tr>
                             </table>
                         </p-tabPanel>
@@ -196,10 +196,10 @@
                                     <th>Due Dater</th>
                                     <th>Status</th>
                                 </tr>
-                                <tr *ngFor="let dbl of desginBacklog">
-                                    <td *ngIf="dbl.design_phase=='Design Control'">{{dbl.created_by}}</td>
-                                    <td *ngIf="dbl.design_phase=='Design Control'">{{dbl.due_date}}</td>
-                                    <td *ngIf="dbl.design_phase=='Design Control'">{{dbl.status}}</td>
+                                <tr *ngFor="let pcp of pcpList">
+                                    <td *ngIf="pcp.design_phase=='FINAL PHASE'">{{pcp.created_by}}</td>
+                                    <td *ngIf="pcp.design_phase=='FINAL PHASE'">{{pcp.due_date}}</td>
+                                    <td *ngIf="pcp.design_phase=='FINAL PHASE'">{{pcp.status}}</td>
                                 </tr>
                             </table>
                         </p-tabPanel>
@@ -218,7 +218,7 @@
                 <div class="ui-g-12">
                     <span class="ui-float-label">
                         <h3 class="first">Process Control Point</h3>
-                        <p-dropdown [options]="designphases" [(ngModel)]="clickedonPhase"
+                        <p-dropdown [options]="controlpoints" placeholder="Select a Phase" [(ngModel)]="clickedonPhase"
                             [formControlName]="'process_control_point'"></p-dropdown>
                     </span>
                     <span
@@ -272,7 +272,7 @@
                         </span>
                     </span>
                 </div>
-                
+
             </div>
             <div class="ui-g-12">
                 <h2>Supporting File</h2>
@@ -289,7 +289,7 @@
                 </div>
             </div>
             <div class="ui-g-12">
-                <button pButton [disabled]="!addControlPoint.valid" type="submit" label="Submit Process Control"></button>
+                <button pButton [disabled]="!addControlPoint.valid" type="submit" label="Submit Control Point"></button>
             </div>
         </form>
     </p-dialog>

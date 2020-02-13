@@ -1,0 +1,38 @@
+.fieldset-list {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    border: grey 1px solid;
+}
+.designBLbtn {
+  background-color: blue;
+  color: white;
+  border-radius: 3px;
+  border: 1px black solid;
+  width: 100px;
+  height: 40px;
+  justify-content: center;
+  text-align: center;
+}
+table {
+    width: 100%;
+    text-align: center;
+}
+
+table.roundedCorners { 
+    border: 1px solid DarkOrange;
+    border-radius: 13px; 
+    border-spacing: 0;
+    }
+  table.roundedCorners td, 
+  table.roundedCorners th { 
+    border-bottom: 1px solid DarkOrange;
+    padding: 10px; 
+    }
+  table.roundedCorners tr:last-child > td {
+    border-bottom: none;
+  }
