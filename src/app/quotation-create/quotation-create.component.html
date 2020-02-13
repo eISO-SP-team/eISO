@@ -18,7 +18,8 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails">Subject</h3>
-                                <input class="form-control formtext" type="text" pInputText [formControlName]="'subject'" />
+                                <input class="form-control formtext" type="text" pInputText
+                                    [formControlName]="'subject'" />
                             </span>
 
                             <span *ngIf="!addForm.get('subject').valid && addForm.get('subject').touched"
@@ -44,7 +45,8 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails">Attention</h3>
-                                <input class="form-control formtext" type="text" pInputText [formControlName]="'attention'" />
+                                <input class="form-control formtext" type="text" pInputText
+                                    [formControlName]="'attention'" />
                             </span>
                             <span *ngIf="!addForm.get('attention').valid && addForm.get('attention').touched"
                                 class="help-block">
@@ -71,7 +73,8 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails">Validity</h3>
-                                <input class="form-control formtext" type="text" pInputText [formControlName]="'validity'" />
+                                <input class="form-control formtext" type="text" pInputText
+                                    [formControlName]="'validity'" />
                             </span>
                             <span *ngIf="!addForm.get('validity').valid && addForm.get('validity').touched"
                                 class="help-block">
@@ -116,7 +119,7 @@
                     <h2>Supporting File</h2>
                     <div class="ui-g-12">
                         <p-fileUpload name="demo[]" customUpload="true" (uploadHandler)="onUpload($event)"
-                            multiple="multiple" maxFileSize="1000000">
+                            multiple="multiple">
                             <ng-template pTemplate="content">
                                 <ul *ngIf="uploadedFiles.length">
                                     <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes -

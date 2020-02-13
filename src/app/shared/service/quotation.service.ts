@@ -22,15 +22,14 @@ export class QuotationService {
     return this.quotationSubject.asObservable();
   }
 
-  addQuotations(newQuotation) {
+  addQuotations(newQuotation:any) {
     console.log("before: " + this.quotationList);
     this.quotationList.unshift(JSON.parse(newQuotation));
     console.log("before: " + this.quotationList);
     //basically, you update this listener with the new list, 
     //anyone that is subscribing to the enquiry will get the latest list
     this.quotationSubject.next(this.quotationList);
-    return this.http.post('https://vr7zo9ukcl.execute-api.ap-southeast-1.amazonaws.com/dev/quotation', newQuotation, {
-    });
+    return this.http.post('https://vr7zo9ukcl.execute-api.ap-southeast-1.amazonaws.com/dev/quotation', newQuotation);
   }
 
   loadQuotation(): Observable<any> {

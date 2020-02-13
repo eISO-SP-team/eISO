@@ -32,7 +32,7 @@ export class ProcessControlModuleComponent implements OnInit {
   viewEnquiry(enquiry: any) {
     console.log("In onViewDetail......" + JSON.stringify(enquiry));
     this.processControlService.selectedProcesscontrolInService = enquiry;
-    this.router.navigate(['/processc-control-view', enquiry.id]);
+    this.router.navigate(['/process-control-view', enquiry.id]);
   }
 
   deleteEnquiry(enquiry: { id: string; }) {

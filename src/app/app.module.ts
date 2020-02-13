@@ -72,6 +72,7 @@ import { CommentsComponent } from './comments/comments.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { EvaluationFormComponent } from './evaluation-form/evaluation-form.component';
+import { ProcesscontrolViewComponent } from './processcontrol-view/processcontrol-view.component';
 
 @NgModule({
   declarations: [
@@ -111,6 +112,7 @@ import { EvaluationFormComponent } from './evaluation-form/evaluation-form.compo
     CommentsComponent,
     SpinnerComponent,
     EvaluationFormComponent,
+    ProcesscontrolViewComponent,
   ],
   imports: [
     BrowserModule,
