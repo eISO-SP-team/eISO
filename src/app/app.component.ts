@@ -1,6 +1,6 @@
 import { Component, NgZone } from '@angular/core';
 import { ToggleDisplayService } from './shared/service/toggle-display.service';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { style } from '@angular/animations';
 
 @Component({
@@ -32,7 +32,12 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    // this.toggleDisplayService.isViewable;
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0, 0)
+    });
   }
   ngAfterViewInit() {
     this.router.url;

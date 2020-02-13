@@ -113,9 +113,10 @@ export class SalesorderViewComponent implements OnInit {
         "reference_date": this.salesOrderService.selectedSalesOrderInService.sales_order_details.reference_date,
         "created_date": this.salesOrderService.selectedSalesOrderInService.sales_order_details.created_date,
         "updated_date": this.salesOrderService.selectedSalesOrderInService.sales_order_details.updated_date,
-        "status": "pending"
+        "status": this.salesOrderService.selectedSalesOrderInService.sales_order_details.status
       }
     };
+    console.log(JSON.stringify(this.newEdit));
     var data = JSON.stringify(this.newEdit);
     this.salesOrderService.updateSalesorder(this.salesOrderService.selectedSalesOrderInService.id, data)
       .subscribe((data) => {
