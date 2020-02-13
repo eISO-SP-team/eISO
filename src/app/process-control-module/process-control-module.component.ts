@@ -17,12 +17,16 @@ export class ProcessControlModuleComponent implements OnInit {
   index: any;
 
   constructor(public _location: Location, public processControlService: ProcesscontrolService, public router: Router) {
-
+    this.processControlService.getProcesscontrolListener().subscribe(() => {
+      this.testList = this.processControlService.loadProcesscontrols().subscribe((responseData) => {
+        this.projectList = (<any>responseData).body;
+        console.log(this.projectList);
+      });
+      this.processControlService.processcontrolList = this.projectList;
+    })
   }
   ngOnInit() {
-    this.testList = this.processControlService.loadProcesscontrols().subscribe((responseData) => {
-      this.projectList = (<any>responseData).body;
-    });
+
   }
 
   viewEnquiry(enquiry: any) {

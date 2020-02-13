@@ -18,7 +18,7 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first">Project Lead</h3>
-                                <input type="text" pInputText [formControlName]="'Project_lead'" />
+                                <input type="text" [(ngModel)]="Project_lead" pInputText [formControlName]="'Project_lead'" />
                             </span>
                             <span
                                 *ngIf="!addDesignForm.get('Project_lead').valid && addDesignForm.get('Project_lead').touched"
@@ -35,7 +35,7 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first">Project Name</h3>
-                                <input type="text" pInputText [formControlName]="'Project_name'" />
+                                <input type="text" [(ngModel)]="Project_name" pInputText [formControlName]="'Project_name'" />
                             </span>
                             <span
                                 *ngIf="!addDesignForm.get('Project_name').valid && addDesignForm.get('Project_name').touched"
@@ -51,7 +51,7 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first">Project No.</h3>
-                                <input type="text" pInputText [formControlName]="'Project_no'" />
+                                <input type="text" [(ngModel)]="Project_no" pInputText [formControlName]="'Project_no'" />
                             </span>
                             <span
                                 *ngIf="!addDesignForm.get('Project_no').valid && addDesignForm.get('Project_no').touched"
@@ -68,7 +68,7 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first">Start Date - Design</h3>
-                                <input type="text" pInputText [formControlName]="'Start_date_design'" />
+                                <input type="text" [(ngModel)]="start_date" pInputText [formControlName]="'Start_date_design'" />
                             </span>
                             <span
                                 *ngIf="!addDesignForm.get('Start_date_design').valid && addDesignForm.get('Start_date_design').touched"
@@ -83,7 +83,7 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first">End Date - Design </h3>
-                                <input type="text" pInputText [formControlName]="'End_date_design'" />
+                                <input type="text" [(ngModel)]="end_date" pInputText [formControlName]="'End_date_design'" />
                             </span>
                             <span
                                 *ngIf="!addDesignForm.get('End_date_design').valid && addDesignForm.get('End_date_design').touched"
