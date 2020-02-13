@@ -2,16 +2,9 @@ td {
     word-wrap: break-word;
 }
 
-.ui-dataview .ui-dataview-content {
-    padding: 0.571em 1em;
-    color: #333333;
-    padding: 0.571em 1em;
-    background-color: #ffffff;
-}
-
 
 /* styles to make search bar 100% length */
-.fa.fa-search {
+.searchicon {
     width: 40px;
     height: 36px;
     color: grey;
@@ -19,14 +12,69 @@ td {
     cursor: pointer;
     font-size: 20px;
 }
-
+/* 
 .ui-g-6.ui-md-4.filter-container {
     color: #125a96;
     border-color: #c8e2f8;
     width: 100%;
+} */
+
+
+
+/* SEARCH BOX STYLES */
+::ng-deep body .ui-dataview .ui-dataview-header{
+    background-color: #F6F7F9;
+    color: #333333;
+    border: none;
+    padding: 0.571em 1em;
+    font-weight: 700;
+    border-bottom: 0 none;
 }
 
+/* DATA BOX STYLES */
+::ng-deep body .ui-dataview .ui-dataview-content {
+    padding: 0.571em 1em; 
+    border: none;
+    padding: 0; 
+}
 
+/* PAGE NO. BOX STYLES */
+::ng-deep body .ui-paginator {
+    background-color: #F6F7F9;
+    border: none;
+    padding: 0; 
+}
 
+/* FOOTER BOX STYLES */
+::ng-deep body .ui-dataview .ui-dataview-footer {
+    background-color: #ffffff;
+    color: #333333;
+    border: none;
+}
 
+/* BUTTON STYLES */
+::ng-deep body .ui-button {
+    margin: 0;
+    color: #125a96;
+    background-color: #c8e2f8;
+    border: 1px solid #c8e2f8;
+    font-size: 14px;
+    -moz-transition: background-color 0.2s, box-shadow 0.2s;
+    -o-transition: background-color 0.2s, box-shadow 0.2s;
+    -webkit-transition: background-color 0.2s, box-shadow 0.2s;
+    transition: background-color 0.2s, box-shadow 0.2s; 
+}
 
+::ng-deep body .ui-button:enabled:hover {
+    background-color: #aed8f4;
+    color: #125a96;
+    border-color: #c8e2f8; 
+}
+
+::ng-deep body .ui-button:enabled:focus {
+    outline: 0 none;
+    outline-offset: 0px;
+    -webkit-box-shadow: 0 0 0 0.2em #8dcdff;
+    -moz-box-shadow: 0 0 0 0.2em #8dcdff;
+    box-shadow: 0 0 0 0.2em #8dcdff; 
+}

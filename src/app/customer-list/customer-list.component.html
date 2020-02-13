@@ -7,7 +7,7 @@
                 </div> -->
                 <div class="ui-g-6 ui-md-4 filter-container">
                     <div style="position:relative">
-                        <div class="ui-g-1"><i class="fa fa-search" style="margin:4px 4px 0 0"></i></div>
+                        <div class="ui-g-1"><i class="fa fa-search searchicon" style="margin:4px 4px 0 0"></i></div>
                         <div class="ui-g-11"><input class="inputfield" type="text" pInputText placeholder="Search"
                             (input)="gg.filter($event.target.value)" style="width:100%; border:none;"></div>
                     </div>
@@ -22,8 +22,8 @@
     </p-header>
     <p-footer>
     </p-footer>
-    <ng-template class = "boxstyles" let-customerList pTemplate="listItem">
-        <div class="ui-dataview-content">
+    <ng-template let-customerList pTemplate="listItem">
+        <div class="ui-dataview-content" style="padding: 0.5em 0 0.5em 0">
             <div class="ui-g-12">
                 <div class="ui-g-2" style="align-content: center;">
                     <img src="../../assets/delete.png" (click)="confirm(this.customerList)" width="30px"

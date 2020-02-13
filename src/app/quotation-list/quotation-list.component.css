@@ -2,25 +2,18 @@ td {
     word-wrap: break-word;
 }
 
-.ui-dataview .ui-dataview-content {
-    padding: 0.571em 1em;
-    color: #333333;
-    padding: 0.571em 1em;
-    background-color: #ffffff;
-}
-
-
-.fa.fa-search {
+/* FOR SEARCH BAR */
+.searchicon {
     width: 40px;
     height: 36px;
     color: grey;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 23px;
     padding-right: 2em;
 }
 
-.ui-g-6.ui-md-4.filter-container {
+::ng-deep .ui-g-6.ui-md-4.filter-container {
     color: #125a96;
     border-color: #c8e2f8;
     width: 100%;

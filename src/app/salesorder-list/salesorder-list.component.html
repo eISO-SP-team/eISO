@@ -31,7 +31,7 @@
 
             </p-footer>
             <ng-template let-salesOrderListPending pTemplate="listItem">
-                <div class="ui-dataview-content">
+                <div class="ui-dataview-content" style="padding: 0.5em 0 0.5em 0">
                     <div class="ui-g-12">
                         <div class="ui-g-2" style="align-content: center;">
                             <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
@@ -70,7 +70,7 @@
                         </div> -->
                         <div class="ui-g-6 ui-md-4 filter-container">
                             <div style="position:relative">
-                                <div class="ui-g-1"><i class="fa fa-search" style="margin:4px 4px 0 0"></i></div>
+                                <div class="ui-g-1"><i class="fa fa-search searchicon" style="margin:4px 4px 0 0"></i></div>
                                 <div class="ui-g-11"><input type="text" pInputText placeholder="Search"
                                         (input)="soc.filter($event.target.value)" style="width:90%; border:none;"></div>
                             </div>
@@ -85,7 +85,7 @@
 
             </p-footer>
             <ng-template let-salesOrderListCompleted2 pTemplate="listItem">
-                <div class="ui-dataview-content">
+                <div class="ui-dataview-content" style="padding: 0.5em 0 0.5em 0;">
                     <div class="ui-g-12">
                         <div class="ui-g-2" style="align-content: center;">
                             <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
