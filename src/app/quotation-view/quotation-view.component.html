@@ -1,7 +1,7 @@
 <div class="ui-g">
     <div class="ui-g rcorners2">
         <div class="ui-g-12">
-            <div class="ui-g-6">
+            <div class="ui-g-6 formheader">
                 <h3>View Quotation</h3>
 
                 <!-- Project ref number -->
@@ -12,12 +12,11 @@
                 <div class="ui-g-6">
                     <button id="disabled-btn" type="button" (click)="toggleDisabled()" pButton
                         label="Toggle Edit"></button></div>
-
+            </div>
                 <!-- Cancel button -->
                 <div class="ui-g-6">
                     <button pButton type="button" style="float:right; position: relative;" class="ui-button-danger"
                         (click)="this._location.back()" label="Cancel"></button></div>
-            </div>
         </div>
         <form [formGroup]="addForm" (ngSubmit)="updateEdits()">
             <div class="ui-g">
@@ -30,14 +29,14 @@
                     <div class="ui-g-6 ui-md-12 ui-lg-6">
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Subject</h3>
-                                <input class="form-control" type="text" pInputText [disabled]="disabled"
+                                <h3 class="first formdetails">Subject</h3>
+                                <input class="form-control formtext" type="text" pInputText [disabled]="disabled"
                                     [formControlName]="'companyName'" [(ngModel)]='newCompanyName' />
                             </span>
                         </div>
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">To</h3>
+                                <h3 class="first formdetails">To</h3>
                                 <p-dropdown [formControlName]="'to'" [virtualScroll]="true" [options]="newList"
                                     placeholder="Select Supplier" [(ngModel)]="newTo">
                                 </p-dropdown>
@@ -45,8 +44,8 @@
                         </div>
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Attention</h3>
-                                <input class="form-control" type="text" pInputText [formControlName]="'attention'"
+                                <h3 class="first formdetails">Attention</h3>
+                                <input class="form-control formtext" type="text" pInputText [formControlName]="'attention'"
                                     [(ngModel)]='newAttention' />
                             </span>
                         </div>
@@ -55,15 +54,15 @@
                     <div class="ui-g-6 ui-md-12 ui-lg-6">
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Tender Location</h3>
-                                <input class="form-control" type="text" pInputText [formControlName]="'tenderLocation'"
+                                <h3 class="first formdetails">Tender Location</h3>
+                                <input class="form-control formtext" type="text" pInputText [formControlName]="'tenderLocation'"
                                     [(ngModel)]='newTenderLocation' />
                             </span>
                         </div>
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Validity</h3>
-                                <input class="form-control" type="text" pInputText [formControlName]="'validity'"
+                                <h3 class="first formdetails">Validity</h3>
+                                <input class="form-control formtext" type="text" pInputText [formControlName]="'validity'"
                                     [(ngModel)]='newValidity' />
                             </span>
                         </div>
@@ -71,12 +70,12 @@
                 </div>
 
             </div>
-            <div class="ui-g-6 fieldset-bg">
+            <div class="ui-g-12 fieldset-bg">
                 <ui-g-6>
                     <div class="ui-g-6">
                         <span class="ui-float-label">
-                            <h3 class="first">Total</h3>
-                            <input class="form-control" type="text" pInputText [formControlName]="'total'"
+                            <h3 class="first formdetails">Total</h3>
+                            <input class="form-control formtext" type="text" pInputText [formControlName]="'total'"
                                 [(ngModel)]='newTotal' />
                         </span>
                     </div>
@@ -84,14 +83,14 @@
                 <ui-g-6>
                     <div class="ui-g-6">
                         <span class="ui-float-label">
-                            <h3 class="first">Deposit</h3>
-                            <input class="form-control" type="text" pInputText [formControlName]="'deposit'"
+                            <h3 class="first formdetails">Deposit</h3>
+                            <input class="form-control formtext" type="text" pInputText [formControlName]="'deposit'"
                                 [(ngModel)]='newDeposit' />
                         </span>
                     </div>
                 </ui-g-6>
             </div>
-            <div class="ui-g-12">
+            <div class="ui-g-12 formnames">
                 <h2>Supporting File</h2>
                 <div class="ui-g-12">
                     <app-upload-file></app-upload-file>

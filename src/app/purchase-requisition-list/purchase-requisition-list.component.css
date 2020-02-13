@@ -59,3 +59,31 @@ body {
 .p-grid {
     display: block;
 } 
+
+
+.ui-g-1.search {
+    width: auto;
+    max-width: 10%;
+    padding-right: 0;
+}
+.ui-g-11.search {
+    width: auto;
+    min-width: 90%;
+}
+
+
+/* styles to make search bar 100% length */
+.fa.fa-search {
+    width: 40px;
+    height: 36px;
+    color: grey;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+ .ui-g-6.ui-md-4.filter-container {
+    color: #125a96;
+    border-color: #c8e2f8;
+    width: 100%;
+}

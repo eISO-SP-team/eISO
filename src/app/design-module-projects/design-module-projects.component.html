@@ -13,21 +13,21 @@
 <p-dataView [value]="projectList" #gg class="ui-dataview" [paginator]="true" [rows]="10">
     <p-header>
         <div class="ui-helper-clearfix">
-            <div class="ui-g-12">
-                <div class="ui-g-12 ui-md-4">
+            <!-- <div class="ui-g-12"> -->
+                <!-- <div class="ui-g-12 ui-md-4">
 
-                </div>
+                </div> -->
                 <div class="ui-g-6 ui-md-4 filter-container">
                     <div style="position:relative">
                         <div class="ui-g-2"><i class="fa fa-search" style="margin:4px 4px 0 0"></i></div>
-                        <div class="ui-g010"><input type="text" pInputText placeholder="Global Filter"
+                        <div class="ui-g010"><input type="text" pInputText placeholder="Search"
                             (input)="gg.filter($event.target.value)" style="width:100%; border:none;"></div>
                     </div>
                 </div>
-                <div class="ui-g-6 ui-md-4" style="text-align:right">
+                <!-- <div class="ui-g-6 ui-md-4" style="text-align:right">
 
-                </div>
-            </div>
+                </div> -->
+            <!-- </div> -->
         </div>
     </p-header>
     <p-footer>

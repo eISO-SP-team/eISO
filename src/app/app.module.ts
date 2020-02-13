@@ -71,6 +71,7 @@ import { PurchaseCreateComponent } from './purchase-create/purchase-create.compo
 import { CommentsComponent } from './comments/comments.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { ProgressBarModule } from 'primeng/progressbar';
+import { EvaluationFormComponent } from './evaluation-form/evaluation-form.component';
 
 @NgModule({
   declarations: [
@@ -109,6 +110,7 @@ import { ProgressBarModule } from 'primeng/progressbar';
     PurchaseCreateComponent,
     CommentsComponent,
     SpinnerComponent,
+    EvaluationFormComponent,
   ],
   imports: [
     BrowserModule,

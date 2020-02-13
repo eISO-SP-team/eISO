@@ -2,8 +2,8 @@
     <div class="ui-g rcorners2">
 
         <div class="ui-g-12">
-            <div class="ui-g-6">
-                <h3>Add Sales Order</h3>
+            <div class="ui-g-6 formheader">
+                <h3>View Sales Order</h3>
             </div>
             <div class="ui-g-6">
                 <button pButton type="button" style="float:right; position: relative;" class="ui-button-danger"
@@ -17,8 +17,8 @@
                     <div class="ui-g-12 ui-md-12 ui-lg-4">
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Quotation Reference</h3>
-                                <input  class="form-control" type="text" [(ngModel)]="newQuotationNumber" pInputText [formControlName]="'quotation_number'" />
+                                <h3 class="first formdetails">Quotation Reference</h3>
+                                <input  class="form-control formtext" type="text" [(ngModel)]="newQuotationNumber" pInputText [formControlName]="'quotation_number'" />
                             </span>
                             <span
                                 *ngIf="!addSalesOrderForm.get('quotation_number').valid && addSalesOrderForm.get('quotation_number').touched"
@@ -33,8 +33,8 @@
                     </div>
                     <div class="ui-g-12 ui-md-12 ui-lg-4">
                         <div class="ui-g-12">
-                            <span class="ui-float-label-2">
-                                <h3 class="first">Customer Id</h3>
+                            <span class="ui-float-label">
+                                <h3 class="first formdetails ">Customer Id</h3>
                                 <p-dropdown [formControlName]="'customer_id'" [virtualScroll]="true" [options]="newList"
                                 [(ngModel)]='newCustomerId' placeholder="Select Customer">
                                 </p-dropdown>
@@ -52,8 +52,8 @@
                     <div class="ui-g-12 ui-md-12 ui-lg-4">
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Date</h3>
-                                <input  class="form-control" dateFormat="dd.mm.yy" [(ngModel)]="newDate" type="text" [formControlName]="'date'">
+                                <h3 class="first formdetails">Date</h3>
+                                <input  class="form-control formtext" dateFormat="dd.mm.yy" [(ngModel)]="newDate" type="text" [formControlName]="'date'">
                                 <!-- <p-calendar dateFormat="dd.mm.yy" [(ngModel)]="newDate" placeholder="Click to Enter" [formControlName]="'date'"></p-calendar> -->
                             </span>
                             <span *ngIf="!addSalesOrderForm.get('date').valid && addSalesOrderForm.get('date').touched"
@@ -64,13 +64,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="fieldset-list ui-g-12">
+                <div class="fieldset-list ui-g-12 formnames">
                     <h2>Project Details</h2>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Subject</h3>
-                                <input  class="form-control" type="text" [(ngModel)]="newSubject" pInputText [formControlName]="'subject'" />
+                                <h3 class="first formdetails">Subject</h3>
+                                <input  class="form-control formtext" type="text" [(ngModel)]="newSubject" pInputText [formControlName]="'subject'" />
                             </span>
                             <span
                                 *ngIf="!addSalesOrderForm.get('subject').valid && addSalesOrderForm.get('subject').touched"
@@ -81,8 +81,8 @@
                         </div>
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Tender Location</h3>
-                                <input  class="form-control" type="text" [(ngModel)]="newTenderLocation" pInputText [formControlName]="'tenderLocation'" />
+                                <h3 class="first formdetails">Tender Location</h3>
+                                <input  class="form-control formtext" type="text" [(ngModel)]="newTenderLocation" pInputText [formControlName]="'tenderLocation'" />
                             </span>
                             <span
                                 *ngIf="!addSalesOrderForm.get('tenderLocation').valid && addSalesOrderForm.get('tenderLocation').touched"
@@ -95,8 +95,8 @@
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">PIC</h3>
-                                <input  class="form-control" type="text" [(ngModel)]="newPic" pInputText [formControlName]="'pic'" />
+                                <h3 class="first formdetails">PIC</h3>
+                                <input  class="form-control formtext" type="text" [(ngModel)]="newPic" pInputText [formControlName]="'pic'" />
                             </span>
                             <span *ngIf="!addSalesOrderForm.get('pic').valid && addSalesOrderForm.get('pic').touched"
                                 class="help-block">
@@ -106,8 +106,8 @@
                         </div>
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">PIC Email</h3>
-                                <input  class="form-control" type="text" [(ngModel)]="newPicEmail" pInputText [formControlName]="'picEmail'" />
+                                <h3 class="first formdetails">PIC Email</h3>
+                                <input  class="form-control formtext" type="text" [(ngModel)]="newPicEmail" pInputText [formControlName]="'picEmail'" />
                             </span>
                             <span
                                 *ngIf="!addSalesOrderForm.get('picEmail').valid && addSalesOrderForm.get('picEmail').touched"
@@ -118,13 +118,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="fieldset-list ui-g-12">
+                <div class="fieldset-list ui-g-12 formnames">
                     <h2>Amount</h2>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Total</h3>
-                                <input  class="form-control" type="text" [(ngModel)]="newTotal" pInputText [formControlName]="'total'" />
+                                <h3 class="first formdetails">Total</h3>
+                                <input  class="form-control formtext" type="text" [(ngModel)]="newTotal" pInputText [formControlName]="'total'" />
                             </span>
                             <span
                                 *ngIf="!addSalesOrderForm.get('total').valid && addSalesOrderForm.get('total').touched"
@@ -137,8 +137,8 @@
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Deposit</h3>
-                                <input  class="form-control" type="text" [(ngModel)]="newDeposit" pInputText [formControlName]="'deposit'" />
+                                <h3 class="first formdetails">Deposit</h3>
+                                <input  class="form-control formtext" type="text" [(ngModel)]="newDeposit" pInputText [formControlName]="'deposit'" />
                             </span>
                             <span
                                 *ngIf="!addSalesOrderForm.get('deposit').valid && addSalesOrderForm.get('deposit').touched"
