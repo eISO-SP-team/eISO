@@ -1,0 +1,48 @@
+/* HEADER */
+.bg-primary-dark-op h1 {
+    text-align: center;
+    color: #ffffff;
+    vertical-align: middle;
+    line-height: 170px;
+    margin-bottom:0 !important;
+    width: 100%;
+}
+
+/* SEARCH BAR */
+.searchicon {
+    width: 40px;
+    height: 36px;
+    color: grey;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+::ng-deep .ui-g-6.ui-md-4.filter-container {
+    color: #125a96;
+    border-color: #797b7e;
+    width: 100%;
+}
+
+
+/* REMOVE BORDER FROM BOXES IN LIST */
+::ng-deep body .ui-dataview .ui-dataview-content {
+    background-color: none;
+    color: #333333;
+    border: none;
+    padding: 0.571em 1em;
+    font-weight: 700;
+    border-bottom: 0 none
+}
+
+::ng-deep body .ui-dataview .ui-dataview-header {
+    border: none;
+}
+
+::ng-deep .ui-dataview .ui-paginator-bottom {
+    border: none;
+}
+
+::ng-deep body .ui-dataview .ui-dataview-footer {
+    border: none;
+}

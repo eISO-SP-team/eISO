@@ -1,8 +1,8 @@
 <div class="ui-g">
     <div class="ui-g rcorners2">
-        <div class="ui-g-12">
-            <div class="ui-g-6">
-                <h1>Add Process Control</h1>
+        <div class="ui-g-12 formheader-box">
+            <div class="ui-g-6 formheader">
+                <h3>Add Process Control</h3>
             </div>
             <div class="ui-g-6">
                 <button pButton type="button" style="float:right; position: relative;" class="ui-button-danger"
@@ -10,15 +10,15 @@
             </div>
         </div>
         <form [formGroup]="addProcessControlForm" (ngSubmit)="onAddEnquiry()">
-            <div class="ui-g">
+            <div class="ui-g formnames">
                 <h2>Project Details</h2>
                 <div class="ui-g-12 fieldset-list">
                     <div class="ui-g-12">
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
-                                    <h3 class="first">Project Name</h3>
-                                    <input type="text" pInputText [formControlName]="'project_name'" />
+                                    <h3 class="first formdetails">Project Name</h3>
+                                    <input class="formtext" type="text" pInputText [formControlName]="'project_name'" />
                                 </span>
                                 <span
                                     *ngIf="!addProcessControlForm.get('project_name').valid && addProcessControlForm.get('project_name').touched"
@@ -33,8 +33,8 @@
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
-                                    <h3 class="first">Quotation Reference</h3>
-                                    <input type="text" pInputText [formControlName]="'quotation_number'" />
+                                    <h3 class="first formdetails">Quotation Reference</h3>
+                                    <input class="formtext" type="text" pInputText [formControlName]="'quotation_number'" />
                                 </span>
                                 <span
                                     *ngIf="!addProcessControlForm.get('quotation_number').valid && addProcessControlForm.get('quotation_number').touched"
@@ -50,8 +50,8 @@
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
-                                    <h3 class="first">Project Lead</h3>
-                                    <input type="text" pInputText [formControlName]="'project_lead'" />
+                                    <h3 class="first formdetails">Project Lead</h3>
+                                    <input class="formtext" type="text" pInputText [formControlName]="'project_lead'" />
                                 </span>
                                 <span
                                     *ngIf="!addProcessControlForm.get('project_lead').valid && addProcessControlForm.get('project_lead').touched"
@@ -69,7 +69,7 @@
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
-                                    <h3 class="first">Customer Name</h3>
+                                    <h3 class="first formdetails">Customer Name</h3>
                                     <p-dropdown [formControlName]="'customer_name'" [virtualScroll]="true"
                                         [(ngModel)]="selectedCustomer" (ngModelChange)="valuechange($event)"
                                         [options]="newList" placeholder="Select a Customer">
@@ -88,8 +88,8 @@
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
-                                    <h3 class="first">Customer Email</h3>
-                                    <input type="text" [(ngModel)]="customerEmail" pInputText
+                                    <h3 class="first formdetails">Customer Email</h3>
+                                    <input class="formtext" type="text" [(ngModel)]="customerEmail" pInputText
                                         [formControlName]="'customer_email'" />
                                 </span>
                                 <span
@@ -106,8 +106,8 @@
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
-                                    <h3 class="first">Tender Location</h3>
-                                    <input type="text" pInputText [formControlName]="'tender_location'" />
+                                    <h3 class="first formdetails">Tender Location</h3>
+                                    <input class="formtext" type="text" pInputText [formControlName]="'tender_location'" />
                                 </span>
                                 <span
                                     *ngIf="!addProcessControlForm.get('tender_location').valid && addProcessControlForm.get('tender_location').touched"
@@ -125,7 +125,7 @@
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
-                                    <h3 class="first">Start Date</h3>
+                                    <h3 class="first formdetails">Start Date</h3>
                                     <p-calendar dateFormat="dd.mm.yy" placeholder="Click to Enter"
                                         [formControlName]="'start_date'"></p-calendar>
                                 </span>
@@ -140,7 +140,7 @@
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
-                                    <h3 class="first">End Date</h3>
+                                    <h3 class="first formdetails">End Date</h3>
                                     <p-calendar dateFormat="dd.mm.yy" placeholder="Click to Enter"
                                         [formControlName]="'end_date'"></p-calendar>
                                 </span>
@@ -217,7 +217,7 @@
             <div class="ui-g-12 ui-md-12 ui-lg-6">
                 <div class="ui-g-12">
                     <span class="ui-float-label">
-                        <h3 class="first">Process Control Point</h3>
+                        <h3 class="first formdetails">Process Control Point</h3>
                         <p-dropdown [options]="controlpoints" placeholder="Select a Phase" [(ngModel)]="clickedonPhase"
                             [formControlName]="'process_control_point'"></p-dropdown>
                     </span>
@@ -232,7 +232,7 @@
                 </div>
                 <div class="ui-g-12">
                     <span class="ui-float-label">
-                        <h3 class="first">PIC</h3>
+                        <h3 class="first formdetails">PIC</h3>
                         <input type="text" pInputText [formControlName]="'pic'" />
                     </span>
                     <span *ngIf="!addControlPoint.get('pic').valid && addControlPoint.get('pic').touched"
@@ -247,7 +247,7 @@
             <div class="ui-g-12 ui-md-12 ui-lg-6">
                 <div class="ui-g-12">
                     <span class="ui-float-label">
-                        <h3 class="first">Due Date</h3>
+                        <h3 class="first formdetails">Due Date</h3>
                         <p-calendar dateFormat="dd.mm.yy" placeholder="Click to Enter" [formControlName]="'due_date'">
                         </p-calendar>
                     </span>
@@ -261,7 +261,7 @@
                 </div>
                 <div class="ui-g-12">
                     <span class="ui-float-label">
-                        <h3 class="first">Status</h3>
+                        <h3 class="first formdetails">Status</h3>
                         <input type="text" pInputText [formControlName]="'status'" />
                     </span>
                     <span *ngIf="!addControlPoint.get('status').valid && addControlPoint.get('status').touched"
@@ -275,7 +275,7 @@
 
             </div>
             
-                <h2>Supporting File</h2>
+                <h2 style="font-size: 1.5em; font-weight: 600; padding-left: 0.7em;">Supporting File</h2>
                 <div class="ui-g-12">
                     <p-fileUpload name="demo[]" customUpload="true" (uploadHandler)="onUpload($event)"
                         multiple="multiple" maxFileSize="1000000">

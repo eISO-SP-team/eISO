@@ -51,7 +51,7 @@ table.roundedCorners {
 .supportfileheader h2 {
   font-size: 1.5em;
   font-weight: 600;
-  padding-left: 2em;
+  padding-left: 0.7em;
 }
 
 ::ng-deep .ui-float-label {
@@ -79,34 +79,46 @@ table.roundedCorners {
   padding-left: 2em;
 }
 
-/* button styles */
+/* create button styles */
 .designBLbtn {
   background-color: #C8E2F8;
   border-radius: 3px;
   border: 1px #1568ac;
-  width: 50%;
-  height: 40%;
-  /* justify-content: center; */
+  width: 100px;
+  height: 40px;
+  justify-content: center;
   text-align: center;
-  /* vertical-align: middle; */
-  margin-left: 20em;
+  margin-left: 0.5em;
+  margin-top: 0.7em;
 }
 
 .designBLbtn label {
 color: #1568ac;
-padding-top: 1em;
+vertical-align: middle !important;
+text-align: center;
+padding-top: 0.7em;
 }
+
 .designBLbtn:hover {
   background-color: rgb(183, 214, 241);
 }
 
-/* table at the bottom */
-::ng-deep body .ui-tabview.ui-tabview-top {
+/* DESIGN BACKLOG */
+.backlogbox {
+  padding-left: 2em;
   border: none;
 }
 
 .fileUpload{
   max-width:100px;
+}
+
+.wholepage {
+  padding-left: 1em;
+}
+
+.formheader-box {
+  padding-left: 0.7em;
 }
 
 

@@ -1,8 +1,8 @@
 <div class="ui-g">
     <div class="ui-g rcorners2">
         <div class="ui-g-12">
-            <div class="ui-g-6">
-                <h1>View Process Control</h1>
+            <div class="ui-g-6 formheader">
+                <h3>View Process Control</h3>
             </div>
             <div class="ui-g-6">
                 <button pButton type="button" style="float:right; position: relative;" class="ui-button-danger"
@@ -10,15 +10,15 @@
             </div>
         </div>
         <form [formGroup]="addProcessControlForm" (ngSubmit)="onAddEnquiry()">
-            <div class="ui-g">
+            <div class="ui-g formnames">
                 <h2>Project Details</h2>
                 <div class="ui-g-12 fieldset-list">
                     <div class="ui-g-12">
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
-                                    <h3 class="first">Project Name</h3>
-                                    <input type="text" [(ngModel)]="newProject_name" pInputText
+                                    <h3 class="first formdetails">Project Name</h3>
+                                    <input class="formtext" type="text" [(ngModel)]="newProject_name" pInputText
                                         [formControlName]="'project_name'" />
                                 </span>
                                 <span
@@ -34,8 +34,8 @@
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
-                                    <h3 class="first">Quotation Reference</h3>
-                                    <input type="text" [(ngModel)]="newQuotation_number" pInputText
+                                    <h3 class="first formdetails">Quotation Reference</h3>
+                                    <input class="formtext" type="text" [(ngModel)]="newQuotation_number" pInputText
                                         [formControlName]="'quotation_number'" />
                                 </span>
                                 <span
@@ -52,8 +52,8 @@
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
-                                    <h3 class="first">Project Lead</h3>
-                                    <input type="text" [(ngModel)]="newProject_lead" pInputText
+                                    <h3 class="first formdetails">Project Lead</h3>
+                                    <input class="formtext" type="text" [(ngModel)]="newProject_lead" pInputText
                                         [formControlName]="'project_lead'" />
                                 </span>
                                 <span
@@ -72,7 +72,7 @@
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
-                                    <h3 class="first">Customer Name</h3>
+                                    <h3 class="first formdetails">Customer Name</h3>
                                     <p-dropdown [formControlName]="'customer_name'" [virtualScroll]="true"
                                         [(ngModel)]="newCustomer_name" (ngModelChange)="valuechange($event)"
                                         [options]="newList" placeholder="Select a Customer">
@@ -91,8 +91,8 @@
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
-                                    <h3 class="first">Customer Email</h3>
-                                    <input type="text" [(ngModel)]="newCustomer_email" pInputText
+                                    <h3 class="first formdetails">Customer Email</h3>
+                                    <input class="formtext" type="text" [(ngModel)]="newCustomer_email" pInputText
                                         [formControlName]="'customer_email'" />
                                 </span>
                                 <span
@@ -109,8 +109,8 @@
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
-                                    <h3 class="first">Tender Location</h3>
-                                    <input type="text" [(ngModel)]="newTender_location" pInputText
+                                    <h3 class="first formdetails">Tender Location</h3>
+                                    <input class="formtext" type="text" [(ngModel)]="newTender_location" pInputText
                                         [formControlName]="'tender_location'" />
                                 </span>
                                 <span
@@ -129,8 +129,8 @@
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
-                                    <h3 class="first">Start Date</h3>
-                                    <input type="text" pInputText [(ngModel)]="newStart_date"
+                                    <h3 class="first formdetails">Start Date</h3>
+                                    <input class="formtext" type="text" pInputText [(ngModel)]="newStart_date"
                                         [formControlName]="'start_date'" />
                                 </span>
                                 <span
@@ -144,8 +144,8 @@
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
-                                    <h3 class="first">End Date</h3>
-                                    <input type="text" pInputText [(ngModel)]="newEnd_date"
+                                    <h3 class="first formdetails">End Date</h3>
+                                    <input class="formtext" type="text" pInputText [(ngModel)]="newEnd_date"
                                     [formControlName]="'end_date'" />
                                 </span>
                                 <span
@@ -163,7 +163,7 @@
                         </div>
                     </div>
                 </div>
-                <h2>Process Control Point Backlog</h2>
+                <h2 style="padding-left: 2em; padding-top: 1.5em; font-size: 1.5em; font-weight:600; padding: 1em 2em 1em 1.8em;">Process Control Point Backlog</h2>
                 <div class="designBLbtn" (click)="showDialog()"><label>Create</label></div>
                 <div class="ui-g-12 fieldset-list">
                     <p-tabView class="ui-g-12" (onChange)="handleChange($event)">
@@ -212,7 +212,7 @@
                     </p-tabView>
                 </div>
             </div>
-            <div class="ui-g-12">
+            <div class="ui-g-12" style="padding-left: 4em;">
                 <button pButton [disabled]="!addProcessControlForm.valid" type="submit"
                     label="Submit Sales Order"></button>
             </div>
@@ -223,7 +223,7 @@
             <div class="ui-g-12 ui-md-12 ui-lg-6">
                 <div class="ui-g-12">
                     <span class="ui-float-label">
-                        <h3 class="first">Process Control Point</h3>
+                        <h3 class="first formdetails">Process Control Point</h3>
                         <p-dropdown [options]="designphases" [(ngModel)]="clickedonPhase"
                             [formControlName]="'process_control_point'"></p-dropdown>
                     </span>
@@ -238,8 +238,8 @@
                 </div>
                 <div class="ui-g-12">
                     <span class="ui-float-label">
-                        <h3 class="first">PIC</h3>
-                        <input type="text" pInputText [formControlName]="'pic'" />
+                        <h3 class="first formdetails">PIC</h3>
+                        <input class="formtext" type="text" pInputText [formControlName]="'pic'" />
                     </span>
                     <span *ngIf="!addControlPoint.get('pic').valid && addControlPoint.get('pic').touched"
                         class="help-block">
@@ -253,7 +253,7 @@
             <div class="ui-g-12 ui-md-12 ui-lg-6">
                 <div class="ui-g-12">
                     <span class="ui-float-label">
-                        <h3 class="first">Due Date</h3>
+                        <h3 class="first formdetails">Due Date</h3>
                         <p-calendar dateFormat="dd.mm.yy" placeholder="Click to Enter" [formControlName]="'due_date'">
                         </p-calendar>
                     </span>
@@ -267,8 +267,8 @@
                 </div>
                 <div class="ui-g-12">
                     <span class="ui-float-label">
-                        <h3 class="first">Status</h3>
-                        <input type="text" pInputText [formControlName]="'status'" />
+                        <h3 class="first formdetails">Status</h3>
+                        <input class="formtext" type="text" pInputText [formControlName]="'status'" />
                     </span>
                     <span *ngIf="!addControlPoint.get('status').valid && addControlPoint.get('status').touched"
                         class="help-block">
@@ -280,7 +280,7 @@
                 </div>
 
             </div>
-            <div class="ui-g-12">
+            <div class="ui-g-12 supportfileheader" style="padding-left: 0.5em;">
                 <h2>Supporting File</h2>
                 <div class="ui-g-12">
                     <p-fileUpload name="demo[]" customUpload="true" (uploadHandler)="onUpload($event)"
