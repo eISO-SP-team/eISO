@@ -5,6 +5,7 @@ import { VendorService } from "../shared/service/vendor.service";
 import { Location } from '@angular/common';
 import { formatDate } from '@angular/common';
 import { SelectItem, ConfirmationService, Message } from 'primeng/api'
+import { FileUploadService } from "../shared/service/file-upload.service";
 
 interface supplier {
   name: string;
@@ -19,7 +20,7 @@ interface supplier {
 export class PurchaseRequisitionCreateComponent implements OnInit {
   testList: any;
 
-  constructor(private confirmationService: ConfirmationService, public purchaseRequisitionService: PurchaserequisitionService, public vendorService: VendorService, public _location: Location) { }
+  constructor(private confirmationService: ConfirmationService, public purchaseRequisitionService: PurchaserequisitionService, public vendorService: VendorService, public _location: Location, public fileUploadService: FileUploadService) { }
 
   msgs: Message[] = [];
 
@@ -32,6 +33,8 @@ export class PurchaseRequisitionCreateComponent implements OnInit {
   activeIndex: number = 0;
 
   myDate = formatDate(new Date(), 'yyyy/MM/dd', 'en');
+
+  uploadedFiles: any[] = [];
 
   supplierList: any;
 
@@ -68,6 +71,16 @@ export class PurchaseRequisitionCreateComponent implements OnInit {
       "total": new FormControl(null, [Validators.required]),
       "currency": new FormControl(null, [Validators.required]),
     })
+  }
+
+  onUpload(event) {
+    for (let file of event.files) {
+      this.uploadedFiles.push(file);
+      this.fileUploadService.uploadFile(file).subscribe((result) => {
+        console.log(result);
+      })
+      console.log(this.uploadedFiles);
+    }
   }
 
   confirm() {
