@@ -1,14 +1,18 @@
-.ui-helper-clearfix {
+/* .ui-helper-clearfix {
   padding-left: 2em;
-}
+} */
 
-.ui-g-6 h3 {
+.formheader h3 {
     font-size: 2.7rem;
     font-weight: 900;
 }
 
+.designpage {
+  padding: 2em;
+}
+
 /* styles to make search bar 100% length */
-.fa.fa-search {
+.searchicon {
   width: 40px;
   height: 36px;
   color: grey;
@@ -17,8 +21,27 @@
   font-size: 20px;
 }
 
-.ui-g-6.ui-md-4.filter-container {
+::ng-deep .ui-g-6.ui-md-4.filter-container {
   color: #125a96;
   border-color: #c8e2f8;
   width: 100%;
 }
+
+/* remove borders */
+  ::ng-deep .ui-dataview .ui-dataview-content {
+    border: none !important;
+    color: red;
+  }
+
+ ::ng-deep .ui-dataview .ui-paginator-bottom {
+    border: none;
+ }
+
+ ::ng-deep body .ui-dataview .ui-dataview-header {
+   border: none;
+ }
+
+ .wholebox {
+   padding-left: 2em;
+ }
+

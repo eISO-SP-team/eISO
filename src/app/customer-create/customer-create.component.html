@@ -3,7 +3,7 @@
     <div class="ui-g rcorners2">
 
         <div class="ui-g-12">
-            <div class="ui-g-6">
+            <div class="ui-g-6 formheader">
                 <h3>Add New Customer</h3>
             </div>
             <div class="ui-g-6">
@@ -18,8 +18,8 @@
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Company Name</h3>
-                                <input class="form-control" type="text" pInputText [formControlName]="'companyName'" />
+                                <h3 class="first formdetails">Company Name</h3>
+                                <input class="form-control formtext" type="text" pInputText [formControlName]="'companyName'" />
                             </span>
                             <span
                                 *ngIf="!addCustomerForm.get('companyName').valid && addCustomerForm.get('companyName').touched"
@@ -32,8 +32,8 @@
                         </div>
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Tax Id</h3>
-                                <input class="form-control" type="text" pInputText [formControlName]="'tax_id'" />
+                                <h3 class="first formdetails">Tax Id</h3>
+                                <input class="form-control formtext" type="text" pInputText [formControlName]="'tax_id'" />
                             </span>
                             <span *ngIf="!addCustomerForm.get('tax_id').valid && addCustomerForm.get('tax_id').touched"
                                 class="help-block">
@@ -47,7 +47,7 @@
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <div class="ui-g-12">
                             <span class="ui-float-label-2">
-                                <h3 class="first">Type</h3>
+                                <h3 class="first formdetails">Type</h3>
                                 <p-dropdown [options]="type" [formControlName]="'type'" placeholder="Select a Type"
                                     [(ngModel)]="selectedType" optionLabel="name" [showClear]="true"></p-dropdown>
                             </span>
@@ -60,13 +60,13 @@
                     </div>
                 </div>
 
-                <div class="fieldset-list ui-g-12">
+                <div class="fieldset-list ui-g-12 formnames">
                     <h2>Address</h2>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Country</h3>
-                                <input class="form-control" type="text" pInputText [formControlName]="'country'" />
+                                <h3 class="first formdetails">Country</h3>
+                                <input class="form-control formtext" type="text" pInputText [formControlName]="'country'" />
                             </span>
                             <span
                                 *ngIf="!addCustomerForm.get('country').valid && addCustomerForm.get('country').touched"
@@ -77,8 +77,8 @@
                         </div>
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Zipcode</h3>
-                                <input class="form-control" type="text" pInputText [formControlName]="'zipcode'" />
+                                <h3 class="first formdetails">Zipcode</h3>
+                                <input class="form-control formtext" type="text" pInputText [formControlName]="'zipcode'" />
                             </span>
                             <span
                                 *ngIf="!addCustomerForm.get('zipcode').valid && addCustomerForm.get('zipcode').touched"
@@ -91,8 +91,8 @@
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Address 1</h3>
-                                <input class="form-control" type="text" pInputText [formControlName]="'address1'" />
+                                <h3 class="first formdetails formtext">Address 1</h3>
+                                <input class="form-control formdetails" type="text" pInputText [formControlName]="'address1'" />
                             </span>
                             <span
                                 *ngIf="!addCustomerForm.get('address1').valid && addCustomerForm.get('address1').touched"
@@ -103,8 +103,8 @@
                         </div>
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Address 2</h3>
-                                <input class="form-control" type="text" pInputText [formControlName]="'address2'" />
+                                <h3 class="first formdetails">Address 2</h3>
+                                <input class="form-control formtext" type="text" pInputText [formControlName]="'address2'" />
                             </span>
                             <span
                                 *ngIf="!addCustomerForm.get('address2').valid && addCustomerForm.get('address2').touched"
@@ -115,12 +115,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="fieldset-list ui-g-12">
+                <div class="fieldset-list ui-g-12 formnames">
                     <h2>Contact</h2>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <div class="ui-g-12">
                             <span class="ui-float-label-2">
-                                <h3 class="first">Prefix</h3>
+                                <h3 class="first formdetails">Prefix</h3>
                                 <p-dropdown [options]="prefix" [formControlName]="'prefix'" placeholder="Select a Prefix"
                                 [(ngModel)]="selectedPrefix" optionLabel="name" [showClear]="true"></p-dropdown>
                             </span>
@@ -132,8 +132,8 @@
                         </div>
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">First Name</h3>
-                                <input class="form-control" type="text" pInputText [formControlName]="'first_name'" />
+                                <h3 class="first formdetails">First Name</h3>
+                                <input class="form-control formtext" type="text" pInputText [formControlName]="'first_name'" />
                             </span>
                             <span
                                 *ngIf="!addCustomerForm.get('first_name').valid && addCustomerForm.get('first_name').touched"
@@ -144,8 +144,8 @@
                         </div>
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Middle Name</h3>
-                                <input class="form-control" type="text" pInputText [formControlName]="'middle_name'" />
+                                <h3 class="first formdetails">Middle Name</h3>
+                                <input class="form-control formtext" type="text" pInputText [formControlName]="'middle_name'" />
                             </span>
                             <span
                                 *ngIf="!addCustomerForm.get('middle_name').valid && addCustomerForm.get('middle_name').touched"
@@ -156,8 +156,8 @@
                         </div>
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Last Name</h3>
-                                <input class="form-control" type="text" pInputText [formControlName]="'last_name'" />
+                                <h3 class="first formdetails">Last Name</h3>
+                                <input class="form-control formtext" type="text" pInputText [formControlName]="'last_name'" />
                             </span>
                             <span
                                 *ngIf="!addCustomerForm.get('last_name').valid && addCustomerForm.get('last_name').touched"
@@ -170,8 +170,8 @@
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Email</h3>
-                                <input class="form-control" type="text" pInputText [formControlName]="'email'" />
+                                <h3 class="first formdetails">Email</h3>
+                                <input class="form-control formtext" type="text" pInputText [formControlName]="'email'" />
                             </span>
                             <span *ngIf="!addCustomerForm.get('email').valid && addCustomerForm.get('email').touched"
                                 class="help-block">
@@ -181,8 +181,8 @@
                         </div>
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Phone No.</h3>
-                                <input class="form-control" type="text" pInputText [formControlName]="'phone_number'" />
+                                <h3 class="first formdetails">Phone No.</h3>
+                                <input class="form-control formtext" type="text" pInputText [formControlName]="'phone_number'" />
                             </span>
                             <span
                                 *ngIf="!addCustomerForm.get('phone_number').valid && addCustomerForm.get('phone_number').touched"
@@ -193,8 +193,8 @@
                         </div>
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Extension</h3>
-                                <input class="form-control" type="text" pInputText [formControlName]="'extension_number'" />
+                                <h3 class="first formdetails">Extension</h3>
+                                <input class="form-control formtext" type="text" pInputText [formControlName]="'extension_number'" />
                             </span>
                             <span
                                 *ngIf="!addCustomerForm.get('extension_number').valid && addCustomerForm.get('extension_number').touched"
@@ -205,8 +205,8 @@
                         </div>
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Mobile No.</h3>
-                                <input class="form-control" type="text" pInputText [formControlName]="'mobile'" />
+                                <h3 class="first formdetails">Mobile No.</h3>
+                                <input class="form-control formtext" type="text" pInputText [formControlName]="'mobile'" />
                             </span>
                             <span *ngIf="!addCustomerForm.get('mobile').valid && addCustomerForm.get('mobile').touched"
                                 class="help-block">
@@ -216,8 +216,8 @@
                         </div>
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Fax</h3>
-                                <input class="form-control" type="text" pInputText [formControlName]="'fax_number'" />
+                                <h3 class="first formdetails">Fax</h3>
+                                <input class="form-control formtext" type="text" pInputText [formControlName]="'fax_number'" />
                             </span>
                             <span
                                 *ngIf="!addCustomerForm.get('fax_number').valid && addCustomerForm.get('fax_number').touched"
