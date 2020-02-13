@@ -33,7 +33,7 @@ export class QuotationCreateComponent implements OnInit {
 
   activeIndex: number = 0;
 
-  newList: SelectItem[];
+  newList: SelectItem[ ];
 
   testEntry: any;
 
@@ -59,6 +59,7 @@ export class QuotationCreateComponent implements OnInit {
         this.newList.push({ label: this.vendorList[i].vendor_name, value: this.vendorList[i].id });
       }
     });
+
     this.addForm = new FormGroup({
       'subject': new FormControl(null, [Validators.required]),
       'tenderLocation': new FormControl(null, [Validators.required]),

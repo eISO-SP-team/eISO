@@ -73,6 +73,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { EvaluationFormComponent } from './evaluation-form/evaluation-form.component';
 import { ProcesscontrolViewComponent } from './processcontrol-view/processcontrol-view.component';
+import {RatingModule} from 'primeng/rating';
 
 @NgModule({
   declarations: [
@@ -141,6 +142,7 @@ import { ProcesscontrolViewComponent } from './processcontrol-view/processcontro
     HttpClientModule,
     NgbModule,
     ProgressBarModule,
+    RatingModule,
   ],
   providers: [UploadService, QuotationService, PurchaserequisitionService, SalesorderService, DesignService, DeliveryService, CustomerService, VendorService, MessageService, ConfirmationService, ToggleDisplayService],
   bootstrap: [AppComponent],

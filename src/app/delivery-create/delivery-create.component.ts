@@ -70,6 +70,7 @@ export class DeliveryCreateComponent implements OnInit {
       "remarks": this.addDeliveryForm.value.remarks,
       "received_by": this.addDeliveryForm.value.received_by,
     };
+
     console.log(JSON.stringify(this.testEntry));
     var data = JSON.stringify(this.testEntry);
     this.deliveryService.addDeliveries(data)
@@ -77,6 +78,7 @@ export class DeliveryCreateComponent implements OnInit {
         console.log(data)
         this.deliveryService.deliveryList.push(this.testEntry);
       });
+      
     this._location.back();
   }
   confirm() {
