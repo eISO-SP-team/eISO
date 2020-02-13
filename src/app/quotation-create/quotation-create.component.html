@@ -115,8 +115,8 @@
                 <h2>Supporting File</h2>
                 <div class="ui-g-12">
                     <!-- <app-upload-file></app-upload-file> -->
-                    <p-fileUpload name="demo[]" customUpload="true" (uploadHandler)="onUpload($event)" multiple="multiple"
-                        maxFileSize="1000000">
+                    <p-fileUpload name="demo[]" customUpload="true" (uploadHandler)="onUpload($event)"
+                        multiple="multiple">
                         <ng-template pTemplate="content">
                             <ul *ngIf="uploadedFiles.length">
                                 <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes -
