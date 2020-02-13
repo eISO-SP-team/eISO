@@ -135,7 +135,7 @@ export class SalesorderCreateComponent implements OnInit {
   onUpload(event) {
     for (let file of event.files) {
       this.uploadedFiles.push(file);
-      this.fileUploadService.postFile(file).subscribe((result) => {
+      this.fileUploadService.uploadFile(file).subscribe((result) => {
         console.log(result);
       })
       console.log(this.uploadedFiles);
