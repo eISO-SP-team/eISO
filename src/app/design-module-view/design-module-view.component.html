@@ -1,23 +1,23 @@
 <div class="ui-g wholepage">
     <div class="ui-g rcorners2">
 
-        <div class="ui-g-12 formheader-box">
+        <div class="ui-g-12">
             <div class="ui-g-6 formheader">
-                <h3>Design Phases</h3>
+                <h3>View design documents</h3>
             </div>
             <div class="ui-g-6">
                 <button pButton type="button" style="float:right; position: relative;" class="ui-button-danger"
                     (click)="this._location.back()" label="Cancel"></button>
             </div>
         </div>
-        <form [formGroup]="addDesignForm" (ngSubmit)="onSubmitDesignPlan()">
+        <form [formGroup]="addDesignForm" (ngSubmit)="updateEdit()">
             <div class="ui-g">
                 <div style=" overflow: visible;" class="fieldset-list ui-g-12" style="padding-left: 2em;">
                     <div class="ui-g-12 ui-md-12 ui-lg-4">
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails">Project Lead</h3>
-                                <input class="formtext" type="text" [(ngModel)]="Project_lead" pInputText
+                                <input class="formtext" type="text" [(ngModel)]="newProject_lead" pInputText
                                     [formControlName]="'Project_lead'" />
                             </span>
                             <span
@@ -35,7 +35,7 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails">Project Name</h3>
-                                <input class="formtext" type="text" [(ngModel)]="Project_name" pInputText
+                                <input class="formtext" type="text" [(ngModel)]="newProject_name" pInputText
                                     [formControlName]="'Project_name'" />
                             </span>
                             <span
@@ -52,7 +52,7 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails">Project No.</h3>
-                                <input class="formtext" type="text" [(ngModel)]="Project_no" pInputText
+                                <input class="formtext" type="text" [(ngModel)]="newProject_no" pInputText
                                     [formControlName]="'Project_no'" />
                             </span>
                             <span
@@ -70,7 +70,7 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails">Start Date - Design</h3>
-                                <input class="formtext" type="text" [(ngModel)]="Start_date_design" pInputText
+                                <input class="formtext" type="text" [(ngModel)]="newStart_date_design" pInputText
                                     [formControlName]="'Start_date_design'" />
                             </span>
                             <span
@@ -86,7 +86,7 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails">End Date - Design </h3>
-                                <input class="formtext" type="text" [(ngModel)]="End_date_design" pInputText
+                                <input class="formtext" type="text" [(ngModel)]="newEnd_date_design" pInputText
                                     [formControlName]="'End_date_design'" />
                             </span>
                             <span
@@ -100,68 +100,70 @@
                     </div>
                 </div>
                 <!--Design Backlog-->
-                <h2 style="padding-left: 2em; padding-top: 1.5em; font-size: 1.5em; font-weight:600; padding: 1em 2em 1em 1.8em;">Design Backlog</h2>
+                <div class="ui-g-12 formnames">
+                    <h2>Design Backlog</h2>
                     <div class="designBLbtn" (click)="showDialog()"><label>Create</label></div>
                 </div>
-                <div class="ui-g-12 backlogbox">
-                <p-tabView (onChange)="handleChange($event)">
-                    <p-tabPanel header="Design Plan" leftIcon="pi pi-calendar">
-                        <table class="roundedCorners">
-                            <tr>
-                                <th>Created By</th>
-                                <th>Due Date</th>
-                                <th>Status</th>
-                            </tr>
-                            <tr *ngFor="let dbl of desginBacklog">
-                                <td *ngIf="dbl.design_phase=='Design Plan'">{{dbl.created_by}}</td>
-                                <td *ngIf="dbl.design_phase=='Design Plan'">{{dbl.due_date}}</td>
-                                <td *ngIf="dbl.design_phase=='Design Plan'">{{dbl.status}}</td>
-                            </tr>
-                        </table>
-                    </p-tabPanel>
-                    <p-tabPanel header="Design Input" leftIcon="pi pi-inbox">
-                        <table class="roundedCorners">
-                            <tr>
-                                <th>Created By</th>
-                                <th>Due Dater</th>
-                                <th>Status</th>
-                            </tr>
-                            <tr *ngFor="let dbl of desginBacklog">
-                                <td *ngIf="dbl.design_phase=='Design Input'">{{dbl.created_by}}</td>
-                                <td *ngIf="dbl.design_phase=='Design Input'">{{dbl.due_date}}</td>
-                                <td *ngIf="dbl.design_phase=='Design Input'">{{dbl.status}}</td>
-                            </tr>
-                        </table>
-                    </p-tabPanel>
-                    <p-tabPanel header="Design Control" leftIcon="pi pi-user" rightIcon="pi pi-star">
-                        <table class="roundedCorners">
-                            <tr>
-                                <th>Created By</th>
-                                <th>Due Dater</th>
-                                <th>Status</th>
-                            </tr>
-                            <tr *ngFor="let dbl of desginBacklog">
-                                <td *ngIf="dbl.design_phase=='Design Control'">{{dbl.created_by}}</td>
-                                <td *ngIf="dbl.design_phase=='Design Control'">{{dbl.due_date}}</td>
-                                <td *ngIf="dbl.design_phase=='Design Control'">{{dbl.status}}</td>
-                            </tr>
-                        </table>
-                    </p-tabPanel>
-                    <p-tabPanel header="Design Output" leftIcon="pi pi-user" rightIcon="pi pi-star">
-                        <table class="roundedCorners">
-                            <tr>
-                                <th>Created By</th>
-                                <th>Due Dater</th>
-                                <th>Status</th>
-                            </tr>
-                            <tr *ngFor="let dbl of desginBacklog">
-                                <td *ngIf="dbl.design_phase=='Design Output'">{{dbl.created_by}}</td>
-                                <td *ngIf="dbl.design_phase=='Design Output'">{{dbl.due_date}}</td>
-                                <td *ngIf="dbl.design_phase=='Design Control'">{{dbl.status}}</td>
-                            </tr>
-                        </table>
-                    </p-tabPanel>
-                </p-tabView>
+                <div class="ui-g-12">
+                    <p-tabView (onChange)="handleChange($event)">
+                        <p-tabPanel header="Design Plan" leftIcon="pi pi-calendar">
+                            <table class="roundedCorners">
+                                <tr>
+                                    <th>Created By</th>
+                                    <th>Due Date</th>
+                                    <th>Status</th>
+                                </tr>
+                                <tr *ngFor="let dbl of desginBacklog">
+                                    <td *ngIf="dbl.design_phase=='Design Plan'">{{dbl.created_by}}</td>
+                                    <td *ngIf="dbl.design_phase=='Design Plan'">{{dbl.due_date}}</td>
+                                    <td *ngIf="dbl.design_phase=='Design Plan'">{{dbl.status}}</td>
+                                </tr>
+                            </table>
+                        </p-tabPanel>
+                        <p-tabPanel header="Design Input" leftIcon="pi pi-inbox">
+                            <table class="roundedCorners">
+                                <tr>
+                                    <th>Created By</th>
+                                    <th>Due Dater</th>
+                                    <th>Status</th>
+                                </tr>
+                                <tr *ngFor="let dbl of desginBacklog">
+                                    <td *ngIf="dbl.design_phase=='Design Input'">{{dbl.created_by}}</td>
+                                    <td *ngIf="dbl.design_phase=='Design Input'">{{dbl.due_date}}</td>
+                                    <td *ngIf="dbl.design_phase=='Design Input'">{{dbl.status}}</td>
+                                </tr>
+                            </table>
+                        </p-tabPanel>
+                        <p-tabPanel header="Design Control" leftIcon="pi pi-user" rightIcon="pi pi-star">
+                            <table class="roundedCorners">
+                                <tr>
+                                    <th>Created By</th>
+                                    <th>Due Dater</th>
+                                    <th>Status</th>
+                                </tr>
+                                <tr *ngFor="let dbl of desginBacklog">
+                                    <td *ngIf="dbl.design_phase=='Design Control'">{{dbl.created_by}}</td>
+                                    <td *ngIf="dbl.design_phase=='Design Control'">{{dbl.due_date}}</td>
+                                    <td *ngIf="dbl.design_phase=='Design Control'">{{dbl.status}}</td>
+                                </tr>
+                            </table>
+                        </p-tabPanel>
+                        <p-tabPanel header="Design Output" leftIcon="pi pi-user" rightIcon="pi pi-star">
+                            <table class="roundedCorners">
+                                <tr>
+                                    <th>Created By</th>
+                                    <th>Due Dater</th>
+                                    <th>Status</th>
+                                </tr>
+                                <tr *ngFor="let dbl of desginBacklog">
+                                    <td *ngIf="dbl.design_phase=='Design Output'">{{dbl.created_by}}</td>
+                                    <td *ngIf="dbl.design_phase=='Design Output'">{{dbl.due_date}}</td>
+                                    <td *ngIf="dbl.design_phase=='Design Control'">{{dbl.status}}</td>
+                                </tr>
+                            </table>
+                        </p-tabPanel>
+                    </p-tabView>
+                </div>
 
             </div>
             <div class="ui-g-12" style="padding-left: 4em;">

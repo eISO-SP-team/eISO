@@ -13,18 +13,18 @@ interface options {
 }
 
 @Component({
-  selector: 'app-design-module-create',
-  templateUrl: './design-module-create.component.html',
-  styleUrls: ['./design-module-create.component.css']
+  selector: 'app-design-module-view',
+  templateUrl: './design-module-view.component.html',
+  styleUrls: ['./design-module-view.component.css']
 })
 
-export class DesignModuleCreateComponent implements OnInit {
+export class DesignModuleViewComponent implements OnInit {
 
-  Project_no: any = this.designService.selectedProject.project_id;
-  Project_lead: any = this.designService.selectedProject.project_lead;
-  Project_name: any = this.designService.selectedProject.project_name;
-  Start_date_design: any = this.designService.selectedProject.start_date;
-  End_date_design: any = this.designService.selectedProject.end_date;
+  newProject_no: any = this.designService.selectedDesignInService.project_id;
+  newProject_lead: any = this.designService.selectedDesignInService.project_lead;
+  newProject_name: any = this.designService.selectedDesignInService.project_name;
+  newStart_date_design: any = this.designService.selectedDesignInService.start_date;
+  newEnd_date_design: any = this.designService.selectedDesignInService.end_date;
 
 
   designPlanList: any;
@@ -135,10 +135,6 @@ export class DesignModuleCreateComponent implements OnInit {
       "uploaded_date": "2019-11-26",
       "design_details": this.desginBacklog
     }
-    this.designService.addDesigns(this.testEntry).subscribe(()=>{
-      
-    })
-
   }
   onUpload(event) {
     for (let file of event.files) {
