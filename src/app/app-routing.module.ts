@@ -45,7 +45,7 @@ const AppRoutes: Routes = [
   { path: 'deliveryCreate', component: DeliveryCreateComponent },
   { path: 'purchaseCreate', component: PurchaseCreateComponent },
   { path: 'evaluation-form', component: EvaluationFormComponent },
-  // { path: '**', redirectTo:"/sales-modules"}
+  { path: '*', redirectTo:"/sales-modules"}
 ];
 
 @NgModule({

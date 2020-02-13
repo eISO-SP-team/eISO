@@ -1,15 +1,4 @@
 /* PAGE STYLES */
-.designBLbtn {
-    background-color: blue;
-    color: white;
-    border-radius: 3px;
-    border: 1px black solid;
-    width: 100px;
-    height: 40px;
-    justify-content: center;
-    text-align: center;
-}
-
 .backloglistitem {
     padding: 0.5em;
 }
@@ -19,13 +8,13 @@ table {
 }
 
 table.roundedCorners { 
-    border: 1px solid DarkOrange;
+    border: 0.5px solid grey;
     border-radius: 13px; 
     border-spacing: 0;
     }
   table.roundedCorners td, 
   table.roundedCorners th { 
-    border-bottom: 1px solid DarkOrange;
+    border-bottom: 1px solid grey;
     padding: 10px; 
     }
   table.roundedCorners tr:last-child > td {
@@ -33,7 +22,94 @@ table.roundedCorners {
   }
 
   /* FORM STYLES */
-  
+
+  /* BIG FORM TITLE */
+.formheader h3 {
+  font-size: 2.7rem;
+  font-weight: 900;
+  padding-left: 0.8em;
+}
+
+/* 2nd header - address, contact*/
+.formnames h2 {
+  font-size: 1.5em;
+  font-weight: 600;
+  padding: 1em 2em 1em 1.8em;
+}
+
+/* 3rd header - quotation id, cust type */
+.formdetails {
+  font-size: 1.142857rem !important;
+  font-weight: none;
+  cursor: text;
+  z-index: 2;
+  text-align: left;
+  border: none !important;
+  color: grey;
+}
+
+.supportfileheader h2 {
+  font-size: 1.5em;
+  font-weight: 600;
+  padding-left: 2em;
+}
+
+::ng-deep .ui-float-label {
+  padding-left: 0;
+  padding-right: 0;
+  /* border-color: transparent; */
+  border-radius: 0;
+  background-color: transparent;
+  box-shadow: 0 1px 0 #d4dae3;
+  transition: box-shadow .3s ease-out;
+  border: none !important;
+}
+
+/* input fields in the form (e.g. removes input box border) */
+.formtext {
+  border: none; 
+}
+
+/* changes the colour of the text you type */
+.formtext:focus {
+  color: #1568ac;
+}
+
+.designcontainer {
+  padding-left: 2em;
+}
+
+/* button styles */
+.designBLbtn {
+  background-color: #C8E2F8;
+  border-radius: 3px;
+  border: 1px #1568ac;
+  width: 50%;
+  height: 40%;
+  /* justify-content: center; */
+  text-align: center;
+  /* vertical-align: middle; */
+  margin-left: 20em;
+}
+
+.designBLbtn label {
+color: #1568ac;
+padding-top: 1em;
+}
+.designBLbtn:hover {
+  background-color: rgb(183, 214, 241);
+}
+
+/* table at the bottom */
+::ng-deep body .ui-tabview.ui-tabview-top {
+  padding-left: 15em;
+  border: none;
+}
+
+.fileUpload{
+  max-width:100px;
+}
+
 
 
  
