@@ -8,14 +8,9 @@ import { formatDate } from '@angular/common';
 import { SelectItem } from 'primeng/api';
 import { FileUploadService } from "../shared/service/file-upload.service";
 
-interface Type {
-  name: string;
-  value: string;
-}
-
-interface cust {
-  name: string;
-  value: string;
+interface options {
+  label: string,
+  value: string,
 }
 
 @Component({
@@ -26,6 +21,8 @@ interface cust {
 export class ProcesscontrolCreateComponent implements OnInit {
 
   dateValue: any;
+
+  controlpoints: options[];
 
   addProcessControlForm: FormGroup;
 
@@ -39,7 +36,7 @@ export class ProcesscontrolCreateComponent implements OnInit {
 
   pcpEntry: any;
 
-  pcpList: any;
+  pcpList = [];
 
   activeIndex: number = 0;
 
@@ -63,6 +60,8 @@ export class ProcesscontrolCreateComponent implements OnInit {
 
   maxCount: any;
 
+  pcMaxCount: any = this.pcpList.length + 1;
+
   display: boolean;
 
   clickedonPhase: string = "PREPARATION";
@@ -70,6 +69,12 @@ export class ProcesscontrolCreateComponent implements OnInit {
   constructor(public quotationService: QuotationService, public processControlService: ProcesscontrolService, public customerService: CustomerService, public _location: Location, public fileUploadService: FileUploadService) { }
 
   ngOnInit() {
+    this.controlpoints = [
+      { label: 'PREPARATION', value: 'PREPARATION' },
+      { label: 'IN PROGRESS PHASE', value: 'IN PROGRESS PHASE' },
+      { label: 'FINAL PHASE', value: 'FINAL PHASE' },
+    ]
+
     this.processControlList = this.processControlService.loadProcesscontrols().subscribe(responseData => {
       this.processControlService.processcontrolList = (<any>responseData).body;
       this.processControlList = this.processControlService.processcontrolList;
@@ -128,22 +133,7 @@ export class ProcesscontrolCreateComponent implements OnInit {
       "end_date": this.addProcessControlForm.value.end_date,
       "tender_location": this.addProcessControlForm.value.tender_location,
       "status": "pending",
-      "process_control_details": {
-        "header_id": "213",
-        "due_date": "2019-11-26",
-        "line_id": "213",
-        "created_by": "Jack",
-        "reference_type": "abc",
-        "uploaded_by": "Jack",
-        "file": "abc.abc",
-        "line_number": 5,
-        "uploaded_date": "2019-11-26",
-        "document_process": "abc",
-        "created_date": "2019-11-26",
-        "document_type": "abc",
-        "status": "pending"
-      },
-
+      "process_control_details": this.pcpList,
     };
     console.log(JSON.stringify(this.testEntry));
     var data = JSON.stringify(this.testEntry);
@@ -174,10 +164,10 @@ export class ProcesscontrolCreateComponent implements OnInit {
 
   onSubmitCp() {
     this.pcpEntry = {
-      "design_id": "12890430",
-      "design_details_id": "219",
-      "project_id": "1231",
-      "line_number": 5,
+      "design_id": this.maxCount + 1,
+      "design_details_id": this.maxCount + 1,
+      "project_id": this.maxCount + 1,
+      "line_number": this.pcMaxCount,
       "design_date": this.addControlPoint.value.due_date,
       "design_phase": this.clickedonPhase,
       "assignee": "Wolverine",
@@ -185,13 +175,14 @@ export class ProcesscontrolCreateComponent implements OnInit {
       "reference_type": "abc",
       "file": "new.pdf",
       "due_date": this.addControlPoint.value.due_date,
-      "status": "pending",
-      "created_by": this.addControlPoint.value.who,
+      "status": this.addControlPoint.value.status,
+      "created_by": this.addControlPoint.value.pic,
       "created_date": this.myDate,
-      "uploaded_by": this.addControlPoint.value.who,
+      "uploaded_by": this.addControlPoint.value.pic,
       "uploaded_date": this.myDate
     }
     this.pcpList.unshift(this.pcpEntry);
+    console.log(this.pcpList);
     this.display = false;
     this.addControlPoint.reset();
   }
