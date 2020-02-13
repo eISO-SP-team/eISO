@@ -1,3 +1,31 @@
+/* REMOVE BORDER FROM BOXES IN LIST */
+::ng-deep body .ui-dataview .ui-dataview-content {
+    background-color: none;
+    color: #333333;
+    border: none;
+    padding: 0.571em 1em;
+    font-weight: 700;
+    border-bottom: 0 none
+}
+
+::ng-deep body .ui-dataview .ui-dataview-header {
+    border: none;
+}
+
+::ng-deep .ui-dataview .ui-paginator-bottom {
+    border: none;
+}
+
+::ng-deep body .ui-dataview .ui-dataview-footer {
+    border: none;
+}
+
+/* WHOLE PAGE COLOUR */
+.procurementpage {
+    background-color: #F0F2F5;
+    padding-left: 2em;
+}
+
 .vendor-label-approved {
     border-radius: 10px;
     border: lightgreen 1px solid;
@@ -21,12 +49,12 @@ body {
     background-color: rgb(238, 238, 238);
 }
 
-.fieldset-bg {
+/* .fieldset-bg {
     margin-top: 5px;
     border-radius: 25px;
     background-color: white;
     border: lightgray 2px solid;
-}
+} */
 
  .quotation_header {
     font-size: 1em;
@@ -42,7 +70,7 @@ body {
     padding: 0;
 }
 
-.ui-dataview {
+/* .ui-dataview {
     margin-top: 10px;
 }
 
@@ -54,7 +82,7 @@ body {
     background-color: white;
     border: grey 1px solid;
     overflow:auto;
-}
+} */
 
 .p-grid {
     display: block;
@@ -73,7 +101,7 @@ body {
 
 
 /* styles to make search bar 100% length */
-.fa.fa-search {
+.searchicon {
     width: 40px;
     height: 36px;
     color: grey;
@@ -82,7 +110,7 @@ body {
     font-size: 20px;
 }
 
- .ui-g-6.ui-md-4.filter-container {
+.ui-g-6.ui-md-4.filter-container {
     color: #125a96;
     border-color: #c8e2f8;
     width: 100%;
