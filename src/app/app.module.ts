@@ -72,6 +72,7 @@ import { CommentsComponent } from './comments/comments.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { EvaluationFormComponent } from './evaluation-form/evaluation-form.component';
+import {RatingModule} from 'primeng/rating';
 
 @NgModule({
   declarations: [
@@ -139,6 +140,7 @@ import { EvaluationFormComponent } from './evaluation-form/evaluation-form.compo
     HttpClientModule,
     NgbModule,
     ProgressBarModule,
+    RatingModule,
   ],
   providers: [UploadService, QuotationService, PurchaserequisitionService, SalesorderService, DesignService, DeliveryService, CustomerService, VendorService, MessageService, ConfirmationService, ToggleDisplayService],
   bootstrap: [AppComponent],
