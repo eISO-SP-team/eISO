@@ -19,11 +19,11 @@ interface options {
 
 export class DesignModuleCreateComponent implements OnInit {
 
-  projectNo: any = this.designService.selectedProject.project_id;
-  projectLead: any = this.designService.selectedProject.project_lead;
-  projectName: any = this.designService.selectedProject.project_name;
-  startDate: any = this.designService.selectedProject.start_date;
-  endDate: any = this.designService.selectedProject.end_date;
+  Project_no: any = this.designService.selectedProject.project_id;
+  Project_lead: any = this.designService.selectedProject.project_lead;
+  Project_name: any = this.designService.selectedProject.project_name;
+  Start_date_design: any = this.designService.selectedProject.start_date;
+  End_date_design: any = this.designService.selectedProject.end_date;
 
 
   designPlanList: any;
@@ -53,6 +53,8 @@ export class DesignModuleCreateComponent implements OnInit {
   newList: SelectItem[];
 
   maxCount: any;
+
+  blmaxCount: any = [];
 
   display: boolean;
 
@@ -108,6 +110,7 @@ export class DesignModuleCreateComponent implements OnInit {
     }
     console.log(this.clickedonPhase);
   }
+  
   showDialog() {
     this.display = true;
   }
