@@ -1,9 +1,9 @@
 <div class="ui-g wholepage">
     <div class="ui-g rcorners2">
 
-        <div class="ui-g-12">
+        <div class="ui-g-12 formheader-box">
             <div class="ui-g-6 formheader">
-                <h3>Add design documents</h3>
+                <h3>Design Phases</h3>
             </div>
             <div class="ui-g-6">
                 <button pButton type="button" style="float:right; position: relative;" class="ui-button-danger"
@@ -100,10 +100,10 @@
                     </div>
                 </div>
                 <!--Design Backlog-->
-                <div class="ui-g-12 formnames">
-                    <h2>Design Backlog</h2>
+                <h2 style="padding-left: 2em; padding-top: 1.5em; font-size: 1.5em; font-weight:600; padding: 1em 2em 1em 1.8em;">Design Backlog</h2>
                     <div class="designBLbtn" (click)="showDialog()"><label>Create</label></div>
                 </div>
+                <div class="ui-g-12 backlogbox">
                 <p-tabView (onChange)="handleChange($event)">
                     <p-tabPanel header="Design Plan" leftIcon="pi pi-calendar">
                         <table class="roundedCorners">
