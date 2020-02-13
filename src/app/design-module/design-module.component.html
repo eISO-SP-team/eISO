@@ -9,7 +9,7 @@
 
 <div class="ui-g designpage">
     <div class="ui-g-12">
-        <div class="ui-g-6">
+        <div class="ui-g-12 ui-md-12 ui-lg-6">
             <P class="dashboardname">Design Plan</P>
             <p>
                 <p-button icon="pi pi-plus" iconPos="right" label="Add New Design Plan"
@@ -18,25 +18,16 @@
             <p-dataView [value]="planList" class="ui-dataview" [paginator]="true" filterBy="" [rows]="3">
                 <p-header>
                     <div class="ui-helper-clearfix">
-                        <!-- <div class="ui-g-12"> -->
-                        <!-- <div class="ui-g-12 ui-md-4">
-
-                            </div> -->
                         <div class="ui-g-6 ui-md-4 filter-container">
                             <div style="position:relative">
-                                <div class="ui-g-1 search"><i class="fa fa-search searchicon" style="margin:4px 4px 0 0"></i>
+                                <div class="ui-g-1 search"><i class="fa fa-search searchicon"
+                                        style="margin:4px 4px 0 0"></i>
                                 </div>
                                 <div class="ui-g-11 search"><input type="text" pInputText placeholder="Search"
                                         (input)="sop.filter($event.target.value)" style="width:100%; border:none;">
                                 </div>
                             </div>
                         </div>
-
-
-                        <!-- <div class="ui-g-6 ui-md-4" style="text-align:right">
-
-                            </div> -->
-                        <!-- </div> -->
                     </div>
                 </p-header>
                 <p-footer>
@@ -47,8 +38,8 @@
                         <div class="ui-g-12">
                             <div class="ui-g-2" style="align-content: center; padding-left:3%;">
                                 <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
-                                <img #img src="../../assets/delete.png" (click)="deleteEnquiry(salesOrderListPending)"
-                                    width="30px" height="30px" alt="Logo">
+                                <img #img src="../../assets/delete.png" (click)="deleteEnquiry(planList)" width="30px"
+                                    height="30px" alt="Logo">
                             </div>
                             <div class="ui-g-4">
                                 <p class="quotation_header">{{planList.project_name}} -
@@ -60,15 +51,13 @@
                                 <br />
                             </div>
                             <div class="ui-g-2" style="align-content: center; padding-right: 3%;">
-                                <button pButton type="button" icon="pi pi-search"
-                                    (click)="viewEnquiryPending(salesOrderListPending)"
+                                <button pButton type="button" icon="pi pi-search" (click)="viewEnquiry(planList)"
                                     style="margin-top:0; float: right;"></button>
                             </div>
                         </div>
                     </div>
                 </ng-template>
             </p-dataView>
-
         </div>
 
         <div class="ui-g-12 ui-md-12 ui-lg-6">
@@ -80,26 +69,18 @@
             <p-dataView [value]="inputList" class="ui-dataview" [paginator]="true" filterBy="" [rows]="3">
                 <p-header>
                     <div class="ui-helper-clearfix">
-                        <!-- <div class="ui-g"> -->
-                        <!-- <div class="ui-g-12 ui-md-4">
-
-                        </div> -->
                         <div class="ui-g-6 ui-md-4 filter-container">
                             <div style="position:relative">
-                                <div class="ui-g-1 search"><i class="fa fa-search searchicon" style="margin:4px 4px 0 0"></i></div>
+                                <div class="ui-g-1 search"><i class="fa fa-search searchicon"
+                                        style="margin:4px 4px 0 0"></i></div>
                                 <div class="ui-g-11 search"><input type="text" pInputText placeholder="Search"
                                         (input)="sop.filter($event.target.value)" style="width:100%; border:none;">
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="ui-g-6 ui-md-4" style="text-align:right">
-
-                        </div> -->
-                        <!-- </div> -->
                     </div>
                 </p-header>
                 <p-footer>
-
                 </p-footer>
                 <ng-template let-inputList pTemplate="listItem">
                     <div class="ui-dataview-content">
@@ -118,8 +99,7 @@
                                 <br />
                             </div>
                             <div class="ui-g-2" style="align-content: center; padding-right: 3%;">
-                                <button pButton type="button" icon="pi pi-search"
-                                    (click)="viewEnquiryPending(inputList)"
+                                <button pButton type="button" icon="pi pi-search" (click)="viewEnquiry(inputList)"
                                     style="margin-top:0; float: right;"></button>
                             </div>
                         </div>
@@ -139,26 +119,18 @@
             <p-dataView [value]="controlList" class="ui-dataview" [paginator]="true" filterBy="" [rows]="3">
                 <p-header>
                     <div class="ui-helper-clearfix">
-                        <!-- <div class="ui-g"> -->
-                        <!-- <div class="ui-g-12 ui-md-4">
-
-                        </div> -->
                         <div class="ui-g-6 ui-md-4 filter-container">
                             <div style="position:relative">
-                                <div class="ui-g-1 search"><i class="fa fa-search searchicon" style="margin:4px 4px 0 0"></i></div>
+                                <div class="ui-g-1 search"><i class="fa fa-search searchicon"
+                                        style="margin:4px 4px 0 0"></i></div>
                                 <div class="ui-g-11 search"><input type="text" pInputText placeholder="Search"
                                         (input)="sop.filter($event.target.value)" style="width:100%; border:none;">
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="ui-g-6 ui-md-4" style="text-align:right">
-
-                        </div> -->
                     </div>
-                    <!-- </div> -->
                 </p-header>
                 <p-footer>
-
                 </p-footer>
                 <ng-template let-controlList pTemplate="listItem">
                     <div class="ui-dataview-content">
@@ -177,8 +149,7 @@
                                 <br />
                             </div>
                             <div class="ui-g-2" style="align-content: center; padding-right: 3%;">
-                                <button pButton type="button" icon="pi pi-search"
-                                    (click)="viewEnquiryPending(controlList)"
+                                <button pButton type="button" icon="pi pi-search" (click)="viewEnquiry(controlList)"
                                     style="margin-top:0; float: right;"></button>
                             </div>
                         </div>
@@ -196,29 +167,21 @@
             <p-dataView [value]="outputList" class="ui-dataview" [paginator]="true" filterBy="" [rows]="3">
                 <p-header>
                     <div class="ui-helper-clearfix">
-                        <!-- <div class="ui-g"> -->
-                        <!-- <div class="ui-g-12 ui-md-4">
-
-                        </div> -->
                         <div class="ui-g-6 ui-md-4 filter-container">
                             <div style="position:relative">
-                                <div class="ui-g-1 search"><i class="fa fa-search searchicon" style="margin:4px 4px 0 0"></i>
+                                <div class="ui-g-1 search"><i class="fa fa-search searchicon"
+                                        style="margin:4px 4px 0 0"></i>
                                 </div>
                                 <div class="ui-g-11 search"><input type="text" pInputText placeholder="Search"
                                         (input)="sop.filter($event.target.value)" style="width:100%; border:none;">
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="ui-g-6 ui-md-4" style="text-align:right">
-
-                        </div> -->
-                        <!-- </div> -->
                     </div>
                 </p-header>
                 <p-footer>
-
                 </p-footer>
-                <ng-template let-designList pTemplate="listItem">
+                <ng-template let-outputList pTemplate="listItem">
                     <div class="ui-dataview-content">
                         <div class="ui-g-12">
                             <div class="ui-g-2" style="align-content: center; padding-left:3%;">
@@ -236,8 +199,7 @@
                                 <br />
                             </div>
                             <div class="ui-g-2" style="align-content: center;">
-                                <button pButton type="button" icon="pi pi-search"
-                                    (click)="viewEnquiryPending(outputList)"
+                                <button pButton type="button" icon="pi pi-search" (click)="viewEnquiry(outputList)"
                                     style="margin-top:0; float: right;"></button>
                             </div>
                         </div>
@@ -253,39 +215,30 @@
             <p-dataView [value]="designList" class="ui-dataview" [paginator]="true" filterBy="" [rows]="3">
                 <p-header>
                     <div class="ui-helper-clearfix">
-                        <!-- <div class="ui-g"> -->
-                        <!-- <div class="ui-g-12 ui-md-4">
-
-                            </div> -->
                         <div class="ui-g-6 ui-md-4 filter-container">
                             <div style="position:relative">
-                                <div class="ui-g-1 search"><i class="fa fa-search searchicon" style="margin:4px 4px 0 0"></i>
+                                <div class="ui-g-1 search"><i class="fa fa-search searchicon"
+                                        style="margin:4px 4px 0 0"></i>
                                 </div>
                                 <div class="ui-g-11 search"><input type="text" pInputText placeholder="Search"
                                         (input)="sop.filter($event.target.value)" style="width:100%; border:none;">
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="ui-g-6 ui-md-4" style="text-align:right">
-
-                            </div> -->
-                        <!-- </div> -->
                     </div>
                 </p-header>
                 <p-footer>
-
                 </p-footer>
                 <ng-template let-designList pTemplate="listItem">
                     <div class="ui-dataview-content">
                         <div class="ui-g-12">
                             <div class="ui-g-2" style="align-content: center; padding-left:3%;">
                                 <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
-                                <img #img src="../../assets/delete.png" (click)="deleteEnquiry(salesOrderListPending)"
-                                    width="30px" height="30px" alt="Logo">
+                                <img #img src="../../assets/delete.png" (click)="deleteEnquiry(designList)" width="30px"
+                                    height="30px" alt="Logo">
                             </div>
                             <div class="ui-g-4">
                                 <p class="quotation_header">{{designList.project_name}} -
-                                    <!-- {{salesOrderListPending.id}}</p><br /> -->
                                     {{designList.project_lead}}<br />
                             </div>
                             <div class="ui-g-4">
@@ -293,8 +246,7 @@
                                 <br />
                             </div>
                             <div class="ui-g-2" style="align-content: center; padding-right: 3%;">
-                                <button pButton type="button" icon="pi pi-search"
-                                    (click)="viewEnquiryPending(salesOrderListPending)"
+                                <button pButton type="button" icon="pi pi-search" (click)="viewEnquiry(designList)"
                                     style="margin-top:0; float: right;"></button>
                             </div>
                         </div>

@@ -3,21 +3,21 @@
 
         <div class="ui-g-12">
             <div class="ui-g-6 formheader">
-                <h3>Add design documents</h3>
+                <h3>View design documents</h3>
             </div>
             <div class="ui-g-6">
                 <button pButton type="button" style="float:right; position: relative;" class="ui-button-danger"
                     (click)="this._location.back()" label="Cancel"></button>
             </div>
         </div>
-        <form [formGroup]="addDesignForm" (ngSubmit)="onSubmitDesignPlan()">
+        <form [formGroup]="addDesignForm" (ngSubmit)="updateEdit()">
             <div class="ui-g">
                 <div style=" overflow: visible;" class="fieldset-list ui-g-12" style="padding-left: 2em;">
                     <div class="ui-g-12 ui-md-12 ui-lg-4">
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails">Project Lead</h3>
-                                <input class="formtext" type="text" [(ngModel)]="Project_lead" pInputText
+                                <input class="formtext" type="text" [(ngModel)]="newProject_lead" pInputText
                                     [formControlName]="'Project_lead'" />
                             </span>
                             <span
@@ -35,7 +35,7 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails">Project Name</h3>
-                                <input class="formtext" type="text" [(ngModel)]="Project_name" pInputText
+                                <input class="formtext" type="text" [(ngModel)]="newProject_name" pInputText
                                     [formControlName]="'Project_name'" />
                             </span>
                             <span
@@ -52,7 +52,7 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails">Project No.</h3>
-                                <input class="formtext" type="text" [(ngModel)]="Project_no" pInputText
+                                <input class="formtext" type="text" [(ngModel)]="newProject_no" pInputText
                                     [formControlName]="'Project_no'" />
                             </span>
                             <span
@@ -70,7 +70,7 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails">Start Date - Design</h3>
-                                <input class="formtext" type="text" [(ngModel)]="Start_date_design" pInputText
+                                <input class="formtext" type="text" [(ngModel)]="newStart_date_design" pInputText
                                     [formControlName]="'Start_date_design'" />
                             </span>
                             <span
@@ -86,7 +86,7 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails">End Date - Design </h3>
-                                <input class="formtext" type="text" [(ngModel)]="End_date_design" pInputText
+                                <input class="formtext" type="text" [(ngModel)]="newEnd_date_design" pInputText
                                     [formControlName]="'End_date_design'" />
                             </span>
                             <span

@@ -20,6 +20,8 @@ export class DesignModuleComponent implements OnInit {
 
   outputList = [];
 
+  completeList = [];
+
   testList: any;
 
   index: any;
@@ -27,25 +29,20 @@ export class DesignModuleComponent implements OnInit {
 
   constructor(public _location: Location, public designService: DesignService, public router: Router) {
     this.designService.getDesignListener()
-      .subscribe(newList => {
-        // console.log("listener triggered");
-        // console.log(newList);
-        //listens the listener in the service, whenever the code 
-        //this.enquirySubject.next(this.quotationList); runs, the subscribe will be triggered and will receive the 
-        //new list that is being passed in
-        this.designList = newList;
+      .subscribe(() => {
         this.testList = this.designService.loadDesigns().subscribe((responseData) => {
           this.designList = (<any>responseData).body;
-          console.log(this.designList[1]);
           for (let i = 0; i < this.designList.length; i++) {
-            if (this.designList[i].design_details.design_phase == "Design Plan") {
+            if (this.designList[i].design_details[0].design_phase == "Design Plan") {
               this.planList.push(this.designList[i]);
-            } else if (this.designList[i].design_details.design_phase == "Design Input") {
+            } else if (this.designList[i].design_details[0].design_phase == "Design Input") {
               this.inputList.push(this.designList[i]);
-            } else if (this.designList[i].design_details.design_phase == "Design Control") {
+            } else if (this.designList[i].design_details[0].design_phase == "Design Control") {
               this.controlList.push(this.designList[i]);
-            } else {
+            } else if (this.designList[i].design_details[0].design_phase == "Design Output") {
               this.outputList.push(this.designList[i]);
+            } else {
+              this.completeList.push(this.designList[i]);
             }
           }
         });
