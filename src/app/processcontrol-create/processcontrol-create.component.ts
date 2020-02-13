@@ -5,7 +5,8 @@ import { CustomerService } from "../shared/service/customer.service";
 import { QuotationService } from "../shared/service/quotation.service";
 import { Location } from '@angular/common';
 import { formatDate } from '@angular/common';
-import { SelectItem } from 'primeng/api'
+import { SelectItem } from 'primeng/api';
+import { FileUploadService } from "../shared/service/file-upload.service";
 
 interface Type {
   name: string;
@@ -44,6 +45,8 @@ export class ProcesscontrolCreateComponent implements OnInit {
 
   myDate = formatDate(new Date(), 'yyyy/MM/dd', 'en');
 
+  uploadedFiles: any[] = [];
+
   customerList: any;
 
   quotationList: any;
@@ -64,7 +67,7 @@ export class ProcesscontrolCreateComponent implements OnInit {
 
   clickedonPhase: string = "PREPARATION";
 
-  constructor(public quotationService: QuotationService, public processControlService: ProcesscontrolService, public customerService: CustomerService, public _location: Location) { }
+  constructor(public quotationService: QuotationService, public processControlService: ProcesscontrolService, public customerService: CustomerService, public _location: Location, public fileUploadService: FileUploadService) { }
 
   ngOnInit() {
     this.processControlList = this.processControlService.loadProcesscontrols().subscribe(responseData => {
@@ -191,6 +194,15 @@ export class ProcesscontrolCreateComponent implements OnInit {
     this.pcpList.unshift(this.pcpEntry);
     this.display = false;
     this.addControlPoint.reset();
+  }
+  onUpload(event) {
+    for (let file of event.files) {
+      this.uploadedFiles.push(file);
+      this.fileUploadService.postFile(file).subscribe((result) => {
+        console.log(result);
+      })
+      console.log(this.uploadedFiles);
+    }
   }
 
   valuechange(value) {

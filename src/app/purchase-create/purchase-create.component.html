@@ -1,1 +1,150 @@
-<p>purchase-create works!</p>
+<div class="ui-g">
+    <div class="ui-g rcorners2">
+
+        <div class="ui-g-12">
+            <div class="ui-g-6">
+                <h3>Add Purchase Order</h3>
+            </div>
+            <div class="ui-g-6">
+                <button pButton type="button" style="float:right; position: relative;" class="ui-button-danger"
+                    (click)="this._location.back()" label="Cancel"> </button>
+            </div>
+        </div>
+        <form [formGroup]="addPurchaseForm"
+            (ngSubmit)="confirm(supplier_id, purchase_id, location, eta, remarks, status)">
+            <div class="ui-g">
+                <div style=" overflow: visible;" class="fieldset-list ui-g-12">
+                    <div class="ui-g-12">
+                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first">Supplier ID</h3>
+                                    <input class="form-control" type="text" pInputText [formControlName]="supplier_id" />
+                                </span>
+                                <span
+                                    *ngIf="!addPurchaseForm.get('supplier_id').valid && addPurchaseForm.get('supplier_id').touched"
+                                    class="help-block">
+                                    <span>
+                                        <p-message *ngIf="addPurchaseform.get('purchase_id').errors['required']"
+                                            severity="error" text="This field is required!"></p-message>
+                                    </span>
+                                </span>
+                            </div>
+
+                        </div>
+                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first">Purchase ID</h3>
+                                    <input class="form-control" type="text" pInputText [formControlName]="purchase_id" />
+                                </span>
+                                <span
+                                    *ngIf="!addPurchaseForm.get('purchase_id').valid && addPurchaseForm.get('purchase_id').touched"
+                                    class="help-block">
+                                    <span>
+                                        <p-message *ngIf="addPurchaseform.get('purchase_id').errors['required']"
+                                            severity="error" text="This field is required!"></p-message>
+                                    </span>
+                                </span>
+                            </div>
+
+                        </div>
+                
+                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                            <!-- Empty -->
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first">Location</h3>
+                                    <input class="form-control" type="text" pInputText [formControlName]="'location'" />
+                                </span>
+                                <span
+                                    *ngIf="!addPurchaseForm.get('location').valid && addPurchaseForm.get('location').touched"
+                                    class="help-block">
+                                    <span>
+                                        <p-message *ngIf="addPurchaseForm.get('location').errors['required']"
+                                            severity="error" text="This field is required!"></p-message>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                            <div class="ui-g-12">
+                                <span class="ui-float-label-2">
+                                    <h3 class="first">ETA</h3>
+                                    <input class="form-control" type="text" pInputText
+                                        [formControlName]="'received_by'" />
+                                </span>
+                                <span
+                                    *ngIf="!addPurchaseForm.get('eta').valid && addPurchaseForm.get('eta').touched"
+                                    class="help-block">
+                                    <span>
+                                        <p-message *ngIf="addPurchaseForm.get('eta').errors['required']"
+                                            severity="error" text="This field is required!"></p-message>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                            <!--Empty-->
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first">Remarks</h3>
+                                    <input class="form-control" type="text" pInputText [formControlName]="'location'" />
+                                </span>
+                                <span
+                                    *ngIf="!addPurchaseForm.get('remarks').valid && addPurchaseForm.get('remarks').touched"
+                                    class="help-block">
+                                    <span>
+                                        <p-message *ngIf="addPurchaseForm.get('remarks').errors['required']"
+                                            severity="error" text="This field is required!"></p-message>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                            <div class="ui-g-12">
+                                <span class="ui-float-label-2">
+                                    <h3 class="first">Status</h3>
+                                    <input class="form-control" type="text" pInputText
+                                        [formControlName]="'remarks'" />
+                                </span>
+                                <span
+                                    *ngIf="!addPurchaseForm.get('status').valid && addPurchaseForm.get('status').touched"
+                                    class="help-block">
+                                    <span>
+                                        <p-message *ngIf="addPurchaseForm.get('status').errors['required']"
+                                            severity="error" text="This field is required!"></p-message>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                            <!--Empty-->
+                        </div>
+                    </div>
+                </div>
+                <div class="fieldset-list ui-g-12">
+                    <h2>File Upload</h2>
+
+                </div>
+                <div class="fieldset-list ui-g-12">
+                    <div class="ui-g-12">
+                        <h2>Amount</h2>
+                    </div>
+                    <div class="ui-g-12">
+                        <app-comments></app-comments>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g-12">
+                <button pButton [disabled]="!addPurchaseForm.valid" type="submit" label="Submit Purchase Order"></button>
+            </div>
+        </form>
