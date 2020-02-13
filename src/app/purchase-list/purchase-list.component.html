@@ -1,1 +1,54 @@
-<p>purchase-list works!</p>
+<div class="ui-g-12">
+    <p>
+        <p-button class="buttonadd" icon="pi pi-plus" iconPos="right" label="Add New Purchase Order"
+            (click)="this.router.navigate(['/purchaseCreate'])"></p-button>
+    </p>
+    <p-dataView [value]="deliveryList" #sop class="ui-dataview" [paginator]="true" filterBy="" [rows]="5">
+        <p-header>
+            <div class="ui-helper-clearfix">
+                <div class="ui-g">
+                    <div class="ui-g-12 ui-md-4">
+
+                    </div>
+                    <div class="ui-g-6 ui-md-4 filter-container">
+                        <div style="position:relative">
+                            <div class="ui-g-2"><i class="fa fa-search" style="margin:4px 4px 0 0"></i></div>
+                            <div class="ui-g-10"><input type="text" pInputText placeholder="Search"
+                                (input)="sop.filter($event.target.value)" style="width:100%; border:none;"></div>
+                        </div>
+                    </div>
+                    <div class="ui-g-6 ui-md-4" style="text-align:right">
+
+                    </div>
+                </div>
+            </div>
+        </p-header>
+        <p-footer>
+
+        </p-footer>
+        <ng-template let-deliveryList pTemplate="listItem">
+            <div class="ui-dataview-content">
+                <div class="ui-g-12">
+                    <div class="ui-g-2" style="align-content: center;">
+                        <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
+                        <img #img src="../../assets/delete.png" (click)="confirm(deliveryList)"
+                            width="30px" height="30px" alt="Logo">
+                    </div>
+                    <div class="ui-g-4">
+                        <!-- <p class="quotation_header" style="font-weight:900">{{deliveryList.subject}} - -->
+                            <!-- {{deliveryList.id}}</p><br /> -->
+                        <!-- {{deliveryList.pic}}<br /> -->
+                    </div>
+                    <div class="ui-g-4">
+                        <!-- <p style="text-align: right;">{{deliveryList.sales_order_details.status}}</p> -->
+                        <br />
+                    </div>
+                    <div class="ui-g-2" style="align-content: center;">
+                        <button pButton type="button" icon="pi pi-search"
+                            (click)="viewEnquiryPending(deliveryList)" style="margin-top:0"></button>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-dataView>
+</div>
