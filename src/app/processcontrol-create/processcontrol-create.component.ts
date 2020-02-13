@@ -123,7 +123,7 @@ export class ProcesscontrolCreateComponent implements OnInit {
       "project_name": this.addProcessControlForm.value.project_name,
       "project_lead": this.addProcessControlForm.value.project_lead,
       "customer_name": this.addProcessControlForm.value.customer_name.id,
-      "customer_email": this.addProcessControlForm.value.project_email,
+      "customer_email": this.addProcessControlForm.value.customer_email,
       "start_date": this.addProcessControlForm.value.start_date,
       "end_date": this.addProcessControlForm.value.end_date,
       "tender_location": this.addProcessControlForm.value.tender_location,

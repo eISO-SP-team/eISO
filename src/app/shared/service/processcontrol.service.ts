@@ -11,9 +11,7 @@ export class ProcesscontrolService {
 
   selectedProcesscontrolInService: any;
 
-  processcontrolList: any[] = [
-
-  ];
+  processcontrolList: any;
 
 
   constructor(public http: HttpClient) {
@@ -26,6 +24,7 @@ export class ProcesscontrolService {
   }
 
   addProcesscontrols(processcontrols) {
+    this.processcontrolSubject.next
     return this.http.post('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/process-control', processcontrols, {
     });
   }
