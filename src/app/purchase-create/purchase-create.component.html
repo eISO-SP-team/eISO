@@ -14,7 +14,7 @@
             <div class="ui-g">
                 <div style=" overflow: visible;" class="fieldset-list ui-g-12">
                     <div class="ui-g-12">
-                        <div class="ui-g-12 ui-md-12 ui-lg-6">
+                        <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
                                     <h3 class="first formdetails">Supplier ID</h3>
@@ -32,7 +32,7 @@
                             </div>
 
                         </div>
-                        <div class="ui-g-12 ui-md-12 ui-lg-6">
+                        <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
                                     <h3 class="first formdetails">Purchase ID</h3>
@@ -44,6 +44,23 @@
                                     class="help-block">
                                     <span>
                                         <p-message *ngIf="addPurchaseform.get('purchase_id').errors['required']"
+                                            severity="error" text="This field is required!"></p-message>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first formdetails">PO Number</h3>
+                                    <input class="form-control formtext" type="text" pInputText
+                                        [formControlName]="'po_number'" />
+                                </span>
+                                <span
+                                    *ngIf="!addPurchaseForm.get('po_number').valid && addPurchaseForm.get('po_number').touched"
+                                    class="help-block">
+                                    <span>
+                                        <p-message *ngIf="addPurchaseform.get('po_number').errors['required']"
                                             severity="error" text="This field is required!"></p-message>
                                     </span>
                                 </span>

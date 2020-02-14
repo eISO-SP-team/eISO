@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DeliveryService } from "../shared/service/delivery.service";
-import { ConfirmationService, Message, SelectItem } from 'primeng/api';
+import { PurchaseorderService } from "../shared/service/purchaseorder.service";
+import { ConfirmationService, SelectItem } from 'primeng/api';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,19 +19,28 @@ export class DeliveryListComponent implements OnInit {
 
   index: number;
 
-  constructor(public deliveryService: DeliveryService, public router: Router, private confirmationservice: ConfirmationService) {
+  constructor(public purchaseOrderService: PurchaseorderService, public deliveryService: DeliveryService, public router: Router, private confirmationservice: ConfirmationService) {
     this.deliveryService.getDeliveryListener()
       .subscribe(newList => {
         this.deliveryList = newList;
         this.deliveryTest = this.deliveryService.loadDeliveries().subscribe(responseData => {
           this.deliveryService.deliveryList = (<any>responseData).body;
           console.log("log list" + this.deliveryService.deliveryList);
-          for (let i = 0; i < this.deliveryService.deliveryList.length; i++)
-            if (this.deliveryService.deliveryList[i].purchase_id == this.deliveryService.selectedPR) {
-              console.log(this.deliveryService.deliveryList[i].purchase_id);
-              console.log(this.deliveryService.selectedPR);
-              this.deliveryList.push(this.deliveryService.deliveryList[i]);
+          // for (let i = 0; i < this.deliveryService.deliveryList.length; i++) {
+          //   if (this.deliveryService.deliveryList[i].purchase_id == this.deliveryService.selectedPR) {
+          //     console.log(this.deliveryService.deliveryList[i].purchase_id);
+          //     console.log(this.deliveryService.selectedPR);
+          //     this.deliveryList.push(this.deliveryService.deliveryList[i]);
+          //   }
+          // }
+
+          for (let i = 0; i < this.purchaseOrderService.purchaseorderList.length; i++) {
+            console.log();
+            for (let j = 0; j < this.deliveryService.deliveryList.length; j++) {
+
             }
+          }
+
         });
       });
 
