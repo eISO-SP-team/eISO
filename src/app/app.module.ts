@@ -76,6 +76,7 @@ import { GraphOneComponent } from './graph-one/graph-one.component';
 import { FusionChartsModule } from 'angular-fusioncharts';
 import { DesignModuleViewComponent } from "./design-module-view/design-module-view.component";
 import { NgxSpinnerModule } from "ngx-spinner";
+import {TooltipModule} from 'primeng/tooltip';
 
 // // Load FusionCharts
 import * as FusionCharts from 'fusioncharts';
@@ -84,6 +85,7 @@ import * as Charts from 'fusioncharts/fusioncharts.charts';
 // // Load themes
 import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 import { GraphTwoComponent } from './graph-two/graph-two.component';
+
 
 // Add dependencies to FusionChartsModule
 FusionChartsModule.fcRoot(
@@ -163,8 +165,8 @@ FusionChartsModule.fcRoot(
     ProgressBarModule,
     RatingModule,
     NgxSpinnerModule,
-    // FusionChartsModule,
     FusionChartsModule,
+    TooltipModule,
   ],
   providers: [QuotationService, PurchaserequisitionService, SalesorderService, DesignService, DeliveryService, CustomerService, VendorService, MessageService, ConfirmationService, ToggleDisplayService],
   bootstrap: [AppComponent],

@@ -18,6 +18,7 @@ interface Type {
   styleUrls: ['./vendor-create.component.css'],
 })
 export class vendorCreateComponent implements OnInit {
+  
   msgs: Message[] = [];
 
   type: Type[];
@@ -81,6 +82,7 @@ export class vendorCreateComponent implements OnInit {
       vendor_type: this.addVendorForm.value.type.value,
       products: this.addVendorForm.value.products,
       tax_id: this.addVendorForm.value.taxId,
+      services: this.addVendorForm.value.services,
       vendor_address: {
         country: this.addVendorForm.value.country,
         address_1: this.addVendorForm.value.address1,

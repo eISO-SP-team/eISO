@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="ui-g-12">
-        <p-dataView [value]="projectList" #gg class="ui-dataview" [paginator]="true" filterBy="" [rows]="10">
+        <p-dataView [value]="projectList" #pc class="ui-dataview" [paginator]="true" filterBy="" [rows]="10">
             <p-header>
                 <div class="ui-helper-clearfix">
                     <!-- <div class="ui-g-12"> -->
@@ -27,7 +27,7 @@
                             <div style="position:relative">
                                 <div class="ui-g-1"><i class="fa fa-search searchicon" style="margin:4px 4px 0 0"></i></div>
                                 <div class="ui-g-11"><input type="text" pInputText placeholder="Search"
-                                    (input)="gg.filter($event.target.value)" style="width:100%; border:none;"></div>
+                                    (input)="pc.filter($event.target.value)" style="width:100%; border:none;"></div>
                             </div>
                         </div>
                         <!-- <div class="ui-g-6 ui-md-4" style="text-align:right">

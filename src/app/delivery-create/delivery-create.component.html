@@ -2,7 +2,7 @@
     <div class="ui-g rcorners2">
 
         <div class="ui-g-12">
-            <div class="ui-g-6">
+            <div class="ui-g-6 formheader">
                 <h3>Add Delivery Order</h3>
             </div>
             <div class="ui-g-6">
@@ -18,7 +18,7 @@
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
-                                    <h3 class="first">Delivery Date</h3>
+                                    <h3 class="first formdetails">Delivery Date</h3>
                                     <p-calendar dateFormat="dd.mm.yy" placeholder="Click to Enter"
                                         [formControlName]="'delivery_date'"></p-calendar>
                                 </span>
@@ -35,10 +35,10 @@
                         </div>
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <div class="ui-g-12">
-                                <span class="ui-float-label-2">
+                                <span class="ui-float-label">
                                     <h3 class="first">Location</h3>
-                                    <p-dropdown [formControlName]="'location'" [virtualScroll]="true" itemSize="5"
-                                        [options]="newList" ngModel="customer" placeholder="Select Customer">
+                                    <p-dropdown [formControlName]="'location'" [virtualScroll]="true" itemSize="3"
+                                        [options]="newList" placeholder="Select Customer">
                                     </p-dropdown>
                                 </span>
                                 <span
@@ -59,8 +59,8 @@
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
-                                    <h3 class="first">Remarks</h3>
-                                    <input class="form-control" type="text" pInputText [formControlName]="'remarks'" />
+                                    <h3 class="first formdetails">Remarks</h3>
+                                    <input class="form-control formtext" type="text" pInputText [formControlName]="'remarks'" />
                                 </span>
                                 <span
                                     *ngIf="!addDeliveryForm.get('remarks').valid && addDeliveryForm.get('remarks').touched"
@@ -75,9 +75,9 @@
                         </div>
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <div class="ui-g-12">
-                                <span class="ui-float-label-2">
-                                    <h3 class="first">Received By</h3>
-                                    <input class="form-control" type="text" pInputText
+                                <span class="ui-float-label">
+                                    <h3 class="first formdetails">Received By</h3>
+                                    <input class="form-control formtext" type="text" pInputText
                                         [formControlName]="'received_by'" />
                                 </span>
                                 <span
@@ -96,14 +96,11 @@
                     </div>
 
                 </div>
-                <div class="fieldset-list ui-g-12">
+                <div class="fieldset-list ui-g-12 formnames">
                     <h2>File Upload</h2>
 
                 </div>
-                <div class="fieldset-list ui-g-12">
-                    <div class="ui-g-12">
-                        <h2>Amount</h2>
-                    </div>
+                <div class="fieldset-list ui-g-12 formnames">
                     <div class="ui-g-12">
                         <app-comments></app-comments>
                     </div>

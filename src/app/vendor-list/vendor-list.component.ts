@@ -5,23 +5,21 @@ import { Router } from '@angular/router';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, Message } from 'primeng/api';
 
+
 @Component({
   selector: 'app-vendor-list',
   templateUrl: './vendor-list.component.html',
   styleUrls: ['./vendor-list.component.css']
 })
 export class vendorListComponent implements OnInit {
+
   msgs: Message[] = [];
 
-  vendorList: Vendor[] = [];
+  vendorList: any[] = [];
 
-  vendorListPending: Vendor[] = [];
+  vendorListPending: any[] = [];
 
-  vendorListApproved: Vendor[] = [];
-
-  selectedVendor: Vendor;
-
-  selectVendors: Vendor[];
+  vendorListApproved: any[] = [];
 
   testList: any;
 
@@ -31,41 +29,20 @@ export class vendorListComponent implements OnInit {
 
   confirmDelete: boolean;
 
-  constructor(public vendorService: VendorService, public router: Router,private confirmationservice: ConfirmationService ) {
+  constructor(public vendorService: VendorService, public router: Router, private confirmationservice: ConfirmationService) {
 
     this.vendorService.getVendorListener()
-      .subscribe(newList => {
-        console.log("listener triggered");
-        console.log(newList);
+      .subscribe(() => {
         this.vendorsTest = this.vendorService.loadVendors().subscribe(responseData => {
           this.testList = (<any>responseData).body;
           this.vendorService.vendorList = this.testList;
-          // console.log(JSON.stringify(this.testList));
         });
-        // if (this.testList == undefined) {
-        //   console.log("newList has nothing please fix");
-        // } else {
-        //   this.vendorList = newList;
-        //   for (let i = 0; i < this.vendorList.length; i++) {
-        //     if (this.vendorList[i].vendor_type == "Pending") {
-        //       this.vendorListPending.push(this.vendorList[i])
-        //     } else {
-        //       this.vendorListApproved.push(this.vendorList[i])
-        //     }
-        //   }
-        //   console.log(newList);
-        // }
-
       });
 
   }
 
   ngOnInit() {
-    // this.vendorsTest = this.vendorService.loadVendors().subscribe(responseData => {
-    //   this.testList = responseData;
-    //   this.testList = this.testList.body;
-    //   // console.log(JSON.stringify(this.testList));
-    // });
+
   }
 
   viewEnquiryPending(vendorListPending: any) {

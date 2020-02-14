@@ -1,4 +1,4 @@
-<p-dataView [value]="customerList" #gg class="ui-dataview" [paginator]="true" filterBy="customer_name" [rows]="3">
+<p-dataView [value]="customerList" #cl class="ui-dataview" [paginator]="true" filterBy="customer_name, customer_contact" [rows]="3">
     <p-header>
         <div class="ui-helper-clearfix">
             <!-- <div class="ui-g"> -->
@@ -9,15 +9,9 @@
                     <div style="position:relative">
                         <div class="ui-g-1"><i class="fa fa-search searchicon" style="margin:4px 4px 0 0"></i></div>
                         <div class="ui-g-11"><input class="inputfield" type="text" pInputText placeholder="Search"
-                            (input)="gg.filter($event.target.value)" style="width:100%; border:none;"></div>
+                            (input)="cl.filter($event.target.value)" style="width:100%; border:none;"></div>
                     </div>
-                </div>
-
-               
-                <!-- <div class="ui-g-6 ui-md-4" style="text-align:right">
-
-                </div> -->
-            <!-- </div> -->
+            </div>
         </div>
     </p-header>
     <p-footer>
@@ -26,15 +20,16 @@
         <div class="ui-dataview-content" style="padding: 0.5em 0 0.5em 0">
             <div class="ui-g-12">
                 <div class="ui-g-2" style="align-content: center;">
-                    <img src="../../assets/delete.png" (click)="confirm(this.customerList)" width="30px"
-                        height="30px" alt="Logo">
+                    <img src="../../assets/delete.png" (click)="confirm(this.customerList)" width="30px" height="30px"
+                        alt="Logo">
                 </div>
                 <div class="ui-g-4">
-                    <p class="list_header" style="font-size: 1rem; font-weight:900;">{{customerList.customer_name}}</p><br />
+                    <p class="list_header" style="font-size: 1rem; font-weight:900;">{{customerList.customer_name}}</p>
+                    <br />
                     {{customerList.customer_type}}
                 </div>
                 <div class="ui-g-4">
-                    <p style="text-align: right;">{{customerList.customer_type}}</p>
+                    <p style="text-align: right;">{{customerList.customer_contact.email}}</p>
                     <br />
                 </div>
                 <div class="ui-g-2" style="align-content: center;">

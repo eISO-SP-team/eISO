@@ -5,7 +5,7 @@
             <p-button class="buttonadd" icon="pi pi-plus" iconPos="right" label="Add New Sales Order"
                 (click)="this.router.navigate(['/salesorderCreate'])"></p-button>
         </p>
-        <p-dataView [value]="salesOrderListPending2" #sop class="ui-dataview" [paginator]="true" filterBy="subject,pic"
+        <p-dataView [value]="salesOrderListPending2" #sol class="ui-dataview" [paginator]="true" filterBy="subject,pic"
             [rows]="3">
             <p-header>
                 <div class="ui-helper-clearfix">
@@ -13,7 +13,7 @@
                         <div style="position:relative">
                             <div class="ui-g-1"><i class="fa fa-search searchicon" style="margin:4px 4px 0 0"></i></div>
                             <div class="ui-g-11"><input type="text" pInputText placeholder="Search"
-                                    (input)="sop.filter($event.target.value)" style="width:100%; border:none;">
+                                    (input)="sol.filter($event.target.value)" style="width:100%; border:none;">
                             </div>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                         <div style="position:relative">
                             <div class="ui-g-1"><i class="fa fa-search searchicon" style="margin:4px 4px 0 0"></i></div>
                             <div class="ui-g-11"><input type="text" pInputText placeholder="Search"
-                                    (input)="soc.filter($event.target.value)" style="width:100%; border:none;"></div>
+                                    (input)="sol.filter($event.target.value)" style="width:100%; border:none;"></div>
                         </div>
                     </div>
                     <!-- <div class="ui-g-6 ui-md-4" style="text-align:right">

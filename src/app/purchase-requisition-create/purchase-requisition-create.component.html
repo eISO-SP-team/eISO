@@ -1,7 +1,7 @@
 <div class="ui-g">
     <div class="ui-g rcorners2">
         <div class="ui-g-12">
-            <div class="ui-g-6">
+            <div class="ui-g-6 formheader">
                 <h3>Add Purchase Requisition</h3>
             </div>
             <div class="ui-g-6">
@@ -15,9 +15,9 @@
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Supplier Name</h3>
+                                <h3 class="first formdetails">Supplier Name</h3>
                                 <p-dropdown placeholder="Select a Supplier" [formControlName]="'supplier_id'"
-                                    [virtualScroll]="true" itemSize="5" [options]="newList">
+                                    [virtualScroll]="true" itemSize="3" [options]="newList">
                                 </p-dropdown>
                             </span>
                             <span
@@ -31,8 +31,8 @@
                         </div>
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Description</h3>
-                                <input type="text" pInputText [formControlName]="'description'" />
+                                <h3 class="first formdetails">Description</h3>
+                                <input class="formtext" type="text" pInputText [formControlName]="'description'" />
                             </span>
                             <span
                                 *ngIf="!addRequisitionForm.get('description').valid && addRequisitionForm.get('description').touched"
@@ -47,8 +47,8 @@
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Requestor</h3>
-                                <input type="text" pInputText [formControlName]="'requestor'" />
+                                <h3 class="first formdetails">Requestor</h3>
+                                <input class="formtext" type="text" pInputText [formControlName]="'requestor'" />
                             </span>
                             <span
                                 *ngIf="!addRequisitionForm.get('requestor').valid && addRequisitionForm.get('requestor').touched"
@@ -59,8 +59,8 @@
                         </div>
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Terms</h3>
-                                <input type="text" pInputText [formControlName]="'terms'" />
+                                <h3 class="first formdetails">Terms</h3>
+                                <input class="formtext" type="text" pInputText [formControlName]="'terms'" />
                             </span>
                             <span
                                 *ngIf="!addRequisitionForm.get('terms').valid && addRequisitionForm.get('terms').touched"
@@ -76,8 +76,8 @@
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Total</h3>
-                                <input type="text" pInputText [formControlName]="'total'" />
+                                <h3 class="first formdetails">Total</h3>
+                                <input class="formtext" type="text" pInputText [formControlName]="'total'" />
                             </span>
                             <span
                                 *ngIf="!addRequisitionForm.get('total').valid && addRequisitionForm.get('total').touched"
@@ -90,8 +90,8 @@
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Currency</h3>
-                                <input type="text" pInputText [formControlName]="'currency'" />
+                                <h3 class="first formdetails">Currency</h3>
+                                <input class="formtext" type="text" pInputText [formControlName]="'currency'" />
                             </span>
                             <span
                                 *ngIf="!addRequisitionForm.get('currency').valid && addRequisitionForm.get('currency').touched"
@@ -103,8 +103,9 @@
                     </div>
                 </div>
             </div>
-            <h2>Supporting File</h2>
-            <div class="ui-g-12">
+            <div class="formnames">
+            <h2>Supporting File</h2></div>
+            <div class="ui-g-12" style="padding-bottom: 3em;">
                 <p-fileUpload name="demo[]" customUpload="true" (uploadHandler)="onUpload($event)"
                     multiple="multiple" maxFileSize="1000000">
                     <ng-template pTemplate="content">

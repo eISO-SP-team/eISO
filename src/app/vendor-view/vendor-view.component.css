@@ -6,19 +6,36 @@
     width: 100%;
     background-color: white;
 }
+
+/* create button styles */
 .designBLbtn {
-  background-color: blue;
-  color: white;
+  background-color: #C8E2F8;
   border-radius: 3px;
-  border: 1px black solid;
+  border: 1px #1568ac;
   width: 100px;
   height: 40px;
   justify-content: center;
   text-align: center;
+  margin-left: 0.5em;
+  margin-top: 0.7em;
 }
+
+.designBLbtn label {
+color: #1568ac;
+vertical-align: middle !important;
+text-align: center;
+padding-top: 0.7em;
+}
+
+.designBLbtn:hover {
+  background-color: rgb(183, 214, 241);
+}
+
+/* evaluation table */
 table {
     width: 100%;
     text-align: center;
+    margin-left: 1.5em;
 }
 
 table.roundedCorners { 
@@ -120,3 +137,4 @@ padding-top: 0.7em;
   font-weight: 600;
   padding-left: 1.05em;
 }
+

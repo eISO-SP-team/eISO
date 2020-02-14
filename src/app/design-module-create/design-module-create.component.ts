@@ -135,8 +135,8 @@ export class DesignModuleCreateComponent implements OnInit {
       "uploaded_date": "2019-11-26",
       "design_details": this.desginBacklog
     }
-    this.designService.addDesigns(this.testEntry).subscribe(()=>{
-      
+    this.designService.addDesigns(this.testEntry).subscribe(() => {
+      this.router.navigate(['/design-module']);
     })
 
   }

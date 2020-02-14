@@ -1,20 +1,17 @@
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+<html>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <div class="ui-g paddingL">
     <div class="ui-g rcorners2">
 
         <div class="ui-g-12">
-            <div class="ui-g-6 formheader">
+            <div class="ui-g-12 formheader">
                 <h3> New Evaluation </h3>
-            </div>
-            <div class="ui-g-6">
-                <button pButton type="button" style="float:right; position: relative;" class="ui-button-danger"
-                    (click)="this._location.back()" label="Cancel"></button>
             </div>
         </div>
 
-        <form [formGroup]="addForm" (ngSubmit)="confirm()" class="nFont">
+        <form [formGroup]="addForm" (ngSubmit)="confirm($event)" class="nFont" >
 
             <div class="ui-g formnames">
                 <h2> Organisation </h2>
@@ -26,7 +23,7 @@
                             <span class="ui-float-label">
                                 <h3 class="first formdetails"> Supplier Names </h3>
                                 <input class="form-control formtext" type="text" pInputText
-                                    [formControlName]="'supplierName'" />
+                                    [(ngModel)]="newSupplierName" [formControlName]="'supplierName'" />
                             </span>
 
                             <span *ngIf="!addForm.get('supplierName').valid && addForm.get('supplierName').touched"
@@ -41,7 +38,7 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails"> Products </h3>
-                                <input class="form-control formtext" type="text" pInputText
+                                <input class="form-control formtext" type="text" pInputText [(ngModel)]="newProduct"
                                     [formControlName]="'product'" />
                             </span>
                             <span *ngIf="!addForm.get('product').valid && addForm.get('product').touched"
@@ -54,7 +51,7 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails"> services </h3>
-                                <input class="form-control formtext" type="text" pInputText
+                                <input class="form-control formtext" type="text" pInputText [(ngModel)]="newServices"
                                     [formControlName]="'services'" />
                             </span>
                             <span *ngIf="!addForm.get('services').valid && addForm.get('services').touched"
@@ -69,7 +66,7 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails"> Supplier No </h3>
-                                <input class="form-control formtext" type="text" pInputText
+                                <input class="form-control formtext" type="text" pInputText [(ngModel)]="newSupplierNo"
                                     [formControlName]="'supplierNo'" />
                             </span>
                             <span *ngIf="!addForm.get('supplierNo').valid && addForm.get('supplierNo').touched"
@@ -82,8 +79,8 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label-2">
                                 <h3 class="first formdetails"> Evaluated By </h3>
-                                <p-dropdown [formControlName]="'evaluator'" [virtualScroll]="true" itemSize="5" [options]="newList"
-                                    ngModel='evaluator' placeholder="Select User">
+                                <p-dropdown [formControlName]="'evaluator'" [virtualScroll]="true" itemSize="3"
+                                    [options]="evaluatedBy" placeholder="Select Evaluator">
                                 </p-dropdown>
                             </span>
                             <span *ngIf="!addForm.get('evaluator').valid && addForm.get('evaluator').touched"
@@ -119,7 +116,8 @@
                     <div class="ui-g-12">
                         <span>
                             <h3 class="first formdetails"> Quality </h3>
-                            <p-rating [formControlName]="'quality'" [cancel]="false"></p-rating>
+                            <p-rating [formControlName]="'quality'" (onRate)="handleRateQuality($event)"
+                                [(ngModel)]="qualityScore" [cancel]="false"></p-rating>
                             <!-- <input class="form-control formtext" type="text" pInputText [formControlName]="'quality'" /> -->
                         </span>
                     </div>
@@ -127,7 +125,8 @@
                     <div class="ui-g-12">
                         <span>
                             <h3 class="first formdetails"> Accident Rate </h3>
-                            <p-rating [formControlName]="'accidentRate'" [cancel]="false"></p-rating>
+                            <p-rating [formControlName]="'accidentRate'" (onRate)="handleRateAccident($event)"
+                                [(ngModel)]="accident_rateScore" [cancel]="false"></p-rating>
                         </span>
                         <span *ngIf="!addForm.get('accidentRate').valid && addForm.get('accidentRate').touched"
                             class="help-block">
@@ -139,7 +138,8 @@
                     <div class="ui-g-12">
                         <span>
                             <h3 class="first formdetails"> Safety </h3>
-                            <p-rating [formControlName]="'safety'" [cancel]="false"></p-rating>
+                            <p-rating [formControlName]="'safety'" (onRate)="handleRateSafety($event)"
+                                [(ngModel)]="safetyScore" [cancel]="false"></p-rating>
                         </span>
                         <span *ngIf="!addForm.get('safety').valid && addForm.get('safety').touched" class="help-block">
                             <p-message *ngIf="addForm.get('safety').errors['required']" severity="error"
@@ -151,7 +151,8 @@
                     <div class="ui-g-12">
                         <span>
                             <h3 class="first formdetails"> Cost </h3>
-                            <p-rating [formControlName]="'cost'" [cancel]="false"></p-rating>
+                            <p-rating [formControlName]="'cost'" (onRate)="handleRateCost($event)"
+                                [(ngModel)]="costScore" [cancel]="false"></p-rating>
                         </span>
                         <span *ngIf="!addForm.get('cost').valid && addForm.get('cost').touched" class="help-block">
                             <p-message *ngIf="addForm.get('cost').errors['required']" severity="error"
@@ -161,50 +162,37 @@
                     <div class="ui-g-12">
                         <span>
                             <h3 class="first formdetails"> Delivery </h3>
-                            <p-rating [cancel]="false"></p-rating>
-                            <!-- <input class="form-control formtext" type="text" pInputText
-                                [formControlName]="'delivery'" /> -->
+                            <p-rating [formControlName]="'delivery'" (onRate)="handleRateDelivery($event)"
+                                [(ngModel)]="deliveryScore" [cancel]="false"></p-rating>
                         </span>
-                        <!-- <span *ngIf="!addForm.get('deposit').valid && addForm.get('deposit').touched"
+                        <span *ngIf="!addForm.get('delivery').valid && addForm.get('delivery').touched"
                             class="help-block">
-                            <p-message *ngIf="addForm.get('deposit').errors['required']" severity="error"
+                            <p-message *ngIf="addForm.get('delivery').errors['required']" severity="error"
                                 text="This field is required!"></p-message>
-                        </span> -->
+                        </span>
                     </div>
 
                     <div class="ui-g-12">
                         <span>
                             <h3 class="first formdetails"> Risk </h3>
-                            <p-rating [cancel]="false"></p-rating>
-                            <!-- <input class="form-control formtext" type="text" pInputText [formControlName]="'risk'" /> -->
+                            <p-rating [formControlName]="'risk'" (onRate)="handleRateRisk($event)"
+                                [(ngModel)]="riskScore" [cancel]="false"></p-rating>
                         </span>
-                        <!-- <span *ngIf="!addForm.get('deposit').valid && addForm.get('deposit').touched"
-                            class="help-block">
-                            <p-message *ngIf="addForm.get('deposit').errors['required']" severity="error"
+                        <span *ngIf="!addForm.get('risk').valid && addForm.get('risk').touched" class="help-block">
+                            <p-message *ngIf="addForm.get('risk').errors['required']" severity="error"
                                 text="This field is required!"></p-message>
-                        </span> -->
+                        </span>
                     </div>
                 </div>
 
                 <div class="ui-g-12 ui-md-12 ui-lg-12">
                     <div class="ui-g-12">
                         <span>
-                            <h3 class="first formdetails"> Total </h3>
-                            <!-- <p-rating [formControlName]="'quality'"  [cancel]="false"  ></p-rating> -->
-                            <input class="form-control formtext" type="text" pInputText [formControlName]="'total'" />
+                            <h3 class="first formdetails"> Total : {{totalScore}} / 30</h3>
                         </span>
-                        <!-- <span *ngIf="!addForm.get('total').valid && addForm.get('total').touched" class="help-block">
-                    <p-message *ngIf="addForm.get('total').errors['required']" severity="error"
-                        text="This field is required!"></p-message>
-                </span> -->
                     </div>
                 </div>
-
             </div>
-
-
-
-
             <div class="fieldset-list ui-g-12 formnames">
                 <div class="ui-g-12">
                     <h2>Supporting File</h2>
@@ -244,9 +232,10 @@
                             </div>
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
-                                    <h3 class="first formdetails"> Result of Evaluation </h3>
-                                    <input class="form-control formtext" type="text" pInputText
-                                        [formControlName]="'resultOfEval'" />
+                                    <h3 class="first formdetails"> Result of Evaluation <i
+                                            class="fa fa-exclamation-circle" tooltipPosition="top"></i></h3>
+                                    <input pTooltip="Enter your username" class="form-control formtext" type="text"
+                                        pInputText [formControlName]="'resultOfEval'" />
                                 </span>
                                 <!-- 
                                 <span *ngIf="!addForm.get('subject').valid && addForm.get('subject').touched"
@@ -257,39 +246,24 @@
                                     </span>
                                 </span> -->
                             </div>
-
-
                         </div>
                         <!--Right column-->
                         <div class="ui-g-12 ui-md-12 ui-lg-6">
-
-
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
                                     <h3 class="first formdetails"> Aprroved By </h3>
                                     <input class="form-control formtext" type="text" pInputText
                                         [formControlName]="'approvedBy'" />
                                 </span>
-                                <!-- <span *ngIf="!addForm.get('validity').valid && addForm.get('validity').touched"
-                                    class="help-block">
-                                    <p-message *ngIf="addForm.get('validity').errors['required']" severity="error"
-                                        text="This field is required!"></p-message>
-                                </span> -->
+
                             </div>
-
-
-
                         </div>
                     </div>
-
                 </div>
-
-                <button pButton [disabled]="!addForm.valid" type="submit" label="Submit Quotation"></button>
+                <button pButton [disabled]="!addForm.valid" type="submit" label="Submit Evaluation"  ></button>
             </div>
-
-
-
-
         </form>
     </div>
 </div>
+
+</html>
