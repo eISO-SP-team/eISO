@@ -8,6 +8,8 @@ import { HttpClient } from "@angular/common/http";
 })
 export class VendorService {
 
+  evalData: any;
+
   vendorSubject: BehaviorSubject<any>;
 
   selectedVendornService: any;

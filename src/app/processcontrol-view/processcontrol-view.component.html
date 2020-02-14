@@ -73,7 +73,7 @@
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
                                     <h3 class="first formdetails">Customer Name</h3>
-                                    <p-dropdown [formControlName]="'customer_name'" [virtualScroll]="true"
+                                    <p-dropdown [formControlName]="'customer_name'" [virtualScroll]="true" itemSize="5"
                                         [(ngModel)]="newCustomer_name" (ngModelChange)="valuechange($event)"
                                         [options]="newList" placeholder="Select a Customer">
                                     </p-dropdown>

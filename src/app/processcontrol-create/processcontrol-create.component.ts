@@ -133,6 +133,7 @@ export class ProcesscontrolCreateComponent implements OnInit {
       "end_date": this.addProcessControlForm.value.end_date,
       "tender_location": this.addProcessControlForm.value.tender_location,
       "status": "pending",
+      "uploaded_by": "Jack",
       "process_control_details": this.pcpList,
     };
     console.log(JSON.stringify(this.testEntry));
@@ -140,7 +141,6 @@ export class ProcesscontrolCreateComponent implements OnInit {
     this.processControlService.addProcesscontrols(data)
       .subscribe((data) => {
         console.log(data)
-        this.processControlService.processcontrolList.push(this.testEntry);
       });
     this._location.back();
   }
