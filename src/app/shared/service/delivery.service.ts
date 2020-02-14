@@ -13,9 +13,7 @@ export class DeliveryService {
 
   purchaseOrderList: any;
 
-  deliveryList: any[] = [
-
-  ];
+  deliveryList: any[];
   selectedPR: any;
 
 

@@ -47,7 +47,6 @@ export class PurchaseRequisitionCreateComponent implements OnInit {
   maxCount: any;
 
   ngOnInit() {
-   
     this.testList = this.purchaseRequisitionService.loadPurchaserequisitions().subscribe(responseData => {
       this.purchaseRequisitionService.purchaserequisitionList = (<any>responseData).body;
       this.requisitionList = this.purchaseRequisitionService.purchaserequisitionList;

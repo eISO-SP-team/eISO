@@ -27,6 +27,8 @@ export class PurchaseorderService {
   }
 
   addPurchaseorders(purchaseorders) {
+    this.purchaseorderList.push(purchaseorders);
+    this.purchaseorderSubject.next(this.purchaseorderList);
     return this.http.post('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-order', purchaseorders, {
     });
   }
@@ -35,8 +37,10 @@ export class PurchaseorderService {
     return this.http.get('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-order');
   }
 
-  updatePurchaseorders(enquiryId, newInfo) {
-    return this.http.put('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-order/' + enquiryId, newInfo)
+  updatePurchaseorders(newInfo) {
+    this.purchaseorderList.push(newInfo);
+    this.purchaseorderSubject.next(this.purchaseorderList);
+    return this.http.put('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-order/' + this.selectedPurchaseorderService.id, newInfo)
   }
 
   deletePurchaseorder(enquiryId) {

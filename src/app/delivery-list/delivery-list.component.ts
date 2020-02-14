@@ -3,6 +3,7 @@ import { DeliveryService } from "../shared/service/delivery.service";
 import { PurchaseorderService } from "../shared/service/purchaseorder.service";
 import { ConfirmationService, SelectItem } from 'primeng/api';
 import { Router } from '@angular/router';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-delivery-list',
@@ -11,7 +12,11 @@ import { Router } from '@angular/router';
 })
 export class DeliveryListComponent implements OnInit {
 
-  deliveryList: any;
+  deliveryList: any = [];
+
+  filteredDeliveryList = [];
+
+  poNumberList = [];
 
   deliveryTest: any;
 
@@ -19,34 +24,38 @@ export class DeliveryListComponent implements OnInit {
 
   index: number;
 
+  getList: any = [];
+
+  purchaseOrderList: any = [];
+
   constructor(public purchaseOrderService: PurchaseorderService, public deliveryService: DeliveryService, public router: Router, private confirmationservice: ConfirmationService) {
-    this.deliveryService.getDeliveryListener()
-      .subscribe(newList => {
-        this.deliveryList = newList;
-        this.deliveryTest = this.deliveryService.loadDeliveries().subscribe(responseData => {
-          this.deliveryList= (<any>responseData).body;
-          console.log("log list" + this.deliveryService.deliveryList);
-          // for (let i = 0; i < this.deliveryService.deliveryList.length; i++) {
-          //   if (this.deliveryService.deliveryList[i].purchase_id == this.deliveryService.selectedPR) {
-          //     console.log(this.deliveryService.deliveryList[i].purchase_id);
-          //     console.log(this.deliveryService.selectedPR);
-          //     this.deliveryList.push(this.deliveryService.deliveryList[i]);
-          //   }
-          // }
-
-          for (let i = 0; i < this.purchaseOrderService.purchaseorderList.length; i++) {
-            console.log();
-            for (let j = 0; j < this.deliveryService.deliveryList.length; j++) {
-
-            }
-          }
-
-        });
+    this.deliveryService.getDeliveryListener().subscribe(() => {
+      this.deliveryTest = this.deliveryService.loadDeliveries().subscribe(responseData => {
+        this.deliveryList = (<any>responseData).body;
+        console.log(this.deliveryList);
       });
+    });
 
+    this.purchaseOrderService.getPurchaseorderListener().subscribe(() => {
+      this.getList = this.purchaseOrderService.loadPurchaseorders().subscribe((responsedata) => {
+        this.purchaseOrderList = (<any>responsedata).body;
+        console.log(this.purchaseOrderList);
+      })
+    })
+
+    for (let j = 0; j < this.deliveryList.length; j++) {
+      for (let i = 0; i < this.purchaseOrderList.length; i++) {
+        console.log(this.deliveryList[j].po_number + "xxxx" + this.purchaseOrderList[i].id);
+        if (this.deliveryList[j].po_number == this.purchaseOrderList[i].id) {
+          this.filteredDeliveryList.push(this.deliveryList[j]);
+        }
+      }
+    }
+    
   }
 
   ngOnInit() {
+
   }
 
 
