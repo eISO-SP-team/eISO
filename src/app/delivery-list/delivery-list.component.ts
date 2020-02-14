@@ -24,7 +24,7 @@ export class DeliveryListComponent implements OnInit {
       .subscribe(newList => {
         this.deliveryList = newList;
         this.deliveryTest = this.deliveryService.loadDeliveries().subscribe(responseData => {
-          this.deliveryService.deliveryList = (<any>responseData).body;
+          this.deliveryList= (<any>responseData).body;
           console.log("log list" + this.deliveryService.deliveryList);
           // for (let i = 0; i < this.deliveryService.deliveryList.length; i++) {
           //   if (this.deliveryService.deliveryList[i].purchase_id == this.deliveryService.selectedPR) {

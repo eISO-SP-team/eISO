@@ -28,7 +28,10 @@ export class DeliveryService {
     return this.deliverySubject.asObservable();
   }
 
+
   addDeliveries(deliveries) {
+    this.deliveryList.push(deliveries);
+    this.deliverySubject.next(this.deliveryList)
     return this.http.post('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/delivery', deliveries, {
     });
   }
@@ -37,8 +40,10 @@ export class DeliveryService {
     return this.http.get('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/delivery');
   }
 
-  updateDeliveries(enquiryId, newInfo) {
-    return this.http.put('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/delivery/' + enquiryId, newInfo)
+  updateDeliveries( newInfo) {
+    this.deliveryList.push(newInfo);
+    this.deliverySubject.next(this.deliveryList)
+    return this.http.put('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/delivery/' + this.selectedDeliveryService, newInfo)
   }
 
   deleteDeliveries(enquiryId) {

@@ -1,1 +1,138 @@
-<p>delivery-view works!</p>
+<div class="ui-g">
+    <div class="ui-g rcorners2">
+
+        <div class="ui-g-12">
+            <div class="ui-g-6 formheader">
+                <h3>Add Delivery Order</h3>
+            </div>
+            <div class="ui-g-6">    
+                <button pButton type="button" style="float:right; position: relative;" class="ui-button-danger"
+                    (click)="this._location.back()" label="Cancel"></button>
+            </div>
+        </div>
+        <form [formGroup]="addDeliveryForm" (ngSubmit)="confirm()">
+            <div class="ui-g">
+                <div style=" overflow: visible;" class="fieldset-list ui-g-12">
+                    <div class="ui-g-12">
+                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first formdetails">Delivery Date</h3>
+                                        <input class="form-control formtext" type="text" pInputText [(ngModel)]=" newDelivery_date"
+                                        [formControlName]="'delivery_date'" />
+                                </span>
+                                <span
+                                    *ngIf="!addDeliveryForm.get('delivery_date').valid && addDeliveryForm.get('delivery_date').touched"
+                                    class="help-block">
+                                    <span>
+                                        <p-message *ngIf="addDeliveryForm.get('delivery_date').errors['required']"
+                                            severity="error" text="This field is required!"></p-message>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first">Location</h3>
+                                    <input class="form-control formtext" type="text" pInputText [(ngModel)]=" newLocation"
+                                        [formControlName]="'location'" />
+                                </span>
+                                <span
+                                    *ngIf="!addDeliveryForm.get('location').valid && addDeliveryForm.get('location').touched"
+                                    class="help-block">
+                                    <span>
+                                        <p-message *ngIf="addDeliveryForm.get('location').errors['required']"
+                                            severity="error" text="This field is required!"></p-message>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                            <div class="ui-g-12">
+                                <span class="ui-float-label-2">
+                                    <h3 class="first formdetails">Purchase Order</h3>
+                                    <p-dropdown [formControlName]="'po_number'" [virtualScroll]="true" itemSize="3" [(ngModel)]="newPo_number"
+                                        [options]="newList" placeholder="Select PO">
+                                    </p-dropdown>
+                                </span>
+                                <span
+                                    *ngIf="!addDeliveryForm.get('po_number').valid && addDeliveryForm.get('po_number').touched"
+                                    class="help-block">
+                                    <span>
+                                        <p-message *ngIf="addDeliveryForm.get('po_number').errors['required']"
+                                            severity="error" text="This field is required!"></p-message>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first">Delivery Number</h3>
+                                    <input class="form-control formtext" type="text" pInputText [(ngModel)]= "newDr_number"
+                                        [formControlName]="'dr_number'" />
+                                </span>
+                                <span
+                                    *ngIf="!addDeliveryForm.get('dr_number').valid && addDeliveryForm.get('dr_number').touched"
+                                    class="help-block">
+                                    <span>
+                                        <p-message *ngIf="addDeliveryForm.get('dr_number').errors['required']"
+                                            severity="error" text="This field is required!"></p-message>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first formdetails">Remarks</h3>
+                                    <input class="form-control formtext" type="text" pInputText [(ngModel)]="newRemarks"
+                                        [formControlName]="'remarks'" />
+                                </span>
+                                <span
+                                    *ngIf="!addDeliveryForm.get('remarks').valid && addDeliveryForm.get('remarks').touched"
+                                    class="help-block">
+                                    <span>
+                                        <p-message *ngIf="addDeliveryForm.get('remarks').errors['required']"
+                                            severity="error" text="This field is required!"></p-message>
+                                    </span>
+                                </span>
+                            </div>
+
+                        </div>
+                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first formdetails">Received By</h3>
+                                    <input class="form-control formtext" type="text" pInputText [(ngModel)]="newReceived_by"
+                                        [formControlName]="'received_by'" />
+                                </span>
+                                <span
+                                    *ngIf="!addDeliveryForm.get('received_by').valid && addDeliveryForm.get('received_by').touched"
+                                    class="help-block">
+                                    <span>
+                                        <p-message *ngIf="addDeliveryForm.get('received_by').errors['required']"
+                                            severity="error" text="This field is required!"></p-message>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g-12 formnames">
+                <h2>Supporting File</h2>
+                <div class="ui-g-12">
+                    <app-upload-file></app-upload-file>
+                </div>
+                <div class="ui-g-12">
+                    <app-comments></app-comments>
+                </div>
+                <button pButton [disabled]="!addDeliveryForm.valid" type="submit" label="Submit"></button>
+            </div>
+        </form>
+    </div>
+</div>
