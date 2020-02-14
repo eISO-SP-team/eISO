@@ -131,7 +131,8 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first">Address 2</h3>
-                                <input type="text" [(ngModel)]="newAdress2" pInputText [formControlName]="'address2'" />
+                                <input type="text" [(ngModel)]="newAddress2" pInputText
+                                    [formControlName]="'address2'" />
                             </span>
                             <span *ngIf="!addVendorForm.get('address2').valid && addVendorForm.get('address2').touched"
                                 class="help-block">
@@ -273,7 +274,7 @@
                     </div>
                     <div class="ui-g-6">
                         <button pButton type="button" style="float:right; position: relative;" class="ui-button-primary"
-                            (click)="this.router.navigate(['/evaluation-form'])" label="Create"></button>
+                            (click)="showDialog()" label="Create"></button>
                     </div>
                     <div class="ui-g-12">
                         <table class="roundedCorners">
@@ -283,11 +284,11 @@
                                 <th>Score</th>
                                 <th>Action</th>
                             </tr>
-                            <tr>
-                                <td>31/01/2020</td>
-                                <td>Xiang Yuan</td>
-                                <td>85/100</td>
-                                <td>Not Needed</td>
+                            <tr *ngFor="let eval of evaluationList">
+                                <td>{{eval.evaluation_date}}</td>
+                                <td>{{eval.evaluated_by}}</td>
+                                <td>{{eval.total_score}}</td>
+                                <td>{{eval.action}}</td>
                             </tr>
                             <!-- <tr *ngFor="let pcp of pcpList">
                                 <td *ngIf="pcp.design_phase=='PREPARATION'">{{pcp.created_by}}</td>
@@ -300,11 +301,11 @@
                 <div class="ui-g-12">
                     <app-comments></app-comments>
                 </div>
-                <button pButton [disabled]="!addVendorForm.valid" type="submit" label="Submit New Vendor"></button>
+                <button pButton [disabled]="!addVendorForm.valid" type="submit" label="Submit New Vendor" (click)="showDialog()"></button>
             </div>
         </form>
     </div>
-    <p-dialog header="New Evaluation" [(visible)]="display">
+    <p-dialog header="New Evaluation" [(visible)]="this.dialogDisplayService.display">
         <app-evaluation-form></app-evaluation-form>
     </p-dialog>
 </div>

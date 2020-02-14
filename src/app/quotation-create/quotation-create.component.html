@@ -60,8 +60,8 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label-2">
                                 <h3 class="first formdetails">To</h3>
-                                <p-dropdown [formControlName]="'to'" [virtualScroll]="true" itemSize="5" [options]="newList"
-                                    ngModel='supplier' placeholder="Select Supplier">
+                                <p-dropdown [formControlName]="'to'" [virtualScroll]="true" itemSize="3" [options]="newList"
+                                    placeholder="Select Supplier">
                                 </p-dropdown>
                             </span>
                             <span *ngIf="!addForm.get('to').valid && addForm.get('to').touched" class="help-block">
@@ -73,7 +73,7 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails">Validity</h3>
-                                <p-dropdown [formControlName]="'validity'" [virtualScroll]="true" itemSize="5" [options]="newList2"
+                                <p-dropdown [formControlName]="'validity'" [virtualScroll]="true" itemSize="3" [options]="newList2"
                                     placeholder="Select an Option">
                                 </p-dropdown>
                             </span>

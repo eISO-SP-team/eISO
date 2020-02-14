@@ -18,7 +18,8 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails">Quotation Reference</h3>
-                                <input class="form-control formtext" type="text" pInputText [formControlName]="'quotation_number'" />
+                                <input class="form-control formtext" type="text" pInputText
+                                    [formControlName]="'quotation_number'" />
                             </span>
                             <span
                                 *ngIf="!addSalesOrderForm.get('quotation_number').valid && addSalesOrderForm.get('quotation_number').touched"
@@ -35,8 +36,8 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label-2">
                                 <h3 class="first formdetails">Customer Id</h3>
-                                <p-dropdown [formControlName]="'customer_id'" [virtualScroll]="true" itemSize="5" [options]="newList"
-                                    ngModel="customer" placeholder="Select Customer">
+                                <p-dropdown [formControlName]="'customer_id'" [virtualScroll]="true" itemSize="3"
+                                    [options]="newList" placeholder="Select Customer">
                                 </p-dropdown>
                             </span>
                             <span
@@ -53,7 +54,8 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label-2">
                                 <h3 class="first formdetails">Date</h3>
-                                <p-calendar dateFormat="dd.mm.yy" placeholder="Click to Enter" [formControlName]="'date'"></p-calendar>
+                                <p-calendar dateFormat="dd.mm.yy" placeholder="Click to Enter"
+                                    [formControlName]="'date'"></p-calendar>
                             </span>
                             <span *ngIf="!addSalesOrderForm.get('date').valid && addSalesOrderForm.get('date').touched"
                                 class="help-block">
@@ -69,7 +71,8 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails">Subject</h3>
-                                <input class="form-control formtext" type="text" pInputText [formControlName]="'subject'" />
+                                <input class="form-control formtext" type="text" pInputText
+                                    [formControlName]="'subject'" />
                             </span>
                             <span
                                 *ngIf="!addSalesOrderForm.get('subject').valid && addSalesOrderForm.get('subject').touched"
@@ -81,7 +84,8 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails">Tender Location</h3>
-                                <input class="form-control formtext" type="text" pInputText [formControlName]="'tenderLocation'" />
+                                <input class="form-control formtext" type="text" pInputText
+                                    [formControlName]="'tenderLocation'" />
                             </span>
                             <span
                                 *ngIf="!addSalesOrderForm.get('tenderLocation').valid && addSalesOrderForm.get('tenderLocation').touched"
@@ -106,7 +110,8 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails">PIC Email</h3>
-                                <input class="form-control formtext" type="text" pInputText [formControlName]="'picEmail'" />
+                                <input class="form-control formtext" type="text" pInputText
+                                    [formControlName]="'picEmail'" />
                             </span>
                             <span
                                 *ngIf="!addSalesOrderForm.get('picEmail').valid && addSalesOrderForm.get('picEmail').touched"
@@ -123,7 +128,8 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails">Total</h3>
-                                <input class="form-control formtext" type="text" pInputText [formControlName]="'total'" />
+                                <input class="form-control formtext" type="text" pInputText
+                                    [formControlName]="'total'" />
                             </span>
                             <span
                                 *ngIf="!addSalesOrderForm.get('total').valid && addSalesOrderForm.get('total').touched"
@@ -137,7 +143,8 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails">Deposit</h3>
-                                <input class="form-control formtext" type="text" pInputText [formControlName]="'deposit'" />
+                                <input class="form-control formtext" type="text" pInputText
+                                    [formControlName]="'deposit'" />
                             </span>
                             <span
                                 *ngIf="!addSalesOrderForm.get('deposit').valid && addSalesOrderForm.get('deposit').touched"
@@ -148,12 +155,12 @@
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>
 
             <h2>Supporting File</h2>
             <div class="ui-g-12">
-                <p-fileUpload name="demo[]" customUpload="true" (uploadHandler)="onUpload($event)"
-                    multiple="multiple" maxFileSize="1000000">
+                <p-fileUpload name="demo[]" customUpload="true" (uploadHandler)="onUpload($event)" multiple="multiple"
+                    maxFileSize="1000000">
                     <ng-template pTemplate="content">
                         <ul *ngIf="uploadedFiles.length">
                             <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes -
@@ -162,11 +169,11 @@
                     </ng-template>
                 </p-fileUpload>
             </div>
-            
+
             <div class="ui-g-12">
-               
+
                 <button pButton [disabled]="!addSalesOrderForm.valid" type="submit" label="Submit Sales Order"></button>
-  
+
             </div>
         </form>
     </div>

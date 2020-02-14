@@ -25,7 +25,14 @@ export class AppComponent {
         this.spinner.show();
       }
 
-      if (routerEvent instanceof NavigationEnd || routerEvent instanceof NavigationError || routerEvent instanceof NavigationCancel) {
+      if (routerEvent instanceof NavigationEnd || routerEvent instanceof NavigationCancel) {
+        setTimeout(() => {
+          this.spinner.hide();
+        }, 1000);
+      }
+
+      if (routerEvent instanceof NavigationError) {
+        this.router.navigate(['/sales-module']);
         setTimeout(() => {
           this.spinner.hide();
         }, 1000);

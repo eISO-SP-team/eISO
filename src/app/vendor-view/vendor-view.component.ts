@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { VendorService } from "../shared/service/vendor.service";
+import { DialogDisplayService } from "../shared/service/dialog-display.service";
 import { Location } from '@angular/common';
 import { formatDate } from '@angular/common';
 import { Router } from '@angular/router';
+import { SelectItem } from 'primeng/api';
 
 interface Type {
-  name: string;
+  lablel: string;
   value: string;
 }
 
@@ -17,11 +19,15 @@ interface Type {
 })
 export class vendorViewComponent implements OnInit {
 
+  @Output() closeDisplay = new EventEmitter();
+
   addVendorForm: FormGroup;
 
-  type: Type[];
+  evaluationList: any = this.vendorService.evalList;
 
-  prefix: Type[];
+  type: SelectItem[];
+
+  prefix: SelectItem[];
 
   selectedType: Type;
 
@@ -29,22 +35,22 @@ export class vendorViewComponent implements OnInit {
 
   activeIndex: number = 0;
 
-  display: boolean;
+  display: boolean = this.dialogDisplayService.display;
 
   testEntry: any;
 
   myDate = formatDate(new Date(), 'yyyy/MM/dd', 'en');
 
-  constructor(public vendorService: VendorService, public _location: Location, public router: Router) {
+  constructor(public vendorService: VendorService, public _location: Location, public router: Router, public dialogDisplayService: DialogDisplayService) {
     this.type = [
-      { name: 'Approved', value: 'Pass' },
-      { name: 'Pending', value: 'Fail' },
+      { label: 'Approved', value: 'Pass' },
+      { label: 'Pending', value: 'Fail' },
     ];
 
     this.prefix = [
-      { name: 'Mr', value: 'Mr' },
-      { name: 'Mrs', value: 'Mrs' },
-      { name: 'Miss', value: 'Miss' },
+      { label: 'Mr', value: 'Mr' },
+      { label: 'Mrs', value: 'Mrs' },
+      { label: 'Miss', value: 'Miss' },
     ]
   }
 
@@ -58,15 +64,15 @@ export class vendorViewComponent implements OnInit {
   newZipcode = this.vendorService.selectedVendornService.vendor_address.zip_code
   newAddress1 = this.vendorService.selectedVendornService.vendor_address.address_1;
   newAddress2 = this.vendorService.selectedVendornService.vendor_address.address_2;
-  newPrefix = this.vendorService.selectedVendornService.vendor_contact.prefix;
-  newFirstName = this.vendorService.selectedVendornService.vendor_contact.first_name;
-  newMiddleName = this.vendorService.selectedVendornService.vendor_contact.middle_name;
-  newLastName = this.vendorService.selectedVendornService.vendor_contact.last_name;
-  newEmail = this.vendorService.selectedVendornService.vendor_contact.email;
-  newPhoneNo = this.vendorService.selectedVendornService.vendor_contact.phone_number;
-  newExtension = this.vendorService.selectedVendornService.vendor_contact.extension_number;
-  newMobileNo = this.vendorService.selectedVendornService.vendor_contact.mobile;
-  newFax = this.vendorService.selectedVendornService.vendor_contact.fax_number;
+  newPrefix = this.vendorService.selectedVendornService.vendor_contact[0].prefix;
+  newFirstName = this.vendorService.selectedVendornService.vendor_contact[0].first_name;
+  newMiddleName = this.vendorService.selectedVendornService.vendor_contact[0].middle_name;
+  newLastName = this.vendorService.selectedVendornService.vendor_contact[0].last_name;
+  newEmail = this.vendorService.selectedVendornService.vendor_contact[0].email;
+  newPhoneNo = this.vendorService.selectedVendornService.vendor_contact[0].phone_number;
+  newExtension = this.vendorService.selectedVendornService.vendor_contact[0].extension_number;
+  newMobileNo = this.vendorService.selectedVendornService.vendor_contact[0].mobile;
+  newFax = this.vendorService.selectedVendornService.vendor_contact[0].fax_number;
 
   ngOnInit() {
     this.addVendorForm = new FormGroup({
@@ -89,6 +95,8 @@ export class vendorViewComponent implements OnInit {
       'mobileNo': new FormControl(null, [Validators.required]),
       'fax': new FormControl(null, [Validators.required]),
     })
+
+    this.vendorService.selectedVendornService.evalList = this.vendorService.selectedVendornService.vendor_evaluation;
   }
   onAddEnquiry() {
     this.testEntry = {
@@ -97,6 +105,7 @@ export class vendorViewComponent implements OnInit {
       vendor_type: this.newType,
       products: this.newProducts,
       tax_id: this.newTaxId,
+      services: this.newServices,
       vendor_address: {
         country: this.newCountry,
         address_1: this.newAddress1,
@@ -123,7 +132,7 @@ export class vendorViewComponent implements OnInit {
         first_name: this.newFirstName,
         email: this.newEmail,
       }],
-      vendor_evaluation: [],
+      vendor_evaluation: this.evaluationList,
       created_by: "Johnny",
       created_date: this.vendorService.selectedVendornService.created_date,
     };
@@ -132,13 +141,13 @@ export class vendorViewComponent implements OnInit {
     this.vendorService.updateVendors(data)
       .subscribe((data) => {
         console.log(data)
-        this.vendorService.vendorList.push(this.testEntry);
       });
     this._location.back();
   }
 
   showDialog() {
-    this.display = true;
+    this.dialogDisplayService.display = true;
   }
+
 
 }

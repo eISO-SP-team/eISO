@@ -10,6 +10,8 @@ export class VendorService {
 
   evalData: any;
 
+  evalList: any = [];
+
   vendorSubject: BehaviorSubject<any>;
 
   selectedVendornService: any;
@@ -46,7 +48,7 @@ export class VendorService {
   }
 
   updateVendors(vendor: any) {
-    return this.http.post('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/vendor/' + vendor.id, vendor, {
+    return this.http.put('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/vendor/' + vendor.id, vendor, {
     });
   }
 
