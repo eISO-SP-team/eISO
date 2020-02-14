@@ -62,7 +62,6 @@ import { ProcessControlModuleComponent } from './process-control-module/process-
 import { ProcesscontrolCreateComponent } from './processcontrol-create/processcontrol-create.component';
 import { DialogModule } from 'primeng/dialog';
 import { DesignModuleProjectsComponent } from './design-module-projects/design-module-projects.component';
-import { UploadService } from "./shared/service/upload.service";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { DeliveryCreateComponent } from './delivery-create/delivery-create.component';
 import { DeliveryListComponent } from './delivery-list/delivery-list.component';
@@ -159,7 +158,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     NgxSpinnerModule,
     // FusionChartsModule,
   ],
-  providers: [UploadService, QuotationService, PurchaserequisitionService, SalesorderService, DesignService, DeliveryService, CustomerService, VendorService, MessageService, ConfirmationService, ToggleDisplayService],
+  providers: [QuotationService, PurchaserequisitionService, SalesorderService, DesignService, DeliveryService, CustomerService, VendorService, MessageService, ConfirmationService, ToggleDisplayService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
