@@ -75,14 +75,22 @@ import { EvaluationFormComponent } from './evaluation-form/evaluation-form.compo
 import { ProcesscontrolViewComponent } from './processcontrol-view/processcontrol-view.component';
 import {RatingModule} from 'primeng/rating';
 import { GraphOneComponent } from './graph-one/graph-one.component';
-// import { FusionChartsModule } from 'angular-fusioncharts';
+import { FusionChartsModule } from 'angular-fusioncharts';
 
 // // Load FusionCharts
-// import * as FusionCharts from 'fusioncharts';
+import * as FusionCharts from 'fusioncharts';
 // // Load Charts module
-// import * as Charts from 'fusioncharts/fusioncharts.charts';
+import * as Charts from 'fusioncharts/fusioncharts.charts';
 // // Load themes
-// import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
+import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
+import { GraphTwoComponent } from './graph-two/graph-two.component';
+
+// Add dependencies to FusionChartsModule
+FusionChartsModule.fcRoot(
+  FusionCharts,
+  Charts,
+  FusionTheme
+)
 
 @NgModule({
   declarations: [
@@ -124,6 +132,7 @@ import { GraphOneComponent } from './graph-one/graph-one.component';
     EvaluationFormComponent,
     ProcesscontrolViewComponent,
     GraphOneComponent,
+    GraphTwoComponent,
   ],
   imports: [
     BrowserModule,
@@ -153,7 +162,7 @@ import { GraphOneComponent } from './graph-one/graph-one.component';
     NgbModule,
     ProgressBarModule,
     RatingModule,
-    // FusionChartsModule,
+    FusionChartsModule,
   ],
   providers: [UploadService, QuotationService, PurchaserequisitionService, SalesorderService, DesignService, DeliveryService, CustomerService, VendorService, MessageService, ConfirmationService, ToggleDisplayService],
   bootstrap: [AppComponent],
