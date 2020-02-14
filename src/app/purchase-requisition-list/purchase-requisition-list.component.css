@@ -1,3 +1,10 @@
+/* name of list */
+.dashboardname h2 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    padding-top: 1em;
+}
+
 /* REMOVE BORDER FROM BOXES IN LIST */
 ::ng-deep body .ui-dataview .ui-dataview-content {
     background-color: none;

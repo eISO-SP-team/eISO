@@ -2,7 +2,7 @@
     <div class="ui-g rcorners2">
 
         <div class="ui-g-12">
-            <div class="ui-g-6">
+            <div class="ui-g-6 formheader">
                 <h3>View Purchase Requisition</h3>
             </div>
             <div class="ui-g-6">
@@ -20,7 +20,7 @@
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Supplier Name</h3>
+                                <h3 class="first formdetails">Supplier Name</h3>
                                 <p-dropdown placeholder="Select a Supplier" [formControlName]="'supplier_id'"
                                     [virtualScroll]="true" [(ngModel)]="newSupplier_id" [options]="newList">
                                 </p-dropdown>
@@ -36,7 +36,7 @@
                         </div>
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Description</h3>
+                                <h3 class="first formdetails">Description</h3>
                                 <input type="text" [(ngModel)]="newDescription" pInputText
                                     [formControlName]="'description'" />
                             </span>
@@ -53,8 +53,8 @@
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Requestor</h3>
-                                <input type="text" [(ngModel)]="newRequestor" pInputText
+                                <h3 class="first formdetails">Requestor</h3>
+                                <input class="formtext" type="text" [(ngModel)]="newRequestor" pInputText
                                     [formControlName]="'requestor'" />
                             </span>
                             <span
@@ -66,8 +66,8 @@
                         </div>
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Terms</h3>
-                                <input type="text" [(ngModel)]="newTerms" pInputText [formControlName]="'terms'" />
+                                <h3 class="first formdetails">Terms</h3>
+                                <input class="formtext" type="text" [(ngModel)]="newTerms" pInputText [formControlName]="'terms'" />
                             </span>
                             <span
                                 *ngIf="!addRequisitionForm.get('terms').valid && addRequisitionForm.get('terms').touched"
@@ -83,8 +83,8 @@
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Total</h3>
-                                <input type="text" [(ngModel)]="newTotal" pInputText [formControlName]="'total'" />
+                                <h3 class="first formdetails">Total</h3>
+                                <input class="formtext" type="text" [(ngModel)]="newTotal" pInputText [formControlName]="'total'" />
                             </span>
                             <span
                                 *ngIf="!addRequisitionForm.get('total').valid && addRequisitionForm.get('total').touched"
@@ -97,8 +97,8 @@
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <div class="ui-g-12">
                             <span class="ui-float-label">
-                                <h3 class="first">Currency</h3>
-                                <input type="text" [(ngModel)]="newCurrency" pInputText
+                                <h3 class="first formdetails">Currency</h3>
+                                <input class="formtext" type="text" [(ngModel)]="newCurrency" pInputText
                                     [formControlName]="'currency'" />
                             </span>
                             <span

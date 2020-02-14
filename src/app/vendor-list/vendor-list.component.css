@@ -1,16 +1,56 @@
+/* name of list */
+.dashboardname h2 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    padding-top: 1em;
+}
+
+/* APPROVED LABEL */
 .vendor-label-approved {
     border-radius: 10px;
-    border: lightgreen 1px solid;
+    border: rgb(2, 102, 2) 1px solid;
     background-color: green;
     text-align: center;
 }
 
+.vendor-label-approved h3 {
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: 600;
+    padding-top: 0.5em;
+}
+
+/* PENDING LABEL */
 .vendor-label-pending {
     border-radius: 10px;
     border: lightpink 1px solid;
     background-color: rgb(231, 74, 97);
     text-align: center;
 }
+
+.vendor-label-pending h3 {
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: 600;
+    padding-top: 0.5em;
+}
+
+/* VENDOR LIST TABLE */
+.vendornametable {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    overflow:auto;
+}
+
+/* INNER TABLE IN VENDOR LIST */
+/* .vendorinnerbox {
+    border-bottom: 1px grey solid;
+} */
 
 p {
     margin: 0;
@@ -21,41 +61,16 @@ body {
     background-color: rgb(238, 238, 238);
 }
 
-.fieldset-bg {
-    margin-top: 5px;
-    border-radius: 25px;
-    background-color: white;
-    border: lightgray 2px solid;
-}
-
- .quotation_header {
+/* 
+.quotation_header {
     font-size: 1em;
     font-weight: bold;
     margin-left: 0;
     padding: 0;
 }
 
-.list_header {
-    font-size: 1em;
-    font-weight: bold;
-    margin: 0;
-    padding: 0;
-}
-
 .ui-dataview {
     margin-top: 10px;
-}
+} */
 
-.fieldset-list {
-    margin-top: 5px;
-    margin-bottom: 20px;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: white;
-    border: grey 1px solid;
-    overflow:auto;
-}
 
-.p-grid {
-    display: block;
-} 

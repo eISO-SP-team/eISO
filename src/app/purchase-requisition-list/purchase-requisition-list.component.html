@@ -1,5 +1,5 @@
 <div class="ui-g-12">
-    <div class="ui-g-12">
+    <div class="ui-g-12 dashboardname">
         <h2 style="align-content: center;">Purchase Requisition</h2>
     </div>
     <div class="ui-g-12">
@@ -9,7 +9,7 @@
 </div>
 <div class="ui-g-12">
 
-    <p-dataView [value]="requisitionList" #gg class="ui-dataview" [paginator]="true" filterBy="requestor,pr_number"
+    <p-dataView [value]="requisitionList" #pr class="ui-dataview" [paginator]="true" filterBy="requestor,pr_number"
         [rows]="10">
         <p-header>
             <div class="ui-helper-clearfix">
@@ -22,7 +22,7 @@
                         <div class="ui-g-1 search">
                             <i class="fa fa-search searchicon" style="margin:4px 4px 0 0"></i></div>
                         <div class="ui-g-11 search"><input type="text" pInputText placeholder="Search"
-                                (input)="gg.filter($event.target.value)" style="width:100%; border:none;">
+                                (input)="pr.filter($event.target.value)" style="width:100%; border:none;">
                         </div>
                     </div>
                 </div>

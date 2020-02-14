@@ -1,8 +1,8 @@
-
+<div class="ui-g-12">
 <h2>Comments</h2>
 <p>Enter A Comment Here</p>
 <form [formGroup]="addCommentsForm" (ngSubmit)="onAddNewComment()">
-    <textarea class="form-control" [formControlName]="'description'" style="width: 100%;" rows="3"></textarea>
+    <textarea class="form-control formtext" [formControlName]="'description'" style="width: 100%;" rows="3"></textarea>
     <button pButton [disabled]="!addCommentsForm.valid" type="submit" label="Post"></button>
 </form>
 <div style="margin-top: 2em;margin-bottom: 2em;"></div>
@@ -22,4 +22,5 @@
         {{comments.description}}<br />
     </div>
 
+</div>
 </div>
