@@ -2,11 +2,11 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import * as FusionCharts from 'fusioncharts';
 
 @Component({
-  selector: 'app-graph-two',
-  templateUrl: './graph-two.component.html',
-  styleUrls: ['./graph-two.component.css']
+  selector: 'app-graph-three',
+  templateUrl: './graph-three.component.html',
+  styleUrls: ['./graph-three.component.css']
 })
-export class GraphTwoComponent implements OnInit {
+export class GraphThreeComponent implements OnInit {
 
 
 
@@ -33,11 +33,11 @@ export class GraphTwoComponent implements OnInit {
   dataSource = {
     "chart": {
       //Set the chart caption
-      "caption": "Sales Overview",
+      "caption": "Sales Figures",
       //Set the chart subcaption
-      "subCaption": "(Amount of sales from each product).",
+      "subCaption": "(Sales figure of each sales executive).",
       //Set the x-axis name
-      "xaxisname": "Product category",
+      "xaxisname": "Sales executives",
       //Set the y-axis name
       "yaxisname": "Amount (In USD)",
       // numberSuffix: "K",
@@ -51,17 +51,17 @@ export class GraphTwoComponent implements OnInit {
     },
 
     "data": [{
-      "label": "Cement",
-      "value":  "620000",
+      "label": "Kelly",
+      "value": "620000",
       "link": "newchart-xml-kelly"
     },
     {
-      "label": "Tiles",
+      "label": "Bob",
       "value": "810000",
       "link": "newchart-xml-bob"
     },
     {
-      "label": "Carpentry",
+      "label": "Dwight",
       "value": "350000",
       "link": "newchart-xml-dwight"
     }
@@ -70,21 +70,21 @@ export class GraphTwoComponent implements OnInit {
       "id": "kelly",
       "linkedchart": {
         "chart": {
-          "caption": "Cement brands ",
-          "subcaption": " (sales figure from respective brands)",
+          "caption": "Kelly's Clients ",
+          "subcaption": " (sales figure from respective categories)",
           "numberprefix": "$",
           "theme": "fusion",
           "rotateValues": "0",
           "plottooltext": "$label, $dataValue,  $percentValue"
         },
         "data": [{
-          "label": "CNBM",
+          "label": "Renovation",
           "value": "291000"
         }, {
-          "label": "Jidong",
+          "label": "Maintenance",
           "value": "157000"
         }, {
-          "label": "Cemex",
+          "label": "Electrical wiring",
           "value": "172000"
         }]
       }
@@ -93,22 +93,22 @@ export class GraphTwoComponent implements OnInit {
       "id": "bob",
       "linkedchart": {
         "chart": {
-          "caption": "Tile brands",
-          "subcaption": "(sales figure from respective brands)",
+          "caption": "Bob's Clients",
+          "subcaption": "(sales figure from respective clients)",
           "numberprefix": "$",
           "theme": "fusion",
           "plottooltext": "$label, $dataValue,  $percentValue"
         },
         "data": [{
-          "label": "Malford",
+          "label": "Renovation",
           "value": "289000"
         },
         {
-          "label": "Hafary",
+          "label": "Maintenance",
           "value": "124800"
         },
         {
-          "label": "GF+A Global",
+          "label": "Electrical wiring",
           "value": "396200"
         }
         ]
@@ -118,28 +118,28 @@ export class GraphTwoComponent implements OnInit {
       "id": "dwight",
       "linkedchart": {
         "chart": {
-          "caption": "Type of wood sold",
-          "subcaption": "(sales figure from respective types)",
+          "caption": "Dwight's Clients",
+          "subcaption": "(sales figure from respective clients)",
           "numberprefix": "$",
           "theme": "fusion",
           "rotateValues": "0",
           "plottooltext": "$label, $dataValue,  $percentValue"
         },
         "data": [{
-          "label": "Cedarwood",
+          "label": "Renovation",
           "value": "132000‬"
         }, {
-          "label": "Rosewood",
+          "label": "Maintenance",
           "value": "73000"
         }, {
-          "label": "Timber",
+          "label": "Electrical wiring",
           "value": "145000"
         }]
       }
     }
     ]
   };
-  constructor(private zone: NgZone) { 
+  constructor(private zone: NgZone) {
 
     // width: "90%",
     // height: 490, 
@@ -152,12 +152,13 @@ export class GraphTwoComponent implements OnInit {
     //     resizeTo(700,400)
     //   }
     // };
-    
-      //  this.width = '60%';
-      // this.height = '400';
+
+    //  this.width = '60%';
+    // this.height = '400';
   }
 
   ngOnInit() {
 
   }
+
 }

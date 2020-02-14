@@ -1,0 +1,17 @@
+<html>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+<!-- <fusioncharts [type]="type" [width]="width" [height]="height" [dataSource]="dataSource">
+</fusioncharts> -->
+
+<div class="graphClass">
+    <fusioncharts type="column2d" class="sizeCharts" dataFormat="json" [dataSource]="dataSource"
+        (initialized)="initialized($event)"></fusioncharts>
+</div>
+
+
+</html>

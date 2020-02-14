@@ -86,6 +86,8 @@ import * as Charts from 'fusioncharts/fusioncharts.charts';
 import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 import { GraphTwoComponent } from './graph-two/graph-two.component';
 import { PurchaseViewComponent } from './purchase-view/purchase-view.component';
+import { GraphThreeComponent } from './graph-three/graph-three.component';
+import { DeliveryViewComponent } from './delivery-view/delivery-view.component';
 
 
 // Add dependencies to FusionChartsModule
@@ -137,6 +139,8 @@ FusionChartsModule.fcRoot(
     GraphTwoComponent,
     DesignModuleViewComponent,
     PurchaseViewComponent,
+    GraphThreeComponent,
+    DeliveryViewComponent,
   ],
   imports: [
     BrowserModule,
