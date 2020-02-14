@@ -40,6 +40,8 @@ export class QuotationViewComponent implements OnInit {
 
   newList: SelectItem[];
 
+  newList2: SelectItem[];
+
   newEdit: any;
 
   maxCount: any;
@@ -49,6 +51,11 @@ export class QuotationViewComponent implements OnInit {
   constructor(public quotationService: QuotationService, public vendorService: VendorService, public _location: Location) { }
 
   ngOnInit() {
+    this.newList2 = [
+      { label: "Pending", value: "Pending" },
+      { label: "Completed", value: "Completed" }
+    ]
+
     console.log(this.quotationService.selectedQuotationInService);
     this.vendorList = this.vendorService.loadVendors().subscribe(responseData => {
       this.vendorService.vendorList = responseData;

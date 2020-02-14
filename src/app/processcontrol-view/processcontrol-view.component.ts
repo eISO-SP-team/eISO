@@ -142,8 +142,9 @@ export class ProcesscontrolViewComponent implements OnInit {
       "customer_email": this.newCustomer_email,
       "start_date": this.newStart_date,
       "end_date": this.newEnd_date,
-      "tender_location": "newhome",
-      "status": "pending",
+      "tender_location": this.newTender_location,
+      "status": this.projectLINK.status,
+      "uploaded_by": "Jack",
       "process_control_details": {
         "header_id": "213",
         "due_date": "2019-11-26",

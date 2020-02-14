@@ -33,7 +33,9 @@ export class QuotationCreateComponent implements OnInit {
 
   activeIndex: number = 0;
 
-  newList: SelectItem[ ];
+  newList: SelectItem[];
+
+  newList2: SelectItem[];
 
   testEntry: any;
 
@@ -44,6 +46,11 @@ export class QuotationCreateComponent implements OnInit {
   constructor(public quotationService: QuotationService, public vendorService: VendorService, public _location: Location, private confirmationservice: ConfirmationService, public fileUploadService: FileUploadService) { }
 
   ngOnInit() {
+    this.newList2 = [
+      {label:"Pending", value:"Pending"},
+      {label:"Completed", value:"Completed"}
+    ]
+
     this.quotationList = this.quotationService.loadQuotation().subscribe(responseData => {
       this.quotationService.quotationList = responseData.body;
       this.quotationList = this.quotationService.quotationList;
@@ -130,7 +137,7 @@ export class QuotationCreateComponent implements OnInit {
       this.fileUploadService.uploadFile(file).subscribe((result) => {
         console.log((<any>result).body);
       })
-  
+
     }
   }
 

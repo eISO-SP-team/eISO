@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { Location } from '@angular/common';
 import { SelectItem } from 'primeng/api'
 import { formatDate } from '@angular/common';
 import { ConfirmationService, Message } from 'primeng/api';
 import { FileUploadService } from "../shared/service/file-upload.service";
-import { Router } from '@angular/router';
-import {RatingModule} from 'primeng/rating';
+import { VendorService } from '../shared/service/vendor.service';
+
 
 @Component({
   selector: 'app-evaluation-form',
@@ -23,7 +22,9 @@ export class EvaluationFormComponent implements OnInit {
 
   quality: number;
 
-  constructor(private confirmationservice: ConfirmationService) { }
+  myDate = formatDate(new Date(), 'yyyy/MM/dd', 'en');
+
+  constructor(private confirmationservice: ConfirmationService, public vendorService: VendorService) { }
 
   ngOnInit() {
 
