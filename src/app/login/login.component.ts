@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ElementRef  } from '@angular/core';
 import { ToggleDisplayService } from "../shared/service/toggle-display.service";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
+import {PasswordModule} from 'primeng/password';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 
 export class LoginComponent implements OnInit {
 
-  constructor(public toggleDisplayService: ToggleDisplayService, public router: Router) {
+  constructor(public toggleDisplayService: ToggleDisplayService, public router: Router, public ef:ElementRef) {
     // this.toggleDisplayService.getLoginListener().subscribe(loginValue => {
     //   if (this.toggleDisplayService.isLogin == true) {
     //     console.log("Login Successfully");
@@ -22,6 +23,7 @@ export class LoginComponent implements OnInit {
     //   }
     // })
   }
+  hide : boolean;
 
   loginForm: FormGroup;
 
@@ -32,6 +34,7 @@ export class LoginComponent implements OnInit {
       'username': new FormControl(null, [Validators.required]),
       'password': new FormControl(null, [Validators.required]),
     })
+    this.hide = true;
   }
 
   onLogin() {
@@ -58,4 +61,19 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['sales-module']);
   }
 
+  showPass(){
+      // if (this.('type')== 'password'){
+        
+      // }
+
+      // if ( this.ef.nativeElement.type == "password"){
+      //   this.ef.nativeElement.type = "text";
+      //   this.ef.nativeElement.class = "fa fa-eye-slash eyePos";
+      // }
+      // if (this.hide == !true){
+      //   this.ef.nativeElement.class = "fa fa-eye-slash eyePos"
+      // }
+      this.hide = !this.hide;
+      
+  }
 }

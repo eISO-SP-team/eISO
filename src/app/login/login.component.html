@@ -2,6 +2,7 @@
 
 <link rel="stylesheet" href="../../assets/css/gStyles.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,400i,600,700&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- <link rel="stylesheet" href="login.component.css"> -->
 
 <main id="main-container nFont">
@@ -50,11 +51,13 @@
                                 </div> -->
 
                                 <div>
-                                    <span class="ui-float-label">
-                                        <input type="text" [formControlName]="'username'" id="login"
-                                            class="form-control userInput nFont" name="login-username" pInputText>
-                                        <label for="login-username"> Username </label>
-                                    </span>
+                                    <div class="ui-g-12">
+                                        <span class="ui-float-label">
+                                            <input type="text" [formControlName]="'username'" id="login"
+                                                class="form-control userInput nFont" name="login-username" pInputText>
+                                            <label for="login-username"> Username </label>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -69,11 +72,23 @@
                                     <label for="login-password">Password</label>
                                 </div> -->
                                 <div>
-                                    <span class="ui-float-label">
-                                        <input type="text" [formControlName]="'password'" id="password" name="login"
-                                            class="form-control passInput nFont" pInputText>
-                                        <label for="login-password"> Password </label>
-                                    </span>
+                                    <div class="ui-g-11">
+                                        <span class="ui-float-label">
+                                            <!-- <input type="password" [formControlName]="'password'" id="password"
+                                                name="login" class="form-control passInput nFont" pPassword> -->
+                                            <input [type]="hide ? 'password' : 'text'" [formControlName]="'password'" id="password"
+                                                name="login" class="form-control passInput nFont" pPassword>
+                                            
+                                            <label for="login-password"> Password </label>
+                                        </span>
+                                    </div>
+                                    <div class="ui-g-1">
+                                        
+                                        <!-- <i class="fa fa-eye eyePos" (click)="showPass()"></i> -->
+                                        <!-- <i class="fa fa-eye eyePos" (click)="showPass()" > </i> -->
+                                        <i class="fa eyePos" [ngClass]="{'fa-eye-slash': hide , 'fa-eye': !hide }" (click)="showPass()" > </i>
+                                       
+                                    </div>
                                 </div>
 
                             </div>
@@ -81,19 +96,21 @@
 
                         <input type="submit" [disabled]="!loginForm.valid"
                             class="btn btn-sm btn-hero btn-alt-primary fadeIn fourth" value="Log In">
-                        
-                            <button class= "byPassBut btn btn-sm btn-hero btn-alt-success fadeIn fourth"(click)="byPass()"> (Bypass)</button>
-                        
 
-                        <div id="formFooter" class = "formBottom">
-                            <div class="signUpBut"> No account? <a class="underlineHover " href="#"> Sign Up Here!</a> </div>
+                        <button class="byPassBut btn btn-sm btn-hero btn-alt-success fadeIn fourth" (click)="byPass()">
+                            (Bypass)</button>
+
+
+                        <div id="formFooter" class="formBottom">
+                            <div class="signUpBut"> No account? <a class="underlineHover " href="#"> Sign Up Here!</a>
+                            </div>
                             <a class="underlineHover forgotPass" href="#">Forgot Password?</a>
                         </div>
                     </form>
 
 
                     <!-- Remind Passowrd -->
-                    
+
 
                 </div>
             </div>

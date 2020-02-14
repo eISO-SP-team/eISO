@@ -1,0 +1,122 @@
+::ng-deep .fieldset-list {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    background-color: white;
+}
+.designBLbtn {
+  background-color: blue;
+  color: white;
+  border-radius: 3px;
+  border: 1px black solid;
+  width: 100px;
+  height: 40px;
+  justify-content: center;
+  text-align: center;
+}
+table {
+    width: 100%;
+    text-align: center;
+}
+
+table.roundedCorners { 
+    border: 1px solid DarkOrange;
+    border-radius: 13px; 
+    border-spacing: 0;
+    }
+  table.roundedCorners td, 
+  table.roundedCorners th { 
+    border-bottom: 1px solid DarkOrange;
+    padding: 10px; 
+    }
+  table.roundedCorners tr:last-child > td {
+    border-bottom: none;
+  }
+
+  /* BIG FORM TITLE */
+.formheader h3 {
+  font-size: 2.7rem;
+  font-weight: 900;
+  padding-left: 0.3em;
+}
+
+/* 2nd header - address, contact*/
+.formnames h2 {
+  font-size: 1.5em;
+  font-weight: 600;
+  padding: 1em 2em 1em 1.25em;
+}
+
+/* 3rd header - quotation id, cust type */
+.formdetails {
+  font-size: 1.142857rem !important;
+  font-weight: none;
+  cursor: text;
+  z-index: 2;
+  text-align: left;
+  border: none;
+  color: grey;
+}
+
+.rcorners2 {
+  transition: opacity .2s ease-out;
+  margin: 0 auto;
+  padding: 20px 20px 1px;
+  width: 100%;
+  overflow-x: visible;
+  background-color: white;
+  }
+
+
+::ng-deep .ui-float-label {
+  padding-left: 0;
+  padding-right: 0;
+  border-color: transparent;
+  border-radius: 0;
+  background-color: transparent;
+  box-shadow: 0 1px 0 #d4dae3;
+  transition: box-shadow .3s ease-out;
+}
+
+/* input fields in the form (e.g. removes input box border) */
+.formtext {
+  border: none; 
+}
+
+/* changes the colour of the text you type */
+.formtext:focus {
+  color: #1568ac;
+}
+
+/* create button styles */
+.designBLbtn {
+  background-color: #C8E2F8;
+  border-radius: 3px;
+  border: 1px #1568ac;
+  width: 100px;
+  height: 40px;
+  justify-content: center;
+  text-align: center;
+  margin-left: 0.5em;
+  margin-top: 0.7em;
+}
+
+.designBLbtn label {
+color: #1568ac;
+vertical-align: middle !important;
+text-align: center;
+padding-top: 0.7em;
+}
+
+.designBLbtn:hover {
+  background-color: rgb(183, 214, 241);
+}
+
+/* file upload */
+.supportfileheader h2 {
+  font-size: 1.5em;
+  font-weight: 600;
+  padding-left: 1.05em;
+}

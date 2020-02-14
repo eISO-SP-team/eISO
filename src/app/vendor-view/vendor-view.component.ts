@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuItem } from 'primeng/api';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { VendorService } from "../shared/service/vendor.service";
 import { Location } from '@angular/common';
 import { formatDate } from '@angular/common';
+import { Router } from '@angular/router';
 
 interface Type {
   name: string;
@@ -29,11 +29,13 @@ export class vendorViewComponent implements OnInit {
 
   activeIndex: number = 0;
 
+  display: boolean;
+
   testEntry: any;
 
   myDate = formatDate(new Date(), 'yyyy/MM/dd', 'en');
 
-  constructor(public vendorService: VendorService, public _location: Location, ) {
+  constructor(public vendorService: VendorService, public _location: Location, public router: Router) {
     this.type = [
       { name: 'Approved', value: 'Pass' },
       { name: 'Pending', value: 'Fail' },
@@ -133,6 +135,10 @@ export class vendorViewComponent implements OnInit {
         this.vendorService.vendorList.push(this.testEntry);
       });
     this._location.back();
+  }
+
+  showDialog() {
+    this.display = true;
   }
 
 }

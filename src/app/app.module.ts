@@ -62,28 +62,35 @@ import { ProcessControlModuleComponent } from './process-control-module/process-
 import { ProcesscontrolCreateComponent } from './processcontrol-create/processcontrol-create.component';
 import { DialogModule } from 'primeng/dialog';
 import { DesignModuleProjectsComponent } from './design-module-projects/design-module-projects.component';
-import { UploadService } from "./shared/service/upload.service";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { DeliveryCreateComponent } from './delivery-create/delivery-create.component';
 import { DeliveryListComponent } from './delivery-list/delivery-list.component';
 import { PurchaseListComponent } from './purchase-list/purchase-list.component';
 import { PurchaseCreateComponent } from './purchase-create/purchase-create.component';
 import { CommentsComponent } from './comments/comments.component';
-import { SpinnerComponent } from './spinner/spinner.component';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { EvaluationFormComponent } from './evaluation-form/evaluation-form.component';
 import { ProcesscontrolViewComponent } from './processcontrol-view/processcontrol-view.component';
 import { RatingModule } from 'primeng/rating';
 import { GraphOneComponent } from './graph-one/graph-one.component';
+import { FusionChartsModule } from 'angular-fusioncharts';
 import { DesignModuleViewComponent } from "./design-module-view/design-module-view.component";
-// import { FusionChartsModule } from 'angular-fusioncharts';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 // // Load FusionCharts
-// import * as FusionCharts from 'fusioncharts';
+import * as FusionCharts from 'fusioncharts';
 // // Load Charts module
-// import * as Charts from 'fusioncharts/fusioncharts.charts';
+import * as Charts from 'fusioncharts/fusioncharts.charts';
 // // Load themes
-// import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
+import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
+import { GraphTwoComponent } from './graph-two/graph-two.component';
+
+// Add dependencies to FusionChartsModule
+FusionChartsModule.fcRoot(
+  FusionCharts,
+  Charts,
+  FusionTheme
+)
 
 @NgModule({
   declarations: [
@@ -121,10 +128,10 @@ import { DesignModuleViewComponent } from "./design-module-view/design-module-vi
     PurchaseListComponent,
     PurchaseCreateComponent,
     CommentsComponent,
-    SpinnerComponent,
     EvaluationFormComponent,
     ProcesscontrolViewComponent,
     GraphOneComponent,
+    GraphTwoComponent,
     DesignModuleViewComponent,
   ],
   imports: [
@@ -155,9 +162,11 @@ import { DesignModuleViewComponent } from "./design-module-view/design-module-vi
     NgbModule,
     ProgressBarModule,
     RatingModule,
+    NgxSpinnerModule,
     // FusionChartsModule,
+    FusionChartsModule,
   ],
-  providers: [UploadService, QuotationService, PurchaserequisitionService, SalesorderService, DesignService, DeliveryService, CustomerService, VendorService, MessageService, ConfirmationService, ToggleDisplayService],
+  providers: [QuotationService, PurchaserequisitionService, SalesorderService, DesignService, DeliveryService, CustomerService, VendorService, MessageService, ConfirmationService, ToggleDisplayService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

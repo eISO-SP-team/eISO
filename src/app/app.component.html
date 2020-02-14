@@ -6,17 +6,19 @@
 <div *ngIf="!toggleDisplayService.isViewable">
     <div class="ui-g">
         <!-- [ngbCollapse]="isCollapsed" -->
-        <div [ngbCollapse]="isCollapsed"  class="ui-g-10 ui-md-2 ui-lg-2 ui-g-nopad menuApp" style="padding: 0px;">
-            <app-menu (onClose)='onMenuClose($event)' data-simplebar="init" class="ui-g-10 ui-md-2 ui-lg-2 ui-g-nopad" style="position: fixed;height: 100%;"></app-menu>
+        <div [ngbCollapse]="isCollapsed" class="ui-g-10 ui-md-2 ui-lg-2 ui-g-nopad menuApp" style="padding: 0px;">
+            <app-menu (onClose)='onMenuClose($event)' data-simplebar="init" class="ui-g-10 ui-md-2 ui-lg-2 ui-g-nopad"
+                style="position: fixed;height: 100%;"></app-menu>
         </div>
         <div class="p-col ui-g-nopad applicationView">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
             <header class="page-header posSticky">
                 <div class="content-header posSticky">
                     <!-- <div class="content-header-section"> -->
-                    <button type="button" (click)="isCollapsed= !isCollapsed" class="btn btn-circle btn-dual-secondary" data-toggle="layout"
-                        data-action="sidebar_toggle">
+                    <button type="button" (click)="isCollapsed= !isCollapsed" class="btn btn-circle btn-dual-secondary"
+                        data-toggle="layout" data-action="sidebar_toggle">
                         <i class="fa fa-navicon"></i>
                     </button>
 
@@ -33,7 +35,11 @@
 
 <script src="../assets/js/ISO.app.min.js"></script>
 <script src="../assets/js/ISOapp.core.min.js"></script>
-<!-- styles for login -->
-
+<!-- styles for loading 
+https://github.danielcardoso.net/load-awesome/animations.html
+-->
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="square-jelly-box">
+    <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
 <!-- <router-outlet></router-outlet> -->
 <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>

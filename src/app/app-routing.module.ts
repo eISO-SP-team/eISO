@@ -47,9 +47,9 @@ const AppRoutes: Routes = [
   { path: 'deliveryCreate', component: DeliveryCreateComponent },
   { path: 'purchaseCreate', component: PurchaseCreateComponent },
   { path: 'evaluation-form', component: EvaluationFormComponent },
-  { path:'process-control-view/:idx', component:ProcesscontrolViewComponent },
-  { path:'designView/:idx', component:DesignModuleViewComponent },
-  { path: '*', redirectTo:"/sales-modules"}
+  { path: 'process-control-view/:idx', component: ProcesscontrolViewComponent },
+  { path: 'designView/:idx', component: DesignModuleViewComponent },
+  { path: '*', redirectTo: "/sales-modules" }
   // { path: '**', redirectTo:"/sales-modules"}
 
 ];
