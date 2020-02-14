@@ -3,7 +3,6 @@ import { DeliveryService } from "../shared/service/delivery.service";
 import { PurchaseorderService } from "../shared/service/purchaseorder.service";
 import { ConfirmationService, SelectItem } from 'primeng/api';
 import { Router } from '@angular/router';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-delivery-list',
