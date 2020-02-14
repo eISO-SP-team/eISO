@@ -36,21 +36,21 @@ export class DeliveryListComponent implements OnInit {
       });
     });
 
-    this.purchaseOrderService.getPurchaseorderListener().subscribe(() => {
-      this.getList = this.purchaseOrderService.loadPurchaseorders().subscribe((responsedata) => {
-        this.purchaseOrderList = (<any>responsedata).body;
-        console.log(this.purchaseOrderList);
-      })
-    })
+    // this.purchaseOrderService.getPurchaseorderListener().subscribe(() => {
+    //   this.getList = this.purchaseOrderService.loadPurchaseorders().subscribe((responsedata) => {
+    //     this.purchaseOrderList = (<any>responsedata).body;
+    //     console.log(this.purchaseOrderList);
+    //   })
+    // })
 
-    for (let j = 0; j < this.deliveryList.length; j++) {
-      for (let i = 0; i < this.purchaseOrderList.length; i++) {
-        console.log(this.deliveryList[j].po_number + "xxxx" + this.purchaseOrderList[i].id);
-        if (this.deliveryList[j].po_number == this.purchaseOrderList[i].id) {
-          this.filteredDeliveryList.push(this.deliveryList[j]);
-        }
-      }
-    }
+    // for (let j = 0; j < this.deliveryList.length; j++) {
+    //   for (let i = 0; i < this.purchaseOrderList.length; i++) {
+    //     console.log(this.deliveryList[j].po_number + "xxxx" + this.purchaseOrderList[i].id);
+    //     if (this.deliveryList[j].po_number == this.purchaseOrderList[i].id) {
+    //       this.filteredDeliveryList.push(this.deliveryList[j]);
+    //     }
+    //   }
+    // }
     
   }
 

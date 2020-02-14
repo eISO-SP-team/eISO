@@ -44,7 +44,7 @@ export class DeliveryViewComponent implements OnInit {
   maxCount: any;
 
   constructor(public fileUploadService: FileUploadService, public purchaseOrderService: PurchaseorderService, public deliveryService: DeliveryService, public _location: Location, private confirmationservice: ConfirmationService) {
-
+    
   }
   
     newDelivery_date = this.deliveryService.selectedDeliveryService.dr_date;
