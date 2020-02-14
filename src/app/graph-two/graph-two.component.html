@@ -7,11 +7,17 @@
 
 <div class="ui-g-12 ui-md-12 ui-lg-12">
   <div class="ui-g-12 ui-md-12 ui-lg-12">
-    <p>graph-one works!</p>
+    <p>graph-two works!</p>
     <!-- <div class="ui-g-12"> -->
     <div class="graphClass">
-      <fusioncharts width="700" height="400" type="Column2d" [dataSource]="dataSource" >
-      </fusioncharts>
+        <fusioncharts
+        type="column2d"
+        width="700"
+        height="400"
+        dataFormat="json"
+        [dataSource]="dataSource"
+        (initialized)="initialized($event)"
+    ></fusioncharts>
     </div>
     <!-- </div> -->
   </div>

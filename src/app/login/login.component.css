@@ -77,3 +77,9 @@ p.management.text-primary-dark.nFont {
 .passInput{
   margin-top: 15px !important;
 }
+
+.eyePos{
+  top: 28px;
+  position: relative;
+  cursor: pointer;
+}
