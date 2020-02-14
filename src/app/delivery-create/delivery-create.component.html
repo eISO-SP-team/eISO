@@ -10,8 +10,7 @@
                     (click)="this._location.back()" label="Cancel"></button>
             </div>
         </div>
-        <form [formGroup]="addDeliveryForm"
-            (ngSubmit)="confirm(quotation_number,customer_id,date,subject,pic,tenderLocation,picEmail,total,deposit)">
+        <form [formGroup]="addDeliveryForm" (ngSubmit)="confirm()">
             <div class="ui-g">
                 <div style=" overflow: visible;" class="fieldset-list ui-g-12">
                     <div class="ui-g-12">
@@ -31,15 +30,13 @@
                                     </span>
                                 </span>
                             </div>
-
                         </div>
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
                                     <h3 class="first">Location</h3>
-                                    <p-dropdown [formControlName]="'location'" [virtualScroll]="true" itemSize="3"
-                                        [options]="newList" placeholder="Select Customer">
-                                    </p-dropdown>
+                                    <input class="form-control formtext" type="text" pInputText
+                                        [formControlName]="'location'" />
                                 </span>
                                 <span
                                     *ngIf="!addDeliveryForm.get('location').valid && addDeliveryForm.get('location').touched"
@@ -52,15 +49,31 @@
                             </div>
                         </div>
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
-                            <!--Empty-->
+                            <div class="ui-g-12">
+                                <span class="ui-float-label-2">
+                                    <h3 class="first formdetails">Purchase Order</h3>
+                                    <p-dropdown [formControlName]="'po_number'" [virtualScroll]="true" itemSize="3"
+                                        [options]="newList" placeholder="Select PO">
+                                    </p-dropdown>
+                                </span>
+                                <span
+                                    *ngIf="!addDeliveryForm.get('po_number').valid && addDeliveryForm.get('po_number').touched"
+                                    class="help-block">
+                                    <span>
+                                        <p-message *ngIf="addDeliveryForm.get('po_number').errors['required']"
+                                            severity="error" text="This field is required!"></p-message>
+                                    </span>
+                                </span>
+                            </div>
                         </div>
                     </div>
                     <div class="ui-g-12">
-                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                        <div class="ui-g-12 ui-md-12 ui-lg-6">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
                                     <h3 class="first formdetails">Remarks</h3>
-                                    <input class="form-control formtext" type="text" pInputText [formControlName]="'remarks'" />
+                                    <input class="form-control formtext" type="text" pInputText
+                                        [formControlName]="'remarks'" />
                                 </span>
                                 <span
                                     *ngIf="!addDeliveryForm.get('remarks').valid && addDeliveryForm.get('remarks').touched"
@@ -73,7 +86,7 @@
                             </div>
 
                         </div>
-                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                        <div class="ui-g-12 ui-md-12 ui-lg-6">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
                                     <h3 class="first formdetails">Received By</h3>
@@ -90,19 +103,22 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="ui-g-12 ui-md-12 ui-lg-4">
-                            <!--Empty-->
-                        </div>
                     </div>
-
-                </div>
-                <div class="fieldset-list ui-g-12 formnames">
-                    <h2>File Upload</h2>
-
                 </div>
                 <div class="fieldset-list ui-g-12 formnames">
                     <div class="ui-g-12">
-                        <app-comments></app-comments>
+                        <h2>Supporting File</h2>
+                        <div class="ui-g-12">
+                            <p-fileUpload name="demo[]" customUpload="true" (uploadHandler)="onUpload($event)"
+                                multiple="multiple">
+                                <ng-template pTemplate="content">
+                                    <ul *ngIf="uploadedFiles.length">
+                                        <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes -
+                                            {{file.type}}</li>
+                                    </ul>
+                                </ng-template>
+                            </p-fileUpload>
+                        </div>
                     </div>
                 </div>
             </div>

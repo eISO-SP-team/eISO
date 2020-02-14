@@ -23,6 +23,7 @@ import { PurchaseCreateComponent } from './purchase-create/purchase-create.compo
 import { EvaluationFormComponent } from "./evaluation-form/evaluation-form.component";
 import { ProcesscontrolViewComponent } from './processcontrol-view/processcontrol-view.component';
 import { DesignModuleViewComponent } from './design-module-view/design-module-view.component';
+import { PurchaseViewComponent } from './purchase-view/purchase-view.component';
 
 const AppRoutes: Routes = [
   { path: '', redirectTo: '/sales-module', pathMatch: 'full' },
@@ -49,6 +50,7 @@ const AppRoutes: Routes = [
   { path: 'evaluation-form', component: EvaluationFormComponent },
   { path: 'process-control-view/:idx', component: ProcesscontrolViewComponent },
   { path: 'designView/:idx', component: DesignModuleViewComponent },
+  { path: 'poView/:idx', component: PurchaseViewComponent },
   { path: '*', redirectTo: "/sales-modules" }
   // { path: '**', redirectTo:"/sales-modules"}
 

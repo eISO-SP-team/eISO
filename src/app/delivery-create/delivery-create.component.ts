@@ -1,21 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { DeliveryService } from "../shared/service/delivery.service";
-import { PurchaserequisitionService } from "../shared/service/purchaserequisition.service";
+import { PurchaseorderService } from "../shared/service/purchaseorder.service";
 import { Location } from '@angular/common';
 import { formatDate } from '@angular/common';
 import { SelectItem } from 'primeng/api'
 import { ConfirmationService, Message } from 'primeng/api';
-
-interface Type {
-  name: string;
-  value: string;
-}
-
-interface cust {
-  name: string;
-  value: string;
-}
+import { FileUploadService } from '../shared/service/file-upload.service';
 
 @Component({
   selector: 'app-delivery-create',
@@ -23,6 +14,8 @@ interface cust {
   styleUrls: ['./delivery-create.component.css']
 })
 export class DeliveryCreateComponent implements OnInit {
+
+  uploadedFiles: any[] = [];
 
   msgs: Message[] = [];
 
@@ -40,31 +33,52 @@ export class DeliveryCreateComponent implements OnInit {
 
   value: Date;
 
+  purchaseOrderList: any;
+
   newList: SelectItem[];
 
   processControlList: any;
 
   maxCount: any;
 
-  constructor(public purchaseRequisitionService: PurchaserequisitionService, public deliveryService: DeliveryService, public _location: Location, private confirmationservice: ConfirmationService) {
+  constructor(public fileUploadService: FileUploadService, public purchaseOrderService: PurchaseorderService, public deliveryService: DeliveryService, public _location: Location, private confirmationservice: ConfirmationService) {
 
   }
 
   ngOnInit() {
+
+    this.purchaseOrderList = this.purchaseOrderService.loadPurchaseorders().subscribe(responseData => {
+      this.purchaseOrderService.purchaseorderList = (<any>responseData).body;
+      for (let i = 0; i < this.purchaseOrderService.purchaseorderList.length; i++)
+        if (this.purchaseOrderService.purchaseorderList[i].purchase_id == this.purchaseOrderService.selectedPR) {
+          console.log(this.purchaseOrderService.purchaseorderList[i].purchase_id);
+          console.log(this.purchaseOrderService.selectedPR);
+          this.purchaseOrderList.push(this.purchaseOrderService.purchaseorderList[i]);
+        }
+      this.newList = [];
+      for (let i = 0; i < this.purchaseOrderList.length; i++) {
+        this.newList.push({ label: this.purchaseOrderList[i].remarks, value: this.purchaseOrderList[i].id });
+      }
+    });
+
     this.addDeliveryForm = new FormGroup({
       'delivery_date': new FormControl(null, [Validators.required]),
       'location': new FormControl(null, [Validators.required]),
       "remarks": new FormControl(null, [Validators.required]),
       "received_by": new FormControl(null, [Validators.required]),
+      "po_number": new FormControl(null, [Validators.required]),
     })
   }
 
   onAddEnquiry() {
     this.testEntry = {
-      'delivery_date': this.addDeliveryForm.value.delivery_date,
+      "po_number": "2131",
+      "dr_number": "9123",
+      'dr_date': this.addDeliveryForm.value.delivery_date,
       'location': this.addDeliveryForm.value.location,
       "remarks": this.addDeliveryForm.value.remarks,
       "received_by": this.addDeliveryForm.value.received_by,
+      "status": "Pending",
     };
 
     console.log(JSON.stringify(this.testEntry));
@@ -74,9 +88,20 @@ export class DeliveryCreateComponent implements OnInit {
         console.log(data)
         this.deliveryService.deliveryList.push(this.testEntry);
       });
-      
+
     this._location.back();
   }
+
+  onUpload(event) {
+    for (let file of event.files) {
+      this.uploadedFiles.push(file);
+      console.log(file);
+      this.fileUploadService.uploadFile(file).subscribe((result) => {
+        console.log((<any>result).body);
+      })
+    }
+  }
+
   confirm() {
     this.confirmationservice.confirm({
       message: 'Are you sure that you want to proceed?',

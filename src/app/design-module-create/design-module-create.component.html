@@ -157,7 +157,7 @@
                             <tr *ngFor="let dbl of desginBacklog">
                                 <td *ngIf="dbl.design_phase=='Design Output'">{{dbl.created_by}}</td>
                                 <td *ngIf="dbl.design_phase=='Design Output'">{{dbl.due_date}}</td>
-                                <td *ngIf="dbl.design_phase=='Design Control'">{{dbl.status}}</td>
+                                <td *ngIf="dbl.design_phase=='Design Output'">{{dbl.status}}</td>
                             </tr>
                         </table>
                     </p-tabPanel>

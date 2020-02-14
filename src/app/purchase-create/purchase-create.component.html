@@ -10,33 +10,34 @@
                     (click)="this._location.back()" label="Cancel"> </button>
             </div>
         </div>
-        <form [formGroup]="addPurchaseForm"
-            (ngSubmit)="confirm(supplier_id, purchase_id, location, eta, remarks, status)">
+        <form [formGroup]="addPurchaseForm" (ngSubmit)="confirm()">
             <div class="ui-g">
                 <div style=" overflow: visible;" class="fieldset-list ui-g-12">
                     <div class="ui-g-12">
-                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                        <div class="ui-g-12 ui-md-12 ui-lg-6">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
                                     <h3 class="first formdetails">Supplier ID</h3>
-                                    <input class="form-control formtext" type="text" pInputText [formControlName]="supplier_id" />
+                                    <input class="form-control formtext" [(ngModel)]="selectedVendor" type="text"
+                                        pInputText [formControlName]="'supplier_id'" />
                                 </span>
                                 <span
                                     *ngIf="!addPurchaseForm.get('supplier_id').valid && addPurchaseForm.get('supplier_id').touched"
                                     class="help-block">
                                     <span>
-                                        <p-message *ngIf="addPurchaseform.get('purchase_id').errors['required']"
+                                        <p-message *ngIf="addPurchaseform.get('supplier_id').errors['required']"
                                             severity="error" text="This field is required!"></p-message>
                                     </span>
                                 </span>
                             </div>
 
                         </div>
-                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                        <div class="ui-g-12 ui-md-12 ui-lg-6">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
                                     <h3 class="first formdetails">Purchase ID</h3>
-                                    <input class="form-control formtext" type="text" pInputText [formControlName]="purchase_id" />
+                                    <input class="form-control formtext" [(ngModel)]="selectedPR" type="text" pInputText
+                                        [formControlName]="'purchase_id'" />
                                 </span>
                                 <span
                                     *ngIf="!addPurchaseForm.get('purchase_id').valid && addPurchaseForm.get('purchase_id').touched"
@@ -47,19 +48,15 @@
                                     </span>
                                 </span>
                             </div>
-
-                        </div>
-                
-                        <div class="ui-g-12 ui-md-12 ui-lg-4">
-                            <!-- Empty -->
                         </div>
                     </div>
                     <div class="ui-g-12">
-                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                        <div class="ui-g-12 ui-md-12 ui-lg-6">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
                                     <h3 class="first formdetails">Location</h3>
-                                    <input class="form-control formtext" type="text" pInputText [formControlName]="'location'" />
+                                    <input class="form-control formtext" type="text" pInputText
+                                        [formControlName]="'location'" />
                                 </span>
                                 <span
                                     *ngIf="!addPurchaseForm.get('location').valid && addPurchaseForm.get('location').touched"
@@ -71,15 +68,14 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                        <div class="ui-g-12 ui-md-12 ui-lg-6">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
                                     <h3 class="first formdetails">ETA</h3>
                                     <input class="form-control formtext" type="text" pInputText
-                                        [formControlName]="'received_by'" />
+                                        [formControlName]="'eta'" />
                                 </span>
-                                <span
-                                    *ngIf="!addPurchaseForm.get('eta').valid && addPurchaseForm.get('eta').touched"
+                                <span *ngIf="!addPurchaseForm.get('eta').valid && addPurchaseForm.get('eta').touched"
                                     class="help-block">
                                     <span>
                                         <p-message *ngIf="addPurchaseForm.get('eta').errors['required']"
@@ -88,16 +84,14 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="ui-g-12 ui-md-12 ui-lg-4">
-                            <!--Empty-->
-                        </div>
                     </div>
                     <div class="ui-g-12">
-                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                        <div class="ui-g-12 ui-md-12 ui-lg-6">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
                                     <h3 class="first formdetails">Remarks</h3>
-                                    <input class="form-control formtext" type="text" pInputText [formControlName]="'location'" />
+                                    <input class="form-control formtext" type="text" pInputText
+                                        [formControlName]="'remarks'" />
                                 </span>
                                 <span
                                     *ngIf="!addPurchaseForm.get('remarks').valid && addPurchaseForm.get('remarks').touched"
@@ -109,12 +103,12 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="ui-g-12 ui-md-12 ui-lg-4">
+                        <div class="ui-g-12 ui-md-12 ui-lg-6">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
                                     <h3 class="first formdetails">Status</h3>
                                     <input class="form-control formtext" type="text" pInputText
-                                        [formControlName]="'remarks'" />
+                                        [formControlName]="'status'" />
                                 </span>
                                 <span
                                     *ngIf="!addPurchaseForm.get('status').valid && addPurchaseForm.get('status').touched"
@@ -126,22 +120,26 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="ui-g-12 ui-md-12 ui-lg-4">
-                            <!--Empty-->
-                        </div>
                     </div>
                 </div>
                 <div class="fieldset-list ui-g-12 formnames" style="padding-left: 2em;">
-                    <h2>File Upload</h2>
-
-                </div>
-                <div class="fieldset-list ui-g-12 formnames">
                     <div class="ui-g-12">
-                        <app-comments></app-comments>
+                        <h2>Supporting File</h2>
+                        <div class="ui-g-12">
+                            <p-fileUpload name="demo[]" customUpload="true" (uploadHandler)="onUpload($event)"
+                                multiple="multiple">
+                                <ng-template pTemplate="content">
+                                    <ul *ngIf="uploadedFiles.length">
+                                        <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes -
+                                            {{file.type}}</li>
+                                    </ul>
+                                </ng-template>
+                            </p-fileUpload>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="ui-g-12">
-                <button pButton [disabled]="!addPurchaseForm.valid" type="submit" label="Submit Purchase Order"></button>
+                <button pButton [disabled]="!addPurchaseForm.valid" type="submit" label="Submit"></button>
             </div>
         </form>

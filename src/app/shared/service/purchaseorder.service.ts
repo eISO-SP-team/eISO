@@ -13,9 +13,8 @@ export class PurchaseorderService {
 
   selectedPurchaseorderService: any;
 
-  purchaseorderList: any[] = [
-
-  ];
+  purchaseorderList: any;
+  selectedPR: any;
 
 
   constructor(public http: HttpClient) {
