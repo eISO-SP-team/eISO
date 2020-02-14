@@ -268,10 +268,43 @@
                     </div>
                 </div>
                 <div class="ui-g-12">
+                    <div class="ui-g-6">
+                        <h2>Vendor Evaluation</h2>
+                    </div>
+                    <div class="ui-g-6">
+                        <button pButton type="button" style="float:right; position: relative;" class="ui-button-primary"
+                            (click)="this.router.navigate(['/evaluation-form'])" label="Create"></button>
+                    </div>
+                    <div class="ui-g-12">
+                        <table class="roundedCorners">
+                            <tr>
+                                <th>Date</th>
+                                <th>Evaluated By</th>
+                                <th>Score</th>
+                                <th>Action</th>
+                            </tr>
+                            <tr>
+                                <td>31/01/2020</td>
+                                <td>Xiang Yuan</td>
+                                <td>85/100</td>
+                                <td>Not Needed</td>
+                            </tr>
+                            <!-- <tr *ngFor="let pcp of pcpList">
+                                <td *ngIf="pcp.design_phase=='PREPARATION'">{{pcp.created_by}}</td>
+                                <td *ngIf="pcp.design_phase=='PREPARATION'">{{pcp.due_date}}</td>
+                                <td *ngIf="pcp.design_phase=='PREPARATION'">{{pcp.status}}</td>
+                            </tr> -->
+                        </table>
+                    </div>
+                </div>
+                <div class="ui-g-12">
                     <app-comments></app-comments>
                 </div>
                 <button pButton [disabled]="!addVendorForm.valid" type="submit" label="Submit New Vendor"></button>
             </div>
         </form>
     </div>
+    <p-dialog header="New Evaluation" [(visible)]="display">
+        <app-evaluation-form></app-evaluation-form>
+    </p-dialog>
 </div>

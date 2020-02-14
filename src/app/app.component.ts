@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ToggleDisplayService } from './shared/service/toggle-display.service';
-import { Event, Router, NavigationStart, NavigationEnd } from '@angular/router';
+import { Event, Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 import { NgxSpinnerService } from "ngx-spinner";
 import { style } from '@angular/animations';
 
@@ -16,8 +16,6 @@ export class AppComponent {
 
   isCollapsed: boolean;
 
-  showLoadingIndicator: boolean = true;
-
   constructor(public toggleDisplayService: ToggleDisplayService, private router: Router, private spinner: NgxSpinnerService) {
     this.isCollapsed = false;
 
@@ -27,7 +25,7 @@ export class AppComponent {
         this.spinner.show();
       }
 
-      if (routerEvent instanceof NavigationEnd) {
+      if (routerEvent instanceof NavigationEnd || routerEvent instanceof NavigationError || routerEvent instanceof NavigationCancel) {
         setTimeout(() => {
           this.spinner.hide();
         }, 1000);

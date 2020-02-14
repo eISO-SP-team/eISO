@@ -68,7 +68,6 @@ import { DeliveryListComponent } from './delivery-list/delivery-list.component';
 import { PurchaseListComponent } from './purchase-list/purchase-list.component';
 import { PurchaseCreateComponent } from './purchase-create/purchase-create.component';
 import { CommentsComponent } from './comments/comments.component';
-import { SpinnerComponent } from './spinner/spinner.component';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { EvaluationFormComponent } from './evaluation-form/evaluation-form.component';
 import { ProcesscontrolViewComponent } from './processcontrol-view/processcontrol-view.component';
@@ -129,7 +128,6 @@ FusionChartsModule.fcRoot(
     PurchaseListComponent,
     PurchaseCreateComponent,
     CommentsComponent,
-    SpinnerComponent,
     EvaluationFormComponent,
     ProcesscontrolViewComponent,
     GraphOneComponent,
