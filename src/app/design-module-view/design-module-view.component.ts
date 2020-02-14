@@ -26,7 +26,6 @@ export class DesignModuleViewComponent implements OnInit {
   newStart_date_design: any = this.designService.selectedDesignInService.start_date;
   newEnd_date_design: any = this.designService.selectedDesignInService.end_date;
 
-
   designPlanList: any;
 
   designphases: options[];
@@ -35,7 +34,7 @@ export class DesignModuleViewComponent implements OnInit {
 
   backlogEntry: any;
 
-  desginBacklog = [];
+  desginBacklog: any[] = [];
 
   selectedCustomer: any;
 
@@ -57,13 +56,16 @@ export class DesignModuleViewComponent implements OnInit {
 
   maxCount: any;
 
-  blmaxCount: any = this.desginBacklog.length + 1;
+  blmaxCount: any = this.designService.designList.length + 1;
 
   display: boolean;
 
   selectedProject: any;
 
   constructor(public designService: DesignService, public router: Router, public _location: Location, public fileUploadService: FileUploadService) {
+    this.designService.designList = this.designService.selectedDesignInService.design_details;
+    this.desginBacklog = this.designService.designList;
+    console.log(this.desginBacklog);
   }
 
   ngOnInit() {
@@ -71,6 +73,7 @@ export class DesignModuleViewComponent implements OnInit {
       this.designPlanList = responseData.body;
       this.maxCount = this.designPlanList.length;
     })
+
 
     this.selectedProject = this.designService.selectedProject;
     console.log(this.selectedProject);
@@ -118,11 +121,11 @@ export class DesignModuleViewComponent implements OnInit {
     this.display = true;
   }
 
-  onSubmitDesignPlan() {
+  updateEdit() {
     this.testEntry = {
       "design_id": this.maxCount + 1,
       "project_id": this.maxCount + 1,
-      "project_name": "Project X",
+      "project_name": this.addDesignForm.value.project_name,
       "project_lead": this.addDesignForm.value.project_lead,
       "design_engineer": "Wolverine",
       "start_date": this.addDesignForm.value.start_date,
