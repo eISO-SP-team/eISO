@@ -1,37 +1,36 @@
-<p-dataView [paginator]="true" #ql  [value]="quotationList" class="ui-dataview"
-    filterBy="attention,subject" [rows]="10">
-    <p-dataView [value]="quotationList" #pc class="ui-dataview" [paginator]="true" 
-        filterBy="project_name,project_lead" [rows]="10">
+<p-dataView [paginator]="true" #ql [value]="quotationList" class="ui-dataview" filterBy="attention,subject" [rows]="3">
     <p-header>
         <div class="ui-helper-clearfix">
             <!-- <div class="ui-g"> -->
-                <!-- <div class="ui-g-12 ui-md-4">
+            <!-- <div class="ui-g-12 ui-md-4">
 
                 </div> -->
-                <div class="ui-g-6 ui-md-4 filter-container">
-                    <div style="position:relative">
-                        <div class="ui-g-1"><i class="fa fa-search searchicon" style="margin:4px 4px 0 0"></i></div>
-                        <div class="ui-g-11"><input type="text" pInputText placeholder="Search"
+            <div class="ui-g-6 ui-md-4 filter-container">
+                <div style="position:relative">
+                    <div class="ui-g-1"><i class="fa fa-search searchicon" style="margin:4px 4px 0 0"></i></div>
+                    <div class="ui-g-11"><input type="text" pInputText placeholder="Search"
                             (input)="ql.filter($event.target.value)" style="width:100%; border:none;"></div>
-                    </div>
                 </div>
-                <!-- <div class="ui-g-6 ui-md-4" style="text-align:right">
+            </div>
+            <!-- <div class="ui-g-6 ui-md-4" style="text-align:right">
                     
                 </div> -->
             <!-- </div> -->
         </div>
     </p-header>
     <p-footer>
-        
+
     </p-footer>
     <ng-template let-quotationList pTemplate="listItem">
         <div class="ui-dataview-content" style="padding: 0.5em 0em 0.5em 0em">
             <div class="ui-g-12">
                 <div class="ui-g-2" style="align-content: center;">
-                    <img src="../../assets/delete.png" (click)="confirm(this.quotationList)" width="30px" height="30px" alt="Logo">
+                    <img src="../../assets/delete.png" (click)="confirm(this.quotationList)" width="30px" height="30px"
+                        alt="Logo">
                 </div>
                 <div class="ui-g-4">
-                    <p class="quotation_header" style="font-weight:900">{{quotationList.subject}} - {{quotationList.quotation_number}}</p><br />
+                    <p class="quotation_header" style="font-weight:900">{{quotationList.subject}} -
+                        {{quotationList.quotation_number}}</p><br />
                     {{quotationList.attention}}<br />
                 </div>
                 <div class="ui-g-4">
