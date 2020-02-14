@@ -1,6 +1,5 @@
 <div class="ui-g-12">
-    <div class="formnames">
-<h2>Comments</h2></div>
+<h2>Comments</h2>
 <p>Enter A Comment Here</p>
 <form [formGroup]="addCommentsForm" (ngSubmit)="onAddNewComment()">
     <textarea class="form-control formtext" [formControlName]="'description'" style="width: 100%;" rows="3"></textarea>

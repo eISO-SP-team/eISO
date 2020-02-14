@@ -10,12 +10,12 @@
 }
 
 
-.bg-primary-dark-op h1 {
+.bigheader h1 {
     text-align: center;
-    color: #ffffff;
+    color: #000000;
+    background-color: #EBEBE0;
     vertical-align: middle;
     line-height: 170px;
-    margin-bottom:0 !important;
-    width: 100%;
+    margin-bottom:0 !important ;
 }
 

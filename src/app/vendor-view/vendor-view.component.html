@@ -270,11 +270,11 @@
                     </div>
                 </div>
                 <div class="ui-g-12">
-                    <div class="ui-g-6 formnames">
+                    <div class="ui-g-4 formnames">
                         <h2>Vendor Evaluation</h2>
                     </div>
-                    <div class="ui-g-12">
-                        <button pButton type="button" style="margin-left: 1.1em; position: relative;" class="ui-button-primary"
+                    <div class="ui-g-8">
+                        <button pButton type="button" style="float: left; position: relative;" class="ui-button-primary"
                             (click)="showDialog()" label="Create"></button>
                     </div>
                     <div class="ui-g-12">
@@ -302,7 +302,7 @@
                 <div class="ui-g-12">
                     <app-comments></app-comments>
                 </div>
-                <button pButton [disabled]="!addVendorForm.valid" type="submit" label="Submit" (click)="showDialog()"></button>
+                <button pButton [disabled]="!addVendorForm.valid" type="submit" label="Submit New Vendor" (click)="showDialog()"></button>
             </div>
         </form>
     </div>

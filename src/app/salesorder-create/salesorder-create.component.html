@@ -157,8 +157,7 @@
                 </div>
             </div>
 
-            <div class="formnames">
-            <h2>Supporting File</h2></div>
+            <h2>Supporting File</h2>
             <div class="ui-g-12">
                 <p-fileUpload name="demo[]" customUpload="true" (uploadHandler)="onUpload($event)" multiple="multiple"
                     maxFileSize="1000000">
@@ -173,7 +172,7 @@
 
             <div class="ui-g-12">
 
-                <button pButton [disabled]="!addSalesOrderForm.valid" type="submit" label="Submit"></button>
+                <button pButton [disabled]="!addSalesOrderForm.valid" type="submit" label="Submit Sales Order"></button>
 
             </div>
         </form>

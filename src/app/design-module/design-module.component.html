@@ -66,7 +66,7 @@
                 <p-button icon="pi pi-plus" iconPos="right" label="Add New Design Input"
                     (click)="this.router.navigate(['/selectproject'])"></p-button>
             </p>
-            <p-dataView [value]="inputList" #di class="ui-dataview" [paginator]="true" filterBy="project_name, project_lead" [rows]="3">
+            <p-dataView [value]="inputList" #di class="ui-dataview" [paginator]="true" filterBy="" [rows]="3">
                 <p-header>
                     <div class="ui-helper-clearfix">
                         <div class="ui-g-6 ui-md-4 filter-container">
@@ -116,7 +116,7 @@
                 <p-button icon="pi pi-plus" iconPos="right" label="Add New Design Control"
                     (click)="this.router.navigate(['/selectproject'])"></p-button>
             </p>
-            <p-dataView [value]="controlList" #dc class="ui-dataview" [paginator]="true" filterBy="project_name, project_lead" [rows]="3">
+            <p-dataView [value]="controlList" #dc class="ui-dataview" [paginator]="true" filterBy="" [rows]="3">
                 <p-header>
                     <div class="ui-helper-clearfix">
                         <div class="ui-g-6 ui-md-4 filter-container">
@@ -161,10 +161,10 @@
         <div class="ui-g-12 ui-md-12 ui-lg-6">
             <P class="dashboardname">Design Output</P>
             <p>
-                <p-button icon="pi pi-plus" iconPos="right" label="Add New Design Output"
+                <p-button icon="pi pi-plus" iconPos="right" label="Add New Design Control"
                     (click)="this.router.navigate(['/selectproject'])"></p-button>
             </p>
-            <p-dataView [value]="outputList" #do class="ui-dataview" [paginator]="true" filterBy="project_name, project_lead" [rows]="3">
+            <p-dataView [value]="outputList" #do class="ui-dataview" [paginator]="true" filterBy="" [rows]="3">
                 <p-header>
                     <div class="ui-helper-clearfix">
                         <div class="ui-g-6 ui-md-4 filter-container">
@@ -212,7 +212,7 @@
     <div class="ui-g-12">
         <div class="ui-g-12 ui-md-12 ui-lg-12">
             <P class="dashboardname">Completed Design Plans</P>
-            <p-dataView [value]="designList" #cdp class="ui-dataview" [paginator]="true" filterBy="project_name, project_lead" [rows]="3">
+            <p-dataView [value]="designList" #cdp class="ui-dataview" [paginator]="true" filterBy="" [rows]="3">
                 <p-header>
                     <div class="ui-helper-clearfix">
                         <div class="ui-g-6 ui-md-4 filter-container">

@@ -1,7 +1,4 @@
-<html>
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 
 
 
@@ -10,22 +7,18 @@
 
 <div class="ui-g-12 ui-md-12 ui-lg-12">
   <div class="ui-g-12 ui-md-12 ui-lg-12">
-    <P class="dashboardname"> Insights </P>
+    <p>graph-two works!</p>
     <!-- <div class="ui-g-12"> -->
-    <div class="ui-g-12 ui-md-12 ui-lg-6">
-      <div class="graphClass">
-        <fusioncharts type="column2d" class="sizeCharts" dataFormat="json" [dataSource]="dataSource"
-          (initialized)="initialized($event)"></fusioncharts>
-      </div>
-    </div>
-    <div class="ui-g-12 ui-md-12 ui-lg-6">
-      <div class="graphClass">
-      <fusioncharts type="column2d" class="sizeCharts" dataFormat="json" [dataSource]="dataSource"
-          (initialized)="initialized($event)"></fusioncharts>
-          </div>
+    <div class="graphClass">
+        <fusioncharts
+        type="column2d"
+        width="700"
+        height="400"
+        dataFormat="json"
+        [dataSource]="dataSource"
+        (initialized)="initialized($event)"
+    ></fusioncharts>
     </div>
     <!-- </div> -->
   </div>
 </div>
-
-</html>
