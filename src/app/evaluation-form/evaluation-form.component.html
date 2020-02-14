@@ -11,7 +11,7 @@
             </div>
         </div>
 
-        <form [formGroup]="addForm" (ngSubmit)="confirm($event)" class="nFont" >
+        <form [formGroup]="addForm" (ngSubmit)="confirm($event)" class="nFont">
 
             <div class="ui-g formnames">
                 <h2> Organisation </h2>
@@ -233,9 +233,9 @@
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
                                     <h3 class="first formdetails"> Result of Evaluation <i
-                                            class="fa fa-exclamation-circle" tooltipPosition="top"></i></h3>
-                                    <input pTooltip="Enter your username" class="form-control formtext" type="text"
-                                        pInputText [formControlName]="'resultOfEval'" />
+                                            class="fa fa-exclamation-circle" ></i></h3>
+                                    <input class="form-control formtext" type="text" pInputText
+                                        [formControlName]="'resultOfEval'" />
                                 </span>
                                 <!-- 
                                 <span *ngIf="!addForm.get('subject').valid && addForm.get('subject').touched"
@@ -260,7 +260,7 @@
                         </div>
                     </div>
                 </div>
-                <button pButton [disabled]="!addForm.valid" type="submit" label="Submit"  ></button>
+                <button pButton [disabled]="!addForm.valid" type="submit" label="Submit"></button>
             </div>
         </form>
     </div>

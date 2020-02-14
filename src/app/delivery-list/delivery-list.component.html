@@ -14,7 +14,7 @@
                         <div style="position:relative">
                             <div class="ui-g-1"><i class="fa fa-search searchicon" style="margin:4px 4px 0 0"></i></div>
                             <div class="ui-g-11"><input type="text" pInputText placeholder="Search"
-                                (input)="dl.filter($event.target.value)" style="width:100%; border:none;"></div>
+                                    (input)="dl.filter($event.target.value)" style="width:100%; border:none;"></div>
                         </div>
                     </div>
                     <div class="ui-g-6 ui-md-4" style="text-align:right">
@@ -31,21 +31,20 @@
                 <div class="ui-g-12">
                     <div class="ui-g-2" style="align-content: center;">
                         <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
-                        <img #img src="../../assets/delete.png" (click)="confirm(deliveryList)"
-                            width="30px" height="30px" alt="Logo">
+                        <img #img src="../../assets/delete.png" (click)="confirm(deliveryList)" width="30px"
+                            height="30px" alt="Logo">
                     </div>
                     <div class="ui-g-4">
-                        <!-- <p class="quotation_header" style="font-weight:900">{{deliveryList.subject}} - -->
-                            <!-- {{deliveryList.id}}</p><br /> -->
-                        <!-- {{deliveryList.pic}}<br /> -->
+                        <p class="quotation_header" style="font-weight:900">{{deliveryList.dr_number}}
+                            {{deliveryList.remarks}}<br />
                     </div>
                     <div class="ui-g-4">
-                        <!-- <p style="text-align: right;">{{deliveryList.sales_order_details.status}}</p> -->
+                        <p style="text-align: right;">{{deliveryList.status}}</p>
                         <br />
                     </div>
                     <div class="ui-g-2" style="align-content: center;">
-                        <button pButton type="button" icon="pi pi-search"
-                            (click)="viewEnquiry(deliveryList)" style="margin-top:0"></button>
+                        <button pButton type="button" icon="pi pi-search" (click)="viewEnquiry(deliveryList)"
+                            style="margin-top:0"></button>
                     </div>
                 </div>
             </div>

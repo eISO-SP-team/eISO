@@ -7,12 +7,13 @@ import { HttpClient } from "@angular/common/http";
 })
 export class PurchaserequisitionService {
 
- purchaserequisitionSubject: BehaviorSubject<any[]>;
+  purchaserequisitionSubject: BehaviorSubject<any[]>;
 
   selectedPurchaserequisitionService: any;
 
   purchaserequisitionList: any;
 
+  empty = [""];
 
   constructor(public http: HttpClient) {
     this.purchaserequisitionSubject = new BehaviorSubject<any[]>(this.purchaserequisitionList);
@@ -24,6 +25,8 @@ export class PurchaserequisitionService {
   }
 
   addPurchaserequisition(purchaserequisitions) {
+    this.purchaserequisitionList.push(this.empty);
+    this.purchaserequisitionSubject.next(this.purchaserequisitionList);
     return this.http.post('https://vr7zo9ukcl.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-requisition', purchaserequisitions, {
     });
   }
@@ -32,8 +35,10 @@ export class PurchaserequisitionService {
     return this.http.get('https://vr7zo9ukcl.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-requisition');
   }
 
-  updatePurchaserequisitions(enquiryId, newInfo) {
-    return this.http.put('https://vr7zo9ukcl.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-requisition/' + enquiryId, newInfo)
+  updatePurchaserequisitions(newInfo) {
+    this.purchaserequisitionList.push(newInfo);
+    this.purchaserequisitionSubject.next(this.purchaserequisitionList);
+    return this.http.put('https://vr7zo9ukcl.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-requisition/' + this.selectedPurchaserequisitionService.id, newInfo)
   }
 
   deletePurchaserequisition(enquiryId) {

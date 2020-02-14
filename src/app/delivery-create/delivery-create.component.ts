@@ -33,7 +33,9 @@ export class DeliveryCreateComponent implements OnInit {
 
   value: Date;
 
-  purchaseOrderList: any;
+  test: any;
+
+  purchaseOrderList = [];
 
   newList: SelectItem[];
 
@@ -47,7 +49,7 @@ export class DeliveryCreateComponent implements OnInit {
 
   ngOnInit() {
 
-    this.purchaseOrderList = this.purchaseOrderService.loadPurchaseorders().subscribe(responseData => {
+    this.test = this.purchaseOrderService.loadPurchaseorders().subscribe(responseData => {
       this.purchaseOrderService.purchaseorderList = (<any>responseData).body;
       for (let i = 0; i < this.purchaseOrderService.purchaseorderList.length; i++)
         if (this.purchaseOrderService.purchaseorderList[i].purchase_id == this.purchaseOrderService.selectedPR) {
@@ -57,6 +59,7 @@ export class DeliveryCreateComponent implements OnInit {
         }
       this.newList = [];
       for (let i = 0; i < this.purchaseOrderList.length; i++) {
+        console.log(this.purchaseOrderList[i].remarks);
         this.newList.push({ label: this.purchaseOrderList[i].remarks, value: this.purchaseOrderList[i].id });
       }
     });
@@ -67,13 +70,14 @@ export class DeliveryCreateComponent implements OnInit {
       "remarks": new FormControl(null, [Validators.required]),
       "received_by": new FormControl(null, [Validators.required]),
       "po_number": new FormControl(null, [Validators.required]),
+      "dr_number": new FormControl(null, [Validators.required]),
     })
   }
 
   onAddEnquiry() {
     this.testEntry = {
-      "po_number": "2131",
-      "dr_number": "9123",
+      "po_number": this.addDeliveryForm.value.po_number,
+      "dr_number": this.addDeliveryForm.value.dr_number,
       'dr_date': this.addDeliveryForm.value.delivery_date,
       'location': this.addDeliveryForm.value.location,
       "remarks": this.addDeliveryForm.value.remarks,

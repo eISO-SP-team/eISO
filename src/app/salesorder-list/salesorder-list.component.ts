@@ -27,8 +27,7 @@ export class SalesorderListComponent implements OnInit {
 
   constructor(public salesOrderService: SalesorderService, public router: Router, private confirmationservice: ConfirmationService) {
     this.salesOrderService.getSalesOrderListener()
-      .subscribe(newList => {
-        this.salesOrderList = newList;
+      .subscribe(() => {
         this.salesOrderTest = this.salesOrderService.loadSalesorder().subscribe(responseData => {
           this.salesOrderService.salesOrderList = responseData.body;
           this.salesOrderList = this.salesOrderService.salesOrderList;
@@ -44,9 +43,7 @@ export class SalesorderListComponent implements OnInit {
           }
         });
       });
-
   }
-
 
   ngOnInit() {
 

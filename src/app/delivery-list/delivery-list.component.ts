@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DeliveryService } from "../shared/service/delivery.service";
-import { ConfirmationService, Message } from 'primeng/api';
+import { ConfirmationService, Message, SelectItem } from 'primeng/api';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,6 +13,9 @@ export class DeliveryListComponent implements OnInit {
   deliveryList: any;
 
   deliveryTest: any;
+
+  newList: SelectItem[];
+
   index: number;
 
   constructor(public deliveryService: DeliveryService, public router: Router, private confirmationservice: ConfirmationService) {
@@ -21,6 +24,7 @@ export class DeliveryListComponent implements OnInit {
         this.deliveryList = newList;
         this.deliveryTest = this.deliveryService.loadDeliveries().subscribe(responseData => {
           this.deliveryService.deliveryList = (<any>responseData).body;
+          console.log("log list" + this.deliveryService.deliveryList);
           for (let i = 0; i < this.deliveryService.deliveryList.length; i++)
             if (this.deliveryService.deliveryList[i].purchase_id == this.deliveryService.selectedPR) {
               console.log(this.deliveryService.deliveryList[i].purchase_id);
