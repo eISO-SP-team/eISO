@@ -1,8 +1,8 @@
 <div class="ui-g">
-    <div class="ui-g rcorners2">
+    <div class="ui-g rcorners2 createpurchasepage">
 
         <div class="ui-g-12">
-            <div class="ui-g-6">
+            <div class="ui-g-6 formheader">
                 <h3>Add Purchase Order</h3>
             </div>
             <div class="ui-g-6">
@@ -18,8 +18,8 @@
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
-                                    <h3 class="first">Supplier ID</h3>
-                                    <input class="form-control" type="text" pInputText [formControlName]="supplier_id" />
+                                    <h3 class="first formdetails">Supplier ID</h3>
+                                    <input class="form-control formtext" type="text" pInputText [formControlName]="supplier_id" />
                                 </span>
                                 <span
                                     *ngIf="!addPurchaseForm.get('supplier_id').valid && addPurchaseForm.get('supplier_id').touched"
@@ -35,8 +35,8 @@
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
-                                    <h3 class="first">Purchase ID</h3>
-                                    <input class="form-control" type="text" pInputText [formControlName]="purchase_id" />
+                                    <h3 class="first formdetails">Purchase ID</h3>
+                                    <input class="form-control formtext" type="text" pInputText [formControlName]="purchase_id" />
                                 </span>
                                 <span
                                     *ngIf="!addPurchaseForm.get('purchase_id').valid && addPurchaseForm.get('purchase_id').touched"
@@ -58,8 +58,8 @@
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
-                                    <h3 class="first">Location</h3>
-                                    <input class="form-control" type="text" pInputText [formControlName]="'location'" />
+                                    <h3 class="first formdetails">Location</h3>
+                                    <input class="form-control formtext" type="text" pInputText [formControlName]="'location'" />
                                 </span>
                                 <span
                                     *ngIf="!addPurchaseForm.get('location').valid && addPurchaseForm.get('location').touched"
@@ -73,9 +73,9 @@
                         </div>
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <div class="ui-g-12">
-                                <span class="ui-float-label-2">
-                                    <h3 class="first">ETA</h3>
-                                    <input class="form-control" type="text" pInputText
+                                <span class="ui-float-label">
+                                    <h3 class="first formdetails">ETA</h3>
+                                    <input class="form-control formtext" type="text" pInputText
                                         [formControlName]="'received_by'" />
                                 </span>
                                 <span
@@ -96,8 +96,8 @@
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
-                                    <h3 class="first">Remarks</h3>
-                                    <input class="form-control" type="text" pInputText [formControlName]="'location'" />
+                                    <h3 class="first formdetails">Remarks</h3>
+                                    <input class="form-control formtext" type="text" pInputText [formControlName]="'location'" />
                                 </span>
                                 <span
                                     *ngIf="!addPurchaseForm.get('remarks').valid && addPurchaseForm.get('remarks').touched"
@@ -111,9 +111,9 @@
                         </div>
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <div class="ui-g-12">
-                                <span class="ui-float-label-2">
-                                    <h3 class="first">Status</h3>
-                                    <input class="form-control" type="text" pInputText
+                                <span class="ui-float-label">
+                                    <h3 class="first formdetails">Status</h3>
+                                    <input class="form-control formtext" type="text" pInputText
                                         [formControlName]="'remarks'" />
                                 </span>
                                 <span
@@ -131,14 +131,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="fieldset-list ui-g-12">
+                <div class="fieldset-list ui-g-12 formnames" style="padding-left: 2em;">
                     <h2>File Upload</h2>
 
                 </div>
-                <div class="fieldset-list ui-g-12">
-                    <div class="ui-g-12">
-                        <h2>Amount</h2>
-                    </div>
+                <div class="fieldset-list ui-g-12 formnames">
                     <div class="ui-g-12">
                         <app-comments></app-comments>
                     </div>
