@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Customer } from "../shared/model/customer.model";
 import { CustomerService } from "../shared/service/customer.service";
 import { Router } from '@angular/router';
-import {ConfirmationService, Message} from 'primeng/api';
+import { ConfirmationService, Message } from 'primeng/api';
 
 @Component({
   selector: 'app-customer-list',
@@ -31,26 +31,17 @@ export class CustomerListComponent implements OnInit {
     //this.quotationList = this.quotationService.quotationList;
     this.customerService.getCustomerListener()
       .subscribe(newList => {
-        // console.log("listener triggered");
-        // console.log(newList);
-        //listens the listener in the service, whenever the code 
-        //this.enquirySubject.next(this.quotationList); runs, the subscribe will be triggered and will receive the 
-        //new list that is being passed in
         this.customerList = newList;
         this.customersTest = this.customerService.loadCustomers().subscribe(responseData => {
           this.customerService.customerList = responseData.body;
           this.customerList = this.customerService.customerList;
-          // this.customerList = responseData;
-          // this.customerList = this.customerList.body;
-    
         });
-        // console.log(newList);
       });
 
   }
 
   ngOnInit() {
-    
+
   }
 
   viewEnquiry(selectedCustomer) {
@@ -68,7 +59,7 @@ export class CustomerListComponent implements OnInit {
           break;
         }
       }
-     this.customerList.splice(this.index, 1);
+      this.customerList.splice(this.index, 1);
       console.log('Vendor with id: ' + enquiry.id + ' has been deleted');
     });
 
@@ -76,17 +67,17 @@ export class CustomerListComponent implements OnInit {
 
   confirm(enquiry) {
     this.confirmationservice.confirm({
-        message: 'Are you sure that you want to proceed?',
-        header: 'Confirmation',
-        icon: 'pi pi-exclamation-triangle',
-        accept: () => {
-            this.msgs = [{severity:'info', summary:'Confirmed', detail:'You have accepted'}];
-            this.deleteEnquiry(enquiry);
-        },
-        reject: () => {
-            this.msgs = [{severity:'info', summary:'Rejected', detail:'You have rejected'}];
-        }
-      })
+      message: 'Are you sure that you want to proceed?',
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.msgs = [{ severity: 'info', summary: 'Confirmed', detail: 'You have accepted' }];
+        this.deleteEnquiry(enquiry);
+      },
+      reject: () => {
+        this.msgs = [{ severity: 'info', summary: 'Rejected', detail: 'You have rejected' }];
+      }
+    })
   }
 }
 

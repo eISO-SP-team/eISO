@@ -74,7 +74,6 @@ export class DesignModuleViewComponent implements OnInit {
       this.maxCount = this.designPlanList.length;
     })
 
-
     this.selectedProject = this.designService.selectedProject;
     console.log(this.selectedProject);
 
@@ -123,15 +122,15 @@ export class DesignModuleViewComponent implements OnInit {
 
   updateEdit() {
     this.testEntry = {
-      "design_id": this.maxCount + 1,
-      "project_id": this.maxCount + 1,
-      "project_name": this.addDesignForm.value.project_name,
-      "project_lead": this.addDesignForm.value.project_lead,
+      "design_id": this.designService.selectedDesignInService.design_id,
+      "project_id": this.designService.selectedDesignInService.project_id,
+      "project_name": this.newProject_name,
+      "project_lead": this.newProject_lead,
       "design_engineer": "Wolverine",
-      "start_date": this.addDesignForm.value.start_date,
-      "end_date": this.addDesignForm.value.end_date,
-      "status": this.addDesignForm.value.status,
-      "reference_id": this.maxCount + 1,
+      "start_date": this.newStart_date_design,
+      "end_date": this.newEnd_date_design,
+      "status": this.designService.selectedDesignInService.status,
+      "reference_id": this.designService.selectedDesignInService.reference_id,
       "created_by": "Wolverine",
       "created_date": "2019-11-26",
       "uploaded_by": "Wolverine",

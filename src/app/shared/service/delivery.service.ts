@@ -1,6 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +11,12 @@ export class DeliveryService {
 
   selectedDeliveryService: any;
 
-deliveryList: any[] = [
+  purchaseOrderList: any;
+
+  deliveryList: any[] = [
 
   ];
+  selectedPR: any;
 
 
   constructor(public http: HttpClient) {

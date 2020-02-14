@@ -5,6 +5,8 @@ import { VendorService } from "../shared/service/vendor.service";
 import { Location } from '@angular/common';
 import { formatDate } from '@angular/common';
 import { SelectItem } from 'primeng/api'
+import { PurchaseorderService } from "../shared/service/purchaseorder.service";
+import { DeliveryService } from '../shared/service/delivery.service';
 
 interface supplier {
   name: string;
@@ -31,7 +33,7 @@ export class PurchaseRequisitionViewComponent implements OnInit {
 
   displayPO: boolean = false;
 
-  constructor(public purchaseRequisitionService: PurchaserequisitionService, public vendorService: VendorService, public _location: Location) { }
+  constructor(public purchaseOrderService: PurchaseorderService, public purchaseRequisitionService: PurchaserequisitionService, public vendorService: VendorService, public _location: Location, public deliveryOrderService: DeliveryService) { }
 
   supplier: supplier[];
 
@@ -54,6 +56,11 @@ export class PurchaseRequisitionViewComponent implements OnInit {
   maxCount: any;
 
   ngOnInit() {
+    this.purchaseOrderService.selectedPR = this.purchaseRequisitionService.selectedPurchaserequisitionService.id;
+    this.deliveryOrderService.selectedPR = this.purchaseRequisitionService.selectedPurchaserequisitionService.id;
+
+
+
     console.log(this.purchaseRequisitionService.selectedPurchaserequisitionService.supplier_id);
     this.testList = this.purchaseRequisitionService.loadPurchaserequisitions().subscribe(responseData => {
       this.purchaseRequisitionService.purchaserequisitionList = (<any>responseData).body;
@@ -109,9 +116,9 @@ export class PurchaseRequisitionViewComponent implements OnInit {
 
   showDialogDO() {
     this.displayDO = true;
-}
+  }
 
-showDialogPO() {
-  this.displayPO = true;
-}
+  showDialogPO() {
+    this.displayPO = true;
+  }
 }

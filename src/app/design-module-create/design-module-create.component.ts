@@ -79,7 +79,7 @@ export class DesignModuleCreateComponent implements OnInit {
       { label: 'Design Plan', value: 'Design Plan' },
       { label: 'Design Input', value: 'Design Input' },
       { label: 'Design Control', value: 'Design Control' },
-      { label: 'Design Ouput', value: 'Design Ouput' }
+      { label: 'Design Output', value: 'Design Output' }
     ]
 
     this.addDesignForm = new FormGroup({
@@ -122,9 +122,8 @@ export class DesignModuleCreateComponent implements OnInit {
     this.testEntry = {
       "design_id": this.maxCount + 1,
       "project_id": this.maxCount + 1,
-      "project_name": "Project X",
-      "project_lead": this.addDesignForm.value.project_lead,
-      "design_engineer": "Wolverine",
+      "project_name": this.Project_name,
+      "design_engineer": this.addDesignForm.value.project_lead,
       "start_date": this.addDesignForm.value.start_date,
       "end_date": this.addDesignForm.value.end_date,
       "status": this.addDesignForm.value.status,
