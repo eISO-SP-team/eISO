@@ -76,6 +76,7 @@ import { ProcesscontrolViewComponent } from './processcontrol-view/processcontro
 import { RatingModule } from 'primeng/rating';
 import { GraphOneComponent } from './graph-one/graph-one.component';
 import { DesignModuleViewComponent } from "./design-module-view/design-module-view.component";
+import { NgxSpinnerModule } from "ngx-spinner";
 // import { FusionChartsModule } from 'angular-fusioncharts';
 
 // // Load FusionCharts
@@ -155,6 +156,7 @@ import { DesignModuleViewComponent } from "./design-module-view/design-module-vi
     NgbModule,
     ProgressBarModule,
     RatingModule,
+    NgxSpinnerModule,
     // FusionChartsModule,
   ],
   providers: [UploadService, QuotationService, PurchaserequisitionService, SalesorderService, DesignService, DeliveryService, CustomerService, VendorService, MessageService, ConfirmationService, ToggleDisplayService],
