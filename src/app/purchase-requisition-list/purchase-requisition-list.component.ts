@@ -24,15 +24,15 @@ export class PurchaseRequisitionListComponent implements OnInit {
 
   constructor(public purchaseRequisitionService: PurchaserequisitionService, public router: Router, private confirmationservice: ConfirmationService) {
     this.purchaseRequisitionService.getRequisitionListener()
-      .subscribe(newList => {
-        this.requisitionList = newList;
+      .subscribe(() => {
+        this.testList = this.purchaseRequisitionService.loadPurchaserequisitions().subscribe(responseData => {
+          this.purchaseRequisitionService.purchaserequisitionList = (<any>responseData).body;
+          this.requisitionList = this.purchaseRequisitionService.purchaserequisitionList;
+        });
       });
   }
   ngOnInit() {
-    this.testList = this.purchaseRequisitionService.loadPurchaserequisitions().subscribe(responseData => {
-      this.purchaseRequisitionService.purchaserequisitionList = (<any>responseData).body;
-      this.requisitionList = this.purchaseRequisitionService.purchaserequisitionList;
-    });
+
   }
 
   viewEnquiry(requisitionList: any) {

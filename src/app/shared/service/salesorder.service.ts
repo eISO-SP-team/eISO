@@ -22,32 +22,12 @@ export class SalesorderService {
     this.salesOrderSubject = new BehaviorSubject<any>(this.salesOrderList);
   }
 
-  addSalesOrder(newSalesOrderInfo: Salesorder) {
-    return new Promise(resolve => {
-      console.log("Retrieved enquiry");
-      console.log(newSalesOrderInfo);
-      this.salesOrderList.unshift(newSalesOrderInfo);
-      console.log(this.salesOrderList);
-      //basically, you update this listener with the new list, 
-      //anyone that is subscribing to the enquiry will get the latest list
-      this.salesOrderSubject.next(this.salesOrderList);
-
-      console.log("triggered behaviour subject");
-      resolve(true);
-    });
-
-  };
-
   getSalesOrderListener() {
     return this.salesOrderSubject.asObservable();
   }
 
   addSalesorder(SalesOrder) {
-    console.log("before: " + this.salesOrderList);
-    this.salesOrderList.unshift(JSON.parse(SalesOrder));
-    console.log("before: " + this.salesOrderList);
-    //basically, you update this listener with the new list, 
-    //anyone that is subscribing to the enquiry will get the latest list
+    this.salesOrderList.unshift(SalesOrder);
     this.salesOrderSubject.next(this.salesOrderList);
     return this.http.post('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/sales', SalesOrder, {
     });
@@ -58,6 +38,8 @@ export class SalesorderService {
   }
 
   updateSalesorder(enquiryId, newInfo) {
+    this.salesOrderList.push(newInfo);
+    this.salesOrderSubject.next(this.salesOrderList);
     return this.http.put('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/sales/' + enquiryId, newInfo)
   }
 

@@ -23,7 +23,7 @@ export class vendorViewComponent implements OnInit {
 
   addVendorForm: FormGroup;
 
-  evaluationList: any = this.vendorService.evalList;
+  evaluationList: any;
 
   type: SelectItem[];
 
@@ -42,6 +42,10 @@ export class vendorViewComponent implements OnInit {
   myDate = formatDate(new Date(), 'yyyy/MM/dd', 'en');
 
   constructor(public vendorService: VendorService, public _location: Location, public router: Router, public dialogDisplayService: DialogDisplayService) {
+    this.evaluationList = this.vendorService.selectedVendornService.vendor_evaluation;
+    this.vendorService.evalList = this.vendorService.selectedVendornService.vendor_evaluation;
+    console.log(this.evaluationList);
+
     this.type = [
       { label: 'Approved', value: 'Pass' },
       { label: 'Pending', value: 'Fail' },

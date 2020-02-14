@@ -106,10 +106,8 @@ export class PurchaseRequisitionViewComponent implements OnInit {
     };
     // console.log(JSON.stringify(this.testEntry));
     var data = JSON.stringify(this.testEntry);
-    this.purchaseRequisitionService.addPurchaserequisition(data)
-      .subscribe((data) => {
-        // console.log(data)
-        this.purchaseRequisitionService.purchaserequisitionList.push(this.testEntry);
+    this.purchaseRequisitionService.updatePurchaserequisitions(data)
+      .subscribe(() => {
       });
     this._location.back();
   }

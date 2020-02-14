@@ -43,12 +43,16 @@ export class VendorService {
   }
 
   addVendors(vendors) {
+    this.vendorList.unshift(vendors);
+    this.vendorSubject.next(this.vendorList);
     return this.http.post('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/vendor', vendors, {
     });
   }
 
   updateVendors(vendor: any) {
-    return this.http.put('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/vendor/' + vendor.id, vendor, {
+    this.vendorList.unshift(vendor);
+    this.vendorSubject.next(this.vendorList);
+    return this.http.put('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/vendor/' + this.selectedVendornService.id, vendor, {
     });
   }
 
