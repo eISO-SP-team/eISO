@@ -79,7 +79,7 @@ export class GraphTwoComponent implements OnInit {
         },
         "data": [{
           "label": "Singapore Polytechnic",
-          "value": "291,000"
+          "value": "291000"
         }, {
           "label": "Ngee Ann Polytechnic",
           "value": "157000"
