@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA,enableProdMode } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, enableProdMode } from '@angular/core';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { MenuModule } from 'primeng/menu';
@@ -73,9 +73,11 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { EvaluationFormComponent } from './evaluation-form/evaluation-form.component';
 import { ProcesscontrolViewComponent } from './processcontrol-view/processcontrol-view.component';
-import {RatingModule} from 'primeng/rating';
+import { RatingModule } from 'primeng/rating';
 import { GraphOneComponent } from './graph-one/graph-one.component';
 import { FusionChartsModule } from 'angular-fusioncharts';
+import { DesignModuleViewComponent } from "./design-module-view/design-module-view.component";
+// import { FusionChartsModule } from 'angular-fusioncharts';
 
 // // Load FusionCharts
 import * as FusionCharts from 'fusioncharts';
@@ -133,6 +135,7 @@ FusionChartsModule.fcRoot(
     ProcesscontrolViewComponent,
     GraphOneComponent,
     GraphTwoComponent,
+    DesignModuleViewComponent,
   ],
   imports: [
     BrowserModule,

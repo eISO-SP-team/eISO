@@ -50,7 +50,7 @@ export class ProcesscontrolViewComponent implements OnInit {
 
   pcpEntry: any;
 
-  pcpList: any;
+  pcpList: any[] = this.processControlService.selectedProcesscontrolInService.process_control_details;
 
   activeIndex: number = 0;
 
@@ -88,6 +88,8 @@ export class ProcesscontrolViewComponent implements OnInit {
       this.processControlList = this.processControlService.processcontrolList;
       this.maxCount = this.processControlList.length;
     });
+
+    console.log(this.pcpList);
 
     this.customerList = this.customerService.loadCustomers().subscribe(responseData => {
       this.customerService.customerList = responseData.body;

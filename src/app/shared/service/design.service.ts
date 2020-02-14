@@ -9,7 +9,7 @@ export class DesignService {
 
     designSubject: BehaviorSubject<any[]>;
 
-    selectedProject:any;
+    selectedProject: any;
 
     selectedDesignInService: any;
 
@@ -28,6 +28,8 @@ export class DesignService {
     }
 
     addDesigns(designs) {
+        this.designList.unshift(designs);
+        this.designSubject.next(this.designList);
         return this.http.post('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/design', designs, {
         });
     }
