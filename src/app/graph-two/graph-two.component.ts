@@ -8,138 +8,156 @@ import * as FusionCharts from 'fusioncharts';
 })
 export class GraphTwoComponent implements OnInit {
 
-  
+
 
   chartInstance: any = {};
+  width: string;
+  height: string;
 
   // Callback to get chart instance
   initialized(e) {
-      this.chartInstance = e.chart; // Save it for further use
+    this.chartInstance = e.chart; // Save it for further use
 
-      // Configure Drilldown attributes 
-      // See this : https://www.fusioncharts.com/dev/api/fusioncharts/fusioncharts-methods#configureLink
-      this.chartInstance.configureLink({
-          type: "pie2d",
-          overlayButton: {
-              message: 'close',
-              fontColor: '880000',
-              bgColor: 'FFEEEE',
-              borderColor: '660000'
-          }
-      }, 0)
+    // Configure Drilldown attributes 
+    // See this : https://www.fusioncharts.com/dev/api/fusioncharts/fusioncharts-methods#configureLink
+    this.chartInstance.configureLink({
+      type: "pie2d",
+      overlayButton: {
+        message: 'close',
+        fontColor: '880000',
+        bgColor: 'FFEEEE',
+        borderColor: '660000'
+      }
+    }, 0)
   }
   dataSource = {
-      "chart": {
-          "caption": "Top 3 Juice Flavors",
-          "subcaption": "Last year",
-          "xaxisname": "Flavor",
-          "yaxisname": "Amount (In USD)",
+    "chart": {
+      //Set the chart caption
+      "caption": "Number of Sales",
+      //Set the chart subcaption
+      "subCaption": "(Number of sales each consultant does).",
+      //Set the x-axis name
+      "xaxisname": "Consultants",
+      //Set the y-axis name
+      "yaxisname": "Amount (In USD)",
+      // numberSuffix: "K",
+      //Set the theme for your chart
+      "theme": "fusion",
+
+      "numberprefix": "$",
+
+      "rotateValues": "0",
+
+    },
+
+    "data": [{
+      "label": "Kelly",
+      "value":  "620000",
+      "link": "newchart-xml-kelly"
+    },
+    {
+      "label": "Bob",
+      "value": "810000",
+      "link": "newchart-xml-bob"
+    },
+    {
+      "label": "Dwight",
+      "value": "350000",
+      "link": "newchart-xml-dwight"
+    }
+    ],
+    "linkeddata": [{
+      "id": "kelly",
+      "linkedchart": {
+        "chart": {
+          "caption": "Kelly's Clients ",
+          "subcaption": " (sales figure from respective clients)",
           "numberprefix": "$",
           "theme": "fusion",
-          "rotateValues": "0"
-      },
-      "data": [{
-              "label": "Apple",
-              "value": "810000",
-              "link": "newchart-xml-apple"
-          },
-          {
-              "label": "Cranberry",
-              "value": "620000",
-              "link": "newchart-xml-cranberry"
-          },
-          {
-              "label": "Grapes",
-              "value": "350000",
-              "link": "newchart-xml-grapes"
-          }
-      ],
-      "linkeddata": [{
-              "id": "apple",
-              "linkedchart": {
-                  "chart": {
-                      "caption": "Apple Juice - Quarterly Sales",
-                      "subcaption": "Last year",
-                      "numberprefix": "$",
-                      "theme": "fusion",
-                      "rotateValues": "0",
-                      "plottooltext": "$label, $dataValue,  $percentValue"
-                  },
-                  "data": [{
-                      "label": "Q1",
-                      "value": "157000"
-                  }, {
-                      "label": "Q2",
-                      "value": "172000"
-                  }, {
-                      "label": "Q3",
-                      "value": "206000"
-                  }, {
-                      "label": "Q4",
-                      "value": "275000"
-                  }]
-              }
-          },
-          {
-              "id": "cranberry",
-              "linkedchart": {
-                  "chart": {
-                      "caption": "Cranberry Juice - Quarterly Sales",
-                      "subcaption": "Last year",
-                      "numberprefix": "$",
-                      "theme": "fusion",
-                      "plottooltext": "$label, $dataValue,  $percentValue"
-                  },
-                  "data": [{
-                          "label": "Q1",
-                          "value": "102000"
-                      },
-                      {
-                          "label": "Q2",
-                          "value": "142000"
-                      },
-                      {
-                          "label": "Q3",
-                          "value": "187000"
-                      },
-                      {
-                          "label": "Q4",
-                          "value": "189000"
-                      }
-                  ]
-              }
-          },
-          {
-              "id": "grapes",
-              "linkedchart": {
-                  "chart": {
-                      "caption": "Grapes Juice - Quarterly Sales",
-                      "subcaption": "Last year",
-                      "numberprefix": "$",
-                      "theme": "fusion",
-                      "rotateValues": "0",
-                      "plottooltext": "$label, $dataValue,  $percentValue"
-                  },
-                  "data": [{
-                      "label": "Q1",
-                      "value": "45000"
-                  }, {
-                      "label": "Q2",
-                      "value": "72000"
-                  }, {
-                      "label": "Q3",
-                      "value": "95000"
-                  }, {
-                      "label": "Q4",
-                      "value": "108000"
-                  }]
-              }
-          }
-      ]
+          "rotateValues": "0",
+          "plottooltext": "$label, $dataValue,  $percentValue"
+        },
+        "data": [{
+          "label": "Singapore Polytechnic",
+          "value": "291,000"
+        }, {
+          "label": "Ngee Ann Polytechnic",
+          "value": "157000"
+        }, {
+          "label": "Temasek Polytechnic",
+          "value": "172000"
+        }]
+      }
+    },
+    {
+      "id": "bob",
+      "linkedchart": {
+        "chart": {
+          "caption": "Bob's Clients",
+          "subcaption": "(sales figure from respective clients)",
+          "numberprefix": "$",
+          "theme": "fusion",
+          "plottooltext": "$label, $dataValue,  $percentValue"
+        },
+        "data": [{
+          "label": "Google",
+          "value": "289000"
+        },
+        {
+          "label": "Facebook",
+          "value": "124800"
+        },
+        {
+          "label": "Microsoft",
+          "value": "396200"
+        }
+        ]
+      }
+    },
+    {
+      "id": "dwight",
+      "linkedchart": {
+        "chart": {
+          "caption": "Dwight's Clients",
+          "subcaption": "(sales figure from respective clients)",
+          "numberprefix": "$",
+          "theme": "fusion",
+          "rotateValues": "0",
+          "plottooltext": "$label, $dataValue,  $percentValue"
+        },
+        "data": [{
+          "label": "DHL",
+          "value": "132000‬"
+        }, {
+          "label": "Ninja Van",
+          "value": "73000"
+        }, {
+          "label": "SingPost",
+          "value": "145000"
+        }]
+      }
+    }
+    ]
   };
-  constructor(private zone: NgZone) {}
+  constructor(private zone: NgZone) { 
 
-  ngOnInit(){
+    // width: "90%",
+    // height: 490, 
+    // window.onresize = (e) => {
+    //   //ngZone.run will help to run change detection
+    //   if (window.innerWidth < 1025) {
+    //     // this.onMenuClose(false);
+    //     resizeTo(400,300)
+    //   } else {
+    //     resizeTo(700,400)
+    //   }
+    // };
     
+      //  this.width = '60%';
+      // this.height = '400';
+  }
+
+  ngOnInit() {
+
   }
 }
