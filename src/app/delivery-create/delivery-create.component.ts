@@ -26,10 +26,6 @@ export class DeliveryCreateComponent implements OnInit {
 
   msgs: Message[] = [];
 
-  customer: cust[];
-
-  prefix: Type[];
-
   selectedCustomer: any;
 
   addDeliveryForm: FormGroup;
