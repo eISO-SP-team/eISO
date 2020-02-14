@@ -1,5 +1,7 @@
-<p-dataView [paginator]="true" [value]="quotationList" #ql class="ui-dataview"
-    filterBy="attention,subject" [rows]="3">
+<p-dataView [paginator]="true" #ql  [value]="quotationList" class="ui-dataview"
+    filterBy="attention,subject" [rows]="10">
+    <p-dataView [value]="quotationList" #pc class="ui-dataview" [paginator]="true" 
+        filterBy="project_name,project_lead" [rows]="10">
     <p-header>
         <div class="ui-helper-clearfix">
             <!-- <div class="ui-g"> -->
