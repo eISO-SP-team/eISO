@@ -7,6 +7,7 @@ import { SelectItem } from 'primeng/api'
 import { formatDate } from '@angular/common';
 import { ConfirmationService, Message } from 'primeng/api';
 import { FileUploadService } from "../shared/service/file-upload.service";
+import { EmailService } from "../shared/service/email.service";
 
 interface supplier {
   name: string;
@@ -43,12 +44,12 @@ export class QuotationCreateComponent implements OnInit {
 
   quotationList: any;
 
-  constructor(public quotationService: QuotationService, public vendorService: VendorService, public _location: Location, private confirmationservice: ConfirmationService, public fileUploadService: FileUploadService) { }
+  constructor(public emailService: EmailService, public quotationService: QuotationService, public vendorService: VendorService, public _location: Location, private confirmationservice: ConfirmationService, public fileUploadService: FileUploadService) { }
 
   ngOnInit() {
     this.newList2 = [
-      {label:"Pending", value:"Pending"},
-      {label:"Completed", value:"Completed"}
+      { label: "Pending", value: "Pending" },
+      { label: "Completed", value: "Completed" }
     ]
 
     this.quotationList = this.quotationService.loadQuotation().subscribe(responseData => {
@@ -86,7 +87,7 @@ export class QuotationCreateComponent implements OnInit {
       "id": this.maxCount + 1,
       "attention": this.addForm.value.attention,
       "closing_remarks": "xyz",
-      "created_by": "Jack",
+      "created_by": "Bob",
       "created_date": this.myDate,
       "deposit": this.addForm.value.deposit,
       "opening_remarks": "abc",
@@ -98,7 +99,7 @@ export class QuotationCreateComponent implements OnInit {
       "supplier_id": this.addForm.value.to,
       "tender_location": this.addForm.value.tenderLocation,
       "total": this.addForm.value.total,
-      "updated_by": "Jack",
+      "updated_by": "Bob",
       "updated_date": this.myDate,
       "validity": this.addForm.value.validity,
       "quotation_details": {
@@ -107,13 +108,13 @@ export class QuotationCreateComponent implements OnInit {
         "approval": "approved",
         "quotation_line_id": "001",
         "type": "Docx",
-        "created_by": "Jack",
+        "created_by": "Bob",
         "reference_type": "abc",
-        "prepared_by": "Jack",
+        "prepared_by": "Bob",
         "file": "quotation.docx",
         "line_number": 1,
         "next_followup": "2019-11-26",
-        "updated_by": "Jack",
+        "updated_by": "Bob",
         "reference_date": "2019-11-26",
         "created_date": "2019-11-26",
         "updated_date": "2019-11-26",
@@ -127,6 +128,15 @@ export class QuotationCreateComponent implements OnInit {
         console.log(data)
         this.quotationService.quotationList.push(this.testEntry);
       });
+    let body = {
+      name: this.testEntry.attention,
+      email: "xiangyuanpoon@gmail.com",
+      subject: this.testEntry.subject,
+      type: "Quotation"
+    }
+    this.emailService.sendEmail(body).subscribe(() => {
+      console.log("An email has been sent");
+    })
     this._location.back();
   }
 
