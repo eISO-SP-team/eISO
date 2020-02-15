@@ -71,7 +71,23 @@ export class ProcesscontrolCreateComponent implements OnInit {
 
   clickedonPhase: string = "PREPARATION";
 
-  constructor(public salesOrderService: SalesorderService, public quotationService: QuotationService, public processControlService: ProcesscontrolService, public customerService: CustomerService, public _location: Location, public fileUploadService: FileUploadService) { }
+  constructor(public salesOrderService: SalesorderService, public quotationService: QuotationService, public processControlService: ProcesscontrolService, public customerService: CustomerService, public _location: Location, public fileUploadService: FileUploadService) {
+
+
+    this.customerList = this.customerService.loadCustomers().subscribe(responseData => {
+      this.customerService.customerList = responseData.body;
+      this.customerList = this.customerService.customerList;
+      this.newList = [];
+      for (let i = 0; i < this.customerList.length; i++) {
+        this.newList.push({ label: this.customerList[i].customer_name, value: this.customerList[i].id, });
+        console.log(this.newList);
+        if (this.selectedCustomer == this.customerList[i].id) {
+          this.customerEmail = this.customerList[i].customer_contact.email;
+        }
+      }
+    });
+
+  }
 
   ngOnInit() {
     this.controlpoints = [
@@ -98,15 +114,6 @@ export class ProcesscontrolCreateComponent implements OnInit {
       this.maxCount = this.processControlList.length;
     });
 
-    this.customerList = this.customerService.loadCustomers().subscribe(responseData => {
-      this.customerService.customerList = responseData.body;
-      this.customerList = this.customerService.customerList;
-      this.newList = [];
-      for (let i = 0; i < this.customerList.length; i++) {
-        this.newList.push({ label: this.customerList[i].customer_name, value: this.customerList[i].id, });
-        console.log(this.newList);
-      }
-    });
 
     this.quotationList = this.quotationService.loadQuotation().subscribe(responseData => {
       this.quotationService.quotationList = responseData.body;
@@ -116,13 +123,6 @@ export class ProcesscontrolCreateComponent implements OnInit {
         this.newList2.push({ label: this.quotationList[i].quotation_number, value: this.quotationList[i].quotation_number });
       }
     });
-
-    for (let i = 0; i < this.customerList.length; i++) {
-      if (this.selectedCustomer == this.customerList[i].id) {
-        console.log("check")
-        this.customerEmail = this.customerList[i].customer_contact.email;
-      }
-    }
 
     this.addProcessControlForm = new FormGroup({
       'project_name': new FormControl(null, [Validators.required]),
