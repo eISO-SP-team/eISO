@@ -10,9 +10,10 @@ export class QuotationService {
 
   quotationSubject: BehaviorSubject<any[]>;
 
-  selectedQuotationInService:any;
+  selectedQuotationInService:any = "";
 
   quotationList: any;
+  rows: number = 3;
 
   constructor(public http: HttpClient) {
     this.quotationSubject = new BehaviorSubject<any[]>(this.quotationList);

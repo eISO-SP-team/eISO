@@ -3,8 +3,9 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { QuotationService } from "../shared/service/quotation.service";
 import { VendorService } from "../shared/service/vendor.service";
 import { Location } from '@angular/common';
-import { SelectItem } from 'primeng/api'
+import { SelectItem, ConfirmationService } from 'primeng/api'
 import { formatDate } from '@angular/common';
+import { Router } from "@angular/router";
 
 interface supplier {
   name: string;
@@ -48,12 +49,12 @@ export class QuotationViewComponent implements OnInit {
 
   quotationList: any;
 
-  constructor(public quotationService: QuotationService, public vendorService: VendorService, public _location: Location) { }
+  constructor(private router: Router, private confirmationservice: ConfirmationService, public quotationService: QuotationService, public vendorService: VendorService, public _location: Location) { }
 
   ngOnInit() {
     this.newList2 = [
       { label: "Pending", value: "Pending" },
-      { label: "Completed", value: "Completed" }
+      { label: "Approved", value: "Approved" }
     ]
 
     console.log(this.quotationService.selectedQuotationInService);
@@ -86,27 +87,6 @@ export class QuotationViewComponent implements OnInit {
     this.addForm.enable();
   }
 
-  // updateEdits() {
-  //   let index = -1;
-  //   for (let i = 0; i < this.quotationService.quotationList.length; i++) {
-  //     if (this.quotationService.quotationList[i].quotation_refNo == this.quotationService.selectedQuotationInService.quotation_refNo) {
-  //       index = i;
-  //       console.log(JSON.stringify(this.quotationService.quotationList[index].quotation_title))
-  //       break;
-  //     }
-  //   }
-  //   console.log(JSON.stringify(this.quotationService.quotationList[index]))
-  //   this.quotationService.quotationList[index].quotation_title = this.newTitle;
-  //   this.quotationService.quotationList[index].quotation_subject = this.newCompanyName;
-  //   this.quotationService.quotationList[index].quotation_tenderLocation = this.newTenderLocation;
-  //   this.quotationService.quotationList[index].quotation_to = this.newTo;
-  //   this.quotationService.quotationList[index].quotation_validity = this.newValidity;
-  //   this.quotationService.quotationList[index].quotation_attention = this.newAttention;
-  //   this.quotationService.quotationList[index].quotation_total = this.newTotal;
-  //   this.quotationService.quotationList[index].quotation_deposit = this.newDeposit;
-  //   this._location.back();
-  // }
-
   updateEdits() {
     this.newEdit = {
       "id": this.quotationService.selectedQuotationInService.id,
@@ -119,7 +99,7 @@ export class QuotationViewComponent implements OnInit {
       "quotation_date": this.quotationService.selectedQuotationInService.quotation_date,
       "quotation_id": this.quotationService.selectedQuotationInService.quotation_id,
       "quotation_number": this.quotationService.selectedQuotationInService.quotation_number,
-      "status": this.quotationService.selectedQuotationInService.status,
+      "status": this.newValidity,
       "subject": this.newCompanyName,
       "supplier_id": this.newTo,
       "tender_location": this.newTenderLocation,
@@ -152,5 +132,29 @@ export class QuotationViewComponent implements OnInit {
         // console.log("Updated: " + data)
         this._location.back();
       });
+  }
+
+  approve() {
+    this.quotationService.selectedQuotationInService.status = "approved";
+    var data = JSON.stringify(this.quotationService.selectedQuotationInService);
+    this.quotationService.updateQuotation(this.quotationService.selectedQuotationInService.id, data)
+      .subscribe(() => {
+        console.log("Updated: to approved")
+        this.router.navigate(['/salesorderCreate']);
+      });
+
+  }
+
+  confirm() {
+    this.confirmationservice.confirm({
+      message: 'Are you sure that you want to proceed?',
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.approve();
+      },
+      reject: () => {
+      }
+    });
   }
 }

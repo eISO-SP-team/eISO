@@ -11,7 +11,7 @@ import { CustomerViewComponent } from './customer-view/customer-view.component';
 import { vendorViewComponent } from "./vendor-view/vendor-view.component";
 import { SalesorderViewComponent } from "./salesorder-view/salesorder-view.component";
 import { SalesorderCreateComponent } from "./salesorder-create/salesorder-create.component";
-import { DesignModuleComponent } from "./design-module/design-module.component";
+import { DesignModuleListComponent } from "./design-module-list/design-module-list.component";
 import { PurchaseRequisitionCreateComponent } from './purchase-requisition-create/purchase-requisition-create.component';
 import { PurchaseRequisitionViewComponent } from './purchase-requisition-view/purchase-requisition-view.component';
 import { ProcessControlModuleComponent } from './process-control-module/process-control-module.component';
@@ -25,6 +25,10 @@ import { ProcesscontrolViewComponent } from './processcontrol-view/processcontro
 import { DesignModuleViewComponent } from './design-module-view/design-module-view.component';
 import { PurchaseViewComponent } from './purchase-view/purchase-view.component';
 import { DeliveryViewComponent } from './delivery-view/delivery-view.component';
+import { QuotationListComponent } from './quotation-list/quotation-list.component';
+import { CustomerListComponent } from './customer-list/customer-list.component';
+import { SalesorderListComponent } from './salesorder-list/salesorder-list.component';
+import { DesignModuleListFullComponent } from './design-module-list-full/design-module-list-full.component';
 
 const AppRoutes: Routes = [
   { path: '', redirectTo: '/sales-module', pathMatch: 'full' },
@@ -42,7 +46,7 @@ const AppRoutes: Routes = [
   { path: 'customerView/:idx', component: CustomerViewComponent },
   { path: 'salesorderView/:idx', component: SalesorderViewComponent },
   { path: 'vendorView/:idx', component: vendorViewComponent },
-  { path: 'design-module', component: DesignModuleComponent },
+  { path: 'design-module', component: DesignModuleListComponent },
   { path: 'process-control-module', component: ProcessControlModuleComponent },
   { path: 'processcontrolCreate', component: ProcesscontrolCreateComponent },
   { path: 'selectproject', component: DesignModuleProjectsComponent },
@@ -53,7 +57,11 @@ const AppRoutes: Routes = [
   { path: 'designView/:idx', component: DesignModuleViewComponent },
   { path: 'poView/:idx', component: PurchaseViewComponent },
   { path: 'doView/:idx', component: DeliveryViewComponent },
-  { path: '*', redirectTo: "/sales-modules" }
+  { path: 'quotationList', component: QuotationListComponent },
+  { path: 'customerList', component: CustomerListComponent },
+  { path: 'salesList', component: SalesorderListComponent },
+  { path: 'designList', component: DesignModuleListFullComponent },
+  { path: '*', redirectTo: "/sales-modules" },
   // { path: '**', redirectTo:"/sales-modules"}
 
 ];

@@ -1,16 +1,21 @@
-<p-dataView [value]="customerList" #cl class="ui-dataview" [paginator]="true" filterBy="customer_name, customer_contact" [rows]="3">
+<P class="dashboardname">Customer Dashboard</P>
+<p-button class="buttonadd" icon="pi pi-plus" iconPos="right" styles="padding-left: 0.5em;" label="Add New Customer"
+    (click)="this.router.navigate(['/customerCreate'])"></p-button>
+<p-button class="buttonadd" icon="pi pi-plus" iconPos="right" label="View More" (click)="viewMore()"></p-button>
+<p-dataView [value]="customerList" #cl class="ui-dataview" [paginator]="true" filterBy="customer_name, customer_contact"
+    [rows]="rows">
     <p-header>
         <div class="ui-helper-clearfix">
             <!-- <div class="ui-g"> -->
-                <!-- <div class="ui-g-12 ui-md-4">
+            <!-- <div class="ui-g-12 ui-md-4">
 
                 </div> -->
-                <div class="ui-g-6 ui-md-4 filter-container">
-                    <div style="position:relative">
-                        <div class="ui-g-1"><i class="fa fa-search searchicon" style="margin:4px 4px 0 0"></i></div>
-                        <div class="ui-g-11"><input class="inputfield" type="text" pInputText placeholder="Search"
+            <div class="ui-g-6 ui-md-4 filter-container">
+                <div style="position:relative">
+                    <div class="ui-g-1"><i class="fa fa-search searchicon" style="margin:4px 4px 0 0"></i></div>
+                    <div class="ui-g-11"><input class="inputfield" type="text" pInputText placeholder="Search"
                             (input)="cl.filter($event.target.value)" style="width:100%; border:none;"></div>
-                    </div>
+                </div>
             </div>
         </div>
     </p-header>

@@ -11,7 +11,10 @@ import { Router } from '@angular/router';
 })
 export class SalesorderListComponent implements OnInit {
   msgs: Message[] = [];
+
   salesOrderList: any;
+
+  rows = this.salesOrderService.rows;
 
   salesOrderListPending = [];
   salesOrderListPending2: any;
@@ -90,6 +93,12 @@ export class SalesorderListComponent implements OnInit {
     });
     this.salesOrderList.splice(index, 1);
   }
+
+  viewMore(){
+    this.salesOrderService.rows = 100;
+    this.router.navigate(['/salesList']);
+  }
+
   confirm(enquiry) {
     this.confirmationservice.confirm({
       message: 'Are you sure that you want to proceed?',

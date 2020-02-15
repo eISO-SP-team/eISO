@@ -23,12 +23,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { QuotationListComponent } from './quotation-list/quotation-list.component';
 import { QuotationCreateComponent } from './quotation-create/quotation-create.component';
 import { QuotationService } from './shared/service/quotation.service';
-import { QuotationComponent } from './quotation/quotation.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
 import { ToggleDisplayService } from './shared/service/toggle-display.service';
 import { DragDropDirective } from './shared/directive/drag-and-drop.directive';
 import { QuotationViewComponent } from './quotation-view/quotation-view.component';
-import { CustomerComponent } from './customer/customer.component';
 import { CustomerCreateComponent } from './customer-create/customer-create.component';
 import { CustomerListComponent } from './customer-list/customer-list.component';
 import { CustomerViewComponent } from './customer-view/customer-view.component';
@@ -46,7 +44,7 @@ import { SalesorderCreateComponent } from './salesorder-create/salesorder-create
 import { SalesorderViewComponent } from './salesorder-view/salesorder-view.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
-import { DesignModuleComponent } from './design-module/design-module.component';
+import { DesignModuleListComponent } from "./design-module-list/design-module-list.component";
 import { PurchaseRequisitionListComponent } from './purchase-requisition-list/purchase-requisition-list.component';
 import { PurchaseRequisitionCreateComponent } from './purchase-requisition-create/purchase-requisition-create.component';
 import { PurchaseRequisitionViewComponent } from './purchase-requisition-view/purchase-requisition-view.component';
@@ -77,6 +75,7 @@ import { FusionChartsModule } from 'angular-fusioncharts';
 import { DesignModuleViewComponent } from "./design-module-view/design-module-view.component";
 import { NgxSpinnerModule } from "ngx-spinner";
 import {TooltipModule} from 'primeng/tooltip';
+import { DesignModuleListFullComponent } from "./design-module-list-full/design-module-list-full.component";
 
 // // Load FusionCharts
 import * as FusionCharts from 'fusioncharts';
@@ -103,11 +102,9 @@ FusionChartsModule.fcRoot(
     MenuComponent,
     QuotationListComponent,
     QuotationCreateComponent,
-    QuotationComponent,
     UploadFileComponent,
     DragDropDirective,
     QuotationViewComponent,
-    CustomerComponent,
     CustomerCreateComponent,
     CustomerListComponent,
     CustomerViewComponent,
@@ -120,7 +117,7 @@ FusionChartsModule.fcRoot(
     SalesorderCreateComponent,
     SalesorderViewComponent,
     LoginComponent,
-    DesignModuleComponent,
+    DesignModuleListComponent,
     PurchaseRequisitionListComponent,
     PurchaseRequisitionCreateComponent,
     PurchaseRequisitionViewComponent,
@@ -141,6 +138,7 @@ FusionChartsModule.fcRoot(
     PurchaseViewComponent,
     GraphThreeComponent,
     DeliveryViewComponent,
+    DesignModuleListFullComponent,
   ],
   imports: [
     BrowserModule,

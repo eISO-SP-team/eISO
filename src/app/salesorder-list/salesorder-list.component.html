@@ -4,9 +4,11 @@
         <p>
             <p-button class="buttonadd" icon="pi pi-plus" iconPos="right" label="Add New Sales Order"
                 (click)="this.router.navigate(['/salesorderCreate'])"></p-button>
+            <p-button class="buttonadd" icon="pi pi-plus" iconPos="right" label="View More" (click)="viewMore()">
+            </p-button>
         </p>
         <p-dataView [value]="salesOrderListPending2" #sol class="ui-dataview" [paginator]="true" filterBy="subject,pic"
-            [rows]="3">
+            [rows]="rows">
             <p-header>
                 <div class="ui-helper-clearfix">
                     <div class="ui-g-6 ui-md-4 filter-container">
@@ -53,7 +55,7 @@
         <P class="dashboardname" style="padding-bottom: 2.6em;">Completed Sales Order Dashboard </P>
         <div style="margin-top: 35px;"></div>
         <p-dataView [value]="salesOrderListCompleted2" #soc class="ui-dataview" filterBy="subject,pic"
-            [paginator]="true" [rows]="3">
+            [paginator]="true" [rows]="rows">
             <p-header>
                 <div class="ui-helper-clearfix">
                     <!-- <div class="ui-g"> -->

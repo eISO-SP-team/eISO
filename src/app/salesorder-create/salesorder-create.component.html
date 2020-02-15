@@ -18,8 +18,8 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails">Quotation Reference</h3>
-                                <input class="form-control formtext" type="text" pInputText
-                                    [formControlName]="'quotation_number'" />
+                                <p-dropdown [options]="newList2" [formControlName]="'quotation_number'"
+                                     [(ngModel)]="quotationRef" placeholder="Select a Quotation" [showClear]="true"></p-dropdown>
                             </span>
                             <span
                                 *ngIf="!addSalesOrderForm.get('quotation_number').valid && addSalesOrderForm.get('quotation_number').touched"
@@ -158,7 +158,8 @@
             </div>
 
             <div class="formnames">
-            <h2>Supporting File</h2></div>
+                <h2>Supporting File</h2>
+            </div>
             <div class="ui-g-12">
                 <p-fileUpload name="demo[]" customUpload="true" (uploadHandler)="onUpload($event)" multiple="multiple"
                     maxFileSize="1000000">

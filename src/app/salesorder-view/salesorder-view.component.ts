@@ -4,7 +4,9 @@ import { SalesorderService } from "../shared/service/salesorder.service";
 import { CustomerService } from "../shared/service/customer.service";
 import { Location } from '@angular/common';
 import { formatDate } from '@angular/common';
-import { SelectItem } from 'primeng/api'
+import { SelectItem, ConfirmationService } from 'primeng/api'
+import { QuotationService } from '../shared/service/quotation.service';
+import { FileUploadService } from '../shared/service/file-upload.service';
 
 interface Type {
   name: string;
@@ -45,6 +47,8 @@ export class SalesorderViewComponent implements OnInit {
 
   newList: SelectItem[];
 
+  newList2: SelectItem[];
+
   salesOrderList: any;
 
   newQuotationNumber = this.salesOrderService.selectedSalesOrderInService.quotation_number;
@@ -56,9 +60,10 @@ export class SalesorderViewComponent implements OnInit {
   newTenderLocation = this.salesOrderService.selectedSalesOrderInService.tender_location;
   newTotal = this.salesOrderService.selectedSalesOrderInService.total;
   newDeposit = this.salesOrderService.selectedSalesOrderInService.deposit;
+  quotationList: any;
 
-  constructor(public customerService: CustomerService, public salesOrderService: SalesorderService, public _location: Location) { }
-
+  constructor(public quotationService: QuotationService, public customerService: CustomerService, public salesOrderService: SalesorderService, public _location: Location, private confirmationservice: ConfirmationService, public fileUploadService: FileUploadService) {
+  }
   ngOnInit() {
     this.customerList = this.customerService.loadCustomers().subscribe(responseData => {
       this.customerService.customerList = responseData.body;
@@ -66,6 +71,16 @@ export class SalesorderViewComponent implements OnInit {
       this.newList = [];
       for (let i = 0; i < this.customerList.length; i++) {
         this.newList.push({ label: this.customerList[i].customer_name, value: this.customerList[i].id });
+      }
+    });
+
+    this.quotationList = this.quotationService.loadQuotation().subscribe(responseData => {
+      this.quotationService.quotationList = responseData.body;
+      this.quotationList = this.quotationService.quotationList;
+      this.newList2 = [];
+      console.log(this.quotationList);
+      for (let i = 0; i < this.customerList.length; i++) {
+        this.newList2.push({ label: this.quotationList[i].subject, value: this.quotationList[i].id });
       }
     });
 

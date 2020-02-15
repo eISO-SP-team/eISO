@@ -1,106 +1,108 @@
-<div class="ui-g">
-    <div class="ui-g rcorners2">
-        <div class="ui-g-12">
-            <div class="ui-g-6 formheader">
-                <h3>View Quotation</h3>
-
-                <!-- Project ref number -->
-                <div class="ui-g-12">Project Reference Number:
-                    {{this.quotationService.selectedQuotationInService.id}}</div>
-
-                <!-- Edit button -->
-                <div class="ui-g-6">
-                    <button id="disabled-btn" type="button" (click)="toggleDisabled()" pButton
-                        label="Toggle Edit"></button></div>
+<html>
+    <div class="ui-g">
+        <div class="ui-g rcorners2">
+            <div class="ui-g-12">
+                <div class="ui-g-10 formheader">
+                    <h3>View Quotation</h3>
+    
+                    <!-- Project ref number -->
+                    <div class="ui-g-12">Project Reference Number:
+                        {{this.quotationService.selectedQuotationInService.id}}</div>
+    
+                    <!-- Edit button -->
+                    <div class="ui-g-6">
+                        <button id="disabled-btn" type="button" (click)="toggleDisabled()" pButton
+                            label="Toggle Edit"></button></div>
+                </div>
+                <!-- Cancel button -->
+                <div class="ui-g-1">
+                    <button pButton type="button" style="float:right; position: relative;" class="ui-button-primary"
+                        (click)="confirm()" label="Approve"></button></div>
+                <!-- Cancel button -->
+                <div class="ui-g-1">
+                    <button pButton type="button" style="float:right; position: relative;" class="ui-button-danger"
+                        (click)="this._location.back()" label="Cancel"></button></div>
             </div>
-            <!-- Cancel button -->
-            <div class="ui-g-6">
-                <button pButton type="button" style="float:right; position: relative;" class="ui-button-danger"
-                    (click)="this._location.back()" label="Cancel"></button></div>
-        </div>
-        <form [formGroup]="addForm" (ngSubmit)="updateEdits()">
-            <div class="ui-g">
-                <!-- <div class="ui-g-12">Project Title:
-                    <input type="text" pInputText [disabled]="disabled" [formControlName]="'title'"
-                        [(ngModel)]='newTitle' />
-                </div> -->
+            <form [formGroup]="addForm" (ngSubmit)="updateEdits()">
+    
+                    <div class="ui-g-12 fieldset-bg">
+                        <!--Left column-->
+                        <div class="ui-g-6 ui-md-12 ui-lg-6">
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first formdetails">Subject</h3>
+                                    <input class="form-control formtext" type="text" pInputText [disabled]="disabled"
+                                        [formControlName]="'companyName'" [(ngModel)]='newCompanyName' />
+                                </span>
+                            </div>
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first formdetails">To</h3>
+                                    <p-dropdown [formControlName]="'to'" [virtualScroll]="true" itemSize="3"
+                                        [options]="newList" placeholder="Select Supplier" [(ngModel)]="newTo">
+                                    </p-dropdown>
+                                </span>
+                            </div>
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first formdetails">Attention</h3>
+                                    <input class="form-control formtext" type="text" pInputText
+                                        [formControlName]="'attention'" [(ngModel)]='newAttention' />
+                                </span>
+                            </div>
+                        </div>
+                        <!--Right column-->
+                        <div class="ui-g-6 ui-md-12 ui-lg-6">
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first formdetails">Tender Location</h3>
+                                    <input class="form-control formtext" type="text" pInputText
+                                        [formControlName]="'tenderLocation'" [(ngModel)]='newTenderLocation' />
+                                </span>
+                            </div>
+                            <div class="ui-g-12">
+                                <span class="ui-float-label">
+                                    <h3 class="first formdetails">Validity</h3>
+                                    <p-dropdown [formControlName]="'validity'" [virtualScroll]="true" itemSize="3"
+                                        [options]="newList2" [(ngModel)]='newValidity' placeholder="Select an Option">
+                                    </p-dropdown>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+    
+
                 <div class="ui-g-12 fieldset-bg">
-                    <!--Left column-->
-                    <div class="ui-g-6 ui-md-12 ui-lg-6">
-                        <div class="ui-g-12">
+                    <ui-g-6>
+                        <div class="ui-g-6">
                             <span class="ui-float-label">
-                                <h3 class="first formdetails">Subject</h3>
-                                <input class="form-control formtext" type="text" pInputText [disabled]="disabled"
-                                    [formControlName]="'companyName'" [(ngModel)]='newCompanyName' />
+                                <h3 class="first formdetails">Total</h3>
+                                <input class="form-control formtext" type="text" pInputText [formControlName]="'total'"
+                                    [(ngModel)]='newTotal' />
                             </span>
                         </div>
-                        <div class="ui-g-12">
+                    </ui-g-6>
+                    <ui-g-6>
+                        <div class="ui-g-6">
                             <span class="ui-float-label">
-                                <h3 class="first formdetails">To</h3>
-                                <p-dropdown [formControlName]="'to'" [virtualScroll]="true" itemSize="3" [options]="newList"
-                                    placeholder="Select Supplier" [(ngModel)]="newTo">
-                                </p-dropdown>
+                                <h3 class="first formdetails">Deposit</h3>
+                                <input class="form-control formtext" type="text" pInputText [formControlName]="'deposit'"
+                                    [(ngModel)]='newDeposit' />
                             </span>
                         </div>
-                        <div class="ui-g-12">
-                            <span class="ui-float-label">
-                                <h3 class="first formdetails">Attention</h3>
-                                <input class="form-control formtext" type="text" pInputText
-                                    [formControlName]="'attention'" [(ngModel)]='newAttention' />
-                            </span>
-                        </div>
-                    </div>
-                    <!--Right column-->
-                    <div class="ui-g-6 ui-md-12 ui-lg-6">
-                        <div class="ui-g-12">
-                            <span class="ui-float-label">
-                                <h3 class="first formdetails">Tender Location</h3>
-                                <input class="form-control formtext" type="text" pInputText
-                                    [formControlName]="'tenderLocation'" [(ngModel)]='newTenderLocation' />
-                            </span>
-                        </div>
-                        <div class="ui-g-12">
-                            <span class="ui-float-label">
-                                <h3 class="first formdetails">Validity</h3>
-                                <p-dropdown [formControlName]="'validity'" [virtualScroll]="true" itemSize="3" [options]="newList2"
-                                    [(ngModel)]='newValidity' placeholder="Select an Option">
-                                </p-dropdown>
-                            </span>
-                        </div>
-                    </div>
+                    </ui-g-6>
                 </div>
-
-            </div>
-            <div class="ui-g-12 fieldset-bg">
-                <ui-g-6>
-                    <div class="ui-g-6">
-                        <span class="ui-float-label">
-                            <h3 class="first formdetails">Total</h3>
-                            <input class="form-control formtext" type="text" pInputText [formControlName]="'total'"
-                                [(ngModel)]='newTotal' />
-                        </span>
+                <div class="ui-g-12 formnames">
+                    <h2>Supporting File</h2>
+                    <div class="ui-g-12">
+                        <app-upload-file></app-upload-file>
                     </div>
-                </ui-g-6>
-                <ui-g-6>
-                    <div class="ui-g-6">
-                        <span class="ui-float-label">
-                            <h3 class="first formdetails">Deposit</h3>
-                            <input class="form-control formtext" type="text" pInputText [formControlName]="'deposit'"
-                                [(ngModel)]='newDeposit' />
-                        </span>
+                    <div class="ui-g-12">
+                        <app-comments></app-comments>
                     </div>
-                </ui-g-6>
-            </div>
-            <div class="ui-g-12 formnames">
-                <h2>Supporting File</h2>
-                <div class="ui-g-12">
-                    <app-upload-file></app-upload-file>
+                    <button pButton type="submit" label="Save Edit"></button>
                 </div>
-                <div class="ui-g-12">
-                    <app-comments></app-comments>
-                </div>
-                <button pButton type="submit" label="Save Edit"></button>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
-</div>
+</html>

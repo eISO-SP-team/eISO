@@ -17,6 +17,11 @@ export class DesignService {
     designList: any[] = [
 
     ];
+  designPlanRows: number;
+  designInputRows: number;
+  designControlRows: number;
+  designOutputRows: number;
+  designCompleteRows: number;
 
 
     constructor(public http: HttpClient) {

@@ -13,6 +13,7 @@ export class CustomerService {
   selectedCustomerInService: any;
 
   customerList: any;
+  rows: number =3;
 
 
   constructor(public http: HttpClient) {

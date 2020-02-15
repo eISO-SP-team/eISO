@@ -18,6 +18,8 @@ export class SalesorderService {
 
   salesOrderListCompleted: any;
 
+  rows: number = 3;
+
   constructor(public http: HttpClient) {
     this.salesOrderSubject = new BehaviorSubject<any>(this.salesOrderList);
   }

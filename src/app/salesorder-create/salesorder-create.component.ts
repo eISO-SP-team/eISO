@@ -7,6 +7,7 @@ import { formatDate } from '@angular/common';
 import { SelectItem } from 'primeng/api'
 import { ConfirmationService, Message } from 'primeng/api';
 import { FileUploadService } from "../shared/service/file-upload.service";
+import { QuotationService } from '../shared/service/quotation.service';
 
 interface Type {
   name: string;
@@ -46,15 +47,21 @@ export class SalesorderCreateComponent implements OnInit {
 
   customerList: any;
 
+  quotationList: any;
+
   value: Date;
 
   newList: SelectItem[];
+
+  newList2: SelectItem[];
 
   salesOrderList: any;
 
   maxCount: any;
 
-  constructor(public customerService: CustomerService, public salesOrderService: SalesorderService, public _location: Location, private confirmationservice: ConfirmationService, public fileUploadService: FileUploadService) {
+  quotationRef: any =this.quotationService.selectedQuotationInService.id;
+
+  constructor(public quotationService: QuotationService, public customerService: CustomerService, public salesOrderService: SalesorderService, public _location: Location, private confirmationservice: ConfirmationService, public fileUploadService: FileUploadService) {
 
   }
 
@@ -65,6 +72,16 @@ export class SalesorderCreateComponent implements OnInit {
       this.newList = [];
       for (let i = 0; i < this.customerList.length; i++) {
         this.newList.push({ label: this.customerList[i].customer_name, value: this.customerList[i].id });
+      }
+    });
+
+    this.quotationList = this.quotationService.loadQuotation().subscribe(responseData => {
+      this.quotationService.quotationList = responseData.body;
+      this.quotationList = this.quotationService.quotationList;
+      this.newList2 = [];
+      console.log(this.quotationList);
+      for (let i = 0; i < this.customerList.length; i++) {
+        this.newList2.push({ label: this.quotationList[i].subject, value: this.quotationList[i].id });
       }
     });
 
@@ -141,7 +158,7 @@ export class SalesorderCreateComponent implements OnInit {
       console.log(this.uploadedFiles);
     }
   }
-  
+
   confirm() {
     this.confirmationservice.confirm({
       message: 'Are you sure that you want to proceed?',

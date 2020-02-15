@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-design-module',
-  templateUrl: './design-module.component.html',
-  styleUrls: ['./design-module.component.css']
+  selector: 'app-design-module-list',
+  templateUrl: './design-module-list.component.html',
+  styleUrls: ['./design-module-list.component.css']
 })
-export class DesignModuleComponent implements OnInit {
+export class DesignModuleListComponent implements OnInit {
 
   designList: any;
 
@@ -51,6 +51,10 @@ export class DesignModuleComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  viewMore(){
+    this.router.navigate(['/designList']);
   }
 
   viewEnquiry(enquiry: any) {

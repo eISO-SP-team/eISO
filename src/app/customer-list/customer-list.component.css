@@ -2,8 +2,18 @@ td {
     word-wrap: break-word;
 }
 
+.dashboardname {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding-top: 1em;
+}
+
+.buttonadd {
+    padding: 1em 0 1em 0;
+}
 
 /* styles to make search bar 100% length */
+
 .searchicon {
     width: 40px;
     height: 36px;
@@ -12,6 +22,7 @@ td {
     cursor: pointer;
     font-size: 20px;
 }
+
 /* 
 .ui-g-6.ui-md-4.filter-container {
     color: #125a96;
@@ -19,10 +30,9 @@ td {
     width: 100%;
 } */
 
-
-
 /* SEARCH BOX STYLES */
-::ng-deep body .ui-dataview .ui-dataview-header{
+
+::ng-deep body .ui-dataview .ui-dataview-header {
     background-color: #F6F7F9;
     color: #333333;
     border: none;
@@ -32,20 +42,23 @@ td {
 }
 
 /* DATA BOX STYLES */
+
 ::ng-deep body .ui-dataview .ui-dataview-content {
-    padding: 0.571em 1em; 
+    padding: 0.571em 1em;
     border: none;
-    padding: 0; 
+    padding: 0;
 }
 
 /* PAGE NO. BOX STYLES */
+
 ::ng-deep body .ui-paginator {
     background-color: #F6F7F9;
     border: none;
-    padding: 0; 
+    padding: 0;
 }
 
 /* FOOTER BOX STYLES */
+
 ::ng-deep body .ui-dataview .ui-dataview-footer {
     background-color: #ffffff;
     color: #333333;
@@ -53,6 +66,7 @@ td {
 }
 
 /* BUTTON STYLES */
+
 ::ng-deep body .ui-button {
     margin: 0;
     color: #125a96;
@@ -62,13 +76,13 @@ td {
     -moz-transition: background-color 0.2s, box-shadow 0.2s;
     -o-transition: background-color 0.2s, box-shadow 0.2s;
     -webkit-transition: background-color 0.2s, box-shadow 0.2s;
-    transition: background-color 0.2s, box-shadow 0.2s; 
+    transition: background-color 0.2s, box-shadow 0.2s;
 }
 
 ::ng-deep body .ui-button:enabled:hover {
     background-color: #aed8f4;
     color: #125a96;
-    border-color: #c8e2f8; 
+    border-color: #c8e2f8;
 }
 
 ::ng-deep body .ui-button:enabled:focus {
@@ -76,5 +90,5 @@ td {
     outline-offset: 0px;
     -webkit-box-shadow: 0 0 0 0.2em #8dcdff;
     -moz-box-shadow: 0 0 0 0.2em #8dcdff;
-    box-shadow: 0 0 0 0.2em #8dcdff; 
+    box-shadow: 0 0 0 0.2em #8dcdff;
 }

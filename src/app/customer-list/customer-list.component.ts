@@ -22,6 +22,8 @@ export class CustomerListComponent implements OnInit {
 
   customersTest: any;
 
+  rows = this.customerService.rows;
+
   index: any;
 
   confirmDelete: boolean;
@@ -63,6 +65,11 @@ export class CustomerListComponent implements OnInit {
       console.log('Vendor with id: ' + enquiry.id + ' has been deleted');
     });
 
+  }
+
+  viewMore() {
+    this.customerService.rows = 100;
+    this.router.navigate(['/customerList']);
   }
 
   confirm(enquiry) {

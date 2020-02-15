@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 @import url("../node_modules/primeicons/primeicons.css");
 @import url("../node_modules/primeflex/primeflex.css");
 @import url("../node_modules/primeng/resources/primeng.min.css");
@@ -13,6 +15,9 @@ article, body, div, footer, header, h1, h2, h3, p {
     padding: 0;
 }
 
+p-button {
+    margin-right: 2em;
+}
 
 /* body .ui-button {
     margin: 0;
@@ -37,11 +42,10 @@ body .ui-button:enabled:focus {
 
 /* UNTIL HERE */
 
-
-
 /* body {
     background-color: rgb(238, 238, 238);
 } */
+
 /* 
 .fieldset-bg {
     margin-top: 5px;
