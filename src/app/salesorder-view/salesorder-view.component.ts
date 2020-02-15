@@ -7,6 +7,7 @@ import { formatDate } from '@angular/common';
 import { SelectItem, ConfirmationService } from 'primeng/api'
 import { QuotationService } from '../shared/service/quotation.service';
 import { FileUploadService } from '../shared/service/file-upload.service';
+import { Router } from '@angular/router';
 
 interface Type {
   name: string;
@@ -62,7 +63,7 @@ export class SalesorderViewComponent implements OnInit {
   newDeposit = this.salesOrderService.selectedSalesOrderInService.deposit;
   quotationList: any;
 
-  constructor(public quotationService: QuotationService, public customerService: CustomerService, public salesOrderService: SalesorderService, public _location: Location, private confirmationservice: ConfirmationService, public fileUploadService: FileUploadService) {
+  constructor(private router: Router, public quotationService: QuotationService, public customerService: CustomerService, public salesOrderService: SalesorderService, public _location: Location, private confirmationservice: ConfirmationService, public fileUploadService: FileUploadService) {
   }
   ngOnInit() {
     this.customerList = this.customerService.loadCustomers().subscribe(responseData => {
@@ -139,4 +140,44 @@ export class SalesorderViewComponent implements OnInit {
         this._location.back();
       });
   }
+
+  approve() {
+    this.salesOrderService.selectedSalesOrderInService.pic_email = this.newPicEmail,
+      this.salesOrderService.selectedSalesOrderInService.sales_order_details.status = "completed";
+    var data = JSON.stringify(this.salesOrderService.selectedSalesOrderInService);
+    console.log(data);
+    this.salesOrderService.updateSalesorder(this.salesOrderService.selectedSalesOrderInService.id, data)
+      .subscribe(() => {
+        // console.log("Updated: " + data)
+        this.confirm2();
+      });
+  }
+
+  confirm() {
+    this.confirmationservice.confirm({
+      message: 'Are you sure that you want to proceed?',
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.approve();
+      },
+      reject: () => {
+      }
+    });
+  }
+
+  confirm2() {
+    this.confirmationservice.confirm({
+      message: 'Do you wish to proceed to create a process control?',
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.router.navigate(['/processcontrolCreate']);
+      },
+      reject: () => {
+        this._location.back();
+      }
+    });
+  }
+
 }

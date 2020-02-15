@@ -34,7 +34,8 @@
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
                                     <h3 class="first formdetails">Quotation Reference</h3>
-                                    <input class="formtext" type="text" pInputText [formControlName]="'quotation_number'" />
+                                    <p-dropdown [options]="newList3" [formControlName]="'quotation_number'"
+                                    [(ngModel)]="quotationRef" placeholder="Select a Quotation" [showClear]="true"></p-dropdown>
                                 </span>
                                 <span
                                     *ngIf="!addProcessControlForm.get('quotation_number').valid && addProcessControlForm.get('quotation_number').touched"
@@ -107,7 +108,8 @@
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
                                     <h3 class="first formdetails">Tender Location</h3>
-                                    <input class="formtext" type="text" pInputText [formControlName]="'tender_location'" />
+                                    <input class="formtext" type="text" pInputText
+                                        [formControlName]="'tender_location'" />
                                 </span>
                                 <span
                                     *ngIf="!addProcessControlForm.get('tender_location').valid && addProcessControlForm.get('tender_location').touched"
@@ -207,8 +209,7 @@
                 </div>
             </div>
             <div class="ui-g-12">
-                <button pButton [disabled]="!addProcessControlForm.valid" type="submit"
-                    label="Submit"></button>
+                <button pButton [disabled]="!addProcessControlForm.valid" type="submit" label="Submit"></button>
             </div>
         </form>
     </div>
@@ -274,20 +275,20 @@
                 </div>
 
             </div>
-            
-                <h2 style="font-size: 1.5em; font-weight: 600; padding-left: 0.7em;">Supporting File</h2>
-                <div class="ui-g-12">
-                    <p-fileUpload name="demo[]" customUpload="true" (uploadHandler)="onUpload($event)"
-                        multiple="multiple" maxFileSize="1000000">
-                        <ng-template pTemplate="content">
-                            <ul *ngIf="uploadedFiles.length">
-                                <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes -
-                                    {{file.type}}</li>
-                            </ul>
-                        </ng-template>
-                    </p-fileUpload>
-                </div>
-            
+
+            <h2 style="font-size: 1.5em; font-weight: 600; padding-left: 0.7em;">Supporting File</h2>
+            <div class="ui-g-12">
+                <p-fileUpload name="demo[]" customUpload="true" (uploadHandler)="onUpload($event)" multiple="multiple"
+                    maxFileSize="1000000">
+                    <ng-template pTemplate="content">
+                        <ul *ngIf="uploadedFiles.length">
+                            <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes -
+                                {{file.type}}</li>
+                        </ul>
+                    </ng-template>
+                </p-fileUpload>
+            </div>
+
             <div class="ui-g-12">
                 <button pButton [disabled]="!addControlPoint.valid" type="submit" label="Submit"></button>
             </div>

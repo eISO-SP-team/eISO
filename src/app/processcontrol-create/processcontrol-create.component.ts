@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { ProcesscontrolService } from "../shared/service/processcontrol.service";
 import { CustomerService } from "../shared/service/customer.service";
 import { QuotationService } from "../shared/service/quotation.service";
+import { SalesorderService } from "../shared/service/salesorder.service";
 import { Location } from '@angular/common';
 import { formatDate } from '@angular/common';
 import { SelectItem } from 'primeng/api';
@@ -28,7 +29,7 @@ export class ProcesscontrolCreateComponent implements OnInit {
 
   addControlPoint: FormGroup;
 
-  selectedCustomer: any = null;
+  selectedCustomer: any = this.salesOrderService.selectedSalesOrderInService.customer_id;;
 
   customerEmail: any = "";
 
@@ -50,11 +51,15 @@ export class ProcesscontrolCreateComponent implements OnInit {
 
   processControlList: any;
 
+  quotationRef = this.salesOrderService.selectedSalesOrderInService.quotation_number;
+
   value: Date;
 
   newList: SelectItem[];
 
   newList2: SelectItem[];
+
+  newList3: SelectItem[];
 
   salesOrderList: any;
 
@@ -66,7 +71,7 @@ export class ProcesscontrolCreateComponent implements OnInit {
 
   clickedonPhase: string = "PREPARATION";
 
-  constructor(public quotationService: QuotationService, public processControlService: ProcesscontrolService, public customerService: CustomerService, public _location: Location, public fileUploadService: FileUploadService) { }
+  constructor(public salesOrderService: SalesorderService, public quotationService: QuotationService, public processControlService: ProcesscontrolService, public customerService: CustomerService, public _location: Location, public fileUploadService: FileUploadService) { }
 
   ngOnInit() {
     this.controlpoints = [
@@ -74,6 +79,18 @@ export class ProcesscontrolCreateComponent implements OnInit {
       { label: 'IN PROGRESS PHASE', value: 'IN PROGRESS PHASE' },
       { label: 'FINAL PHASE', value: 'FINAL PHASE' },
     ]
+
+    this.quotationList = this.quotationService.loadQuotation().subscribe(responseData => {
+      this.quotationService.quotationList = responseData.body;
+      this.quotationList = this.quotationService.quotationList;
+      this.newList3 = [];
+      console.log(this.quotationList);
+      for (let i = 0; i < this.customerList.length; i++) {
+        this.newList3.push({ label: this.quotationList[i].subject, value: this.quotationList[i].id });
+      }
+    });
+
+    console.log(this.quotationRef);
 
     this.processControlList = this.processControlService.loadProcesscontrols().subscribe(responseData => {
       this.processControlService.processcontrolList = (<any>responseData).body;
@@ -86,7 +103,7 @@ export class ProcesscontrolCreateComponent implements OnInit {
       this.customerList = this.customerService.customerList;
       this.newList = [];
       for (let i = 0; i < this.customerList.length; i++) {
-        this.newList.push({ label: this.customerList[i].customer_name, value: this.customerList[i] });
+        this.newList.push({ label: this.customerList[i].customer_name, value: this.customerList[i].id, });
         console.log(this.newList);
       }
     });
@@ -99,6 +116,13 @@ export class ProcesscontrolCreateComponent implements OnInit {
         this.newList2.push({ label: this.quotationList[i].quotation_number, value: this.quotationList[i].quotation_number });
       }
     });
+
+    for (let i = 0; i < this.customerList.length; i++) {
+      if (this.selectedCustomer == this.customerList[i].id) {
+        console.log("check")
+        this.customerEmail = this.customerList[i].customer_contact.email;
+      }
+    }
 
     this.addProcessControlForm = new FormGroup({
       'project_name': new FormControl(null, [Validators.required]),
@@ -199,9 +223,12 @@ export class ProcesscontrolCreateComponent implements OnInit {
   valuechange(value) {
     if (this.selectedCustomer != null) {
       console.log(value);
-      this.selectedCustomer = this.addProcessControlForm.value.customer_name;
-      this.customerEmail = this.selectedCustomer.customer_contact.email;
-      console.log(this.selectedCustomer.id + "," + this.customerEmail);
+
+      for (let i = 0; i < this.customerList.length; i++) {
+        if (value == this.customerList[i].id) {
+          this.customerEmail = this.customerList[i].customer_contact.email
+        }
+      }
     } else {
 
     }

@@ -2,10 +2,14 @@
     <div class="ui-g rcorners2">
 
         <div class="ui-g-12">
-            <div class="ui-g-6 formheader">
+            <div class="ui-g-10 formheader">
                 <h3>View Sales Order</h3>
             </div>
-            <div class="ui-g-6">
+            <div class="ui-g-1">
+                <button pButton type="button" style="float:right; position: relative;" class="ui-button-primary"
+                    (click)="confirm()" label="Approve"></button>
+            </div>
+            <div class="ui-g-1">
                 <button pButton type="button" style="float:right; position: relative;" class="ui-button-danger"
                     (click)="this._location.back()" label="Cancel"></button>
             </div>

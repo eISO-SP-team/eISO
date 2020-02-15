@@ -10,7 +10,7 @@ export class SalesorderService {
 
   salesOrderSubject: BehaviorSubject<any[]>;
 
-  selectedSalesOrderInService: any;
+  selectedSalesOrderInService: any = "";
 
   salesOrderList: any;
 
