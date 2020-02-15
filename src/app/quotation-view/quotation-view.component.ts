@@ -145,6 +145,17 @@ export class QuotationViewComponent implements OnInit {
 
   }
 
+  notApprove() {
+    this.quotationService.selectedQuotationInService.status = "not approved";
+    var data = JSON.stringify(this.quotationService.selectedQuotationInService);
+    this.quotationService.updateQuotation(this.quotationService.selectedQuotationInService.id, data)
+      .subscribe(() => {
+        console.log("Updated: to not approved")
+        this.router.navigate(['/sales-module']);
+      });
+
+  }
+
   confirm() {
     this.confirmationservice.confirm({
       message: 'Are you sure that you want to proceed?',
@@ -152,6 +163,19 @@ export class QuotationViewComponent implements OnInit {
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.approve();
+      },
+      reject: () => {
+      }
+    });
+  }
+
+  confirm2() {
+    this.confirmationservice.confirm({
+      message: 'Are you sure that you want to proceed?',
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.notApprove();
       },
       reject: () => {
       }
