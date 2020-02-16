@@ -29,6 +29,7 @@ import { QuotationListComponent } from './quotation-list/quotation-list.componen
 import { CustomerListComponent } from './customer-list/customer-list.component';
 import { SalesorderListComponent } from './salesorder-list/salesorder-list.component';
 import { DesignModuleListFullComponent } from './design-module-list-full/design-module-list-full.component';
+import { PurchaseRequisitionListComponent } from './purchase-requisition-list/purchase-requisition-list.component';
 
 const AppRoutes: Routes = [
   { path: '', redirectTo: '/sales-module', pathMatch: 'full' },
@@ -61,6 +62,7 @@ const AppRoutes: Routes = [
   { path: 'customerList', component: CustomerListComponent },
   { path: 'salesList', component: SalesorderListComponent },
   { path: 'designList', component: DesignModuleListFullComponent },
+  { path: 'purchaseRequisitionList', component: PurchaseRequisitionListComponent },
   { path: '*', redirectTo: "/sales-modules" },
   // { path: '**', redirectTo:"/sales-modules"}
 

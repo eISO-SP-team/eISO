@@ -69,4 +69,8 @@ export class PurchaseRequisitionListComponent implements OnInit {
     });
   }
 
+  viewMore() {
+    this.purchaseRequisitionService.rows = 100;
+    this.router.navigate(['/purchaseRequisitionList']);
+  }
 }

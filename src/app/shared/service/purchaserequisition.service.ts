@@ -14,6 +14,7 @@ export class PurchaserequisitionService {
   purchaserequisitionList: any;
 
   empty = [""];
+  rows: number;
 
   constructor(public http: HttpClient) {
     this.purchaserequisitionSubject = new BehaviorSubject<any[]>(this.purchaserequisitionList);
