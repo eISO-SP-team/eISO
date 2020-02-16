@@ -121,12 +121,12 @@ export class DesignModuleCreateComponent implements OnInit {
   onSubmitDesignPlan() {
     this.testEntry = {
       "design_id": this.maxCount + 1,
-      "project_id": this.maxCount + 1,
-      "project_name": this.Project_name,
-      "design_engineer": this.addDesignForm.value.project_lead,
-      "start_date": this.addDesignForm.value.start_date,
-      "end_date": this.addDesignForm.value.end_date,
-      "status": this.addDesignForm.value.status,
+      "project_id": this.addDesignForm.value.Project_no,
+      "project_name": this.addDesignForm.value.Project_name,
+      "project_lead": this.addDesignForm.value.Project_lead,
+      "start_date": this.addDesignForm.value.Start_date_design,
+      "end_date": this.addDesignForm.value.End_date_design,
+      "status": "pending",
       "reference_id": this.maxCount + 1,
       "created_by": "Wolverine",
       "created_date": "2019-11-26",

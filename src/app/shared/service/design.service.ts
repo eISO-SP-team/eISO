@@ -17,11 +17,11 @@ export class DesignService {
     designList: any[] = [
 
     ];
-  designPlanRows: number;
-  designInputRows: number;
-  designControlRows: number;
-  designOutputRows: number;
-  designCompleteRows: number;
+    designPlanRows: number;
+    designInputRows: number;
+    designControlRows: number;
+    designOutputRows: number;
+    designCompleteRows: number;
 
 
     constructor(public http: HttpClient) {
@@ -43,8 +43,10 @@ export class DesignService {
     loadDesigns() {
         return this.http.get('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/design');
     }
-    updateDesigns(enquiryId, newInfo) {
-        return this.http.put('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/design/' + enquiryId, newInfo)
+    updateDesigns(newInfo) {
+        this.designList.unshift(newInfo);
+        this.designSubject.next(this.designList);
+        return this.http.put('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/design/' + this.selectedDesignInService.id, newInfo)
     }
 
     deleteDesigns(enquiryId) {

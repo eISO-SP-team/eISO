@@ -99,10 +99,10 @@ export class ProcesscontrolCreateComponent implements OnInit {
     this.quotationList = this.quotationService.loadQuotation().subscribe(responseData => {
       this.quotationService.quotationList = responseData.body;
       this.quotationList = this.quotationService.quotationList;
-      this.newList3 = [];
+      this.newList2 = [];
       //console.log(this.quotationList);
       for (let i = 0; i < this.customerList.length; i++) {
-        this.newList3.push({ label: this.quotationList[i].subject, value: this.quotationList[i].id });
+        this.newList2.push({ label: this.quotationList[i].subject, value: this.quotationList[i].id });
       }
     });
 
@@ -112,16 +112,6 @@ export class ProcesscontrolCreateComponent implements OnInit {
       this.processControlService.processcontrolList = (<any>responseData).body;
       this.processControlList = this.processControlService.processcontrolList;
       this.maxCount = this.processControlList.length;
-    });
-
-
-    this.quotationList = this.quotationService.loadQuotation().subscribe(responseData => {
-      this.quotationService.quotationList = responseData.body;
-      this.quotationList = this.quotationService.quotationList;
-      this.newList2 = [];
-      for (let i = 0; i < this.quotationList.length; i++) {
-        this.newList2.push({ label: this.quotationList[i].quotation_number, value: this.quotationList[i].quotation_number });
-      }
     });
 
     this.addProcessControlForm = new FormGroup({

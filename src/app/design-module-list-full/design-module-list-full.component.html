@@ -36,7 +36,7 @@
                             <div class="ui-g-12">
                                 <div class="ui-g-2" style="align-content: center; padding-left:3%;">
                                     <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
-                                    <img #img src="../../assets/delete.png" (click)="deleteEnquiry(planList)"
+                                    <img #img src="../../assets/delete.png" (click)="deletePlan(planList)"
                                         width="30px" height="30px" alt="Logo">
                                 </div>
                                 <div class="ui-g-4">
@@ -85,7 +85,7 @@
                             <div class="ui-g-12">
                                 <div class="ui-g-2" style="align-content: center; padding-left:3%;">
                                     <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
-                                    <img #img src="../../assets/delete.png" (click)="deleteEnquiry(inputList)" width="30px"
+                                    <img #img src="../../assets/delete.png" (click)="deleteInput(inputList)" width="30px"
                                         height="30px" alt="Logo">
                                 </div>
                                 <div class="ui-g-4">
@@ -133,7 +133,7 @@
                     <div class="ui-g-12">
                         <div class="ui-g-2" style="align-content: center; padding-left:3%;">
                             <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
-                            <img #img src="../../assets/delete.png" (click)="deleteEnquiry(controlList)" width="30px"
+                            <img #img src="../../assets/delete.png" (click)="deleteControl(controlList)" width="30px"
                                 height="30px" alt="Logo">
                         </div>
                         <div class="ui-g-4">
@@ -182,7 +182,7 @@
                     <div class="ui-g-12">
                         <div class="ui-g-2" style="align-content: center; padding-left:3%;">
                             <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
-                            <img #img src="../../assets/delete.png" (click)="deleteEnquiry(outputList)" width="30px"
+                            <img #img src="../../assets/delete.png" (click)="deleteOutput(outputList)" width="30px"
                                 height="30px" alt="Logo">
                         </div>
                         <div class="ui-g-4">
@@ -205,7 +205,7 @@
             </p-tabPanel>
             <p-tabPanel header="Completed">
                 <P class="dashboardname">Completed Design Plans</P>
-        <p-dataView [value]="designList" #cdp class="ui-dataview" [paginator]="true"
+        <p-dataView [value]="completeList" #cdp class="ui-dataview" [paginator]="true"
             filterBy="project_name, project_lead" [rows]="100">
             <p-header>
                 <div class="ui-helper-clearfix">
@@ -223,24 +223,24 @@
             </p-header>
             <p-footer>
             </p-footer>
-            <ng-template let-designList pTemplate="listItem">
+            <ng-template let-completeList pTemplate="listItem">
                 <div class="ui-dataview-content">
                     <div class="ui-g-12">
                         <div class="ui-g-2" style="align-content: center; padding-left:3%;">
                             <p-contextMenu [target]="img" [model]="items2"></p-contextMenu>
-                            <img #img src="../../assets/delete.png" (click)="deleteEnquiry(designList)" width="30px"
+                            <img #img src="../../assets/delete.png" (click)="deleteComplete(completeList)" width="30px"
                                 height="30px" alt="Logo">
                         </div>
                         <div class="ui-g-4">
-                            <p class="quotation_header">{{designList.project_name}} -
-                                {{designList.project_lead}}<br />
+                            <p class="quotation_header">{{completeList.project_name}} -
+                                {{completeList.project_lead}}<br />
                         </div>
                         <div class="ui-g-4">
-                            <p style="text-align: right;">{{designList.status}}</p>
+                            <p style="text-align: right;">{{completeList.status}}</p>
                             <br />
                         </div>
                         <div class="ui-g-2" style="align-content: center; padding-right: 3%;">
-                            <button pButton type="button" icon="pi pi-search" (click)="viewEnquiry(designList)"
+                            <button pButton type="button" icon="pi pi-search" (click)="viewEnquiry(completeList)"
                                 style="margin-top:0; float: right;"></button>
                         </div>
                     </div>

@@ -35,6 +35,7 @@ export class ProcesscontrolService {
   }
 
   updateProcesscontrols(enquiryId, newInfo) {
+    this.processcontrolList.push(newInfo);
     this.processcontrolSubject.next(this.processcontrolList);
     return this.http.put('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/process-control/' + enquiryId, newInfo)
   }

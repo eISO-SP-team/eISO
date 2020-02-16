@@ -28,7 +28,6 @@ export class ProcesscontrolViewComponent implements OnInit {
   projectLINK = this.processControlService.selectedProcesscontrolInService;
 
   newProject_name = this.processControlService.selectedProcesscontrolInService.project_name;
-  newQuotation_number = this.processControlService.selectedProcesscontrolInService.quotation_number;
   newProject_lead = this.processControlService.selectedProcesscontrolInService.project_lead;
   newTender_location = this.processControlService.selectedProcesscontrolInService.tender_location;
   newCustomer_name = this.processControlService.selectedProcesscontrolInService.customer_name;
@@ -101,18 +100,8 @@ export class ProcesscontrolViewComponent implements OnInit {
       }
     });
 
-    this.quotationList = this.quotationService.loadQuotation().subscribe(responseData => {
-      this.quotationService.quotationList = responseData.body;
-      this.quotationList = this.quotationService.quotationList;
-      this.newList2 = [];
-      for (let i = 0; i < this.quotationList.length; i++) {
-        this.newList2.push({ label: this.quotationList[i].quotation_number, value: this.quotationList[i].quotation_number });
-      }
-    });
-
     this.addProcessControlForm = new FormGroup({
       'project_name': new FormControl(null, [Validators.required]),
-      'quotation_number': new FormControl(null, [Validators.required]),
       'project_lead': new FormControl(null, [Validators.required]),
       "tender_location": new FormControl(null, [Validators.required]),
       "customer_name": new FormControl(null, [Validators.required]),

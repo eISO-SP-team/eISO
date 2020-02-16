@@ -59,19 +59,69 @@ export class DesignModuleListFullComponent implements OnInit {
     this.router.navigate(['/designView', enquiry.id]);
   }
 
-  deleteEnquiry(enquiry: { id: string; }) {
+
+  deletePlan(enquiry) {
     //console.log("Delete this enquiry......" + JSON.stringify(enquiry.id));
     this.designService.deleteDesigns(enquiry.id).subscribe(() => {
-      for (let i = 0; i < this.designList.length; i++) {
-        if (this.designList[i].id == enquiry.id) {
+      for (let i = 0; i < this.planList.length; i++) {
+        if (this.planList[i].id == enquiry.id) {
           this.index = i;
           break;
         }
       }
-      this.designList.splice(this.index, 1);
-      //console.log('Design with id: ' + enquiry.id + ' has been deleted');
+      this.planList.splice(this.index, 1);
     });
-
   }
 
+  deleteInput(enquiry) {
+    //console.log("Delete this enquiry......" + JSON.stringify(enquiry.id));
+    this.designService.deleteDesigns(enquiry.id).subscribe(() => {
+      for (let i = 0; i < this.planList.length; i++) {
+        if (this.inputList[i].id == enquiry.id) {
+          this.index = i;
+          break;
+        }
+      }
+      this.inputList.splice(this.index, 1);
+    });
+  }
+
+  deleteControl(enquiry) {
+    //console.log("Delete this enquiry......" + JSON.stringify(enquiry.id));
+    this.designService.deleteDesigns(enquiry.id).subscribe(() => {
+      for (let i = 0; i < this.planList.length; i++) {
+        if (this.controlList[i].id == enquiry.id) {
+          this.index = i;
+          break;
+        }
+      }
+      this.controlList.splice(this.index, 1);
+    });
+  }
+
+  deleteOutput(enquiry) {
+    //console.log("Delete this enquiry......" + JSON.stringify(enquiry.id));
+    this.designService.deleteDesigns(enquiry.id).subscribe(() => {
+      for (let i = 0; i < this.planList.length; i++) {
+        if (this.outputList[i].id == enquiry.id) {
+          this.index = i;
+          break;
+        }
+      }
+      this.outputList.splice(this.index, 1);
+    });
+  }
+
+  deleteComplete(enquiry) {
+    //console.log("Delete this enquiry......" + JSON.stringify(enquiry.id));
+    this.designService.deleteDesigns(enquiry.id).subscribe(() => {
+      for (let i = 0; i < this.planList.length; i++) {
+        if (this.completeList[i].id == enquiry.id) {
+          this.index = i;
+          break;
+        }
+      }
+      this.completeList.splice(this.index, 1);
+    });
+  }
 }

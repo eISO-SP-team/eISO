@@ -129,7 +129,7 @@ export class DesignModuleViewComponent implements OnInit {
       "design_engineer": "Wolverine",
       "start_date": this.newStart_date_design,
       "end_date": this.newEnd_date_design,
-      "status": this.designService.selectedDesignInService.status,
+      "status": "pending",
       "reference_id": this.designService.selectedDesignInService.reference_id,
       "created_by": "Wolverine",
       "created_date": "2019-11-26",
@@ -137,6 +137,11 @@ export class DesignModuleViewComponent implements OnInit {
       "uploaded_date": "2019-11-26",
       "design_details": this.desginBacklog
     }
+    let data = JSON.stringify(this.testEntry);
+    this.designService.updateDesigns(data).subscribe(() => {
+      this.router.navigate(['/design-module']);
+    })
+
   }
   onUpload(event) {
     for (let file of event.files) {
