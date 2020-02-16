@@ -7,6 +7,7 @@ import { formatDate } from '@angular/common';
 import { SelectItem } from 'primeng/api'
 import { ConfirmationService, Message } from 'primeng/api';
 import { FileUploadService } from '../shared/service/file-upload.service';
+import { DeliveryService } from '../shared/service/delivery.service';
 
 @Component({
   selector: 'app-purchase-view',
@@ -22,6 +23,8 @@ export class PurchaseViewComponent implements OnInit {
   newEta = this.PurchaseOrderService.selectedPurchaseorderService.eta;
   newRemarks = this.PurchaseOrderService.selectedPurchaseorderService.remarks;
   newStatus = this.PurchaseOrderService.selectedPurchaseorderService.status;
+
+  displayDO: boolean = false;
 
   selectedPR: any;
 
@@ -51,7 +54,7 @@ export class PurchaseViewComponent implements OnInit {
 
   selectedVendor: any;
 
-  constructor(public fileUploadService: FileUploadService, public purchaseRequisitionService: PurchaserequisitionService, public PurchaseOrderService: PurchaseorderService, public _location: Location, private confirmationservice: ConfirmationService) {
+  constructor(public deliveryOrderService: DeliveryService, public fileUploadService: FileUploadService, public purchaseRequisitionService: PurchaserequisitionService, public PurchaseOrderService: PurchaseorderService, public _location: Location, private confirmationservice: ConfirmationService) {
     this.selectedPR = this.purchaseRequisitionService.selectedPurchaserequisitionService.id;
     this.selectedVendor = this.purchaseRequisitionService.selectedPurchaserequisitionService.supplier_id;
   }
@@ -120,4 +123,9 @@ export class PurchaseViewComponent implements OnInit {
       }
     });
   }
+
+  showDialogDO() {
+    this.displayDO = true;
+  }
+
 }

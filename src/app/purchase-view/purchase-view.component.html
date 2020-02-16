@@ -8,6 +8,8 @@
             <div class="ui-g-6">
                 <button pButton type="button" style="float:right; position: relative;" class="ui-button-danger"
                     (click)="this._location.back()" label="Cancel"> </button>
+                <button pButton type="button" style="float:right; margin-right: 1em; position: relative;"
+                    class="ui-button-primary" (click)="showDialogDO()" label="Delivery Order"></button>
             </div>
         </div>
         <form [formGroup]="addPurchaseForm" (ngSubmit)="confirm()">
@@ -151,3 +153,7 @@
                 <button pButton [disabled]="!addPurchaseForm.valid" type="submit" label="Submit"></button>
             </div>
         </form>
+        
+        <p-dialog header="Delivery Order" [(visible)]="displayDO" [style]="{width: '50vw'}">
+            <app-delivery-list></app-delivery-list>
+        </p-dialog>

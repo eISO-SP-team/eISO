@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 })
 export class DeliveryListComponent implements OnInit {
 
+  outputList: any = [];
+
   deliveryList: any = [];
 
   filteredDeliveryList = [];
@@ -30,27 +32,17 @@ export class DeliveryListComponent implements OnInit {
   constructor(public purchaseOrderService: PurchaseorderService, public deliveryService: DeliveryService, public router: Router, private confirmationservice: ConfirmationService) {
     this.deliveryService.getDeliveryListener().subscribe(() => {
       this.deliveryTest = this.deliveryService.loadDeliveries().subscribe(responseData => {
-        this.deliveryList = (<any>responseData).body;
-        //console.log(this.deliveryList);
+        this.outputList = (<any>responseData).body;
+        console.log(this.outputList);
+        for (let i = 0; i < this.outputList.length; i++) {
+          if (this.outputList[i].po_number == this.purchaseOrderService.selectedPurchaseorderService.id) {
+            this.deliveryList.push(this.outputList[i]);
+            console.log(this.outputList[i]);
+            console.log(this.purchaseOrderService.selectedPurchaseorderService);
+          }
+        }
       });
     });
-
-    // this.purchaseOrderService.getPurchaseorderListener().subscribe(() => {
-    //   this.getList = this.purchaseOrderService.loadPurchaseorders().subscribe((responsedata) => {
-    //     this.purchaseOrderList = (<any>responsedata).body;
-    //     console.log(this.purchaseOrderList);
-    //   })
-    // })
-
-    // for (let j = 0; j < this.deliveryList.length; j++) {
-    //   for (let i = 0; i < this.purchaseOrderList.length; i++) {
-    //     console.log(this.deliveryList[j].po_number + "xxxx" + this.purchaseOrderList[i].id);
-    //     if (this.deliveryList[j].po_number == this.purchaseOrderList[i].id) {
-    //       this.filteredDeliveryList.push(this.deliveryList[j]);
-    //     }
-    //   }
-    // }
-    
   }
 
   ngOnInit() {
