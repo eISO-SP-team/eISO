@@ -53,19 +53,19 @@ export class SalesorderListComponent implements OnInit {
   }
 
   viewEnquiryPending(salesOrderListPending) {
-    console.log("In onViewDetail......" + JSON.stringify(salesOrderListPending));
+    //console.log("In onViewDetail......" + JSON.stringify(salesOrderListPending));
     this.salesOrderService.selectedSalesOrderInService = salesOrderListPending;
     this.router.navigate(['/salesorderView', salesOrderListPending.id]);
   }
 
   viewEnquiryCompleted(salesOrderListCompleted) {
-    console.log("In onViewDetail......" + JSON.stringify(salesOrderListCompleted));
+    //console.log("In onViewDetail......" + JSON.stringify(salesOrderListCompleted));
     this.salesOrderService.selectedSalesOrderInService = salesOrderListCompleted;
     this.router.navigate(['/salesorderView', salesOrderListCompleted.id]);
   }
 
   deleteEnquiry(enquiry) {
-    console.log("Delete this enquiry......" + JSON.stringify(enquiry));
+    //console.log("Delete this enquiry......" + JSON.stringify(enquiry));
     let index = -1;
     for (let i = 0; i < this.salesOrderList.length; i++) {
       if (this.salesOrderList[i].id == enquiry.id) {
@@ -87,9 +87,9 @@ export class SalesorderListComponent implements OnInit {
         }
       }
     }
-    console.log(this.salesOrderList[index].id);
+    //console.log(this.salesOrderList[index].id);
     this.salesOrderService.deleteSalesorder(this.salesOrderList[index].id).subscribe(() => {
-      console.log("Deleted");
+      //console.log("Deleted");
     });
     this.salesOrderList.splice(index, 1);
   }

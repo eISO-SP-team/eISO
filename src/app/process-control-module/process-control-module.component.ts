@@ -20,7 +20,7 @@ export class ProcessControlModuleComponent implements OnInit {
     this.processControlService.getProcesscontrolListener().subscribe(() => {
       this.testList = this.processControlService.loadProcesscontrols().subscribe((responseData) => {
         this.projectList = (<any>responseData).body;
-        console.log(this.projectList);
+        //console.log(this.projectList);
       });
       this.processControlService.processcontrolList = this.projectList;
     })
@@ -30,13 +30,13 @@ export class ProcessControlModuleComponent implements OnInit {
   }
 
   viewEnquiry(enquiry: any) {
-    console.log("In onViewDetail......" + JSON.stringify(enquiry));
+    //console.log("In onViewDetail......" + JSON.stringify(enquiry));
     this.processControlService.selectedProcesscontrolInService = enquiry;
     this.router.navigate(['/process-control-view', enquiry.id]);
   }
 
   deleteEnquiry(enquiry: { id: string; }) {
-    console.log("Delete this enquiry......" + JSON.stringify(enquiry.id));
+    //console.log("Delete this enquiry......" + JSON.stringify(enquiry.id));
     this.processControlService.deleteProcesscontrols(enquiry.id).subscribe(() => {
       for (let i = 0; i < this.projectList.length; i++) {
         if (this.projectList[i].id == enquiry.id) {
@@ -45,7 +45,7 @@ export class ProcessControlModuleComponent implements OnInit {
         }
       }
       this.projectList.splice(this.index, 1);
-      console.log('Process Control with id: ' + enquiry.id + ' has been deleted');
+      //console.log('Process Control with id: ' + enquiry.id + ' has been deleted');
     });
 
   }

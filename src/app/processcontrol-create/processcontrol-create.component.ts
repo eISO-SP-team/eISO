@@ -80,7 +80,7 @@ export class ProcesscontrolCreateComponent implements OnInit {
       this.newList = [];
       for (let i = 0; i < this.customerList.length; i++) {
         this.newList.push({ label: this.customerList[i].customer_name, value: this.customerList[i].id, });
-        console.log(this.newList);
+        //console.log(this.newList);
         if (this.selectedCustomer == this.customerList[i].id) {
           this.customerEmail = this.customerList[i].customer_contact.email;
         }
@@ -100,13 +100,13 @@ export class ProcesscontrolCreateComponent implements OnInit {
       this.quotationService.quotationList = responseData.body;
       this.quotationList = this.quotationService.quotationList;
       this.newList3 = [];
-      console.log(this.quotationList);
+      //console.log(this.quotationList);
       for (let i = 0; i < this.customerList.length; i++) {
         this.newList3.push({ label: this.quotationList[i].subject, value: this.quotationList[i].id });
       }
     });
 
-    console.log(this.quotationRef);
+    //console.log(this.quotationRef);
 
     this.processControlList = this.processControlService.loadProcesscontrols().subscribe(responseData => {
       this.processControlService.processcontrolList = (<any>responseData).body;
@@ -144,7 +144,7 @@ export class ProcesscontrolCreateComponent implements OnInit {
   }
 
   onAddEnquiry() {
-    console.log(this.addProcessControlForm.value.customer_id);
+    //console.log(this.addProcessControlForm.value.customer_id);
     this.testEntry = {
       "header_id": this.maxCount + 1,
       "pc_number": this.maxCount + 1,
@@ -160,11 +160,11 @@ export class ProcesscontrolCreateComponent implements OnInit {
       "uploaded_by": "Jack",
       "process_control_details": this.pcpList,
     };
-    console.log(JSON.stringify(this.testEntry));
+    //console.log(JSON.stringify(this.testEntry));
     var data = JSON.stringify(this.testEntry);
     this.processControlService.addProcesscontrols(data)
       .subscribe((data) => {
-        console.log(data)
+        //console.log(data)
       });
     this._location.back();
   }
@@ -179,7 +179,7 @@ export class ProcesscontrolCreateComponent implements OnInit {
     } else {
       this.clickedonPhase = "FINAL PHASE";
     }
-    console.log(this.clickedonPhase);
+    //console.log(this.clickedonPhase);
   }
 
   showDialog() {
@@ -206,7 +206,7 @@ export class ProcesscontrolCreateComponent implements OnInit {
       "uploaded_date": this.myDate
     }
     this.pcpList.unshift(this.pcpEntry);
-    console.log(this.pcpList);
+    //console.log(this.pcpList);
     this.display = false;
     this.addControlPoint.reset();
   }
@@ -214,15 +214,15 @@ export class ProcesscontrolCreateComponent implements OnInit {
     for (let file of event.files) {
       this.uploadedFiles.push(file);
       this.fileUploadService.uploadFile(file).subscribe((result) => {
-        console.log(result);
+        //console.log(result);
       })
-      console.log(this.uploadedFiles);
+      //console.log(this.uploadedFiles);
     }
   }
 
   valuechange(value) {
     if (this.selectedCustomer != null) {
-      console.log(value);
+      //console.log(value);
 
       for (let i = 0; i < this.customerList.length; i++) {
         if (value == this.customerList[i].id) {

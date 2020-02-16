@@ -44,7 +44,7 @@ export class vendorViewComponent implements OnInit {
   constructor(public vendorService: VendorService, public _location: Location, public router: Router, public dialogDisplayService: DialogDisplayService) {
     this.evaluationList = this.vendorService.selectedVendornService.vendor_evaluation;
     this.vendorService.evalList = this.vendorService.selectedVendornService.vendor_evaluation;
-    console.log(this.evaluationList);
+    //console.log(this.evaluationList);
 
     this.type = [
       { label: 'Approved', value: 'Pass' },
@@ -140,11 +140,11 @@ export class vendorViewComponent implements OnInit {
       created_by: "Johnny",
       created_date: this.vendorService.selectedVendornService.created_date,
     };
-    console.log(JSON.stringify(this.testEntry));
+    //console.log(JSON.stringify(this.testEntry));
     var data = JSON.stringify(this.testEntry);
     this.vendorService.updateVendors(data)
       .subscribe((data) => {
-        console.log(data)
+        //console.log(data)
       });
     this._location.back();
   }

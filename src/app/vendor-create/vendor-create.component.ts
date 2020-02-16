@@ -112,11 +112,11 @@ export class vendorCreateComponent implements OnInit {
       created_by: "Johnny",
       created_date: "",
     };
-    console.log(JSON.stringify(this.testEntry));
+    //console.log(JSON.stringify(this.testEntry));
     var data = JSON.stringify(this.testEntry);
     this.vendorService.addVendors(data)
       .subscribe((data) => {
-        console.log(data)
+        //console.log(data)
         this.vendorService.vendorList.push(this.testEntry);
       });
     this._location.back();

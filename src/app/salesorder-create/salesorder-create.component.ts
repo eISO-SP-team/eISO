@@ -79,7 +79,7 @@ export class SalesorderCreateComponent implements OnInit {
       this.quotationService.quotationList = responseData.body;
       this.quotationList = this.quotationService.quotationList;
       this.newList2 = [];
-      console.log(this.quotationList);
+      //console.log(this.quotationList);
       for (let i = 0; i < this.customerList.length; i++) {
         this.newList2.push({ label: this.quotationList[i].subject, value: this.quotationList[i].id });
       }
@@ -105,7 +105,7 @@ export class SalesorderCreateComponent implements OnInit {
   }
 
   onAddEnquiry() {
-    console.log(this.addSalesOrderForm.value.customer_id);
+    //console.log(this.addSalesOrderForm.value.customer_id);
     this.testEntry = {
       "sales_order_id": this.maxCount + 1,
       "sales_order_number": this.maxCount + 1,
@@ -139,11 +139,11 @@ export class SalesorderCreateComponent implements OnInit {
         "status": "pending"
       }
     };
-    console.log(JSON.stringify(this.testEntry));
+    //console.log(JSON.stringify(this.testEntry));
     var data = JSON.stringify(this.testEntry);
     this.salesOrderService.addSalesorder(data)
       .subscribe((data) => {
-        console.log(data)
+        //console.log(data)
         this.salesOrderService.salesOrderList.push(this.testEntry);
       });
     this._location.back();
@@ -153,9 +153,9 @@ export class SalesorderCreateComponent implements OnInit {
     for (let file of event.files) {
       this.uploadedFiles.push(file);
       this.fileUploadService.uploadFile(file).subscribe((result) => {
-        console.log(result);
+        //console.log(result);
       })
-      console.log(this.uploadedFiles);
+      //console.log(this.uploadedFiles);
     }
   }
 

@@ -24,9 +24,9 @@ export class QuotationService {
   }
 
   addQuotations(newQuotation:any) {
-    console.log("before: " + this.quotationList);
+    //console.log("before: " + this.quotationList);
     this.quotationList.unshift(JSON.parse(newQuotation));
-    console.log("before: " + this.quotationList);
+    //console.log("before: " + this.quotationList);
     //basically, you update this listener with the new list, 
     //anyone that is subscribing to the enquiry will get the latest list
     this.quotationSubject.next(this.quotationList);
@@ -42,7 +42,7 @@ export class QuotationService {
   }
 
   deleteQuotation(enquiryId) {
-    console.log('https://vr7zo9ukcl.execute-api.ap-southeast-1.amazonaws.com/dev/quotation/' + enquiryId);
+    //console.log('https://vr7zo9ukcl.execute-api.ap-southeast-1.amazonaws.com/dev/quotation/' + enquiryId);
     return this.http.delete('https://vr7zo9ukcl.execute-api.ap-southeast-1.amazonaws.com/dev/quotation/' + enquiryId)
   }
 }

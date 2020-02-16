@@ -42,7 +42,7 @@ export class PurchaserequisitionService {
   }
 
   deletePurchaserequisition(enquiryId) {
-    console.log('https://vr7zo9ukcl.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-requisition/' + enquiryId);
+    //console.log('https://vr7zo9ukcl.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-requisition/' + enquiryId);
     return this.http.delete('https://vr7zo9ukcl.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-requisition/' + enquiryId)
   }
 }

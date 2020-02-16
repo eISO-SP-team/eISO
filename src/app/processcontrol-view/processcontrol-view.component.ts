@@ -89,7 +89,7 @@ export class ProcesscontrolViewComponent implements OnInit {
       this.maxCount = this.processControlList.length;
     });
 
-    console.log(this.pcpList);
+    //console.log(this.pcpList);
 
     this.customerList = this.customerService.loadCustomers().subscribe(responseData => {
       this.customerService.customerList = responseData.body;
@@ -97,7 +97,7 @@ export class ProcesscontrolViewComponent implements OnInit {
       this.newList = [];
       for (let i = 0; i < this.customerList.length; i++) {
         this.newList.push({ label: this.customerList[i].customer_name, value: this.customerList[i].id });
-        console.log(this.newList);
+        //console.log(this.newList);
       }
     });
 
@@ -131,7 +131,7 @@ export class ProcesscontrolViewComponent implements OnInit {
 
 
   onAddEnquiry() {
-    console.log(this.addProcessControlForm.value.customer_id);
+    //console.log(this.addProcessControlForm.value.customer_id);
     this.testEntry = {
       "header_id": this.projectLINK.header_id,
       "pc_number": this.projectLINK.pc_number,
@@ -162,11 +162,11 @@ export class ProcesscontrolViewComponent implements OnInit {
       },
 
     };
-    console.log(JSON.stringify(this.testEntry));
+    //console.log(JSON.stringify(this.testEntry));
     var data = JSON.stringify(this.testEntry);
     this.processControlService.updateProcesscontrols(this.projectLINK.id, data)
       .subscribe((data) => {
-        console.log(data)
+        //console.log(data)
         this.processControlService.processcontrolList.push(this.testEntry);
       });
     this._location.back();
@@ -182,7 +182,7 @@ export class ProcesscontrolViewComponent implements OnInit {
     } else {
       this.clickedonPhase = "FINAL PHASE";
     }
-    console.log(this.clickedonPhase);
+    //console.log(this.clickedonPhase);
   }
 
   showDialog() {
@@ -216,18 +216,18 @@ export class ProcesscontrolViewComponent implements OnInit {
     for (let file of event.files) {
       this.uploadedFiles.push(file);
       this.fileUploadService.uploadFile(file).subscribe((result) => {
-        console.log(result);
+        //console.log(result);
       })
-      console.log(this.uploadedFiles);
+      //console.log(this.uploadedFiles);
     }
   }
 
   valuechange(value) {
     if (this.selectedCustomer != null) {
-      console.log(value);
+      //console.log(value);
       this.selectedCustomer = this.addProcessControlForm.value.customer_name;
       this.customerEmail = this.selectedCustomer.customer_contact.email;
-      console.log(this.selectedCustomer.id + "," + this.customerEmail);
+      //console.log(this.selectedCustomer.id + "," + this.customerEmail);
     } else {
 
     }

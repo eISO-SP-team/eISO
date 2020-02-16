@@ -121,11 +121,11 @@ export class QuotationCreateComponent implements OnInit {
         "status": "Approved"
       }
     }
-    console.log(JSON.stringify(this.testEntry.supplier_id));
+    //console.log(JSON.stringify(this.testEntry.supplier_id));
     var data = JSON.stringify(this.testEntry);
     this.quotationService.addQuotations(data)
       .subscribe((data) => {
-        console.log(data)
+        //console.log(data)
         this.quotationService.quotationList.push(this.testEntry);
       });
     let body = {
@@ -135,7 +135,7 @@ export class QuotationCreateComponent implements OnInit {
       type: "Quotation"
     }
     this.emailService.sendEmail(body).subscribe(() => {
-      console.log("An email has been sent");
+      //console.log("An email has been sent");
     })
     this._location.back();
   }
@@ -143,9 +143,9 @@ export class QuotationCreateComponent implements OnInit {
   onUpload(event) {
     for (let file of event.files) {
       this.uploadedFiles.push(file);
-      console.log(file);
+      //console.log(file);
       this.fileUploadService.uploadFile(file).subscribe((result) => {
-        console.log((<any>result).body);
+        //console.log((<any>result).body);
       })
 
     }

@@ -96,7 +96,7 @@ export class EvaluationFormComponent implements OnInit {
       "updated_by": "Isaac",
       "updated_date": this.myDate,
     }
-    console.log(this.entryData);
+    //console.log(this.entryData);
     this.vendorService.evalList.unshift(this.entryData);
   }
 

@@ -25,9 +25,9 @@ export class CustomerService {
   }
 
   addCustomers(customers) {
-    console.log("before: "+this.customerList);
+    //console.log("before: "+this.customerList);
     this.customerList.unshift(JSON.parse(customers));
-    console.log("before: "+this.customerList);
+    //console.log("before: "+this.customerList);
     //basically, you update this listener with the new list, 
     //anyone that is subscribing to the enquiry will get the latest list
     this.customerSubject.next(this.customerList);
@@ -43,12 +43,12 @@ export class CustomerService {
   }
 
   updateCustomer(enquiryId, updateInfo) {
-    console.log(this.selectedCustomerInService.id);
+    //console.log(this.selectedCustomerInService.id);
     return this.http.put('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/customer/' + enquiryId, updateInfo)
   }
 
   deleteCustomer(enquiryId) {
-    console.log('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/customer/' + enquiryId);
+    //console.log('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/customer/' + enquiryId);
     return this.http.delete('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/customer/' + enquiryId)
   }
 }

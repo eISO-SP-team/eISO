@@ -21,7 +21,7 @@ export class AppComponent {
 
     this.router.events.subscribe((routerEvent: Event) => {
       if (routerEvent instanceof NavigationStart) {
-        console.log("nav start")
+        // console.log("nav start")
         this.spinner.show();
       }
 

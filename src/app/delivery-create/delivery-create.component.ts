@@ -53,13 +53,13 @@ export class DeliveryCreateComponent implements OnInit {
       this.purchaseOrderService.purchaseorderList = (<any>responseData).body;
       for (let i = 0; i < this.purchaseOrderService.purchaseorderList.length; i++)
         if (this.purchaseOrderService.purchaseorderList[i].purchase_id == this.purchaseOrderService.selectedPR) {
-          console.log(this.purchaseOrderService.purchaseorderList[i].purchase_id);
-          console.log(this.purchaseOrderService.selectedPR);
+          // console.log(this.purchaseOrderService.purchaseorderList[i].purchase_id);
+          // console.log(this.purchaseOrderService.selectedPR);
           this.purchaseOrderList.push(this.purchaseOrderService.purchaseorderList[i]);
         }
       this.newList = [];
       for (let i = 0; i < this.purchaseOrderList.length; i++) {
-        console.log(this.purchaseOrderList[i].remarks);
+        //console.log(this.purchaseOrderList[i].remarks);
         this.newList.push({ label: this.purchaseOrderList[i].remarks, value: this.purchaseOrderList[i].id });
       }
     });
@@ -85,11 +85,11 @@ export class DeliveryCreateComponent implements OnInit {
       "status": "Pending",
     };
 
-    console.log(JSON.stringify(this.testEntry));
+    //console.log(JSON.stringify(this.testEntry));
     var data = JSON.stringify(this.testEntry);
     this.deliveryService.addDeliveries(data)
       .subscribe((data) => {
-        console.log(data)
+        //console.log(data)
         this.deliveryService.deliveryList.push(this.testEntry);
       });
 
@@ -99,9 +99,9 @@ export class DeliveryCreateComponent implements OnInit {
   onUpload(event) {
     for (let file of event.files) {
       this.uploadedFiles.push(file);
-      console.log(file);
+      //console.log(file);
       this.fileUploadService.uploadFile(file).subscribe((result) => {
-        console.log((<any>result).body);
+        //console.log((<any>result).body);
       })
     }
   }

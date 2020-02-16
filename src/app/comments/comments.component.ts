@@ -21,8 +21,8 @@ export class CommentsComponent implements OnInit {
   constructor(public commentsService: CommentsService) {
     this.commentsService.getCommentListener()
       .subscribe(newList => {
-        console.log("listener triggered");
-        console.log(newList);
+        // console.log("listener triggered");
+        // console.log(newList);
         this.commentsList = this.commentsService.loadComments();
       })
   }

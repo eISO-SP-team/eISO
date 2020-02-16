@@ -46,19 +46,19 @@ export class vendorListComponent implements OnInit {
   }
 
   viewEnquiryPending(vendorListPending: any) {
-    console.log("In onViewDetail......" + JSON.stringify(vendorListPending));
+    //console.log("In onViewDetail......" + JSON.stringify(vendorListPending));
     this.vendorService.selectedVendornService = vendorListPending;
     this.router.navigate(['/vendorView', vendorListPending.id]);
   }
   viewEnquiryApproved(vendorListApproved: any) {
-    console.log("In onViewDetail......" + JSON.stringify(vendorListApproved));
+    //console.log("In onViewDetail......" + JSON.stringify(vendorListApproved));
     this.vendorService.selectedVendornService = vendorListApproved;
     this.router.navigate(['/vendorView', vendorListApproved.id]);
   }
 
   deleteEnquiry(enquiry: any) {
 
-    console.log("Delete this enquiry......" + JSON.stringify(enquiry.id));
+    //console.log("Delete this enquiry......" + JSON.stringify(enquiry.id));
     this.vendorService.deleteVendor(enquiry.id).subscribe(() => {
       for (let i = 0; i < this.testList.length; i++) {
         if (this.testList[i].id == enquiry.id) {
@@ -67,7 +67,7 @@ export class vendorListComponent implements OnInit {
         }
       }
       this.testList.splice(this.index, 1);
-      console.log('Vendor with id: ' + enquiry.id + ' has been deleted');
+      //console.log('Vendor with id: ' + enquiry.id + ' has been deleted');
     });
 
   }

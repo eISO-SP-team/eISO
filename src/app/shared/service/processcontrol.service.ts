@@ -40,7 +40,7 @@ export class ProcesscontrolService {
   }
 
   deleteProcesscontrols(enquiryId) {
-    console.log('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/process-control/' + enquiryId);
+    //console.log('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/process-control/' + enquiryId);
     return this.http.delete('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/process-control/' + enquiryId)
   }
 }

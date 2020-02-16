@@ -19,8 +19,8 @@ export class PurchaseListComponent implements OnInit {
         this.purchaseOrderService.purchaseorderList = (<any>responseData).body;
         for (let i = 0; i < this.purchaseOrderService.purchaseorderList.length; i++)
           if (this.purchaseOrderService.purchaseorderList[i].purchase_id == this.purchaseOrderService.selectedPR) {
-            console.log(this.purchaseOrderService.purchaseorderList[i].purchase_id);
-            console.log(this.purchaseOrderService.selectedPR);
+            //console.log(this.purchaseOrderService.purchaseorderList[i].purchase_id);
+            //console.log(this.purchaseOrderService.selectedPR);
             this.purchaseOrderList.push(this.purchaseOrderService.purchaseorderList[i]);
           }
       })
@@ -31,13 +31,13 @@ export class PurchaseListComponent implements OnInit {
   }
 
   viewEnquiry(enquiry) {
-    console.log("In onViewDetail......" + JSON.stringify(enquiry));
+    //console.log("In onViewDetail......" + JSON.stringify(enquiry));
     this.purchaseOrderService.selectedPurchaseorderService = enquiry;
     this.router.navigate(['/poView', enquiry.id]);
   }
 
   deleteEnquiry(enquiry) {
-    console.log("Delete this enquiry......" + JSON.stringify(enquiry.id));
+    //console.log("Delete this enquiry......" + JSON.stringify(enquiry.id));
     this.purchaseOrderService.deletePurchaseorder(enquiry.id).subscribe(() => {
       for (let i = 0; i < this.purchaseOrderList.length; i++) {
         if (this.purchaseOrderList[i].id == enquiry.id) {
@@ -46,7 +46,7 @@ export class PurchaseListComponent implements OnInit {
         }
       }
       this.purchaseOrderList.splice(this.index, 1);
-      console.log('Vendor with id: ' + enquiry.id + ' has been deleted');
+      //console.log('Vendor with id: ' + enquiry.id + ' has been deleted');
     });
 
   }

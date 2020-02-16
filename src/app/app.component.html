@@ -21,7 +21,11 @@
                         data-toggle="layout" data-action="sidebar_toggle">
                         <i class="fa fa-navicon"></i>
                     </button>
-
+                    <button type="button" class="btn btn-circle btn-dual-secondary"
+                        style="float: right;margin-right: 0;" data-toggle="layout" (click)="op.toggle($event)"
+                        data-action="sidebar_toggle">
+                        <i class="fa fa-bell"></i>
+                    </button>
                     <button class="btn btn-alt-danger" (click)="logout()" style="float: right;">
                         Logout
                     </button>
@@ -43,3 +47,7 @@ https://github.danielcardoso.net/load-awesome/animations.html
 </ngx-spinner>
 <!-- <router-outlet></router-outlet> -->
 <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+<p-overlayPanel [showTransitionOptions]="'0ms'" [hideTransitionOptions]="'0ms'" #op [dismissable]="true"
+    [showCloseIcon]="true">
+    <app-notifications></app-notifications>
+</p-overlayPanel>

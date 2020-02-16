@@ -36,14 +36,14 @@ export class PurchaseRequisitionListComponent implements OnInit {
   }
 
   viewEnquiry(requisitionList: any) {
-    console.log("In onViewDetail......" + JSON.stringify(requisitionList));
+    //console.log("In onViewDetail......" + JSON.stringify(requisitionList));
     this.purchaseRequisitionService.selectedPurchaserequisitionService = requisitionList;
     this.router.navigate(['/requisitionView', requisitionList.id]);
   }
 
   deleteEnquiry(enquiry: any) {
     this.purchaseRequisitionService.deletePurchaserequisition(enquiry.id).subscribe(() => {
-      console.log("Delete this enquiry......" + JSON.stringify(enquiry));
+      //console.log("Delete this enquiry......" + JSON.stringify(enquiry));
       let index = -1;
       for (let i = 0; i < this.requisitionList.length; i++) {
         if (this.requisitionList[i].id == enquiry.id) {

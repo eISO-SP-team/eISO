@@ -74,8 +74,8 @@ import { GraphOneComponent } from './graph-one/graph-one.component';
 import { FusionChartsModule } from 'angular-fusioncharts';
 import { DesignModuleViewComponent } from "./design-module-view/design-module-view.component";
 import { NgxSpinnerModule } from "ngx-spinner";
-import {TooltipModule} from 'primeng/tooltip';
 import { DesignModuleListFullComponent } from "./design-module-list-full/design-module-list-full.component";
+import { CardModule } from 'primeng/card';
 
 // // Load FusionCharts
 import * as FusionCharts from 'fusioncharts';
@@ -87,6 +87,8 @@ import { GraphTwoComponent } from './graph-two/graph-two.component';
 import { PurchaseViewComponent } from './purchase-view/purchase-view.component';
 import { GraphThreeComponent } from './graph-three/graph-three.component';
 import { DeliveryViewComponent } from './delivery-view/delivery-view.component';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 
 // Add dependencies to FusionChartsModule
@@ -139,6 +141,7 @@ FusionChartsModule.fcRoot(
     GraphThreeComponent,
     DeliveryViewComponent,
     DesignModuleListFullComponent,
+    NotificationsComponent,
   ],
   imports: [
     BrowserModule,
@@ -170,7 +173,8 @@ FusionChartsModule.fcRoot(
     RatingModule,
     NgxSpinnerModule,
     FusionChartsModule,
-    TooltipModule,
+    OverlayPanelModule,
+    CardModule,
   ],
   providers: [QuotationService, PurchaserequisitionService, SalesorderService, DesignService, DeliveryService, CustomerService, VendorService, MessageService, ConfirmationService, ToggleDisplayService],
   bootstrap: [AppComponent],

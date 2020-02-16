@@ -65,7 +65,7 @@ export class DesignModuleViewComponent implements OnInit {
   constructor(public designService: DesignService, public router: Router, public _location: Location, public fileUploadService: FileUploadService) {
     this.designService.designList = this.designService.selectedDesignInService.design_details;
     this.desginBacklog = this.designService.designList;
-    console.log(this.desginBacklog);
+    //console.log(this.desginBacklog);
   }
 
   ngOnInit() {
@@ -75,7 +75,7 @@ export class DesignModuleViewComponent implements OnInit {
     })
 
     this.selectedProject = this.designService.selectedProject;
-    console.log(this.selectedProject);
+    //console.log(this.selectedProject);
 
     this.designphases = [
       { label: 'Design Plan', value: 'Design Plan' },
@@ -113,7 +113,7 @@ export class DesignModuleViewComponent implements OnInit {
     } else {
       this.clickedonPhase = "Design Output";
     }
-    console.log(this.clickedonPhase);
+    //console.log(this.clickedonPhase);
   }
 
   showDialog() {
@@ -142,9 +142,9 @@ export class DesignModuleViewComponent implements OnInit {
     for (let file of event.files) {
       this.uploadedFiles.push(file);
       this.fileUploadService.uploadFile(file).subscribe((result) => {
-        console.log(result);
+        //console.log(result);
       })
-      console.log(this.uploadedFiles);
+      //console.log(this.uploadedFiles);
     }
   }
 

@@ -76,9 +76,9 @@ export class PurchaseRequisitionCreateComponent implements OnInit {
     for (let file of event.files) {
       this.uploadedFiles.push(file);
       this.fileUploadService.uploadFile(file).subscribe((result) => {
-        console.log(result);
+        //console.log(result);
       })
-      console.log(this.uploadedFiles);
+      //console.log(this.uploadedFiles);
     }
   }
 

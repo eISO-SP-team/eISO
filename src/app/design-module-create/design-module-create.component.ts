@@ -73,7 +73,7 @@ export class DesignModuleCreateComponent implements OnInit {
     })
 
     this.selectedProject = this.designService.selectedProject;
-    console.log(this.selectedProject);
+    //console.log(this.selectedProject);
 
     this.designphases = [
       { label: 'Design Plan', value: 'Design Plan' },
@@ -111,7 +111,7 @@ export class DesignModuleCreateComponent implements OnInit {
     } else {
       this.clickedonPhase = "Design Output";
     }
-    console.log(this.clickedonPhase);
+    //console.log(this.clickedonPhase);
   }
 
   showDialog() {
@@ -143,9 +143,9 @@ export class DesignModuleCreateComponent implements OnInit {
     for (let file of event.files) {
       this.uploadedFiles.push(file);
       this.fileUploadService.uploadFile(file).subscribe((result) => {
-        console.log(result);
+        //console.log(result);
       })
-      console.log(this.uploadedFiles);
+      //console.log(this.uploadedFiles);
     }
   }
 

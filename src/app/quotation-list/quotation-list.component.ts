@@ -65,14 +65,14 @@ export class QuotationListComponent implements OnInit {
   }
 
   viewEnquiry(quotationList) {
-    console.log("In onViewDetail......" + JSON.stringify(quotationList));
+    //console.log("In onViewDetail......" + JSON.stringify(quotationList));
     this.quotationService.selectedQuotationInService = quotationList;
     this.router.navigate(['/quotationView', quotationList.id]);
   }
 
   deleteEnquiry(enquiry) {
     this.quotationService.deleteQuotation(enquiry.id).subscribe(() => {
-      console.log("Delete this enquiry......" + JSON.stringify(enquiry));
+      //console.log("Delete this enquiry......" + JSON.stringify(enquiry));
       let index = -1;
       for (let i = 0; i < this.quotationList.length; i++) {
         if (this.quotationList[i].id == enquiry.id) {

@@ -31,7 +31,7 @@ export class DeliveryListComponent implements OnInit {
     this.deliveryService.getDeliveryListener().subscribe(() => {
       this.deliveryTest = this.deliveryService.loadDeliveries().subscribe(responseData => {
         this.deliveryList = (<any>responseData).body;
-        console.log(this.deliveryList);
+        //console.log(this.deliveryList);
       });
     });
 
@@ -59,13 +59,13 @@ export class DeliveryListComponent implements OnInit {
 
 
   viewEnquiry(enquiry) {
-    console.log("In onViewDetail......" + JSON.stringify(enquiry));
+    //console.log("In onViewDetail......" + JSON.stringify(enquiry));
     this.deliveryService.selectedDeliveryService = enquiry;
     this.router.navigate(['/doView', enquiry.id]);
   }
 
   deleteEnquiry(enquiry) {
-    console.log("Delete this enquiry......" + JSON.stringify(enquiry.id));
+    //console.log("Delete this enquiry......" + JSON.stringify(enquiry.id));
     this.deliveryService.deleteDeliveries(enquiry.id).subscribe(() => {
       for (let i = 0; i < this.deliveryList.length; i++) {
         if (this.deliveryList[i].id == enquiry.id) {
@@ -74,7 +74,7 @@ export class DeliveryListComponent implements OnInit {
         }
       }
       this.deliveryList.splice(this.index, 1);
-      console.log('Vendor with id: ' + enquiry.id + ' has been deleted');
+      //console.log('Vendor with id: ' + enquiry.id + ' has been deleted');
     });
 
   }

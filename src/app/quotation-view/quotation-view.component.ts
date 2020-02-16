@@ -57,7 +57,7 @@ export class QuotationViewComponent implements OnInit {
       { label: "Approved", value: "Approved" }
     ]
 
-    console.log(this.quotationService.selectedQuotationInService);
+    //console.log(this.quotationService.selectedQuotationInService);
     this.vendorList = this.vendorService.loadVendors().subscribe(responseData => {
       this.vendorService.vendorList = responseData;
       this.vendorService.vendorList = this.vendorService.vendorList.body;
@@ -139,7 +139,7 @@ export class QuotationViewComponent implements OnInit {
     var data = JSON.stringify(this.quotationService.selectedQuotationInService);
     this.quotationService.updateQuotation(this.quotationService.selectedQuotationInService.id, data)
       .subscribe(() => {
-        console.log("Updated: to approved")
+        //console.log("Updated: to approved")
         this.router.navigate(['/salesorderCreate']);
       });
 
@@ -150,7 +150,7 @@ export class QuotationViewComponent implements OnInit {
     var data = JSON.stringify(this.quotationService.selectedQuotationInService);
     this.quotationService.updateQuotation(this.quotationService.selectedQuotationInService.id, data)
       .subscribe(() => {
-        console.log("Updated: to not approved")
+        //console.log("Updated: to not approved")
         this.router.navigate(['/sales-module']);
       });
 

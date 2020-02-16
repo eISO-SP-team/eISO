@@ -47,13 +47,13 @@ export class CustomerListComponent implements OnInit {
   }
 
   viewEnquiry(selectedCustomer) {
-    console.log("In onViewDetail......" + JSON.stringify(selectedCustomer));
+    // console.log("In onViewDetail......" + JSON.stringify(selectedCustomer));
     this.customerService.selectedCustomerInService = selectedCustomer;
     this.router.navigate(['/customerView', selectedCustomer.id]);
   }
 
   deleteEnquiry(enquiry) {
-    console.log("Delete this enquiry......" + JSON.stringify(enquiry.id));
+    // console.log("Delete this enquiry......" + JSON.stringify(enquiry.id));
     this.customerService.deleteCustomer(enquiry.id).subscribe(() => {
       for (let i = 0; i < this.customerList.length; i++) {
         if (this.customerList[i].id == enquiry.id) {
@@ -62,7 +62,7 @@ export class CustomerListComponent implements OnInit {
         }
       }
       this.customerList.splice(this.index, 1);
-      console.log('Vendor with id: ' + enquiry.id + ' has been deleted');
+      // console.log('Vendor with id: ' + enquiry.id + ' has been deleted');
     });
 
   }

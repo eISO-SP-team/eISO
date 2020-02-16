@@ -85,11 +85,11 @@ export class PurchaseViewComponent implements OnInit {
       "uploaded_by": "Jack",
       "uploaded_date": this.myDate,
     };
-    console.log(JSON.stringify(this.testEntry));
+    //console.log(JSON.stringify(this.testEntry));
     var data = JSON.stringify(this.testEntry);
     this.PurchaseOrderService.updatePurchaseorders(data)
       .subscribe((data) => {
-        console.log(data)
+        //console.log(data)
         this.PurchaseOrderService.purchaseorderList.push(this.testEntry);
       });
     this._location.back();
@@ -98,9 +98,9 @@ export class PurchaseViewComponent implements OnInit {
   onUpload(event) {
     for (let file of event.files) {
       this.uploadedFiles.push(file);
-      console.log(file);
+      //console.log(file);
       this.fileUploadService.uploadFile(file).subscribe((result) => {
-        console.log((<any>result).body);
+        //console.log((<any>result).body);
       })
 
     }

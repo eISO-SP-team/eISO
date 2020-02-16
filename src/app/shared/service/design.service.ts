@@ -48,7 +48,7 @@ export class DesignService {
     }
 
     deleteDesigns(enquiryId) {
-        console.log('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/design/' + enquiryId);
+        //console.log('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/design/' + enquiryId);
         return this.http.delete('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/design/' + enquiryId)
     }
 }

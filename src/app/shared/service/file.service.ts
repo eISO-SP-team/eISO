@@ -39,7 +39,7 @@ export class FileService {
   }
 
   deleteFile(enquiryId) {
-    console.log('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/file/' + enquiryId);
+    //console.log('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/file/' + enquiryId);
     return this.http.delete('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/file/' + enquiryId)
   }
 }

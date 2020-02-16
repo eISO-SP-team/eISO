@@ -21,7 +21,7 @@ export class ToggleDisplayService {
   }
 
   authUser(userCred: any) {
-    console.log(userCred);
+    //console.log(userCred);
     return this.http.post("https://vr7zo9ukcl.execute-api.ap-southeast-1.amazonaws.com/dev/user/login", userCred).pipe(
       catchError(this.handleError)
     );;
@@ -39,9 +39,9 @@ export class ToggleDisplayService {
         `body was: ${error.error.text}`);
       if (error.error.text == 'Login successful') {
         this.isLogin = true;
-        console.log(this.isLogin)
+        //console.log(this.isLogin)
         this.loginSubject.next(this.isLogin)
-        console.log("Login Successfully");
+        //console.log("Login Successfully");
       }
     }
 

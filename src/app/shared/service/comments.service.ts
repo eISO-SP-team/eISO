@@ -19,14 +19,14 @@ export class CommentsService {
 
   addComment(newComment: Comments) {
     return new Promise(resolve => {
-      console.log("Retrieved enquiry");
-      console.log(newComment);
+      //console.log("Retrieved enquiry");
+      //console.log(newComment);
       this.commentList.unshift(newComment);
-      console.log(this.commentList);
+      //console.log(this.commentList);
       //basically, you update this listener with the new list, 
       //anyone that is subscribing to the enquiry will get the latest list
       this.commentsSubject.next(this.commentList);
-      console.log("triggered behaviour subject");
+      //console.log("triggered behaviour subject");
       resolve(true);
     });
   };

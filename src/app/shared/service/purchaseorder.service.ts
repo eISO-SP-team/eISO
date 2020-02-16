@@ -44,7 +44,7 @@ export class PurchaseorderService {
   }
 
   deletePurchaseorder(enquiryId) {
-    console.log('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-order/' + enquiryId);
+    //console.log('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-order/' + enquiryId);
     return this.http.delete('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/purchase-order/' + enquiryId)
   }
 }

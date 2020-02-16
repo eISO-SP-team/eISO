@@ -14,12 +14,12 @@ export class FileUploadService {
     var reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = function () {
-      console.log(reader.result);
+      //console.log(reader.result);
       // const convertResult = reader.result;
       // this.convertFile = convertResult;
     };
     reader.onerror = function (error) {
-      console.log('Error: ', error);
+      //console.log('Error: ', error);
     };
  }
 

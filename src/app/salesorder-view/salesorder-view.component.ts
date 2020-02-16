@@ -79,7 +79,7 @@ export class SalesorderViewComponent implements OnInit {
       this.quotationService.quotationList = responseData.body;
       this.quotationList = this.quotationService.quotationList;
       this.newList2 = [];
-      console.log(this.quotationList);
+      //console.log(this.quotationList);
       for (let i = 0; i < this.customerList.length; i++) {
         this.newList2.push({ label: this.quotationList[i].subject, value: this.quotationList[i].id });
       }
@@ -132,7 +132,7 @@ export class SalesorderViewComponent implements OnInit {
         "status": this.salesOrderService.selectedSalesOrderInService.sales_order_details.status
       }
     };
-    console.log(JSON.stringify(this.newEdit));
+    //console.log(JSON.stringify(this.newEdit));
     var data = JSON.stringify(this.newEdit);
     this.salesOrderService.updateSalesorder(this.salesOrderService.selectedSalesOrderInService.id, data)
       .subscribe((data) => {
@@ -145,7 +145,7 @@ export class SalesorderViewComponent implements OnInit {
     this.salesOrderService.selectedSalesOrderInService.pic_email = this.newPicEmail,
       this.salesOrderService.selectedSalesOrderInService.sales_order_details.status = "completed";
     var data = JSON.stringify(this.salesOrderService.selectedSalesOrderInService);
-    console.log(data);
+    //console.log(data);
     this.salesOrderService.updateSalesorder(this.salesOrderService.selectedSalesOrderInService.id, data)
       .subscribe(() => {
         // console.log("Updated: " + data)

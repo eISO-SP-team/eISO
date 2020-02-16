@@ -106,11 +106,11 @@ export class CustomerCreateComponent implements OnInit {
       created_by: "Joseph",
       created_date: ""
     };
-    console.log(JSON.stringify(this.testEntry));
+    // console.log(JSON.stringify(this.testEntry));
     var data = JSON.stringify(this.testEntry);
     this.customerService.addCustomers(data)
       .subscribe((data) => {
-        console.log(data)
+        // console.log(data)
         this.customerService.customerList.push(data);
         this.customerService.customerSubject.next(this.customerService.customerList);
       });

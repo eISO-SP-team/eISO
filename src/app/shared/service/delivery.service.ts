@@ -45,7 +45,7 @@ export class DeliveryService {
   }
 
   deleteDeliveries(enquiryId) {
-    console.log('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/delivery/' + enquiryId);
+    //console.log('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/delivery/' + enquiryId);
     return this.http.delete('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/delivery/' + enquiryId)
   }
 }
