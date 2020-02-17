@@ -58,6 +58,11 @@ export class AppComponent {
       }
       window.scrollTo(0, 0)
     });
+
+    if (this.toggleDisplayService.isLogin == false) {
+      this.router.navigate(['login']);
+    }
+
   }
   ngAfterViewInit() {
     this.router.url;
@@ -73,6 +78,7 @@ export class AppComponent {
 
   logout() {
     this.toggleDisplayService.toggle();
+    this.toggleDisplayService.isLogin = false;
     this.router.navigate(['login']);
   }
 }

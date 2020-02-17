@@ -64,7 +64,7 @@ const AppRoutes: Routes = [
   { path: 'designList', component: DesignModuleListFullComponent },
   { path: 'purchaseRequisitionList', component: PurchaseRequisitionListComponent },
   { path: '*', redirectTo: "/sales-modules" },
-  // { path: '**', redirectTo:"/sales-modules"}
+  { path: '**', redirectTo:"/sales-modules"}
 
 ];
 

@@ -139,10 +139,8 @@ export class QuotationViewComponent implements OnInit {
     var data = JSON.stringify(this.quotationService.selectedQuotationInService);
     this.quotationService.updateQuotation(this.quotationService.selectedQuotationInService.id, data)
       .subscribe(() => {
-        //console.log("Updated: to approved")
-        this.router.navigate(['/salesorderCreate']);
+        this.confirm2();
       });
-
   }
 
   notApprove() {
@@ -156,6 +154,8 @@ export class QuotationViewComponent implements OnInit {
 
   }
 
+
+  // Confirmation for Approve Quotation
   confirm() {
     this.confirmationservice.confirm({
       message: 'Are you sure that you want to proceed?',
@@ -169,7 +169,9 @@ export class QuotationViewComponent implements OnInit {
     });
   }
 
-  confirm2() {
+
+  // Confirmation for Not Approve Quotation
+  confirm1() {
     this.confirmationservice.confirm({
       message: 'Are you sure that you want to proceed?',
       header: 'Confirmation',
@@ -178,6 +180,21 @@ export class QuotationViewComponent implements OnInit {
         this.notApprove();
       },
       reject: () => {
+      }
+    });
+  }
+
+  // Confirmation for Not Approve Quotation
+  confirm2() {
+    this.confirmationservice.confirm({
+      message: 'Do you wish to proceed to create a Sales Order?',
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.router.navigate(['/salesorderCreate']);
+      },
+      reject: () => {
+        this.router.navigate(['/sales-module']);
       }
     });
   }

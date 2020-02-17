@@ -83,12 +83,12 @@ export class DeliveryViewComponent implements OnInit {
 
   onAddEnquiry() {
     this.testEntry = {
-      "po_number": this.newPo_number.value.po_number,
-      "dr_number": this.newDr_number.value.dr_number,
-      'dr_date': this.newDelivery_date.value.delivery_date,
-      'location': this.newLocation.value.location,
-      "remarks": this.newRemarks.value.remarks,
-      "received_by": this.newReceived_by.value.received_by,
+      "po_number": this.newPo_number,
+      "dr_number": this.newDr_number,
+      'dr_date': this.newDelivery_date,
+      'location': this.newLocation,
+      "remarks": this.newRemarks,
+      "received_by": this.newReceived_by,
       "status": "Pending",
     };
 

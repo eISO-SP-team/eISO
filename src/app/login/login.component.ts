@@ -58,7 +58,9 @@ export class LoginComponent implements OnInit {
 
   byPass() {
     this.toggleDisplayService.toggle();
+    this.toggleDisplayService.isLogin = true;
     this.router.navigate(['sales-module']);
+
   }
 
   showPass(){
