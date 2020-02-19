@@ -18,8 +18,10 @@
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
                                     <h3 class="first formdetails">Delivery Date</h3>
-                                    <p-calendar dateFormat="dd.mm.yy" placeholder="Click to Enter"
-                                        [formControlName]="'delivery_date'"></p-calendar>
+                                    <!-- <p-calendar  placeholder="Click to Enter"
+                                        [formControlName]="'delivery_date'"></p-calendar> -->
+                                        <input type="date" class="formtext" placeholder="Click to Enter"
+                                        [formControlName]="'delivery_date'">
                                 </span>
                                 <span
                                     *ngIf="!addDeliveryForm.get('delivery_date').valid && addDeliveryForm.get('delivery_date').touched"

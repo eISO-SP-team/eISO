@@ -126,8 +126,12 @@
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
                                     <h3 class="first formdetails">Status</h3>
-                                    <input class="form-control formtext" type="text" pInputText [(ngModel)]="newStatus"
-                                        [formControlName]="'status'" />
+                                    <!-- <input class="form-control formtext" type="text" pInputText [(ngModel)]="newStatus"
+                                        [formControlName]="'status'" /> -->
+                                        <select class="form-control formtext" [(ngModel)]="newStatus" [formControlName]="'status'">
+                                            <option value="pending">pending</option>
+                                            <option value="completed">completed</option>
+                                        </select>
                                 </span>
                                 <span
                                     *ngIf="!addPurchaseForm.get('status').valid && addPurchaseForm.get('status').touched"

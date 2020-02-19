@@ -41,7 +41,7 @@ export class DeliveryService {
   updateDeliveries( newInfo) {
     this.deliveryList.push(newInfo);
     this.deliverySubject.next(this.deliveryList)
-    return this.http.put('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/delivery/' + this.selectedDeliveryService, newInfo)
+    return this.http.put('https://o0wgx4jm6g.execute-api.ap-southeast-1.amazonaws.com/dev/delivery/' + this.selectedDeliveryService.id, newInfo)
   }
 
   deleteDeliveries(enquiryId) {

@@ -18,7 +18,7 @@ interface Type {
   styleUrls: ['./vendor-create.component.css'],
 })
 export class vendorCreateComponent implements OnInit {
-  
+
   msgs: Message[] = [];
 
   type: Type[];
@@ -39,7 +39,7 @@ export class vendorCreateComponent implements OnInit {
 
   myDate = formatDate(new Date(), 'yyyy/MM/dd', 'en');
 
-  constructor(public vendorService: VendorService, public _location: Location, private confirmationservice: ConfirmationService ) {
+  constructor(public vendorService: VendorService, public _location: Location, private confirmationservice: ConfirmationService) {
     this.type = [
       { name: 'Approved', value: 'Pass' },
       { name: 'Pending', value: 'Fail' },
@@ -112,10 +112,10 @@ export class vendorCreateComponent implements OnInit {
       created_by: "Johnny",
       created_date: "",
     };
-    //console.log(JSON.stringify(this.testEntry));
+    console.log(JSON.stringify(this.testEntry));
     var data = JSON.stringify(this.testEntry);
     this.vendorService.addVendors(data)
-      .subscribe((data) => {
+      .subscribe(() => {
         //console.log(data)
         this.vendorService.vendorList.push(this.testEntry);
       });

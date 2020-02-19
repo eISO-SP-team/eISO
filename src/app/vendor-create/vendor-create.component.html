@@ -1,3 +1,5 @@
+<html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="ui-g firstbox">
     <div class="fieldset-list">
 
@@ -10,10 +12,10 @@
                     (click)="this._location.back()" label="Cancel"></button>
             </div>
         </div>
-        <form [formGroup]="addVendorForm"
-            (ngSubmit)="confirm()">
+        <form [formGroup]="addVendorForm" (ngSubmit)="confirm()">
             <div class="formnames">
-            <h2>Organization</h2></div>
+                <h2>Organization</h2>
+            </div>
             <div class="fieldset-list">
                 <div class="ui-g">
                     <!--Left column-->
@@ -84,7 +86,8 @@
                 </div>
             </div>
             <div class="formnames">
-            <h2>Address</h2></div>
+                <h2>Address</h2>
+            </div>
             <div class="fieldset-list">
                 <div class="ui-g">
                     <!--Left column-->
@@ -144,7 +147,8 @@
             </div>
             <div class="ui-g-12">
                 <div class="formnames">
-                <h2>Contact</h2></div>
+                    <h2>Contact</h2>
+                </div>
                 <div class="fieldset-list">
                     <div class="ui-g">
                         <!--Left column-->
@@ -266,8 +270,11 @@
                 </div>
 
             </div>
+            <button style="margin-left: 1.1em" pButton type="submit" label="Submit"></button>
         </form>
     </div>
-    <button style="margin-left: 1.1em" pButton [disabled]="!addVendorForm.valid" type="submit" label="Submit"></button>
+
 
 </div>
+
+</html>

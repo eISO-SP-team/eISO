@@ -11,7 +11,7 @@
             </div>
         </div>
         <form [formGroup]="addSalesOrderForm"
-            (ngSubmit)="confirm(quotation_number,customer_id,date,subject,pic,tenderLocation,picEmail,total,deposit)">
+            (ngSubmit)="confirm()">
             <div class="ui-g">
                 <div style=" overflow: visible;" class="fieldset-list ui-g-12">
                     <div class="ui-g-12 ui-md-12 ui-lg-4">
@@ -54,8 +54,9 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label-2">
                                 <h3 class="first formdetails">Date</h3>
-                                <p-calendar dateFormat="dd.mm.yy" placeholder="Click to Enter"
-                                    [formControlName]="'date'"></p-calendar>
+                                <!-- <p-calendar  placeholder="Click to Enter"
+                                    [formControlName]="'date'"></p-calendar> -->
+                                    <input type="date" [formControlName]="'date'">
                             </span>
                             <span *ngIf="!addSalesOrderForm.get('date').valid && addSalesOrderForm.get('date').touched"
                                 class="help-block">

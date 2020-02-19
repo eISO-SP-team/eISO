@@ -70,7 +70,7 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails">Start Date - Design</h3>
-                                <input class="formtext" type="text" [(ngModel)]="newStart_date_design" pInputText
+                                <input class="formtext" type="date" [(ngModel)]="newStart_date_design" pInputText
                                     [formControlName]="'Start_date_design'" />
                             </span>
                             <span
@@ -86,7 +86,7 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails">End Date - Design </h3>
-                                <input class="formtext" type="text" [(ngModel)]="newEnd_date_design" pInputText
+                                <input class="formtext" type="date" [(ngModel)]="newEnd_date_design" pInputText
                                     [formControlName]="'End_date_design'" />
                             </span>
                             <span
@@ -210,8 +210,10 @@
             <div class="ui-g-12">
                 <span class="ui-float-label">
                     <h3 class="first formdetails">Due Date</h3>
-                    <p-calendar dateFormat="dd.mm.yy" placeholder="Click to Enter" [formControlName]="'due_date'">
-                    </p-calendar>
+                    <!-- <p-calendar  placeholder="Click to Enter" [formControlName]="'due_date'">
+                    </p-calendar> -->
+                    <input class="form-control formtext"  type="date"
+                                        [formControlName]="'due_date'">
                 </span>
                 <span *ngIf="!addBacklogForm.get('due_date').valid && addBacklogForm.get('due_date').touched"
                     class="help-block">
@@ -224,7 +226,11 @@
             <div class="ui-g-12">
                 <span class="ui-float-label">
                     <h3 class="first formdetails">Status</h3>
-                    <input class="formtext" type="text" pInputText [formControlName]="'status'" />
+                    <!-- <input class="formtext" type="text" pInputText [formControlName]="'status'" /> -->
+                    <select class="formtext" [formControlName]="'status'">
+                        <option value="pending">pending</option>
+                        <option value="completed">completed</option>
+                    </select>
                 </span>
                 <span *ngIf="!addBacklogForm.get('status').valid && addBacklogForm.get('status').touched"
                     class="help-block">

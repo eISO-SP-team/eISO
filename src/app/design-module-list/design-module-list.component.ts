@@ -33,6 +33,7 @@ export class DesignModuleListComponent implements OnInit {
       .subscribe(() => {
         this.testList = this.designService.loadDesigns().subscribe((responseData) => {
           this.designList = (<any>responseData).body;
+          console.log(this.designList);
           for (let i = 0; i < this.designList.length; i++) {
             if (this.designList[i].design_details[0].design_phase == "Design Plan") {
               this.planList.push(this.designList[i]);
@@ -41,11 +42,13 @@ export class DesignModuleListComponent implements OnInit {
             } else if (this.designList[i].design_details[0].design_phase == "Design Control") {
               this.controlList.push(this.designList[i]);
             } else if (this.designList[i].design_details[0].design_phase == "Design Output") {
-              if (this.designList[i].design_details[0].design_phase[0].status == "completed") {
-                this.completeList.push(this.designList[i]);
-              } else {
-                this.outputList.push(this.designList[i]);
-              }
+              this.outputList.push(this.designList[i]);
+              // if (this.designList[i].design_details[0].status == "completed") {
+              //   this.completeList.push(this.designList[i]);
+              //   console.log(this.completeList);
+              // } else {
+              //   this.outputList.push(this.designList[i]);
+              // }
             }
 
             //  else if (this.designList[i].design_details[0].design_phase == "Design Output") {

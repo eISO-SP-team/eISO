@@ -128,8 +128,10 @@
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
                                     <h3 class="first formdetails">Start Date</h3>
-                                    <p-calendar dateFormat="dd.mm.yy" placeholder="Click to Enter"
-                                        [formControlName]="'start_date'"></p-calendar>
+                                    <!-- <p-calendar  placeholder="Click to Enter"
+                                        [formControlName]="'start_date'"></p-calendar> -->
+                                        <input class="form-control formtext" type="date"
+                                        [formControlName]="'start_date'">
                                 </span>
                                 <span
                                     *ngIf="!addProcessControlForm.get('start_date').valid && addProcessControlForm.get('start_date').touched"
@@ -143,8 +145,10 @@
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
                                     <h3 class="first formdetails">End Date</h3>
-                                    <p-calendar dateFormat="dd.mm.yy" placeholder="Click to Enter"
-                                        [formControlName]="'end_date'"></p-calendar>
+                                    <!-- <p-calendar  placeholder="Click to Enter"
+                                        [formControlName]="'end_date'"></p-calendar> -->
+                                        <input class="form-control formtext"  type="date"
+                                        [formControlName]="'end_date'">
                                 </span>
                                 <span
                                     *ngIf="!addProcessControlForm.get('end_date').valid && addProcessControlForm.get('end_date').touched"
@@ -249,8 +253,9 @@
                 <div class="ui-g-12">
                     <span class="ui-float-label">
                         <h3 class="first formdetails">Due Date</h3>
-                        <p-calendar dateFormat="dd.mm.yy" placeholder="Click to Enter" [formControlName]="'due_date'">
-                        </p-calendar>
+                      <input class="form-control formtext"  type="date"
+                                        [formControlName]="'end_date'">
+                                        
                     </span>
                     <span *ngIf="!addControlPoint.get('due_date').valid && addControlPoint.get('due_date').touched"
                         class="help-block">
@@ -263,7 +268,11 @@
                 <div class="ui-g-12">
                     <span class="ui-float-label">
                         <h3 class="first formdetails">Status</h3>
-                        <input type="text" pInputText [formControlName]="'status'" />
+                        <!-- <input type="text" pInputText [formControlName]="'status'" /> -->
+                        <select class="formtext" [formControlName]="'status'">
+                            <option value="pending">pending</option>
+                            <option value="completed">completed</option>
+                        </select>
                     </span>
                     <span *ngIf="!addControlPoint.get('status').valid && addControlPoint.get('status').touched"
                         class="help-block">

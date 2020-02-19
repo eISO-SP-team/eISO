@@ -130,7 +130,7 @@
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
                                     <h3 class="first formdetails">Start Date</h3>
-                                    <input class="formtext" type="text" pInputText [(ngModel)]="newStart_date"
+                                    <input class="formtext" type="date" pInputText [(ngModel)]="newStart_date"
                                         [formControlName]="'start_date'" />
                                 </span>
                                 <span
@@ -145,8 +145,8 @@
                             <div class="ui-g-12">
                                 <span class="ui-float-label">
                                     <h3 class="first formdetails">End Date</h3>
-                                    <input class="formtext" type="text" pInputText [(ngModel)]="newEnd_date"
-                                    [formControlName]="'end_date'" />
+                                    <input class="formtext" type="date" pInputText [(ngModel)]="newEnd_date"
+                                        [formControlName]="'end_date'" />
                                 </span>
                                 <span
                                     *ngIf="!addProcessControlForm.get('end_date').valid && addProcessControlForm.get('end_date').touched"
@@ -154,16 +154,18 @@
                                     <p-message *ngIf="addProcessControlForm.get('end_date').errors['required']"
                                         severity="error" text="This field is required!"></p-message>
                                 </span>
-                               
+
                             </div>
-                           
+
                         </div>
                         <div class="ui-g-12 ui-md-12 ui-lg-4">
                             <!--EMPTY-->
                         </div>
                     </div>
                 </div>
-                <h2 style="padding-left: 2em; padding-top: 1.5em; font-size: 1.5em; font-weight:600; padding: 1em 2em 1em 1.8em;">Process Control Point Backlog</h2>
+                <h2
+                    style="padding-left: 2em; padding-top: 1.5em; font-size: 1.5em; font-weight:600; padding: 1em 2em 1em 1.8em;">
+                    Process Control Point Backlog</h2>
                 <div class="designBLbtn" (click)="showDialog()"><label>Create</label></div>
                 <div class="ui-g-12 fieldset-list">
                     <p-tabView class="ui-g-12" (onChange)="handleChange($event)">
@@ -213,8 +215,7 @@
                 </div>
             </div>
             <div class="ui-g-12" style="padding-left: 4em;">
-                <button pButton [disabled]="!addProcessControlForm.valid" type="submit"
-                    label="Submit"></button>
+                <button pButton [disabled]="!addProcessControlForm.valid" type="submit" label="Submit"></button>
             </div>
         </form>
     </div>
@@ -254,8 +255,11 @@
                 <div class="ui-g-12">
                     <span class="ui-float-label">
                         <h3 class="first formdetails">Due Date</h3>
-                        <p-calendar dateFormat="dd.mm.yy" placeholder="Click to Enter" [formControlName]="'due_date'">
-                        </p-calendar>
+                        <!-- <p-calendar  placeholder="Click to Enter" [formControlName]="'due_date'">
+                        </p-calendar> -->
+                        <input class="form-control formtext"  type="date"
+                            [formControlName]="'due_date'">
+
                     </span>
                     <span *ngIf="!addControlPoint.get('due_date').valid && addControlPoint.get('due_date').touched"
                         class="help-block">
@@ -269,6 +273,10 @@
                     <span class="ui-float-label">
                         <h3 class="first formdetails">Status</h3>
                         <input class="formtext" type="text" pInputText [formControlName]="'status'" />
+                        <select class="formtext" [formControlName]="'status'">
+                            <option value="volvo">pending</option>
+                            <option value="saab">completed</option>
+                        </select>
                     </span>
                     <span *ngIf="!addControlPoint.get('status').valid && addControlPoint.get('status').touched"
                         class="help-block">
@@ -298,8 +306,7 @@
                 <app-comments></app-comments>
             </div>
             <div class="ui-g-12">
-                <button pButton [disabled]="!addControlPoint.valid" type="submit"
-                    label="Submit"></button>
+                <button pButton [disabled]="!addControlPoint.valid" type="submit" label="Submit"></button>
             </div>
         </form>
     </p-dialog>

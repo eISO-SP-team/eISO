@@ -70,8 +70,8 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails">Start Date - Design</h3>
-                                <input class="formtext" type="text" [(ngModel)]="Start_date_design" pInputText
-                                    [formControlName]="'Start_date_design'" />
+                                <input class="formtext" type="date" [(ngModel)]="Start_date_design"
+                                    [formControlName]="'Start_date_design'">
                             </span>
                             <span
                                 *ngIf="!addDesignForm.get('Start_date_design').valid && addDesignForm.get('Start_date_design').touched"
@@ -86,8 +86,8 @@
                         <div class="ui-g-12">
                             <span class="ui-float-label">
                                 <h3 class="first formdetails">End Date - Design </h3>
-                                <input class="formtext" type="text" [(ngModel)]="End_date_design" pInputText
-                                    [formControlName]="'End_date_design'" />
+                                <input class="formtext" type="date" [(ngModel)]="End_date_design"
+                                    [formControlName]="'End_date_design'">
                             </span>
                             <span
                                 *ngIf="!addDesignForm.get('End_date_design').valid && addDesignForm.get('End_date_design').touched"
@@ -100,10 +100,12 @@
                     </div>
                 </div>
                 <!--Design Backlog-->
-                <h2 style="padding-left: 2em; padding-top: 1.5em; font-size: 1.5em; font-weight:600; padding: 1em 2em 1em 1.8em;">Design Backlog</h2>
-                    <div class="designBLbtn" (click)="showDialog()"><label>Create</label></div>
-                </div>
-                <div class="ui-g-12 backlogbox">
+                <h2
+                    style="padding-left: 2em; padding-top: 1.5em; font-size: 1.5em; font-weight:600; padding: 1em 2em 1em 1.8em;">
+                    Design Backlog</h2>
+                <div class="designBLbtn" (click)="showDialog()"><label>Create</label></div>
+            </div>
+            <div class="ui-g-12 backlogbox">
                 <p-tabView (onChange)="handleChange($event)">
                     <p-tabPanel header="Design Plan" leftIcon="pi pi-calendar">
                         <table class="roundedCorners">
@@ -208,8 +210,9 @@
             <div class="ui-g-12">
                 <span class="ui-float-label">
                     <h3 class="first formdetails">Due Date</h3>
-                    <p-calendar dateFormat="dd.mm.yy" placeholder="Click to Enter" [formControlName]="'due_date'">
-                    </p-calendar>
+                    <!-- <p-calendar  placeholder="Click to Enter" [formControlName]="'due_date'">
+                    </p-calendar> -->
+                    <input type="date" class="form-control formtext" [formControlName]="'due_date'">
                 </span>
                 <span *ngIf="!addBacklogForm.get('due_date').valid && addBacklogForm.get('due_date').touched"
                     class="help-block">
@@ -222,7 +225,11 @@
             <div class="ui-g-12">
                 <span class="ui-float-label">
                     <h3 class="first formdetails">Status</h3>
-                    <input class="formtext" type="text" pInputText [formControlName]="'status'" />
+                    <!-- <input class="formtext" type="text" pInputText [formControlName]="'status'" /> -->
+                    <select class="formtext" [formControlName]="'status'">
+                        <option value="pending">pending</option>
+                        <option value="completed">completed</option>
+                    </select>
                 </span>
                 <span *ngIf="!addBacklogForm.get('status').valid && addBacklogForm.get('status').touched"
                     class="help-block">
